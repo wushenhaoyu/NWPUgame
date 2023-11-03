@@ -14,7 +14,6 @@ export class game extends Component {
 
     update(deltaTime: number) {
         this.position = this.player.getWorldPosition();
-        console.log(this.position )
         this.camera.setWorldPosition(this.position );
     }
 }

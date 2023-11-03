@@ -21,6 +21,8 @@ export class Joystick extends Component {
     JoystickDirection = 0
     an = ""
     position = v3(0,0,0)
+    handleposition = v3(0,0,0)
+    bgposition = v3(0,0,0)
     onLoad() {
         // 监听触摸事件
         
@@ -33,8 +35,7 @@ export class Joystick extends Component {
     }
 
     onTouchStart(event: EventTouch) {
-        this.touchLocation = event.getUIStartLocation()
-        this.node.setPosition(this.touchLocation.x,this.touchLocation.y,0)
+        this.touchLocation = event.getLocation();
         const opacity = this.node.getComponent(UIOpacity)
         opacity.opacity = 255;
     }
@@ -70,11 +71,13 @@ export class Joystick extends Component {
 
       getJoystickDirection() {
         // 获取摇杆背景和操纵点的位置
-        const backgroundPos = this.background.getPosition();
-        const handlePos = this.handle.getPosition();
+        this.bgposition = this.background.getPosition();
+        this.handleposition = this.handle.getPosition();
+        console.log(this.bgposition)
+        console.log(this.handleposition)
       
         // 计算操纵点相对于背景的偏移
-        const offset = handlePos.subtract(backgroundPos);
+        const offset = this.handleposition.subtract(this.bgposition);
       
         // 计算偏移的角度（弧度）
         const angle = Math.atan2(offset.y, offset.x);
@@ -116,7 +119,6 @@ if (angle > threshold && angle < 3 * threshold) {
         this.JoystickDirection = 0;
         const opacity = this.node.getComponent(UIOpacity)
         opacity.opacity = 0;
-        this.node.setPosition(this.position)
     }
 
     

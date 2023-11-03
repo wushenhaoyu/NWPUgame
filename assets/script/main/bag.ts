@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, NodeEventType } from 'cc';
+import { _decorator, Button, Component, Node, NodeEventType } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('bag')
@@ -11,6 +11,7 @@ export class bag extends Component {
     }
     bagTouchEnd()
     {
+        const button = this.back.getComponent(Button)
         this.node.active = false
     }
     update(deltaTime: number) {
