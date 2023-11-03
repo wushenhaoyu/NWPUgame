@@ -17,6 +17,8 @@ export class UI extends Component {
     public time:Node = null;
     @property({type:Node})
     public img:Node = null;
+    @property({type:Node})
+    public window:Node = null;
     start() {
         this.bag.on(NodeEventType.TOUCH_START,this.bagTouchStart,this)
         this.bag.on(NodeEventType.TOUCH_END,this.bagTouchEnd,this)
@@ -43,6 +45,9 @@ export class UI extends Component {
     {
         tween(this.bag).to(0.25,{scale:new Vec3(1, 1, 1)})
         .start()
+        const bag = this.window.getChildByName("bag")
+        bag.active = true
+
     }
     bagTouchCancel()
     {
@@ -58,11 +63,14 @@ export class UI extends Component {
     {
         tween(this.phone).to(0.25,{scale:new Vec3(1, 1, 1)})
         .start()
+        const phone = this.window.getChildByName("phone")
+        phone.active = true
     }
     phoneTouchCancel()
     {
         tween(this.phone).to(0.25,{scale:new Vec3(1, 1, 1)})
         .start()
+        
     }
     settingTouchStart()
     {
@@ -73,6 +81,8 @@ export class UI extends Component {
     {
         tween(this.setting).to(0.25,{scale:new Vec3(1, 1, 1)})
         .start()
+        const setting = this.window.getChildByName("setting")
+        setting.active = true
     }
     settingTouchCancel()
     {
