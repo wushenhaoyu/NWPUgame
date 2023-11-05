@@ -2,7 +2,7 @@
   "ver": "1.0.26",
   "importer": "image",
   "imported": true,
-  "uuid": "244174fc-d149-45e3-a4f3-e74c891510a2",
+  "uuid": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "244174fc-d149-45e3-a4f3-e74c891510a2@6c48a",
-      "displayName": "Smartphone1",
+      "uuid": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989@6c48a",
+      "displayName": "Grocery_Store_05",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "244174fc-d149-45e3-a4f3-e74c891510a2",
+        "imageUuidOrDatabaseUri": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,22 +34,22 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "244174fc-d149-45e3-a4f3-e74c891510a2@f9941",
-      "displayName": "Smartphone1",
+      "uuid": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989@f9941",
+      "displayName": "Grocery_Store_05",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
         "trimType": "auto",
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
-        "offsetY": 0,
-        "trimX": 1,
+        "offsetX": -24,
+        "offsetY": 12,
+        "trimX": 0,
         "trimY": 0,
-        "width": 47,
-        "height": 80,
-        "rawWidth": 49,
-        "rawHeight": 80,
+        "width": 720,
+        "height": 744,
+        "rawWidth": 768,
+        "rawHeight": 768,
         "borderTop": 0,
         "borderBottom": 0,
         "borderLeft": 0,
@@ -61,17 +61,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -23.5,
-            -40,
+            -360,
+            -372,
             0,
-            23.5,
-            -40,
+            360,
+            -372,
             0,
-            -23.5,
-            40,
+            -360,
+            372,
             0,
-            23.5,
-            40,
+            360,
+            372,
             0
           ],
           "indexes": [
@@ -83,38 +83,38 @@
             3
           ],
           "uv": [
-            1,
-            80,
-            48,
-            80,
-            1,
             0,
-            48,
-            0
+            768,
+            720,
+            768,
+            0,
+            24,
+            720,
+            24
           ],
           "nuv": [
-            0.02040816326530612,
             0,
-            0.9795918367346939,
+            0.03125,
+            0.9375,
+            0.03125,
             0,
-            0.02040816326530612,
             1,
-            0.9795918367346939,
+            0.9375,
             1
           ],
           "minPos": [
-            -23.5,
-            -40,
+            -360,
+            -372,
             0
           ],
           "maxPos": [
-            23.5,
-            40,
+            360,
+            372,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "244174fc-d149-45e3-a4f3-e74c891510a2@6c48a",
+        "imageUuidOrDatabaseUri": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.12",
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "244174fc-d149-45e3-a4f3-e74c891510a2@f9941"
+    "redirect": "c58c99da-7115-41f7-a7e7-9cc5bdcb2989@f9941"
   }
 }

@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "Alice",
+        "Text": "Hello there!",
+        "Speaker": true,
+        "Img": "alice.png"
+    },
+    {
+        "Name": "Bob",
+        "Text": "Hi, how can I help you?",
+        "Speaker": false,
+        "Img": "bob.png"
+    },
+    {
+        "Name": "Alice",
+        "Text": "I need some help with a project.",
+        "Speaker": true,
+        "Img": "alice.png"
+    },
+    {
+        "Name": "Bob",
+        "Text": "Sure, I'd be happy to help.",
+        "Speaker": false,
+        "Img": "bob.png"
+    }
+]

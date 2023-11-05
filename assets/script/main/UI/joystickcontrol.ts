@@ -73,8 +73,7 @@ export class Joystick extends Component {
         // 获取摇杆背景和操纵点的位置
         this.bgposition = this.background.getPosition();
         this.handleposition = this.handle.getPosition();
-        console.log(this.bgposition)
-        console.log(this.handleposition)
+
       
         // 计算操纵点相对于背景的偏移
         const offset = this.handleposition.subtract(this.bgposition);
@@ -138,22 +137,22 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.player.setPosition(this.playerPosition);*/
                 lv.x = 0;
                 lv.y = 400 * dt;
-                an = "hero_up"
+                an = "1_up"
                 break;
             case 2:
                 lv.x = 0;
                 lv.y = -400 * dt;
-                an = "hero_down"
+                an = "1_down"
                 break;
             case 3:
                 lv.y = 0;
                 lv.x = -400 * dt;
-                an = "hero_left"
+                an = "1_left"
                 break;
             case 4:
                 lv.y = 0;
                 lv.x = 400 * dt;
-                an = "hero_right"
+                an = "1_right"
                 break;
         }
         this.player.getComponent(RigidBody2D).linearVelocity = lv

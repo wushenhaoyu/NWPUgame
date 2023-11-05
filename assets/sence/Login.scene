@@ -296,7 +296,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 338.2558032090603,
+      "width": 623.5,
       "height": 178.038
     },
     "_anchorPoint": {
@@ -321,12 +321,12 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
+      "r": 26,
+      "g": 167,
+      "b": 179,
       "a": 255
     },
-    "_string": "登 陆",
+    "_string": "诈骗小游戏",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 124.7,
@@ -335,13 +335,10 @@
     "_lineHeight": 141.3,
     "_overflow": 0,
     "_enableWrapText": true,
-    "_font": {
-      "__uuid__": "2c3100f9-36dd-44f6-a862-f5cb967dd79b",
-      "__expectedType__": "cc.TTFFont"
-    },
-    "_isSystemFontUsed": false,
+    "_font": null,
+    "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_isItalic": true,
+    "_isItalic": false,
     "_isBold": true,
     "_isUnderline": false,
     "_underlineHeight": 2,
