@@ -1,7 +1,10 @@
-import { _decorator,SystemEvent, Component,PhysicsGroup,CCLoader, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
+import { _decorator,SystemEvent, Component,PhysicsGroup,CCLoader, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
 const { ccclass, property } = _decorator;
 
-
+interface NPC{
+    name:string
+    dialogue:number
+};
 interface StartPoint {
     x:number
     y:number
@@ -19,6 +22,7 @@ export class map extends Component {
     public player:Node = null;
     StartPointData:StartPoint[] = [];
     TPPointData:TPPoint[] = [];
+    public NPC:NPC[] = []
     map1:string = ""
     name1:string = ""
     onLoad(){
@@ -29,7 +33,7 @@ export class map extends Component {
         })*/
       // 在其他的脚本中// 根据常驻节点的名称查找它
       const mapdata:Node = find("mapdata");
-      console.log(mapdata)
+     
     var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = component.getName(); // 调用 component 的 getName 方法
     this.map1 = component.getMap();
@@ -51,17 +55,18 @@ export class map extends Component {
                 error(err);
                 return;
             }
-            console.log(tiledMapAsset)
+            
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
+            this.map.se
             this.initmap()
         })
     }
 
     initmap()
     {
-        
+        this.setNPC()
         this.settensor()
         let p = PhysicsSystem2D.instance
         p.enable = true;
@@ -104,7 +109,7 @@ export class map extends Component {
             collider.group = 4;
             
         }
-       // console.log(PhysicsGroup)
+        console.log(PhysicsGroup)
     }
     settensor()
     {
@@ -153,6 +158,48 @@ for (const birthpoint of birthpoints) {
 
 
 }
+
+setNPC()
+{
+    const NPCList = this.map.getObjectGroup('NPC');
+    if(NPCList)
+    {
+        const NPC = NPCList.getObjects();
+        for (let i = 0; i < NPC.length; i++) {
+         
+            resources.load("NPC/npc"+NPC[i].name+"/npc"+NPC[i].name, Prefab, (err, prefab) => {
+                if (err) {
+                    error(err.message);
+                    return;
+                }
+                console.log(prefab)
+            
+                // 预制体加载成功后，可以将其实例化并添加到场景中
+                let  node = instantiate(prefab);
+                // 可以设置节点的位置等属性
+                // 添加到场景
+                let object = NPC[i];
+                this.map.node.addChild(node);
+
+                let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
+                node.setPosition(object.offset.x, y);
+                let body = node.addComponent(RigidBody2D);
+                body.type = ERigidBody2DType.Static;
+                body.group = 8;
+                let collider = node.addComponent(BoxCollider2D);
+                // 设置碰撞组件的大小和偏移量
+                collider.size = size(object.width, object.height);
+                collider.offset = v2(object.width / 2, object.height / 2);
+                collider.group = 8;
+               // this.map.node.removeChild(node);
+               // this.map.node.insertChild(node, 2);
+                console.log(node)
+            });
+        }
+    }
+}
+
+
 onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次
     for(var i =0 ; i < this.TPPointData.length ; i++)
@@ -161,9 +208,6 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
         {
             let p = PhysicsSystem2D.instance
             p.enable = false;
-            console.log(this.TPPointData)
-            console.log(this.TPPointData[i].map)
-            console.log(this.TPPointData[i].name)
             this.switchMap(this.TPPointData[i].map,this.TPPointData[i].name)
         }
     }
@@ -182,7 +226,7 @@ switchMap(map:string,name:string)//切换地图
     this.map.node.emit('switchMap',eventData)*/
     const mapdata:Node = find("mapdata");
     var component = mapdata.getComponent ('mapdata'); 
-    console.log(map)
+    
      component.setName(name); // 调用 component 的 getName 方法
      component.setMap(map);
 director.loadScene('main',() => {
