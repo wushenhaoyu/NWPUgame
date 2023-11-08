@@ -387,12 +387,12 @@
   </object>
   <object id="20" x="607.559" y="726.245" width="16.9551" height="9.41952">
    <properties>
-    <property name="yinhelu2" value=""/>
+    <property name="name" value="yinhelu2"/>
    </properties>
   </object>
   <object id="21" x="373.013" y="53.6913" width="8.47757" height="10.3615">
    <properties>
-    <property name="qizhenlou" value=""/>
+    <property name="name" value="qizhenlou"/>
    </properties>
   </object>
  </objectgroup>
@@ -403,15 +403,15 @@
     <property name="name" value="qizhenlou"/>
    </properties>
   </object>
-  <object id="24" x="42.6332" y="790.298" width="222.085" height="8.47757">
+  <object id="24" x="46.6332" y="786.298" width="222.085" height="8.47757">
    <properties>
-    <property name="map" value="door"/>
+    <property name="map" value="dongmen"/>
     <property name="name" value="yinhelu1"/>
    </properties>
   </object>
-  <object id="25" x="526.883" y="791.24" width="227.621" height="9.41952">
+  <object id="25" x="526.883" y="783.24" width="227.621" height="9.41952">
    <properties>
-    <property name="map" value="door"/>
+    <property name="map" value="dongmen"/>
     <property name="name" value="yinhelu2"/>
    </properties>
   </object>

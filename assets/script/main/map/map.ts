@@ -2,8 +2,9 @@ import { _decorator,SystemEvent, Component,PhysicsGroup,CCLoader, Node ,TiledMap
 const { ccclass, property } = _decorator;
 
 interface NPC{
-    name:string
-    dialogue:number
+    name:string,
+    dialogue:number,
+    model:string
 };
 interface StartPoint {
     x:number
@@ -70,7 +71,6 @@ export class map extends Component {
         this.settensor()
         let p = PhysicsSystem2D.instance
         p.enable = true;
-        p.debugDrawFlags = 1;
         let node = this.map.node.getChildByName('1');
       
         this.map.node.removeChild(node);
@@ -142,6 +142,7 @@ for (const birthpoint of birthpoints) {
     // 设置碰撞组件的大小和位置，使用从对象层中读取的数据
     sensorCollider.size = size(birthpoint.width, birthpoint.height); // 设置传感器的大小
     sensorNode.setPosition(birthpoint.x, birthpoint.y); // 设置传感器的位置
+    sensorCollider.offset = v2(birthpoint.width / 2, birthpoint.height / 2);
             sensorCollider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             body.enabledContactListener = true;
     // 添加碰撞事件，以侦听与玩家的接触
@@ -167,7 +168,7 @@ setNPC()
         const NPC = NPCList.getObjects();
         for (let i = 0; i < NPC.length; i++) {
          
-            resources.load("NPC/npc"+NPC[i].name+"/npc"+NPC[i].name, Prefab, (err, prefab) => {
+            resources.load("NPC/npc"+NPC[i].model+"/npc"+NPC[i].model, Prefab, (err, prefab) => {
                 if (err) {
                     error(err.message);
                     return;
@@ -180,20 +181,9 @@ setNPC()
                 // 添加到场景
                 let object = NPC[i];
                 this.map.node.addChild(node);
-
+                node.name = NPC[i].name;
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
                 node.setPosition(object.offset.x, y);
-                let body = node.addComponent(RigidBody2D);
-                body.type = ERigidBody2DType.Static;
-                body.group = 8;
-                let collider = node.addComponent(BoxCollider2D);
-                // 设置碰撞组件的大小和偏移量
-                collider.size = size(object.width, object.height);
-                collider.offset = v2(object.width / 2, object.height / 2);
-                collider.group = 8;
-               // this.map.node.removeChild(node);
-               // this.map.node.insertChild(node, 2);
-                console.log(node)
             });
         }
     }

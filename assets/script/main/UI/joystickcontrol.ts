@@ -1,4 +1,4 @@
-import { _decorator, Component, SystemEvent, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 } from 'cc';
+import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -14,7 +14,9 @@ export class Joystick extends Component {
 
     @property({ type: Node })
     father: Node = null;
-
+    @property({type:Node})
+    button:Node = null;
+    p = PhysicsSystem2D.instance
     private touchLocation: Vec2 = new Vec2();
     playerPosition:Vec3 = new Vec3();
     width:number =0;
@@ -23,17 +25,55 @@ export class Joystick extends Component {
     position = v3(0,0,0)
     handleposition = v3(0,0,0)
     bgposition = v3(0,0,0)
+    angle:number = 0; //表示人物朝向
     onLoad() {
         // 监听触摸事件
-        
+       this.p.enable = true;
+       this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
         this.father.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.father.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.father.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
         this.father.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         this.width = this.background.getComponent(Sprite).spriteFrame.width / 2;
         this.position = this.node.getPosition();
+        this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
+     
     }
-
+    hudong() //检测是否附件有npc互动
+    {
+        console.log("互动")
+        var x= 0;
+        var y = 0;
+        if(this.angle == 1 )
+        {
+            y = 400;
+        }
+        else if(this.angle == 2)
+        {
+            y = -400;
+        }
+        if(this.angle == 3 )
+        {
+            x = -400;
+        }
+        else if(this.angle == 4)
+        {
+            x = -400;
+        }
+        console.log(this.player)
+       const position = this.player.getPosition()
+       console.log(position)
+      let res =  this.p.raycast(position,v3(position.x + x, position.y +y,0),ERaycast2DType.All)
+        if(res)
+        {
+            console.log(res)
+            this.node.emit('dialogue');
+           /* if(res[0].collider.group == 8){
+                console.log("检测到npc")
+                this.node.emit('npc',res[0].collider.node );
+            }*/
+        }
+    }
     onTouchStart(event: EventTouch) {
         this.touchLocation = event.getLocation();
         const opacity = this.node.getComponent(UIOpacity)
@@ -137,22 +177,26 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.player.setPosition(this.playerPosition);*/
                 lv.x = 0;
                 lv.y = 400 * dt;
+                this.angle = 1;
                 an = "1_up"
                 break;
             case 2:
                 lv.x = 0;
                 lv.y = -400 * dt;
                 an = "1_down"
+                this.angle = 2;
                 break;
             case 3:
                 lv.y = 0;
                 lv.x = -400 * dt;
                 an = "1_left"
+                this.angle = 3;
                 break;
             case 4:
                 lv.y = 0;
                 lv.x = 400 * dt;
                 an = "1_right"
+                this.angle = 4;
                 break;
         }
         this.player.getComponent(RigidBody2D).linearVelocity = lv

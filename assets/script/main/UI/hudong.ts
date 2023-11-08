@@ -7,11 +7,17 @@ export class hudong extends Component {
     public player:Node = null
     p = PhysicsSystem2D.instance
     start() {
-        this.node.on(NodeEventType.TOUCH_START,this.touchStart,this)
+        this.node.on("npc",this.initOperateBar,this)
+       // this.node.on(NodeEventType.TOUCH_START,this.test,this)
     }
-    touchStart()
+    test()
     {
-        this.p.raycast(this.player.getPosition(),)
+        console.log("按了")
+        this.node.emit('dialogue');
+    }
+    initOperateBar(event)
+    {
+        console.log("npc");
     }
     update(deltaTime: number) {
         

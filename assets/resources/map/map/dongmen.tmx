@@ -1427,13 +1427,13 @@
 </data>
  </layer>
  <objectgroup id="16" name="sensor">
-  <object id="113" x="15.8182" y="12.7273" width="112.909" height="6.36364">
+  <object id="113" x="15.6364" y="18.5909" width="112.909" height="6.36364">
    <properties>
     <property name="map" value="yinhelu"/>
     <property name="name" value="yinhelu1"/>
    </properties>
   </object>
-  <object id="114" x="1236.5" y="13" width="169" height="9">
+  <object id="114" x="1153" y="20" width="382" height="9">
    <properties>
     <property name="map" value="yinhelu"/>
     <property name="name" value="yinhelu2"/>
@@ -1521,10 +1521,11 @@
   </object>
  </objectgroup>
  <objectgroup id="17" name="NPC">
-  <object id="118" x="1294" y="976.5" width="40" height="56.5">
+  <object id="118" x="1347.5" y="1008" width="6.5" height="7.5">
    <properties>
     <property name="dialogue" type="int" value="1"/>
-    <property name="name" value="2"/>
+    <property name="model" value="2"/>
+    <property name="name" value="保安大爷"/>
    </properties>
   </object>
  </objectgroup>

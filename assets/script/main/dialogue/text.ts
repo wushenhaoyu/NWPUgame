@@ -1,4 +1,4 @@
-import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame } from 'cc';
+import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input } from 'cc';
 const { ccclass, property } = _decorator;
 
 interface TextData  {
@@ -22,9 +22,10 @@ export class text extends Component {
     textIndex = -1; //索引
     textEnd = true; //是否到头
     nowText = ""; //即将播放的文字
+    map:string = ""
     tt = 0;
     start() {
-        resources.load('dialogue/test/test',JsonAsset,(err, jsonAsset) => {
+       /* resources.load('dialogue/test/test',JsonAsset,(err, jsonAsset) => {
             if (err) {
                 error(err);
                 return;
@@ -32,13 +33,33 @@ export class text extends Component {
             const jsonData = jsonAsset.json;
             
             // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
+        })*/
+        const mapdata:Node = find("mapdata");
+     
+        var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
+        this.map = component.getMap();
+        this.node.on('dialogue',this.initDialogueData,this)
+    }
+    initDialogueData(event)
+    {
+        this.map = "dongmen"
+
+        console.log('接受')
+        resources.load('dialogue/'+this.map+"menwei",JsonAsset,(err, jsonAsset) => {
+            if (err) {
+                error(err);
+                return;
+            }
+            this.textData = jsonAsset.json;
+            console.log(this.textData)
+            this.init()
+            // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
         })
     }
-    init(textDataArr)
+    init()
     {
 
         this.textIndex = -1
-        this.textData = textDataArr
         this.node.active = true;
         this.nextTextData();
         
