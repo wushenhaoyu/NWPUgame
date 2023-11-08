@@ -1523,7 +1523,7 @@
  <objectgroup id="17" name="NPC">
   <object id="118" x="1347.5" y="1008" width="6.5" height="7.5">
    <properties>
-    <property name="dialogue" type="int" value="1"/>
+    <property name="dialogue" value="menwei"/>
     <property name="model" value="2"/>
     <property name="name" value="保安大爷"/>
    </properties>

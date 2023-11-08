@@ -1,15 +1,19 @@
-import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input } from 'cc';
+import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType } from 'cc';
 const { ccclass, property } = _decorator;
 
 interface TextData  {
     Name: "",
     Text: "",
-    Spaeker: true,//是否为自己说
+    Speaker: true,//是否为自己说
     Img:""
 };
 
 @ccclass('text')
 export class text extends Component {
+    @property({type:Node})
+    public dialogue = null;
+    @property ({type:Node})
+    public unpersistUI = null;
     @property ({type:Sprite})
     public otherImg:Sprite = null;
     @property ({type:Sprite})
@@ -24,6 +28,11 @@ export class text extends Component {
     nowText = ""; //即将播放的文字
     map:string = ""
     tt = 0;
+
+    @property ({type:Button})
+    public startBtn:Button = null;
+
+
     start() {
        /* resources.load('dialogue/test/test',JsonAsset,(err, jsonAsset) => {
             if (err) {
@@ -38,14 +47,22 @@ export class text extends Component {
      
         var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
         this.map = component.getMap();
-        this.node.on('dialogue',this.initDialogueData,this)
+        // this.node.on('dialogue',this.initDialogueData,this)
+        this.startBtn.node.on(Button.EventType.CLICK, this.initDialogueData, this) //點擊互動開始對話
+
+        this.dialogue.on(NodeEventType.TOUCH_END, this.nextTextData, this) //點擊對話框，觸發下一段對話
+
     }
     initDialogueData(event)
     {
+
+        this.dialogue.active = true;
+
+        this.unpersistUI.active = false;
+
         this.map = "dongmen"
 
-        console.log('接受')
-        resources.load('dialogue/'+this.map+"menwei",JsonAsset,(err, jsonAsset) => {
+        resources.load('dialogue/'+this.map+"/menwei",JsonAsset,(err, jsonAsset) => {
             if (err) {
                 error(err);
                 return;
@@ -60,12 +77,14 @@ export class text extends Component {
     {
 
         this.textIndex = -1
-        this.node.active = true;
+        this.dialogue.active = true;
         this.nextTextData();
         
     }
     nextTextData()
     {
+
+            console.log("next")
             if(++this.textIndex < this.textData.length)
             {
                 this.setTextData(this.textData[this.textIndex])
@@ -75,6 +94,7 @@ export class text extends Component {
                 this.closeDialog()
             }
     }
+
     setTextData(data:TextData){
         this.selfImg.spriteFrame = null;
         this.otherImg.spriteFrame = null;
@@ -85,7 +105,7 @@ export class text extends Component {
         this.nowText = data.Text
         const img = data.Img + '/spriteFrame'
        resources.load(img,SpriteFrame,null,(error,texture)=>{
-        if (data.Spaeker)
+        if (data.Speaker)
         {
             this.selfImg.spriteFrame = texture
         }
@@ -97,7 +117,8 @@ export class text extends Component {
       
     }
     closeDialog(){
-        this.node.active = false
+        this.dialogue.active = false
+        this.unpersistUI.active = true
     }
 
     update(deltaTime: number) {
