@@ -6069,7 +6069,7 @@
         "__id__": 179
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 199
@@ -6133,7 +6133,7 @@
         "__id__": 192
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 196
@@ -6411,7 +6411,7 @@
       "a": 255
     },
     "_string": "label1212121312121212121113211131111212132123123123123213131231232131231231233231213123312312313",
-    "_horizontalAlign": 1,
+    "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 34.6890625,
     "_fontSize": 29.8,
@@ -6909,7 +6909,7 @@
       "__id__": 186
     },
     "startBtn": {
-      "__id__": 114
+      "__id__": 108
     },
     "_id": "2cxRDAu6dBeJe0+5jGWHJk"
   },

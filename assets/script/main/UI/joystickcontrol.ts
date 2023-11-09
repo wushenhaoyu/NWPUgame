@@ -36,7 +36,7 @@ export class Joystick extends Component {
         this.father.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         this.width = this.background.getComponent(Sprite).spriteFrame.width / 2;
         this.position = this.node.getPosition();
-        this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
+        //this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
      
     }
     hudong() //检测是否附件有npc互动
