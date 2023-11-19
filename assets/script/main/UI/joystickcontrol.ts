@@ -1,4 +1,4 @@
-import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics } from 'cc';
+import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics, TiledMap } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -16,6 +16,8 @@ export class Joystick extends Component {
     father: Node = null;
     @property({type:Node})
     button:Node = null;
+    @property({type:TiledMap})
+    map:TiledMap = null;
     p = PhysicsSystem2D.instance
     private touchLocation: Vec2 = new Vec2();
     playerPosition:Vec3 = new Vec3();
@@ -26,23 +28,46 @@ export class Joystick extends Component {
     handleposition = v3(0,0,0)
     bgposition = v3(0,0,0)
     angle:number = 0; //表示人物朝向
+    npc = null;
+    npcPosition :Vec3[] = []
     onLoad() {
         // 监听触摸事件
        this.p.enable = true;
-       this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
+     //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
         this.father.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.father.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.father.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
         this.father.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
         this.width = this.background.getComponent(Sprite).spriteFrame.width / 2;
         this.position = this.node.getPosition();
-        //this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
+        this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
      
+    }
+   start() {
+        
     }
     hudong() //检测是否附件有npc互动
     {
-        console.log("互动")
-        var x= 0;
+        if(!this.npcPosition.length)
+        {
+            const npc = this.map.getObjectGroup('NPC').getObjects()
+        for(var i =0; i< npc.length; i++)
+        {
+           this.npcPosition.push(v3(npc[i].x,npc[i].y,0) ) 
+        }
+        }
+        const position = this.player.position
+
+        for(var i =0; i< this.npcPosition.length; i++)
+        {
+            if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
+            {
+                this.player.emit('npc',i);
+                console.log('emit')
+        
+            }
+        }
+     /*   var x= 0;
         var y = 0;
         if(this.angle == 1 )
         {
@@ -68,11 +93,11 @@ export class Joystick extends Component {
         {
             console.log(res)
             this.node.emit('dialogue');
-           /* if(res[0].collider.group == 8){
+            if(res[0].collider.group == 8){
                 console.log("检测到npc")
                 this.node.emit('npc',res[0].collider.node );
-            }*/
-        }
+            }
+        }*/
     }
     onTouchStart(event: EventTouch) {
         this.touchLocation = event.getLocation();

@@ -39,7 +39,6 @@ export class map extends Component {
     this.name1 = component.getName(); // 调用 component 的 getName 方法
     this.map1 = component.getMap();
         
-      
        
 
        
@@ -60,7 +59,9 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-            this.map.se
+            p.debugDrawFlags = 1;
+            
+            
             this.initmap()
         })
     }

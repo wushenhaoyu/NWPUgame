@@ -37,7 +37,7 @@
       },
       "physics": {
         "_value": false,
-        "_option": "physics-ammo"
+        "_option": "physics-physx"
       },
       "physics-ammo": {
         "_value": false
@@ -116,6 +116,9 @@
         "_value": true
       },
       "marionette": {
+        "_value": false
+      },
+      "procedural-animation": {
         "_value": false
       },
       "custom-pipeline": {
