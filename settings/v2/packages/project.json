@@ -1,0 +1,43 @@
+{
+  "__version__": "1.0.5",
+  "custom_joint_texture_layouts": [],
+  "general": {
+    "designResolution": {
+      "fitWidth": false,
+      "fitHeight": true
+    }
+  },
+  "layer": [
+    {
+      "name": "game",
+      "value": 1
+    },
+    {
+      "name": "UI",
+      "value": 2
+    }
+  ],
+  "physics": {
+    "collisionGroups": [
+      {
+        "index": 1,
+        "name": "player"
+      },
+      {
+        "index": 2,
+        "name": "map"
+      },
+      {
+        "index": 3,
+        "name": "NPC"
+      }
+    ],
+    "collisionMatrix": {
+      "0": 1,
+      "1": 268,
+      "2": 2,
+      "3": 2,
+      "8": 2
+    }
+  }
+}
