@@ -1,6 +1,9 @@
 import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType } from 'cc';
 const { ccclass, property } = _decorator;
 
+import PlotDataManager from '../../data/PlotDataManager';
+
+const plotDataManager = PlotDataManager.getInstance();
 interface TextData  {
    Name: "",
    Text: "",
@@ -10,6 +13,14 @@ interface TextData  {
 
 @ccclass('text')
 export class text extends Component {
+    @property({type:Node})
+    select1:Node = null;
+    @property({type:Node})
+    select2:Node = null;
+    @property({type:Node})
+    public select:Node= null;
+    @property({type:Node})
+    public plot:Node=null
     @property({type:Node})
     public player = null;
    @property({type:Node})
@@ -22,8 +33,10 @@ export class text extends Component {
    public selfImg:Sprite = null;
    @property ({type:Label})
    public Name:Label = null;
+   public plotScriptNode:Node = null;
    @property ({type:Label})
    public Text:Label = null;
+   public control:number = 0; //0为普通对话，1为剧情
    textData:  TextData[] = [] //装对话的数组
    textIndex = -1; //索引
    textEnd = true; //是否到头
@@ -50,9 +63,10 @@ export class text extends Component {
            
            // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
        })*/
+       this.node.on("plot",this.initPlotData,this)
        this.player.on('npc',this.initstart,this)
        const mapdata:Node = find("mapdata");
-    console.log('jasdash')
+  
        var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
        this.map = component.getMap();
        // this.node.on('dialogue',this.initDialogueData,this)
@@ -60,60 +74,101 @@ export class text extends Component {
 
        //this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this) //點擊對話框，觸發下一段對話
 
-       this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.init, this)
-       this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initDialogueData, this)
+       this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.initDialogueData, this)
+       this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initplot, this)
        this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)
    }
+   initplot()
+   {
+    
+   const map =  this.plot.getChildByName(this.map);
+
+   for (let i = 0; i < map.children.length; i++) {
+    
+    if (map.children[i].name == "menwei") {
+        map.children[i].active = true;
+    }
+}
+
+   }
+   initPlotData(event,event2){ 
+    this.control = 0;
+    this.plotScriptNode = event;
+    const i = event2; 
+    resources.load('dialogue/'+this.map+'/'+this.plotScriptNode.name,JsonAsset,(err, jsonAsset) => {
+        if (err) {
+            error(err);
+            return;
+        }
+        this.textData = jsonAsset.json.plot[i].dialog;
+        this.firstText = this.textData[0];
+        this.setTextData(this.firstText)
+        this.textIndex = 0
+        this.dialogue.active = true;
+        this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
+        this.choiceBoxes.active = false;
+        if( jsonAsset.json.plot[i].type){
+        this.select1.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[1];
+        this.select2.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[2];
+        this.control = 1;
+        }
+        // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
+    })
+
+   }
+
 
    initstart(event)
    {
-        console.log(event)
+        
        this.dialogue.active = true;
 
        this.unpersistUI.active = false;
        
        this.choiceBoxes.active = true;
+   
+       resources.load('dialogue/'+this.map+"/menwei",JsonAsset,(err, jsonAsset) => {
+        if (err) {
+            error(err);
+            return;
+        }
+        this.firstText = jsonAsset.json.start ;
+        
+        this.choiceBoxes.getChildByName("choicebox2").getComponentInChildren(Label).string = jsonAsset.json.plot[0].name ;
+        this.setTextData(this.firstText)
+        // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
+    })
 
-       this.initDialogueData();
    }
 
    initDialogueData(event = null)
    {
 
-       // console.log("clicked")
-
-       this.map = "dongmen"
-
-
-
+       
+       this.control = 0;
        resources.load('dialogue/'+this.map+"/menwei",JsonAsset,(err, jsonAsset) => {
            if (err) {
                error(err);
                return;
            }
-           this.textData = jsonAsset.json as TextData[];
-           console.log(this.textData)
-           console.log(this.textIndex)
+           this.textData = jsonAsset.json.dialog[0] ;
+
 
            this.firstText = this.textData[0];
            
            this.setTextData(this.firstText)
            // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
        })
-   }
-   init()
-   {
-
        this.textIndex = 0
        this.dialogue.active = true;
-       this.nextTextData();
        this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
        this.choiceBoxes.active = false;
    }
+   
    nextTextData()
    {
 
-           console.log("next")
+          
 
            if(this.textEnd)  //檢查對話是否完結
            {
@@ -162,19 +217,45 @@ export class text extends Component {
        //     this.Text.string = this.nowText
        // }
      
-   }
+   }    
    closeDialog(){
+    if(this.control){   
+        //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
+        console.log("弹出选项")
+        this.select.active = true;
+        this.select1.on(NodeEventType.TOUCH_START, this.selection1, this)
+        this.select2.on(NodeEventType.TOUCH_START, this.selection2, this)
+    }
+    else{
+        
+        if(this.plotScriptNode != null)
+        {
+            this.plotScriptNode.emit("select2")
+        }
+        
        this.dialogue.active = false
        this.unpersistUI.active = true
        this.choiceBoxes.active = false
-
        this.textIndex = 0;
+       this.plotScriptNode = null;
+        
+    }
 
+   }
+   selection1(){
+    this.select.active = false;
+    this.control=0;
+    this.plotScriptNode.emit("select1",1)
+   }
+   selection2(){
+    this.select.active = false;
+    this.control=0;
+    this.plotScriptNode.emit("select1",2)
    }
 
    update(deltaTime: number) {
 
-       // console.log(this.nowText)
+      
        if(!this.nowText) return;
        this.tt += deltaTime;
        if(this.tt >=0.1)

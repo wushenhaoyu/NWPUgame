@@ -3,8 +3,8 @@ const { ccclass, property } = _decorator;
 
 @ccclass('mapdata')
 export class mapdata extends Component {
-    public name1:string = "d100"
-    public map1:string = "d100"
+    public name1:string = "dongmen"
+    public map1:string = "dongmen"
     onLoad() {
         director.addPersistRootNode (this.node)
     }

@@ -1,10 +1,54 @@
-[
-    {
+{
+    "name":"门卫大爷",
+    "uuid":1,
+    "start":{
         "Name": "门卫大爷",
-        "Text": "Hello there!",
+        "Text": "同学你好",
         "Speaker": false,
         "Img": "NPC/OIP"
     },
+    "plot":[
+        {
+            "type":1,
+            "name":"与大爷交谈",
+            "script":"menwei",
+            "choice":["你好","我操"],
+            "dialog": [
+                {
+                    "Name": "门卫大爷",
+                    "Text": "同学你好",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "单大狗",
+                    "Text": "Hello there!",
+                    "Speaker": true,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "门卫大爷",
+                    "Text": "Hi, how can I help you?",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "单大狗",
+                    "Text": "I need some help with a project.",
+                    "Speaker": true,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "门卫大爷",
+                    "Text": "Sure, I'd be happy to help.",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+            ]
+        }
+    ],
+    "dialog":[
+        [
     {
         "Name": "单大狗",
         "Text": "Hello there!",
@@ -30,3 +74,5 @@
         "Img": "NPC/OIP"
     }
 ]
+]
+}

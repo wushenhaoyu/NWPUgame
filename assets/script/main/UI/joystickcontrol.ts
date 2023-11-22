@@ -63,7 +63,6 @@ export class Joystick extends Component {
             if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
             {
                 this.player.emit('npc',i);
-                console.log('emit')
         
             }
         }
