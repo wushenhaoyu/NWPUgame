@@ -1245,7 +1245,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.861328125,
+      "width": 77.85696677791262,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1278,7 +1278,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.0625,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1307,7 +1307,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.5026640625,
+    "_right": -81.50048338895631,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -1496,7 +1496,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 76.692,
+      "x": 76.69199999999998,
       "y": 0,
       "z": 0
     },
@@ -1535,7 +1535,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 73.9306640625,
+      "width": 73.92653974514563,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1568,7 +1568,7 @@
     "_string": "13天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.0625,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1599,7 +1599,7 @@
       "__id__": 51
     },
     "_left": 64.72666796875,
-    "_right": -88.65733203125,
+    "_right": -88.6552698725728,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -1973,7 +1973,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 24.7,
+    "_actualFontSize": 31.80125,
     "_fontSize": 24.7,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2731,7 +2731,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
+      "width": 69.99611271237863,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2764,7 +2764,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.0625,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2793,7 +2793,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15,
+    "_right": 15.001943643810684,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -3021,7 +3021,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
+      "width": 69.99611271237863,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3054,7 +3054,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.0625,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3083,7 +3083,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15,
+    "_right": 15.001943643810684,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -3797,7 +3797,7 @@
     "_string": "互动",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 25.75,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4568,7 +4568,7 @@
     "_string": "背    包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 60,
+    "_actualFontSize": 77.25,
     "_fontSize": 60,
     "_fontFamily": "Arial",
     "_lineHeight": 60,
@@ -11860,6 +11860,111 @@
     "_id": "43ojulEXZGj5mSTWefglPt"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "d100",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "_parent": {
+      "__id__": 287
+    },
+    "_children": [
+      {
+        "__id__": 292
+      }
+    ],
+    "_active": true,
+    "_components": [],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "d6Larh86tL74L16SUQNO1/"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "nvtongxue",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "_parent": {
+      "__id__": 291
+    },
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 293
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "6fCWECYH9LWY1kkEGPTP9N"
+  },
+  {
+    "__type__": "e8cb0Qk8RhEQZFVPeC7+kRf",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 292
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "text": {
+      "__id__": 218
+    },
+    "_id": "b73fHrcZNEwLJtaD5j4YXU"
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -12340,6 +12445,15 @@
     },
     "lightProbeInfo": {
       "__id__": 369
+    },
+    "octree": {
+      "__id__": 315
+    },
+    "skin": {
+      "__id__": 316
+    },
+    "lightProbeInfo": {
+      "__id__": 317
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false

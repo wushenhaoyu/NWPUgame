@@ -45,6 +45,7 @@ export class text extends Component {
    map:string = ""
    tt = 0;
    firstText: TextData = null;
+   npcName: String = null; //正在互动的npc
    @property ({type:Node})
    public startBtn:Node = null; //互动鍵
 
@@ -65,14 +66,18 @@ export class text extends Component {
    initplot() //开启特殊对话脚本
    {
     
-   const map =  this.plot.getChildByName(this.map);
+    console.log(this.map)
+    console.log(this.plot)
+    const map =  this.plot.getChildByName(this.map);
+    console.log(map)
 
-   for (let i = 0; i < map.children.length; i++) {
-    
-    if (map.children[i].name == "menwei") {
-        map.children[i].active = true;
+    for (let i = 0; i < map.children.length; i++) {
+        
+        if (map.children[i].name == this.npcName) {
+            map.children[i].active = true;
+        }
+
     }
-}
 
    }
    initPlotData(event,event2){  //初始化特殊对话脚本 并判断是否带选择？
@@ -110,8 +115,10 @@ export class text extends Component {
        this.unpersistUI.active = false;
        
        this.choiceBoxes.active = true;
+
+       this.npcName = event;
    
-       resources.load('dialogue/'+this.map+"/menwei",JsonAsset,(err, jsonAsset) => {
+       resources.load(`dialogue/${this.map}/${this.npcName}`,JsonAsset,(err, jsonAsset) => {
         if (err) {
             error(err);
             return;
@@ -130,7 +137,7 @@ export class text extends Component {
 
        
        this.control = 0;
-       resources.load('dialogue/'+this.map+"/menwei",JsonAsset,(err, jsonAsset) => {
+       resources.load(`dialogue/${this.map}/${this.npcName}`,JsonAsset,(err, jsonAsset) => {
            if (err) {
                error(err);
                return;
