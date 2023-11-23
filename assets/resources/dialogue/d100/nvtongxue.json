@@ -2,7 +2,7 @@
     "name":"女同学",
     "uuid":2,
     "start":{
-        "Name": "迷茫女同学",
+        "Name": "迷茫的女同学",
         "Text": "同学你好，呃，请问图书馆是怎么去的？",
         "Speaker": false,
         "Img": "NPC/OIP"
@@ -12,35 +12,35 @@
             "type":1,
             "name":"初次邂逅",
             "script":"nvtongxue",
-            "choice":["你好","我操"],
+            "choice":["羞澀地加微信","殘忍拒絕"],
             "dialog": [
                 {
-                    "Name": "门卫大爷",
-                    "Text": "同学你好",
+                    "Name": "迷茫的女同学",
+                    "Text": "同学你好，呃，请问图书馆是怎么去的？",
                     "Speaker": false,
                     "Img": "NPC/OIP"
                 },
                 {
                     "Name": "单大狗",
-                    "Text": "Hello there!",
+                    "Text": "Whatsup? walk to the east",
                     "Speaker": true,
                     "Img": "NPC/OIP"
                 },
                 {
-                    "Name": "门卫大爷",
-                    "Text": "Hi, how can I help you?",
+                    "Name": "迷茫的女同学",
+                    "Text": "I want your WeChat",
                     "Speaker": false,
                     "Img": "NPC/OIP"
                 },
                 {
                     "Name": "单大狗",
-                    "Text": "I need some help with a project.",
+                    "Text": "I see",
                     "Speaker": true,
                     "Img": "NPC/OIP"
                 },
                 {
-                    "Name": "门卫大爷",
-                    "Text": "Sure, I'd be happy to help.",
+                    "Name": "迷茫的女同学",
+                    "Text": "It is nice to meet you",
                     "Speaker": false,
                     "Img": "NPC/OIP"
                 }
@@ -49,30 +49,36 @@
     ],
     "dialog":[
         [
-    {
-        "Name": "单大狗",
-        "Text": "Hello there!",
-        "Speaker": true,
-        "Img": "NPC/OIP"
-    },
-    {
-        "Name": "门卫大爷",
-        "Text": "Hi, how can I help you?",
-        "Speaker": false,
-        "Img": "NPC/OIP"
-    },
-    {
-        "Name": "单大狗",
-        "Text": "I need some help with a project.",
-        "Speaker": true,
-        "Img": "NPC/OIP"
-    },
-    {
-        "Name": "门卫大爷",
-        "Text": "Sure, I'd be happy to help.",
-        "Speaker": false,
-        "Img": "NPC/OIP"
-    }
-]
+            {
+                "Name": "迷茫的女同学",
+                "Text": "同学你好，呃，请问图书馆是怎么去的？",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "Whatsup? walk to the east",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "I want your WeChat",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "I see",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "It is nice to meet you",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            }
+        ]
 ]
 }

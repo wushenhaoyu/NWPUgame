@@ -13,8 +13,11 @@ export class menwei extends Component {
         this.node.on("select2",this.init2,this)//不带选择的
         this.text.emit("plot", this.node,plotDataManager.plotdata.dongmen.menwei.plot); 
     }
-    init1(){
-        //总体逻辑判断
+    init1(event){
+        if(event == 1)
+        {
+            this.closeplot();
+        }
     }
     init2(){
         //总体逻辑判断

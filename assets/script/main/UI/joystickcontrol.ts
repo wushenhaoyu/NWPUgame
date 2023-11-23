@@ -48,21 +48,26 @@ export class Joystick extends Component {
     }
     hudong() //检测是否附件有npc互动
     {
+        const npc = this.map.getObjectGroup('NPC').getObjects()
+
         if(!this.npcPosition.length)
         {
-            const npc = this.map.getObjectGroup('NPC').getObjects()
-        for(var i =0; i< npc.length; i++)
-        {
-           this.npcPosition.push(v3(npc[i].x,npc[i].y,0) ) 
+
+            for(var i =0; i< npc.length; i++)
+            {
+                this.npcPosition.push(v3(npc[i].x,npc[i].y,0) ) 
+            }
+
         }
-        }
+
+
         const position = this.player.position
 
         for(var i =0; i< this.npcPosition.length; i++)
         {
             if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
             {
-                this.player.emit('npc',i);
+                this.player.emit('npc', npc[i].dialogue);
         
             }
         }

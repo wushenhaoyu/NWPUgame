@@ -262,8 +262,8 @@
  <objectgroup id="20" name="NPC">
   <object id="90" x="1249.33" y="958.667">
    <properties>
+    <property name="dialogue" value="nvtongxue"/>
     <property name="model" value="2"/>
-    <property name="name" value="nvtongxue"/>
    </properties>
   </object>
  </objectgroup>
