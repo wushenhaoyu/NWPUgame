@@ -58,7 +58,7 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-          //  p.debugDrawFlags = 1;
+            p.debugDrawFlags = 1;
             
             
             this.initmap()
