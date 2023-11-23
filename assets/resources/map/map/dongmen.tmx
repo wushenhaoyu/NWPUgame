@@ -1516,9 +1516,6 @@
   <object id="104" x="1576.5" y="806" width="30" height="28"/>
   <object id="105" x="1537.33" y="8" width="11.333" height="632"/>
   <object id="111" x="1551" y="626" width="65" height="12"/>
-  <object id="122" x="517.75" y="1028.17" width="316.333" height="30">
-   <text fontfamily="仿宋" pixelsize="20" wrap="1" color="#bf0000" bold="1" italic="1" halign="center">西  北  工  业  大  学</text>
-  </object>
  </objectgroup>
  <objectgroup id="17" name="NPC">
   <object id="118" x="1347.5" y="1008" width="6.5" height="7.5">

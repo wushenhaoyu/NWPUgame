@@ -2,8 +2,9 @@ import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,
 const { ccclass, property } = _decorator;
 
 import PlotDataManager from '../../data/PlotDataManager';
-
 const plotDataManager = PlotDataManager.getInstance();
+import GameDataManager from '../../data/GameDataManager';
+const gameDataManager = GameDataManager.getInstance();
 interface TextData  {
    Name: "",
    Text: "",
@@ -54,31 +55,14 @@ export class text extends Component {
 
 
    start() {
-      /* resources.load('dialogue/test/test',JsonAsset,(err, jsonAsset) => {
-           if (err) {
-               error(err);
-               return;
-           }
-           const jsonData = jsonAsset.json;
-           
-           // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
-       })*/
-       this.node.on("plot",this.initPlotData,this)
-       this.player.on('npc',this.initstart,this)
-       const mapdata:Node = find("mapdata");
-  
-       var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
-       this.map = component.getMap();
-       // this.node.on('dialogue',this.initDialogueData,this)
-       //this.startBtn.on(NodeEventType.TOUCH_START, this.initstart, this) //點擊互動開始對話
-
-       //this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this) //點擊對話框，觸發下一段對話
-
-       this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.initDialogueData, this)
-       this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initplot, this)
-       this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)
+       this.node.on("plot",this.initPlotData,this)  //监听特殊对话脚本回调
+       this.player.on('npc',this.initstart,this)  
+       this.map = gameDataManager.getMap();
+       this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.initDialogueData, this) //普通对话回调
+       this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initplot, this)  //特殊对话回调
+       this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)  //关闭对话框回调
    }
-   initplot()
+   initplot() //开启特殊对话脚本
    {
     
    const map =  this.plot.getChildByName(this.map);
@@ -91,7 +75,7 @@ export class text extends Component {
 }
 
    }
-   initPlotData(event,event2){ 
+   initPlotData(event,event2){  //初始化特殊对话脚本 并判断是否带选择？
     this.control = 0;
     this.plotScriptNode = event;
     const i = event2; 
@@ -108,8 +92,8 @@ export class text extends Component {
         this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
         this.choiceBoxes.active = false;
         if( jsonAsset.json.plot[i].type){
-        this.select1.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[1];
-        this.select2.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[2];
+        this.select1.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[0];
+        this.select2.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[1];
         this.control = 1;
         }
         // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
@@ -118,7 +102,7 @@ export class text extends Component {
    }
 
 
-   initstart(event)
+   initstart(event) //初始话npc对话功能
    {
         
        this.dialogue.active = true;

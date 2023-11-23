@@ -1,6 +1,7 @@
 import { _decorator,SystemEvent, Component,PhysicsGroup,CCLoader, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
 const { ccclass, property } = _decorator;
-
+import GameDataManager from '../../data/GameDataManager';
+const gameDataManager = GameDataManager.getInstance();
 interface NPC{
     name:string,
     dialogue:number,
@@ -33,11 +34,9 @@ export class map extends Component {
             // 在这里可以使用参数进行进一步操作
         })*/
       // 在其他的脚本中// 根据常驻节点的名称查找它
-      const mapdata:Node = find("mapdata");
-     
-    var component = mapdata.getComponent ('mapdata'); // 根据常驻节点上的脚本组件的名称获取它的引用
-    this.name1 = component.getName(); // 调用 component 的 getName 方法
-    this.map1 = component.getMap();
+      // 根据常驻节点上的脚本组件的名称获取它的引用
+    this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
+    this.map1 = gameDataManager.getMap();
         
        
 
@@ -59,7 +58,7 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-            p.debugDrawFlags = 1;
+          //  p.debugDrawFlags = 1;
             
             
             this.initmap()
@@ -208,37 +207,9 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
     
 switchMap(map:string,name:string)//切换地图
 {
-    /*director.preloadScene('main')
-    this.node.off('switchMap')
-    const eventData = {
-        map: map,
-        name: name,
-    };
-    this.map.node.emit('switchMap',eventData)*/
-    const mapdata:Node = find("mapdata");
-    var component = mapdata.getComponent ('mapdata'); 
-    
-     component.setName(name); // 调用 component 的 getName 方法
-     component.setMap(map);
+     gameDataManager.setMap(map,name);
 director.loadScene('main',() => {
-    // 在目标场景加载后，将参数传递给目标场景
-  
-   
 })
-
-
-// 加载新地图
-/*resources.load('map/map/'+map, TiledMapAsset, (err, tiledMapAsset) => {
-    if (err) {
-        error(err);
-        return;
-    }
-        this.map.tmxAsset = tiledMapAsset
-    
-    
-})*/
-
-
 }
 
     update(deltaTime: number) {
