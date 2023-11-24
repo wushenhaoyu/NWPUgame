@@ -1008,7 +1008,7 @@
     "_priority": 1,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 457.9111644657863,
+    "_orthoHeight": 360,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -1241,7 +1241,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 68.02200000000002,
+      "x": 68.022,
       "y": 0,
       "z": 0
     },
@@ -1280,7 +1280,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.85329756902762,
+      "width": 77.861328125,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1313,7 +1313,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 45.5546875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1342,7 +1342,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.49864878451382,
+    "_right": -81.5026640625,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -1570,7 +1570,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 73.92303796518608,
+      "width": 73.9306640625,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1603,7 +1603,7 @@
     "_string": "13天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 45.5546875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1634,7 +1634,7 @@
       "__id__": 53
     },
     "_left": 64.72666796875,
-    "_right": -88.65351898259303,
+    "_right": -88.65733203124998,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -2008,7 +2008,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 32.148593749999996,
+    "_actualFontSize": 24.7,
     "_fontSize": 24.7,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2766,7 +2766,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.99277836134453,
+      "width": 70,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -2799,7 +2799,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 45.5546875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -2828,7 +2828,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.003610819327733,
+    "_right": 15,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -3056,7 +3056,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.99277836134453,
+      "width": 70,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3089,7 +3089,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 45.5546875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3118,7 +3118,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.003610819327733,
+    "_right": 15,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -3832,7 +3832,7 @@
     "_string": "互动",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26.03125,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -9883,7 +9883,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 140.48496351665668,
+      "width": 140.4999542236328,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -9916,7 +9916,7 @@
     "_string": "返回主画面",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 36.57390625,
+    "_actualFontSize": 28.1,
     "_fontSize": 28.1,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
