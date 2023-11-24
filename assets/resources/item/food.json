@@ -1,0 +1,8 @@
+{
+    "type": "food",
+    "ImgUrl": "item1.png",
+    "Name": "bread",
+    "Count": 1,
+    "Id": 1,
+    "Info": "This is item 1" 
+}

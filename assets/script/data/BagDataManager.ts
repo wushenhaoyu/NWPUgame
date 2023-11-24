@@ -1,8 +1,13 @@
+import { _decorator,resources,error,JsonAsset } from 'cc';
+const { ccclass, property } = _decorator;
+
+@ccclass
 export default class BagDataManager {
     protected static instance: BagDataManager;
+    protected items: Item[] = [];
     protected constructor() {
         // 私有构造函数，防止外部直接实例化
-       
+      
     }
  
     public static getInstance(): BagDataManager {
@@ -11,12 +16,62 @@ export default class BagDataManager {
         }
         return BagDataManager.instance;
     }
+    protected instantiateItem(itemType: string, itemData: any): Item | null {
+        const itemFactory = ItemFactory.getInstance();
+        const itemClass = itemFactory.getItemClass(itemType);
 
- 
-    
+        if (itemClass) {
+            const itemInstance = new itemClass(itemData);
+            this.items.push(itemInstance); // 假设将实例化的物品添加到 BagDataManager 管理的物品数组中
+            return itemInstance;
+        } else {
+            console.error(`Unsupported item type: ${itemType}`);
+            return null;
+        }
+    }
+    init(){
+        resources.load('save/bag',JsonAsset,(err, jsonAsset) => {
+            if (err) {
+                error(err);
+                return;
+            }
+            const bagData = jsonAsset.json;
+
+        })
+    }  
  }
 
+ class ItemFactory {
+    private static instance: ItemFactory;
+    private itemClassMap: { [key: string]: typeof Item } = {};
+
+    private constructor() {
+        // 私有构造函数，防止外部直接实例化
+        this.registerItemClass('food', Food); // 在这里注册初始的物品类型和对应的类
+    }
+
+    public static getInstance(): ItemFactory {
+        if (!ItemFactory.instance) {
+            ItemFactory.instance = new ItemFactory();
+        }
+        return ItemFactory.instance;
+    }
+
+    private registerItemClass(itemType: string, itemClass: typeof Item): void {
+        this.itemClassMap[itemType] = itemClass;
+    }
+
+    public getItemClass(itemType: string): typeof Item | null {
+        const itemClass = this.itemClassMap[itemType];
+        return itemClass || null;
+    }
+}
+
+
+  
+
  export abstract class Item {
+    protected _type: string;
     protected _ImgUrl: string;
     protected _Name: string;
     protected _Count: number;
@@ -25,9 +80,10 @@ export default class BagDataManager {
     protected _canUse: boolean; // 添加一个标志，表示物品是否可以使用
  
      constructor(data: any) {
+         this._type = data.type|| "";
          this._ImgUrl = data.ImgUrl || "";
          this._Name = data.Name || "";
-         this._Count = data.Count || 0;
+         this._Count = data.Count || 1;
          this._Id = data.Id || 0;
          this._Info = data.Info || "";
          this._canUse = true; // 默认为可以使用
@@ -71,11 +127,13 @@ export default class BagDataManager {
          }
      }
  }
+
+ 
  
 
 
 // 具体的物品子类
-class food extends Item {
+class Food extends Item {
     constructor(data: any) {
         super(data);
     }
@@ -83,6 +141,7 @@ class food extends Item {
     specialFunction() {
         console.log(`${this.Name} has no special function.`);
     }
+    
 }
 
 
