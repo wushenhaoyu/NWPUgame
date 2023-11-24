@@ -16,30 +16,70 @@ export default class BagDataManager {
         }
         return BagDataManager.instance;
     }
+   
+    init(callback?: () => void) {
+        
+        resources.load('save/bag', JsonAsset, (err, jsonAsset) => {
+            var i =0
+            if (err) {
+                error(err);
+                return;
+            }
+    
+            const bagData = jsonAsset.json;
+            for (; i < bagData.length; i++) {
+                this.setItem(bagData[i].type, bagData[i].name);
+            }
+            if (callback) {
+                callback();
+            }
+            
+    
+            // 在初始化完成后调用回调函数
+            
+        });
+    }
+    
     protected instantiateItem(itemType: string, itemData: any): Item | null {
         const itemFactory = ItemFactory.getInstance();
         const itemClass = itemFactory.getItemClass(itemType);
 
         if (itemClass) {
             const itemInstance = new itemClass(itemData);
-            this.items.push(itemInstance); // 假设将实例化的物品添加到 BagDataManager 管理的物品数组中
+            this.items.push(itemInstance);// 假设将实例化的物品添加到 BagDataManager 管理的物品数组中
             return itemInstance;
         } else {
             console.error(`Unsupported item type: ${itemType}`);
             return null;
         }
-    }
-    init(){
-        resources.load('save/bag',JsonAsset,(err, jsonAsset) => {
+    } 
+    protected setItem(itemType: string, itemName: string){
+        resources.load(`item/${itemType}`,JsonAsset,(err, jsonAsset) => {
             if (err) {
                 error(err);
                 return;
             }
-            const bagData = jsonAsset.json;
-
-        })
-    }  
+       const data = jsonAsset.json
+      const item = this.instantiateItem(data[itemName].type, data[itemName]);
+      item.Count = data.count;
+        
+    })
  }
+    public removeItemsWithZeroCount(): void {
+    this.items = this.items.filter(item => item.Count > 0);
+    }
+    getItems(callback?: (items: Item[]) => void): void {
+        // 获取物品数据...
+        const items = this.items;
+
+        if (callback) {
+            // 在获取物品数据后执行回调函数
+            callback(items);
+        }
+    }
+    
+    
+}
 
  class ItemFactory {
     private static instance: ItemFactory;
@@ -104,6 +144,13 @@ export default class BagDataManager {
      get Count(): number {
          return this._Count;
      }
+     set Count(value: number) {
+        if (value >= 0) {
+            this._Count = value;
+        } else {
+            console.error("Count cannot be negative.");
+        }
+     }
  
      get Id(): number {
          return this._Id;
@@ -133,7 +180,7 @@ export default class BagDataManager {
 
 
 // 具体的物品子类
-class Food extends Item {
+export class Food extends Item {
     constructor(data: any) {
         super(data);
     }
