@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="100" height="170" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="25">
  <tileset firstgid="1" name="Modern_Office_Black_Shadow_48x48" tilewidth="16" tileheight="16" tilecount="7632" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Modern_Office_Black_Shadow_48x48.png" width="768" height="2544"/>
+  <image source="../../../../../../../maps/Modern_Exteriors_RPG_Maker_MV_v27.0 (2)/Modern_Exteriors_RPG_Maker_MV_v27/Modern_Office_Revamped/2_Modern_Office_Black_Shadow/Modern_Office_Black_Shadow_48x48.png" width="768" height="2544"/>
  </tileset>
  <tileset firstgid="7633" name="Tileset_16_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
   <image source="damen/Tileset_16_MV.png" width="768" height="768"/>
