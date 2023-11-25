@@ -71,6 +71,7 @@ export class map extends Component {
         this.settensor()
         let p = PhysicsSystem2D.instance
         p.enable = true;
+       
         let node = this.map.node.getChildByName('1');
       
         this.map.node.removeChild(node);
@@ -109,7 +110,7 @@ export class map extends Component {
             collider.group = 4;
             
         }
-        console.log(PhysicsGroup)
+       
     }
     settensor()
     {
@@ -147,7 +148,7 @@ for (const birthpoint of birthpoints) {
             body.enabledContactListener = true;
     // 添加碰撞事件，以侦听与玩家的接触
     /*sensorCollider.on(Contact2DType.BEGIN_CONTACT, (selfCollider:Collider2D, otherCollider:Collider2D,contact:IPhysics2DContact | null)=>{
-        console.log('ok')
+        
     }, this);*/
 
     // 将从对象层中读取的数据附加到节点，以在事件处理程序中使用
@@ -173,7 +174,7 @@ setNPC()
                     error(err.message);
                     return;
                 }
-                console.log(prefab)
+               
             
                 // 预制体加载成功后，可以将其实例化并添加到场景中
                 let  node = instantiate(prefab);

@@ -18,7 +18,7 @@ export default class BagDataManager {
     }
    
     init(callback?: () => void) {
-        
+        if(this.items){
         resources.load('save/bag', JsonAsset, (err, jsonAsset) => {
             var i =0
             if (err) {
@@ -38,6 +38,7 @@ export default class BagDataManager {
             // 在初始化完成后调用回调函数
             
         });
+    }
     }
     
     protected instantiateItem(itemType: string, itemData: any): Item | null {

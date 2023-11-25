@@ -1,8 +1,17 @@
+import { _decorator, Component, Node,director, find } from 'cc';
+const { ccclass, property } = _decorator;
+enum emotion{
+    angry = 0,
+    sad = 1,
+    happy = 2,
+    surprise = 3
+}
 export default class GameDataManager {
     private static instance: GameDataManager;
     private money:number
     private energy:number
     private energyMax:number
+    private emotion:emotion = emotion.happy
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.money = 2000

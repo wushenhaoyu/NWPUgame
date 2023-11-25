@@ -17,24 +17,20 @@ export class BagDataControl extends Component {
     public bag:Node = null;
     selected:string = ""; 
     onLoad(){
-        bagDataManager.init(() => {
-            this.initdata();
-            
-        });
-        director.addPersistRootNode (this.node)
+
     }
     start() {
         // 获取背包物品数据
-       
+        this.initdata();
     }
     initdata() {
+        
         bagDataManager.getItems((items) => {
-            console.log(items[0],items);
-            console.log(items.length)
+            
             
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];
-                console.log("item");
+                
                 this.initPrefab(item);
             }
         });
@@ -65,9 +61,7 @@ export class BagDataControl extends Component {
         const Img = gridNode.getChildByName('Img');
         Img.getComponent(Sprite).spriteFrame = spriteFrame;
         Img.getComponentInChildren(Label).string = item.Count.toString();
-        console.log(gridNode)
         })
-        
     }
 
     update(deltaTime: number) {

@@ -1,6 +1,7 @@
-import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics, TiledMap } from 'cc';
+import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, director, EventTouch,find, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics, TiledMap } from 'cc';
 const { ccclass, property } = _decorator;
-
+import PlayerDataManager  from '../../data/PlayerDataManager';
+const playerDataManager = PlayerDataManager.getInstance();
 @ccclass
 export class Joystick extends Component {
     @property({type:Node})
@@ -30,10 +31,13 @@ export class Joystick extends Component {
     angle:number = 0; //表示人物朝向
     npc = null;
     npcPosition :Vec3[] = []
+    lv:Vec2 = new Vec2();
     onLoad() {
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
+      // playerDataManager.joystick = this.node;
+        this.node.on('again',this.getPlayerAgain,this)
         this.father.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.father.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.father.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -41,10 +45,6 @@ export class Joystick extends Component {
         this.width = this.background.getComponent(Sprite).spriteFrame.width / 2;
         this.position = this.node.getPosition();
         this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
-     
-    }
-   start() {
-        
     }
     hudong() //检测是否附件有npc互动
     {
@@ -103,7 +103,14 @@ export class Joystick extends Component {
             }
         }*/
     }
+    getPlayerAgain(event)
+    {
+        console.log("监听")
+        console.log(event)
+       this.player = event
+    }
     onTouchStart(event: EventTouch) {
+        console.log(this.player)
         this.touchLocation = event.getLocation();
         const opacity = this.node.getComponent(UIOpacity)
         opacity.opacity = 255;
@@ -131,7 +138,8 @@ export class Joystick extends Component {
         // const moveSpeed = length / radius;
     }
     
-       // NONE: 0,
+       // d4p2RJhN1GOJNou5w69Nor
+       //NONE: 0,
       //  UP: 1,
        // DOWN: 2,
        // LEFT: 3,
@@ -191,44 +199,46 @@ if (angle > threshold && angle < 3 * threshold) {
 
     
     update(dt: number) {
-       let an = ""
-       const lv = this.player.getComponent(RigidBody2D).linearVelocity;
-
+        if(this.player.name != ""){
+        let an = ""
+        this.lv = this.player.getComponent(RigidBody2D).linearVelocity;
+        if(this.lv){
         switch(this.JoystickDirection)
         {
             case 0:
-                lv.x =0;
-                lv.y =0;
+                this.lv.x =0;
+                this.lv.y =0;
                 break;
             case 1:
                 /*this.player.getPosition(this.playerPosition);
                 this.playerPosition.y += 200 * dt;
                 this.player.setPosition(this.playerPosition);*/
-                lv.x = 0;
-                lv.y = 400 * dt;
+                this.lv.x = 0;
+                this.lv.y = 400 * dt;
                 this.angle = 1;
                 an = "1_up"
                 break;
             case 2:
-                lv.x = 0;
-                lv.y = -400 * dt;
+                this.lv.x = 0;
+                this.lv.y = -400 * dt;
                 an = "1_down"
                 this.angle = 2;
                 break;
             case 3:
-                lv.y = 0;
-                lv.x = -400 * dt;
+                this.lv.y = 0;
+                this.lv.x = -400 * dt;
                 an = "1_left"
                 this.angle = 3;
                 break;
             case 4:
-                lv.y = 0;
-                lv.x = 400 * dt;
+                this.lv.y = 0;
+                this.lv.x = 400 * dt;
                 an = "1_right"
                 this.angle = 4;
                 break;
         }
-        this.player.getComponent(RigidBody2D).linearVelocity = lv
+        this.player.getComponent(RigidBody2D).linearVelocity = this.lv
+    }
 
         if(an)
         {
@@ -236,5 +246,12 @@ if (angle > threshold && angle < 3 * threshold) {
         }
 
     }
+    else{
+        const player = find('gameWorld/gameCanvas/Map/door/1');
+        console.log(player)
+        this.player = player
+    }
+}
+
 
 }
