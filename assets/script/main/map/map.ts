@@ -1,4 +1,4 @@
-import { _decorator,SystemEvent, Component,PhysicsGroup,CCLoader, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
+import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager';
 const gameDataManager = GameDataManager.getInstance();
@@ -37,6 +37,7 @@ export class map extends Component {
       // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
+    console.log(this.name1,this.map1)
         
        
 
@@ -143,7 +144,7 @@ for (const birthpoint of birthpoints) {
     // 设置碰撞组件的大小和位置，使用从对象层中读取的数据
     sensorCollider.size = size(birthpoint.width, birthpoint.height); // 设置传感器的大小
     sensorNode.setPosition(birthpoint.x, birthpoint.y); // 设置传感器的位置
-    sensorCollider.offset = v2(birthpoint.width / 2, birthpoint.height / 2);
+    sensorCollider.offset = v2(birthpoint.width / 2, birthpoint.height / -2);
             sensorCollider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             body.enabledContactListener = true;
     // 添加碰撞事件，以侦听与玩家的接触

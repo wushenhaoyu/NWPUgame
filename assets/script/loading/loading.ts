@@ -13,7 +13,6 @@ export class loading extends Component {
     progressBar: ProgressBar = null;
 
     start() {
-        
         this.loadResources();
     }
 
@@ -21,13 +20,14 @@ export class loading extends Component {
         // 这里可以根据你的需要加载不同的资源
         // 这里只是一个示例，加载场景和地图资源
         bagDataManager.init(this.onBagLoaded.bind(this));
+        playerDataManager.init(this.onPlayerLoaded.bind(this));
         director.preloadScene('main', this.onSceneLoaded.bind(this));
         resources.preload('map/map/' + 'yourMapName', this.onMapLoaded.bind(this));
     }
 
     onBagLoaded() {
         // 这里可以处理背包加载完成后的逻辑
-        this.updateProgressBar(0.4);
+        this.updateProgressBar(0.2);
     }
 
     onSceneLoaded() {
@@ -39,6 +39,10 @@ export class loading extends Component {
         
         // 这里可以处理地图加载完成后的逻辑
         this.updateProgressBar(0.3);
+    }
+    onPlayerLoaded() {
+        // 这里可以处理玩家加载完成后的逻辑
+        this.updateProgressBar(0.2);
     }
 
     updateProgressBar(progress: number) {

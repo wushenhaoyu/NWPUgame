@@ -1,4 +1,4 @@
-import { _decorator,resources,error,JsonAsset } from 'cc';
+import { _decorator,resources,error,JsonAsset,native } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass

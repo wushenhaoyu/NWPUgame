@@ -1,3 +1,5 @@
+import { _decorator,resources,error,JsonAsset } from 'cc';
+const { ccclass, property } = _decorator;
 export default class GameDataManager {
     private static instance: GameDataManager;
     private day:number
@@ -16,6 +18,7 @@ export default class GameDataManager {
         }
         return GameDataManager.instance;
     }
+   
     public nextDay(){
         this.day++
     }

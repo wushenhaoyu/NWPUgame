@@ -105,12 +105,11 @@ export class Joystick extends Component {
     }
     getPlayerAgain(event)
     {
-        console.log("监听")
-        console.log(event)
+        
        this.player = event
     }
     onTouchStart(event: EventTouch) {
-        console.log(this.player)
+    
         this.touchLocation = event.getLocation();
         const opacity = this.node.getComponent(UIOpacity)
         opacity.opacity = 255;
