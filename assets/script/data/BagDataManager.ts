@@ -1,4 +1,4 @@
-import { _decorator,resources,error,JsonAsset,native } from 'cc';
+import { _decorator,resources,error,JsonAsset,native,sys } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -40,6 +40,17 @@ export default class BagDataManager {
         });
     }
     }
+    public save(callback?: () => void) {
+        const jsonDataArray = this.items.map(item => item.toJSON());
+
+        // 将 JSON 数据数组保存到本地存储中
+        sys.localStorage.setItem('bag', JSON.stringify(jsonDataArray));
+
+        if (callback) {
+            callback();
+        }
+    }
+
     
     protected instantiateItem(itemType: string, itemData: any): Item | null {
         const itemFactory = ItemFactory.getInstance();
@@ -132,7 +143,7 @@ export default class BagDataManager {
  
      // 抽象方法，需要在子类中实现
      abstract specialFunction(): void;
- 
+     abstract toJSON(): any;
      // 使用 getter 方法获取属性值
      get ImgUrl(): string {
          return this._ImgUrl;
@@ -184,6 +195,18 @@ export default class BagDataManager {
 export class Food extends Item {
     constructor(data: any) {
         super(data);
+    }
+    toJSON(): any {
+        return {
+            type: this._type,
+            ImgUrl: this._ImgUrl,
+            Name: this._Name,
+            Count: this._Count,
+            Id: this._Id,
+            Info: this._Info,
+            canUse: this._canUse,
+            // 可以添加 Food 特有的属性
+        };
     }
 
     specialFunction() {

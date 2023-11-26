@@ -12,7 +12,7 @@ export default class GameDataManager {
     private money:number = 2000
     private energy:number = 30
     private energyMax:number = 30
-    private emotion:emotion = emotion.happy
+    private emotion:emotion = emotion.surprise
     private grade:number = 0
     private constructor() {
         // 私有构造函数，防止外部直接实例化
@@ -74,6 +74,9 @@ export default class GameDataManager {
             GameDataManager.instance = new GameDataManager();
         }
         return GameDataManager.instance;
+    }
+    getEmotion():emotion {
+        return this.emotion;
     }
     getMaxEnergy():number {
         return this.energyMax

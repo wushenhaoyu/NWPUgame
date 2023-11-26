@@ -1,4 +1,4 @@
-import { _decorator,resources,error,JsonAsset } from 'cc';
+import { _decorator,resources,error,JsonAsset,sys} from 'cc';
 const { ccclass, property } = _decorator;
 export default class GameDataManager {
     private static instance: GameDataManager;
@@ -17,6 +17,23 @@ export default class GameDataManager {
             GameDataManager.instance = new GameDataManager();
         }
         return GameDataManager.instance;
+    }
+    public save(callback?: () => void) {
+        // 将数据保存到本地存储中
+        sys.localStorage.setItem('game', this.toJSON());
+
+        if (callback) {
+            callback();
+        }
+    }
+
+    private toJSON(): string {
+        // 将数据转换为 JSON 字符串
+        return JSON.stringify({
+            day: this.day,
+            map: this.map,
+            start: this.start,
+        });
     }
    
     public nextDay(){

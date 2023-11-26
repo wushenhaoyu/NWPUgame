@@ -1,8 +1,10 @@
-import { _decorator, Component, Node,Label ,Prefab,instantiate,Sprite,director,resources,error, SpriteFrame} from 'cc';
+import { _decorator, Component, Node,Label ,Prefab,instantiate,Sprite,director,resources,error, SpriteFrame, ProgressBar} from 'cc';
 const { ccclass, property } = _decorator;
 import BagDataManager  from '../../data/BagDataManager';
 import Item from '../../data/BagDataManager'; 
+import PlayerDataManager  from '../../data/PlayerDataManager';
 const bagDataManager = BagDataManager.getInstance();
+const playerDataManager = PlayerDataManager.getInstance();
 @ccclass('BagDataControl')
 export class BagDataControl extends Component {
     @property(Sprite)
@@ -13,6 +15,8 @@ export class BagDataControl extends Component {
     info: Label = null;
     @property(Prefab)
     gridPrefab: Prefab = null;
+    @property(Node)
+    emotion: Node = null;
     @property(Node)
     public bag:Node = null;
     selected:string = ""; 
@@ -33,7 +37,56 @@ export class BagDataControl extends Component {
                 
                 this.initPrefab(item);
             }
+            this.updateEmotion()
         });
+    }
+    updateEmotion(){
+        switch (playerDataManager.getEmotion()) {
+            case 0:
+                resources.load('main/UI/emotion/emtion_03', SpriteFrame, (err, spriteFrame) =>{
+                    this.emotion.getChildByName('emoji').getComponent(Sprite).spriteFrame = spriteFrame;
+                })
+                resources.load('loading/bar/colorbar_09', SpriteFrame, (err, spriteFrame) =>{
+                   const bar = this.emotion.getChildByName('background').getChildByName('emotion');
+                   bar.getComponent(Sprite).spriteFrame = spriteFrame;
+                   bar.getComponent(ProgressBar).progress = 0.1;
+                })
+                
+                break;
+            case 1:
+                resources.load('main/UI/emotion/emtion_04', SpriteFrame, (err, spriteFrame) =>{
+                    this.emotion.getChildByName('emoji').getComponent(Sprite).spriteFrame = spriteFrame;
+                })
+                resources.load('loading/bar/colorbar_13', SpriteFrame, (err, spriteFrame) =>{
+                   const bar = this.emotion.getChildByName('background').getChildByName('emotion');
+                   bar.getComponent(Sprite).spriteFrame = spriteFrame;
+                   bar.getComponent(ProgressBar).progress = 0.4;
+                })
+                break;
+            case 2:
+                resources.load('main/UI/emotion/emtion_02', SpriteFrame, (err, spriteFrame) =>{
+                    this.emotion.getChildByName('emoji').getComponent(Sprite).spriteFrame = spriteFrame;
+                    console.log(spriteFrame);
+                })
+                resources.load('loading/bar/colorbar_05', SpriteFrame, (err, spriteFrame) =>{
+                   const bar = this.emotion.getChildByName('background').getChildByName('emotion');
+                   bar.getComponent(Sprite).spriteFrame = spriteFrame;
+                   bar.getComponent(ProgressBar).progress = 0.7;
+                })
+                break;
+            case 3:
+                resources.load('main/UI/emotion/emtion_01', SpriteFrame, (err, spriteFrame) =>{
+                    this.emotion.getChildByName('emoji').getComponent(Sprite).spriteFrame = spriteFrame;
+                })
+                resources.load('loading/bar/colorbar_01', SpriteFrame, (err, spriteFrame) =>{
+                   const bar = this.emotion.getChildByName('background').getChildByName('emotion');
+                   bar.getComponent(Sprite).spriteFrame = spriteFrame;
+                   bar.getComponent(ProgressBar).progress = 1.0;
+                })
+                break;
+            default:
+                break;
+        }
     }
     
     initPrefab(item:any) {

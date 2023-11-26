@@ -50,7 +50,7 @@ export class Joystick extends Component {
     hudong() //检测是否附件有npc互动
     {
         const npc = this.map.getObjectGroup('NPC').getObjects()
-        console.log(npc)
+       
         if(!this.npcPosition.length)
         {
 
@@ -250,7 +250,6 @@ if (angle > threshold && angle < 3 * threshold) {
         const player = find('gameWorld/gameCanvas/Map/door/1');
         const map = find('gameWorld/gameCanvas/Map/door')
         this.map = map.getComponent(TiledMap);
-        console.log(this.map)
         this.player = player
     }
 }
