@@ -428,7 +428,7 @@
 </data>
  </layer>
  <objectgroup id="10" name="start">
-  <object id="46" x="62" y="549" width="12" height="13">
+  <object id="46" x="83.5" y="622.5" width="12" height="13">
    <properties>
     <property name="name" value="d100"/>
    </properties>
@@ -440,7 +440,7 @@
   </object>
  </objectgroup>
  <objectgroup id="11" name="sensor">
-  <object id="47" x="6" y="501" width="13" height="226">
+  <object id="47" x="17.75" y="501.25" width="13" height="226">
    <properties>
     <property name="map" value="d100"/>
     <property name="name" value="feiji"/>
@@ -451,7 +451,7 @@
     <property name="map" value=""/>
    </properties>
   </object>
-  <object id="52" x="784" y="106" width="7" height="615">
+  <object id="52" x="791.879" y="104.303" width="7" height="615">
    <properties>
     <property name="map" value="jiaodongc1"/>
     <property name="name" value="feiji"/>

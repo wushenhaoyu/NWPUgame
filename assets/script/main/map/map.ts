@@ -111,7 +111,7 @@ export class map extends Component {
             collider.group = 4;
             
         }
-       
+        console.log(this.TPPointData)
     }
     settensor()
     {
@@ -154,7 +154,7 @@ for (const birthpoint of birthpoints) {
 
     // 将从对象层中读取的数据附加到节点，以在事件处理程序中使用
     sensorNode.name = birthpoint.name;
-    
+    sensorCollider.name = birthpoint.map; 
     
 }
 
@@ -194,10 +194,13 @@ setNPC()
 
 onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次
+    console.log(selfCollider.name,selfCollider.node.name)
     for(var i =0 ; i < this.TPPointData.length ; i++)
     {
-        if(this.TPPointData[i].name == selfCollider.node.name)
+        if(this.TPPointData[i].name == selfCollider.node.name&&this.TPPointData[i].map == selfCollider.name )
         {
+            
+            console.log(i)
             let p = PhysicsSystem2D.instance
             p.enable = false;
             this.switchMap(this.TPPointData[i].map,this.TPPointData[i].name)

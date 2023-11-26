@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="130" height="55" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="34">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="130" height="55" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="36">
  <tileset firstgid="1" name="16_Office_32x32" tilewidth="16" tileheight="16" tilecount="12160" columns="64">
   <image source="damen/16_Office_32x32.png" width="1024" height="3040"/>
  </tileset>
@@ -201,7 +201,7 @@
 2147492843,2147492843,9174,9175,9176,2147492825,2147492185,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17744,17745,17746,17747,17748,17749,0,8537,8538,8539,8540,8541,8542,8543,8544,8545,8546,8547,8548,8541,8542,8543,8544,8545,8546,8547,8548,8538,8539,8540,8541,8542,8543,8544,8545,8546,8547,8548,8538,8539,8540,8541,8542,8543,8544,8545,8546,8547,8548,8538,8539,8540,8541,8542,8543,8544,8545,8546,8547,8548,8554,0,0,0,0,0,0,0,0,0,0,0,1610636277,1610636325,1610636373,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="4" name="tree3" width="130" height="55">
+ <layer id="4" name="tree3" width="130" height="55" visible="0">
   <data encoding="csv">
 4138,4139,4140,0,0,7927,7928,7929,7802,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 4202,4203,4204,0,0,7863,7864,7865,7866,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -289,6 +289,12 @@
     <property name="name" value="jiaoxid1"/>
    </properties>
   </object>
+  <object id="34" x="2068" y="37" width="7" height="836">
+   <properties>
+    <property name="map" value="shuzishuadalou"/>
+    <property name="name" value="jiaoxid"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="5" name="object">
   <object id="3" x="20" y="550" width="120" height="8"/>
@@ -328,6 +334,11 @@
   <object id="33" x="293" y="817" width="7" height="9">
    <properties>
     <property name="name" value="jiaoxid100"/>
+   </properties>
+  </object>
+  <object id="35" x="2032" y="503" width="14" height="16">
+   <properties>
+    <property name="name" value="shuzihuadalou"/>
    </properties>
   </object>
  </objectgroup>
