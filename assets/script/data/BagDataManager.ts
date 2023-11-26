@@ -7,7 +7,7 @@ export default class BagDataManager {
     protected items: Item[] = [];
     protected constructor() {
         // 私有构造函数，防止外部直接实例化
-      
+        
     }
  
     public static getInstance(): BagDataManager {

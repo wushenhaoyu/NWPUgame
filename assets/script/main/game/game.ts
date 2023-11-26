@@ -8,9 +8,8 @@ export class game extends Component {
     @property({type: Node})
     public UIScript:Node=null;
     start() {
-        director.addPersistRootNode(this.node);
         director.addPersistRootNode(this.UI);
-        director.addPersistRootNode(this.UIScript);
+        
     }
     update(deltaTime: number) {
         

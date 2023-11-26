@@ -12,7 +12,8 @@ export class Joystick extends Component {
 
     @property({ type: Node })
     handle: Node = null;
-
+    @property({ type: Node })
+    public dialogue: Node = null;
     @property({ type: Node })
     father: Node = null;
     @property({type:Node})
@@ -49,7 +50,7 @@ export class Joystick extends Component {
     hudong() //检测是否附件有npc互动
     {
         const npc = this.map.getObjectGroup('NPC').getObjects()
-
+        console.log(npc)
         if(!this.npcPosition.length)
         {
 
@@ -67,7 +68,7 @@ export class Joystick extends Component {
         {
             if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
             {
-                this.player.emit('npc', npc[i].dialogue);
+                this.dialogue.emit('npc', npc[i].dialogue);
         
             }
         }
@@ -247,7 +248,9 @@ if (angle > threshold && angle < 3 * threshold) {
     }
     else{
         const player = find('gameWorld/gameCanvas/Map/door/1');
-        console.log(player)
+        const map = find('gameWorld/gameCanvas/Map/door')
+        this.map = map.getComponent(TiledMap);
+        console.log(this.map)
         this.player = player
     }
 }

@@ -22,8 +22,6 @@ export class text extends Component {
     public select:Node= null;
     @property({type:Node})
     public plot:Node=null
-    @property({type:Node})
-    public player = null;
    @property({type:Node})
    public dialogue = null;
    @property ({type:Node})
@@ -57,7 +55,7 @@ export class text extends Component {
 
    start() {
        this.node.on("plot",this.initPlotData,this)  //监听特殊对话脚本回调
-       this.player.on('npc',this.initstart,this)  
+       this.node.on('npc',this.initstart,this)  
        this.map = gameDataManager.getMap();
        this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.initDialogueData, this) //普通对话回调
        this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initplot, this)  //特殊对话回调
@@ -66,10 +64,8 @@ export class text extends Component {
    initplot() //开启特殊对话脚本
    {
     
-    console.log(this.map)
-    console.log(this.plot)
+   
     const map =  this.plot.getChildByName(this.map);
-    console.log(map)
 
     for (let i = 0; i < map.children.length; i++) {
         
@@ -109,6 +105,7 @@ export class text extends Component {
 
    initstart(event) //初始话npc对话功能
    {
+        this.map = gameDataManager.getMap();
         
        this.dialogue.active = true;
 
