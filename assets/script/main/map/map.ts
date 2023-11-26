@@ -213,7 +213,7 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
 switchMap(map:string,name:string)//切换地图
 {
      gameDataManager.setMap(map,name);
-director.loadScene('main',() => {
+director.loadScene('loading',() => {
 })
 }
 

@@ -18,6 +18,7 @@ export default class BagDataManager {
     }
    
     init(callback?: () => void) {
+        console.log(this.items)
         if(this.items){
         resources.load('save/bag', JsonAsset, (err, jsonAsset) => {
             var i =0
