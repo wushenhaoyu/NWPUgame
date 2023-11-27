@@ -7,8 +7,10 @@ enum emotion{
     happy = 2,
     surprise = 3
 }
-export default class GameDataManager {
-    private static instance: GameDataManager;
+export default class PlayerDataManager {
+    private static instance: PlayerDataManager;
+    private name: string = "faker";
+    private gender: number = 1; //1female, 2male
     private money:number = 2000
     private energy:number = 30
     private energyMax:number = 30
@@ -69,11 +71,11 @@ export default class GameDataManager {
             grade: this.grade
         };
     }
-    public static getInstance(): GameDataManager {
-        if (!GameDataManager.instance) {
-            GameDataManager.instance = new GameDataManager();
+    public static getInstance(): PlayerDataManager {
+        if (!PlayerDataManager.instance) {
+            PlayerDataManager.instance = new PlayerDataManager();
         }
-        return GameDataManager.instance;
+        return PlayerDataManager.instance;
     }
     getEmotion():emotion {
         return this.emotion;
@@ -104,6 +106,18 @@ export default class GameDataManager {
     }
     loseMoney(money:number){
         this.money -= money
+    }
+    setinfo(name:string, gender:number)
+    {
+        this.name = name;
+        this.gender = gender;
+    }
+    gerGender(){
+        return this.gender;
+    }
+    getname()
+    {
+        return this.name;
     }
     
  }

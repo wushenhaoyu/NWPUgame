@@ -1,5 +1,7 @@
 import { _decorator, Component, Node, NodeEventType, Sprite ,Color,Label, director } from 'cc';
 const { ccclass, property } = _decorator;
+import PlayerDataManager  from '../../data/PlayerDataManager';
+const playerDataManager = PlayerDataManager.getInstance();
 
 @ccclass('frist')
 export class frist extends Component {
@@ -24,27 +26,31 @@ export class frist extends Component {
         
     }
     femaleSelect() {
-        if(this.selected == 0)
+        if(this.selected != 1)
         {
             this.selected = 1;
             this.bgfemale.getComponent(Sprite).color = new Color(160,94,133,148)
+            this.bgmale.getComponent(Sprite).color = new Color(87,89,99,148)
             this.showStart()
         }
         else{
             this.selected = 0;
+           
             this.bgfemale.getComponent(Sprite).color = new Color(87,89,99,148)
     }
 }
     maleSelect() {
-        if(this.selected == 0)
+        if(this.selected != 2)
         {
             this.selected = 2;
             this.bgmale.getComponent(Sprite).color = new Color(93,96,167,147)
+            this.bgfemale.getComponent(Sprite).color = new Color(87,89,99,148)
             this.showStart()
         }
         else{
             this.selected = 0;
             this.bgmale.getComponent(Sprite).color = new Color(87,89,99,148)
+            
         }
     }
     showStart()
@@ -57,8 +63,11 @@ export class frist extends Component {
     {
         if(this.Label.string != ""&& this.selected != 0)
         {
+            playerDataManager.setinfo(this.Label.string,this.selected)
             //开始游戏
-            director.loadScene('loading')
+            director.loadScene('loading',()=>{
+                
+            })
         }
     }
 

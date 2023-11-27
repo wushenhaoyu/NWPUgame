@@ -7,6 +7,8 @@ const bagDataManager = BagDataManager.getInstance();
 const playerDataManager = PlayerDataManager.getInstance();
 @ccclass('BagDataControl')
 export class BagDataControl extends Component {
+    @property(Label)
+    public Name:Label = null
     @property(Sprite)
     infoImg: Sprite = null;
     @property(Label)
@@ -38,6 +40,7 @@ export class BagDataControl extends Component {
                 this.initPrefab(item);
             }
             this.updateEmotion()
+            this.Name.string = playerDataManager.getname();
         });
     }
     updateEmotion(){
