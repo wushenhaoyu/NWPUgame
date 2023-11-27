@@ -184,7 +184,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 372.6660250240616,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -578,7 +578,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 557.25732421875,
+      "width": 527.560546875,
       "height": 238.392
     },
     "_anchorPoint": {
@@ -608,7 +608,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": ". . . 加 载 中",
+    "_string": ". . .loading",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 106.7,
