@@ -16,7 +16,7 @@
   <image source="damen/Tileset_69_MV.png" width="768" height="768"/>
  </tileset>
  <tileset firstgid="29745" name="Condominium_01" tilewidth="16" tileheight="16" tilecount="756" columns="42">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Condominium_Design_2_layer_1_48x48.png" width="672" height="288"/>
+  <image source="damen/Condominium_Design_2_layer_1_48x48.png" width="672" height="288"/>
  </tileset>
  <tileset firstgid="30501" name="Tileset_10_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
   <image source="damen/Tileset_10_MV.png" width="768" height="768"/>

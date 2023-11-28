@@ -13,25 +13,25 @@
   <image source="damen/17_Visibile_Upstairs_System_48x48.png" width="768" height="1296"/>
  </tileset>
  <tileset firstgid="10801" name="Office_Floors_TILESET_A2_" tilewidth="16" tileheight="16" tilecount="1728" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Office_Floors_TILESET_A2_.png" width="768" height="576"/>
+  <image source="damen/Office_Floors_TILESET_A2_.png" width="768" height="576"/>
  </tileset>
  <tileset firstgid="12529" name="16_Office_32x32" tilewidth="16" tileheight="16" tilecount="12160" columns="64">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/16_Office_32x32.png" width="1024" height="3040"/>
+  <image source="damen/16_Office_32x32.png" width="1024" height="3040"/>
  </tileset>
  <tileset firstgid="24689" name="16_Office_32x32" tilewidth="16" tileheight="16" tilecount="12160" columns="64">
   <image source="damen/16_Office_32x32.png" width="1024" height="3040"/>
  </tileset>
  <tileset firstgid="36849" name="Tileset_25_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Tileset_25_MV.png" width="768" height="768"/>
+  <image source="damen/Tileset_25_MV.png" width="768" height="768"/>
  </tileset>
  <tileset firstgid="39153" name="22_Museum_48x48" tilewidth="16" tileheight="16" tilecount="17568" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/22_Museum_48x48.png" width="768" height="5856"/>
+  <image source="damen/22_Museum_48x48.png" width="768" height="5856"/>
  </tileset>
  <tileset firstgid="56721" name="Tileset_20_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Tileset_20_MV.png" width="768" height="768"/>
+  <image source="damen/Tileset_20_MV.png" width="768" height="768"/>
  </tileset>
  <tileset firstgid="59025" name="Tileset_69_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
-  <image source="../../../../../anti1/NWPUgame/assets/resources/map/map/damen/Tileset_69_MV.png" width="768" height="768"/>
+  <image source="damen/Tileset_69_MV.png" width="768" height="768"/>
  </tileset>
  <layer id="1" name="road" width="121" height="103">
   <data encoding="csv">
