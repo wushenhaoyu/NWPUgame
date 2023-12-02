@@ -13,7 +13,7 @@ interface TextData  {
 };
 
 @ccclass('text')
-export class text extends Component {
+export default class text extends Component {
     // @property({type:Node})
     // select1:Node = null;
     // @property({type:Node})

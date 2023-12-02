@@ -21,6 +21,8 @@ export class BagDataControl extends Component {
     emotion: Node = null;
     @property(Node)
     public bag:Node = null;
+    @property(Node)
+    public interactionButton:Node = null;
     selected:string = ""; 
     onLoad(){
 
@@ -33,10 +35,8 @@ export class BagDataControl extends Component {
         
         bagDataManager.getItems((items) => {
             
-           
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];
-                console.log(item)
                 this.initPrefab(item);
             }
             this.updateEmotion()
@@ -94,29 +94,38 @@ export class BagDataControl extends Component {
     
     initPrefab(item:any) {
         resources.load(item.ImgUrl,SpriteFrame,(err, spriteFrame) => {
-        if (err) {
-            error(err);
-            return;
-        }
-        const gridNode = instantiate(this.gridPrefab);
-        gridNode.parent = this.bag;
-        gridNode.name = item.Name;
-        gridNode.on(Node.EventType.TOUCH_START, () => {
-            if(this.selected != item.Name) {
-                if(this.selected){
-                    this.bag.getChildByName(this.selected).children[0].active = false;
-                }
-            this.selected = item.Name;
-            this.bag.getChildByName(this.selected).children[0].active = true;
-            this.infoImg.spriteFrame = spriteFrame;
-            this.infoName.string = item.Name;
-            this.info.string = item.Info;
-            gridNode.children[0].active = true;
+            if (err) {
+                error(err);
+                return;
             }
-        },this);
-        const Img = gridNode.getChildByName('Img');
-        Img.getComponent(Sprite).spriteFrame = spriteFrame;
-        Img.getComponentInChildren(Label).string = item.Count.toString();
+            const gridNode = instantiate(this.gridPrefab);
+            gridNode.parent = this.bag;
+            gridNode.name = item.Name;
+            gridNode.on(Node.EventType.TOUCH_START, () => {
+                if(this.selected != item.Name) {
+                    if(this.selected){
+                        this.bag.getChildByName(this.selected).children[0].active = false;
+                    }
+                    this.selected = item.Name;
+                    this.bag.getChildByName(this.selected).children[0].active = true;
+                    this.infoImg.spriteFrame = spriteFrame;
+                    this.infoName.string = item.Name;
+                    this.info.string = item.Info;
+                    gridNode.children[0].active = true;
+                    if(item.canInteract)
+                    {
+                        
+                        this.interactionButton.getComponentInChildren(Label).string = item.actionText;
+                        this.interactionButton.active = true;
+                        this.interactionButton.on(Node.EventType.TOUCH_START, item.use(), this)
+
+                    }
+                }
+            },this);
+            const Img = gridNode.getChildByName('Img');
+            Img.getComponent(Sprite).spriteFrame = spriteFrame;
+            Img.getComponentInChildren(Label).string = item.Count.toString();
+            console.log(item)
         })
     }
 

@@ -5,7 +5,7 @@ import * as shiyouData from '../../../../resources/dialogue/sushe/shiyou.json';
 const plotDataManager = PlotDataManager.getInstance();
 
 @ccclass('shiyou')
-export class menwei extends Component {
+export class shiyou extends Component {
     @property({type:Node})
     public text:Node = null;
 

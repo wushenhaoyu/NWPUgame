@@ -140,7 +140,7 @@
             },
             {
                 "Name": "室友",
-                "Text": "nice to meet you, do you play 原神？",
+                "Text": "你玩原神吗",
                 "Speaker": false,
                 "Img": "NPC/OIP"
             },

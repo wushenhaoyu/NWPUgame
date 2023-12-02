@@ -3,17 +3,17 @@
         "type": "food",
         "ImgUrl": "main/UI/item2/07_bread",
         "Name": "bread",
-        "Count": 1,
         "Id": 1,
-        "Info": "This is item 1" 
+        "Info": "This is item 1",
+        "actionText": "食用"
     },
     "pizza": {
         "type": "food",
         "ImgUrl": "main/UI/item2/81_pizza",
         "Name": "pizza",
-        "Count": 1,
         "Id": 2,
-        "Info": "This is item 1" 
+        "Info": "This is item 1",
+        "actionText": "食用"
     }
    
 }

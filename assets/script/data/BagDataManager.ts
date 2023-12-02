@@ -28,7 +28,7 @@ export default class BagDataManager {
     
             const bagData = jsonAsset.json;
             for (; i < bagData.length; i++) {
-                this.setItem(bagData[i].type, bagData[i].name);
+                this.setItem(bagData[i].type, bagData[i].name, bagData[i].count);
             }   
         });
     }
@@ -61,7 +61,7 @@ export default class BagDataManager {
             return null;
         }
     } 
-    protected setItem(itemType: string, itemName: string){
+    protected setItem(itemType: string, itemName: string, itemCount: number){
         resources.load(`item/${itemType}`,JsonAsset,(err, jsonAsset) => {
             if (err) {
                 error(err);
@@ -69,12 +69,12 @@ export default class BagDataManager {
             }
        const data = jsonAsset.json
       const item = this.instantiateItem(data[itemName].type, data[itemName]);
-      item.Count = data.count;
+      item.Count = itemCount;
         
     })
  }
     public removeItemsWithZeroCount(): void {
-    this.items = this.items.filter(item => item.Count > 0);
+        this.items = this.items.filter(item => item.Count > 0);
     }
     getItems(callback?: (items: Item[]) => void): void {
         // 获取物品数据...
@@ -125,7 +125,8 @@ export default class BagDataManager {
     protected _Count: number;
     protected _Id: number;
     protected _Info: string;
-    protected _canUse: boolean; // 添加一个标志，表示物品是否可以使用
+    protected _canInteract: boolean; // 添加一个标志，表示物品是否可以使用
+    protected _actionText: string;
  
      constructor(data: any) {
          this._type = data.type|| "";
@@ -134,7 +135,8 @@ export default class BagDataManager {
          this._Count = data.Count || 1;
          this._Id = data.Id || 0;
          this._Info = data.Info || "";
-         this._canUse = true; // 默认为可以使用
+         this._canInteract = true; // 默认为可以使用
+         this._actionText = data.actionText || "";
      }
  
      // 抽象方法，需要在子类中实现
@@ -168,13 +170,17 @@ export default class BagDataManager {
          return this._Info;
      }
  
-     get canUse(): boolean {
-         return this._canUse;
+     get canInteract(): boolean {
+         return this._canInteract;
+     }
+
+     get actionText(): string {
+         return this._actionText;
      }
  
      // 使用物品
      use() {
-         if (this._canUse) {
+         if (this._canInteract) {
              
              this.specialFunction(); // 调用特殊功能
          } else {
@@ -200,7 +206,8 @@ export class Food extends Item {
             Count: this._Count,
             Id: this._Id,
             Info: this._Info,
-            canUse: this._canUse,
+            canInteract: this._canInteract,
+            actionText: this._actionText
             // 可以添加 Food 特有的属性
         };
     }

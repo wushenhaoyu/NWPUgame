@@ -9,10 +9,12 @@
     },
     "plot":[
         {
+            "id": 0,
             "type":1,
             "name":"与大爷交谈",
             "script":"menwei",
             "choice":["你好","我操"],
+            "plotjump":[0, 0],
             "dialog": [
                 {
                     "Name": "门卫大爷",

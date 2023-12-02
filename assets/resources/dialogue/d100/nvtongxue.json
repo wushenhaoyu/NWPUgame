@@ -9,10 +9,12 @@
     },
     "plot":[
         {
+            "id": 0,
             "type":1,
             "name":"初次邂逅",
             "script":"nvtongxue",
             "choice":["羞澀地加微信","殘忍拒絕"],
+            "plotjump": [0, 0],
             "dialog": [
                 {
                     "Name": "迷茫的女同学",
