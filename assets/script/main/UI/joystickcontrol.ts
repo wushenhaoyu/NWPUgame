@@ -249,8 +249,8 @@ if (angle > threshold && angle < 3 * threshold) {
     else{
         const player = find('gameWorld/gameCanvas/Map/door/1');
         const map = find('gameWorld/gameCanvas/Map/door')
-        this.map = map.getComponent(TiledMap);
-        this.player = player
+        if(map) this.map = map.getComponent(TiledMap);
+        if(player) this.player = player
     }
 }
 

@@ -33,7 +33,7 @@ export class BagDataControl extends Component {
         
         bagDataManager.getItems((items) => {
             
-            
+           
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];
                 console.log(item)
@@ -69,6 +69,7 @@ export class BagDataControl extends Component {
             case 2:
                 resources.load('main/UI/emotion/emtion_02', SpriteFrame, (err, spriteFrame) =>{
                     this.emotion.getChildByName('emoji').getComponent(Sprite).spriteFrame = spriteFrame;
+                    
                 })
                 resources.load('loading/bar/colorbar_05', SpriteFrame, (err, spriteFrame) =>{
                    const bar = this.emotion.getChildByName('background').getChildByName('emotion');
