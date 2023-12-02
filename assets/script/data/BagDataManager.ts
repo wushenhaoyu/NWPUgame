@@ -18,8 +18,7 @@ export default class BagDataManager {
     }
    
     init(callback?: () => void) {
-        console.log(this.items)
-        if(this.items){
+        if(!this.items.length){
         resources.load('save/bag', JsonAsset, (err, jsonAsset) => {
             var i =0
             if (err) {
@@ -30,15 +29,11 @@ export default class BagDataManager {
             const bagData = jsonAsset.json;
             for (; i < bagData.length; i++) {
                 this.setItem(bagData[i].type, bagData[i].name);
-            }
-            if (callback) {
-                callback();
-            }
-            
-    
-            // 在初始化完成后调用回调函数
-            
+            }   
         });
+    }
+    if (callback) {
+        callback();
     }
     }
     public save(callback?: () => void) {
@@ -180,10 +175,10 @@ export default class BagDataManager {
      // 使用物品
      use() {
          if (this._canUse) {
-             console.log(`Using ${this._Name}`);
+             
              this.specialFunction(); // 调用特殊功能
          } else {
-             console.log(`${this._Name} cannot be used.`);
+             
          }
      }
  }
@@ -211,7 +206,7 @@ export class Food extends Item {
     }
 
     specialFunction() {
-        console.log(`${this.Name} has no special function.`);
+       
     }
     
 }

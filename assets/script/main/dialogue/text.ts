@@ -1,4 +1,4 @@
-import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType } from 'cc';
+import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType, Prefab, instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 
 import PlotDataManager from '../../data/PlotDataManager';
@@ -14,10 +14,13 @@ interface TextData  {
 
 @ccclass('text')
 export class text extends Component {
-    @property({type:Node})
-    select1:Node = null;
-    @property({type:Node})
-    select2:Node = null;
+    // @property({type:Node})
+    // select1:Node = null;
+    // @property({type:Node})
+    // select2:Node = null;
+
+    @property({type:Prefab})
+    public selectChoicePrefab:Prefab = null;
     @property({type:Node})
     public select:Node= null;
     @property({type:Node})
@@ -44,6 +47,7 @@ export class text extends Component {
    tt = 0;
    firstText: TextData = null;
    npcName: String = null; //正在互动的npc
+   plotjump: Array<number> | number = null; //剧情的跳转
    @property ({type:Node})
    public startBtn:Node = null; //互动鍵
 
@@ -64,23 +68,28 @@ export class text extends Component {
    initplot() //开启特殊对话脚本
    {
     
-   
-    const map =  this.plot.getChildByName(this.map);
 
+    const map =  this.plot.getChildByName(this.map);
+    
     for (let i = 0; i < map.children.length; i++) {
         
         if (map.children[i].name == this.npcName) {
+            
             map.children[i].active = true;
+
         }
 
     }
 
    }
-   initPlotData(event,event2){  //初始化特殊对话脚本 并判断是否带选择？
+
+   initPlotData(event: Node,event2: number){  //初始化特殊对话脚本 并判断是否带选择？
     this.control = 0;
     this.plotScriptNode = event;
     const i = event2; 
+    
     resources.load('dialogue/'+this.map+'/'+this.plotScriptNode.name,JsonAsset,(err, jsonAsset) => {
+
         if (err) {
             error(err);
             return;
@@ -89,18 +98,32 @@ export class text extends Component {
         this.firstText = this.textData[0];
         this.setTextData(this.firstText)
         this.textIndex = 0
+        this.plotjump = jsonAsset.json.plot[i].plotjump;
         this.dialogue.active = true;
         this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
         this.choiceBoxes.active = false;
         if( jsonAsset.json.plot[i].type){
-        this.select1.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[0];
-        this.select2.getComponentInChildren(Label).string = jsonAsset.json.plot[i].choice[1];
-        this.control = 1;
+
+            this.initplotchoice(jsonAsset.json.plot[i].choice)
+            this.control = 1;
         }
         // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
     })
 
    }
+
+    initplotchoice(choices: Array<string>){
+
+        for(let i = 0; i < choices.length; i++){
+
+            const choiceNode = instantiate(this.selectChoicePrefab)
+            this.select.getChildByName("selections").addChild(choiceNode)
+            let choiceName = choiceNode.getComponentInChildren(Label)
+            choiceName.string = choices[i]
+
+        }
+
+    }
 
 
    initstart(event) //初始话npc对话功能
@@ -209,16 +232,23 @@ export class text extends Component {
    closeDialog(){
     if(this.control){   
         //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
-        console.log("弹出选项")
+        
         this.select.active = true;
-        this.select1.on(NodeEventType.TOUCH_START, this.selection1, this)
-        this.select2.on(NodeEventType.TOUCH_START, this.selection2, this)
+
+        const choices = this.select.getChildByName("selections").children
+
+        
+        for(let i = 0;i<choices.length;i++){
+            
+            choices[i].on(NodeEventType.TOUCH_START,() => this.selection(this.plotjump[i]),this)
+
+        }
     }
     else{
         
         if(this.plotScriptNode != null)
         {
-            this.plotScriptNode.emit("select2")
+            this.plotScriptNode.emit("select2", this.plotjump)
         }
         
        this.dialogue.active = false
@@ -230,15 +260,16 @@ export class text extends Component {
     }
 
    }
-   selection1(){
+   selection(index: number){
     this.select.active = false;
     this.control=0;
-    this.plotScriptNode.emit("select1",1)
-   }
-   selection2(){
-    this.select.active = false;
-    this.control=0;
-    this.plotScriptNode.emit("select1",2)
+    this.plotScriptNode.emit(`select1`,index)
+    const choices = this.select.getChildByName("selections").children
+    choices.map((choice: Node, index: number) => {
+
+        choice.destroy()  //重置選項
+
+    })
    }
 
    update(deltaTime: number) {

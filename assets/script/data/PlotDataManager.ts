@@ -17,24 +17,46 @@ export default class PlotDataManager {
             }
 
         }
+
+        sushe:{
+
+            shiyou:{
+
+                plot: number,
+                dialogue:number,
+
+            }
+
+        },
     }
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.plotdata = {
-        dongmen: {
-            menwei: {
-                plot: 0, // 初始值
-                dialogue: 0, // 初始值
+            dongmen: {
+                menwei: {
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
             },
-        },
-        d100:{
+            d100:{
 
-            nvtongxue:{
-                plot:0,
-                dialogue:0
-            }
+                nvtongxue:{
+                    plot:0,
+                    dialogue:0
+                }
 
-        }
+            },
+
+            sushe:{
+
+                shiyou:{
+
+                    plot: 0,
+                    dialogue:0,
+
+                }
+
+            },
         }
     }
 

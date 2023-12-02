@@ -1,0 +1,161 @@
+{
+    "name":"室友",
+    "uuid":2,
+    "start":{
+        "Name": "室友",
+        "Text": "嗨",
+        "Speaker": false,
+        "Img": "NPC/OIP"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type":1,
+            "name":"询问",
+            "script":"shiyou",
+            "choice":["学生手册……","饮用水……","网络……"],
+            "plotjump": [1, 4, 5],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "你想知道些什么？",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+        },
+
+        {
+
+            "id": 1,
+            "type":1,
+            "name":"学生手册……",
+            "script":"shiyou",
+            "choice":["已领取","未领取"],
+            "plotjump": [2, 3],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "你领取学生手册了？",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+
+        },
+
+        {
+
+            "id": 2,
+            "type":0,
+            "name":"已领取",
+            "script":"shiyou",
+            "plotjump": 0,
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "学生手册上有一些注意事项，你可以看一下",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+
+        },
+
+        {
+
+            "id": 3,
+            "type":0,
+            "name":"未领取",
+            "script":"shiyou",
+            "plotjump": 0,
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "你可以到报道中心地带找迎新学长（姐）领取",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+
+        },
+
+        {
+
+            "id": 4,
+            "type":0,
+            "name":"饮用水……",
+            "script":"shiyou",
+            "plotjump": 0,
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "刚才又学长（姐）来推销过引用水，明天早上似乎还会过来",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+
+        },
+
+        {
+
+            "id": 5,
+            "type":0,
+            "name":"网络……",
+            "script":"shiyou",
+            "plotjump": 0,
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "如果未办理任何网络套餐，完成每项任务都需要消耗一定量的钱",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+
+        }
+
+
+    ],
+    "dialog":[
+        [
+            {
+                "Name": "室友",
+                "Text": "我叫陈小明",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "hi, my name is 单大狗",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "室友",
+                "Text": "nice to meet you, do you play 原神？",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "Yes",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "室友",
+                "Text": "Hell yeah！",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            }
+        ]
+]
+}

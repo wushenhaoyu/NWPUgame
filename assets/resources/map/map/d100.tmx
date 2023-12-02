@@ -387,11 +387,6 @@
     <property name="name" value="jiaoxid100"/>
    </properties>
   </object>
-  <object id="84" x="3257.33" y="37.3333" width="6.66667" height="10.6667">
-   <properties>
-    <property name="name" value="jiaoxid"/>
-   </properties>
-  </object>
   <object id="87" x="14" y="890" width="30" height="426">
    <properties>
     <property name="map" value="tushuguan"/>
@@ -533,16 +528,9 @@
     <property name="name" value="feiji"/>
    </properties>
   </object>
-  <object id="100" x="3498" y="752" width="4" height="550">
+  <object id="84" x="3257.33" y="37.3333" width="6.66667" height="10.6667">
    <properties>
-    <property name="map" value="feiji"/>
-    <property name="name" value="d100"/>
-   </properties>
-  </object>
-  <object id="101" x="3498" y="752" width="4" height="550">
-   <properties>
-    <property name="map" value="feiji"/>
-    <property name="name" value="d100"/>
+    <property name="name" value="jiaoxid"/>
    </properties>
   </object>
  </objectgroup>

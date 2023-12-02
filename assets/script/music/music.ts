@@ -26,8 +26,6 @@ export class music extends Component {
 
         audio.volume = audio.volume == 0 ? 1 : 0
 
-        console.log("yoyo")
-
     }
 
     update(deltaTime: number) {

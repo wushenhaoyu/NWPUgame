@@ -37,7 +37,7 @@ export class map extends Component {
       // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
-    console.log(this.name1,this.map1)
+    
         
        
 
@@ -111,7 +111,6 @@ export class map extends Component {
             collider.group = 4;
             
         }
-        console.log(this.TPPointData)
     }
     settensor()
     {
@@ -182,6 +181,7 @@ setNPC()
                 // 可以设置节点的位置等属性
                 // 添加到场景
                 let object = NPC[i];
+                // console.log(this.map)
                 this.map.node.addChild(node);
                 node.name = NPC[i].name;
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
@@ -194,13 +194,13 @@ setNPC()
 
 onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次
-    console.log(selfCollider.name,selfCollider.node.name)
+    
     for(var i =0 ; i < this.TPPointData.length ; i++)
     {
         if(this.TPPointData[i].name == selfCollider.node.name&&this.TPPointData[i].map == selfCollider.name )
         {
             
-            console.log(i)
+            
             let p = PhysicsSystem2D.instance
             p.enable = false;
             this.switchMap(this.TPPointData[i].map,this.TPPointData[i].name)
