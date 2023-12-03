@@ -8,25 +8,17 @@ export default class PlotDataManager {
                 dialogue:number
             }
         }
-
         d100:{
-
             nvtongxue:{
                 plot:number
                 dialogue:number
             }
-
         }
-
         sushe:{
-
             shiyou:{
-
                 plot: number,
                 dialogue:number,
-
             }
-
         },
     }
     private constructor() {
@@ -39,21 +31,16 @@ export default class PlotDataManager {
                 },
             },
             d100:{
-
                 nvtongxue:{
                     plot:0,
                     dialogue:0
                 }
 
             },
-
             sushe:{
-
                 shiyou:{
-
                     plot: 0,
                     dialogue:0,
-
                 }
 
             },
