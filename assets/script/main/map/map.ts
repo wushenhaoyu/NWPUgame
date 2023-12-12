@@ -1,6 +1,7 @@
 import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager';
+import npc from '../res/npc';
 const gameDataManager = GameDataManager.getInstance();
 interface NPC{
     name:string,
@@ -59,7 +60,7 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-            p.debugDrawFlags = 1;
+          //  p.debugDrawFlags = 1;
             
             
             this.initmap()
@@ -160,8 +161,30 @@ for (const birthpoint of birthpoints) {
 
 
 }
-
 setNPC()
+{
+    const NPCList = this.map.getObjectGroup('NPC');
+    if(NPCList)
+    {
+        const NPC = NPCList.getObjects();
+        for (let i = 0; i < NPC.length; i++) {
+        resources.load("NPC/npc"+NPC[i].model+"/npc"+NPC[i].model, Prefab, (err, prefab) => {
+            if (err) {
+                error(err.message);
+                return;
+            }
+            let node = new npc();
+            node.initnpc(prefab);
+            let object = NPC[i];
+            this.map.node.addChild(node);
+            node.name = NPC[i].name;
+            let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
+            node.setPosition(object.offset.x, y);
+        })
+    }
+    }
+}
+/*setNPC()
 {
     const NPCList = this.map.getObjectGroup('NPC');
     if(NPCList)
@@ -190,7 +213,7 @@ setNPC()
         }
     }
 }
-
+*/
 
 onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次

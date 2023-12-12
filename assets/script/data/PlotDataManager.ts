@@ -35,14 +35,12 @@ export default class PlotDataManager {
                     plot:0,
                     dialogue:0
                 }
-
             },
             sushe:{
                 shiyou:{
                     plot: 0,
                     dialogue:0,
                 }
-
             },
         }
     }

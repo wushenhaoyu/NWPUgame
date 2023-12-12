@@ -33,7 +33,9 @@ export class Joystick extends Component {
     npc = null;
     npcPosition :Vec3[] = []
     lv:Vec2 = new Vec2();
+    animationComponent:AnimationComponent = null;
     onLoad() {
+        this.animationComponent = this.player.getComponent(AnimationComponent);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
@@ -182,10 +184,14 @@ if (angle > threshold && angle < 3 * threshold) {
       }
 
       setState(an){
-        let animationComponent = this.player.getComponent(AnimationComponent);
+
              if(this.an == an ) return;
+             if(an == "")
+             {
+                this.animationComponent.pause();
+             }
              this.an = an;
-            animationComponent.play(this.an);
+            this.animationComponent.play(this.an);
              
         }
     
@@ -240,10 +246,10 @@ if (angle > threshold && angle < 3 * threshold) {
         this.player.getComponent(RigidBody2D).linearVelocity = this.lv
     }
 
-        if(an)
-        {
+        
             this.setState(an)
-        }
+        
+        
 
     }
     else{
@@ -251,6 +257,7 @@ if (angle > threshold && angle < 3 * threshold) {
         const map = find('gameWorld/gameCanvas/Map/door')
         if(map) this.map = map.getComponent(TiledMap);
         if(player) this.player = player
+        this.animationComponent = this.player.getComponent(AnimationComponent);
     }
 }
 
