@@ -98,6 +98,12 @@ export class phoneview extends Component {
 
     }
 
+    dealWithApp(customEventData: number)
+    {
+
+        console.log(customEventData);
+    }
+
 }
 
 

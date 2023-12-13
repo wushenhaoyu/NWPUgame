@@ -40,7 +40,7 @@ export class map extends Component {
       // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
-   this.text =  find('UI/UICanvas/dialogue');
+   this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
         
        
 
@@ -62,7 +62,7 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-          //  p.debugDrawFlags = 1;
+            p.debugDrawFlags = 1;
             
             
             this.initmap()
@@ -106,12 +106,12 @@ export class map extends Component {
         node.setPosition(object.offset.x, y);
             let body = node.addComponent(RigidBody2D);
             body.type = ERigidBody2DType.Static;
-            body.group = 4;
+            body.group = 8;
             let collider = node.addComponent(BoxCollider2D);
             // 设置碰撞组件的大小和偏移量
             collider.size = size(object.width, object.height);
             collider.offset = v2(object.width / 2, object.height / 2);
-            collider.group = 4;
+            collider.group = 8;
             
         }
     }
@@ -186,11 +186,14 @@ setNPC()
                 let object = NPC[i];
                 // console.log(this.map)
                 this.map.node.addChild(node);
-                node.addComponent(npc1);
+                if(object.move == 1)
+                {node.addComponent(npc1);}
+                console.log(node)
                 node.name = NPC[i].name;
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
                 node.setPosition(object.offset.x, y);
                 this.npclist.push(node);
+                this.map.node.insertChild(node, 2);
             });
         }
     }
