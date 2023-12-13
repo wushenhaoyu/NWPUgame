@@ -30,13 +30,18 @@
       {
         "index": 3,
         "name": "NPC"
+      },
+      {
+        "index": 4,
+        "name": "npcSnesor"
       }
     ],
     "collisionMatrix": {
       "0": 1,
       "1": 268,
-      "2": 2,
+      "2": 18,
       "3": 2,
+      "4": 4,
       "8": 2
     }
   }

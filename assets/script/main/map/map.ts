@@ -1,7 +1,7 @@
 import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager';
-import npc from '../res/npc';
+import npc1 from '../res/npc1';
 const gameDataManager = GameDataManager.getInstance();
 interface NPC{
     name:string,
@@ -25,7 +25,9 @@ export class map extends Component {
     public player:Node = null;
     StartPointData:StartPoint[] = [];
     TPPointData:TPPoint[] = [];
-    public NPC:NPC[] = []
+    public NPC:NPC[] = []//存储tiled中npc信息
+    public npclist:Node[] = []; //存储实例化的npc节点
+    public text:Node = null;
     map1:string = ""
     name1:string = ""
     onLoad(){
@@ -38,7 +40,7 @@ export class map extends Component {
       // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
-    
+   this.text =  find('UI/UICanvas/dialogue');
         
        
 
@@ -161,30 +163,8 @@ for (const birthpoint of birthpoints) {
 
 
 }
+
 setNPC()
-{
-    const NPCList = this.map.getObjectGroup('NPC');
-    if(NPCList)
-    {
-        const NPC = NPCList.getObjects();
-        for (let i = 0; i < NPC.length; i++) {
-        resources.load("NPC/npc"+NPC[i].model+"/npc"+NPC[i].model, Prefab, (err, prefab) => {
-            if (err) {
-                error(err.message);
-                return;
-            }
-            let node = new npc();
-            node.initnpc(prefab);
-            let object = NPC[i];
-            this.map.node.addChild(node);
-            node.name = NPC[i].name;
-            let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
-            node.setPosition(object.offset.x, y);
-        })
-    }
-    }
-}
-/*setNPC()
 {
     const NPCList = this.map.getObjectGroup('NPC');
     if(NPCList)
@@ -206,14 +186,15 @@ setNPC()
                 let object = NPC[i];
                 // console.log(this.map)
                 this.map.node.addChild(node);
+                node.addComponent(npc1);
                 node.name = NPC[i].name;
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
                 node.setPosition(object.offset.x, y);
+                this.npclist.push(node);
             });
         }
     }
-}
-*/
+} 
 
 onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次

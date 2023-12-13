@@ -3,7 +3,7 @@ const { ccclass, property } = _decorator;
 
 
 
-@ccclass('npc1')
+@ccclass
 export default class npc1 extends Component{
     // 在这里可以添加你自己的属性和方法
     detectionDistance: number = 50;

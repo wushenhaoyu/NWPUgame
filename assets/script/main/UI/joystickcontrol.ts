@@ -34,6 +34,7 @@ export class Joystick extends Component {
     npcPosition :Vec3[] = []
     lv:Vec2 = new Vec2();
     animationComponent:AnimationComponent = null;
+    speed:RigidBody2D = null;
     onLoad() {
         this.animationComponent = this.player.getComponent(AnimationComponent);
         // 监听触摸事件
@@ -243,7 +244,7 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.angle = 4;
                 break;
         }
-        this.player.getComponent(RigidBody2D).linearVelocity = this.lv
+        this.speed.linearVelocity = this.lv
     }
 
         
@@ -258,6 +259,7 @@ if (angle > threshold && angle < 3 * threshold) {
         if(map) this.map = map.getComponent(TiledMap);
         if(player) this.player = player
         this.animationComponent = this.player.getComponent(AnimationComponent);
+        this.speed = this.player.getComponent(RigidBody2D);
     }
 }
 
