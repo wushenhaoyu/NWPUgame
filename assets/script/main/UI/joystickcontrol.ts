@@ -37,6 +37,7 @@ export class Joystick extends Component {
     speed:RigidBody2D = null;
     onLoad() {
         this.animationComponent = this.player.getComponent(AnimationComponent);
+        this.speed = this.player.getComponent(RigidBody2D);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;

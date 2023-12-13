@@ -17,9 +17,14 @@ export default class npc1 extends Component{
     }
 
     init() {
+        this.node.on('talk',this.talk,this)
        this.speed = this.node.getComponent(RigidBody2D);
        this.speed.linearVelocity = v2(100,0);
        this.speed.enabledContactListener = true;
+    }
+    talk()
+    {
+        
     }
 
     turn()
