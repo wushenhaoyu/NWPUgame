@@ -260,13 +260,9 @@ export default class text extends Component {
        this.choiceBoxes.active = false
        this.textIndex = 0;
        this.plotScriptNode = null;
+       this.npcWalkAgain()
         
     }
-
-    console.log("text:", this.mapNode.getComponent('map').npclist[0].name)  
-
-    const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this.npcName)
-    npcNode.getComponent('npc1').restart()
 
    }
    selection(index: number){
@@ -279,6 +275,21 @@ export default class text extends Component {
         choice.destroy()  //重置選項
 
     })
+
+   }
+
+   npcWalkAgain(){
+
+        const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this.npcName)
+        
+        if(npcNode.getComponent('npc1'))
+        {
+
+            console.log(npcNode.getComponent('npc1'))
+            npcNode.getComponent('npc1').restart()
+
+        }
+
    }
 
    update(deltaTime: number) {
