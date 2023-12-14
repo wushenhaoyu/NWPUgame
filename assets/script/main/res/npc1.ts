@@ -30,7 +30,7 @@ export default class npc1 extends Component{
     }
     talk(e2)
     {
-        console.log(2)
+        console.log(e2)
         this.speed.linearVelocity = v2(0,0);
         switch(e2)
         {
@@ -47,7 +47,10 @@ export default class npc1 extends Component{
                 this.animation.play("down")
                 break;
         }
-        this.animation.pause()
+         // 推迟修改到下一帧
+        this.scheduleOnce(() => {
+            this.animation.pause()
+        }, 0);
     }
     restart()
     {

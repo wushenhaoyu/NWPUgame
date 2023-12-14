@@ -85,7 +85,7 @@ export class Joystick extends Component {
             return deltaX > 0 ? 0 : 2; // 0：右，2：左
         } else {
             // 垂直方向
-            return deltaY > 0 ? 3 : 1; // 3：下，1：上
+            return deltaY > 0 ? 1 : 3; // 3：下，1：上
         }
     }
     
