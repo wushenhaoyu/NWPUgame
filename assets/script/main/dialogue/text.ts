@@ -38,6 +38,8 @@ export default class text extends Component {
    public plotScriptNode:Node = null;
    @property ({type:Label})
    public Text:Label = null;
+   @property ({type:Node})
+   public mapNode = null;
    public control:number = 0; //0为普通对话，1为剧情
    textData:  TextData[] = [] //装对话的数组
    textIndex = -1; //索引
@@ -243,6 +245,8 @@ export default class text extends Component {
             choices[i].on(NodeEventType.TOUCH_START,() => this.selection(this.plotjump[i]),this)
 
         }
+
+
     }
     else{
         
@@ -258,6 +262,11 @@ export default class text extends Component {
        this.plotScriptNode = null;
         
     }
+
+    console.log("text:", this.mapNode.getComponent('map').npclist[0].name)  
+
+    const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this.npcName)
+    npcNode.getComponent('npc1').restart()
 
    }
    selection(index: number){
