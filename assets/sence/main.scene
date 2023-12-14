@@ -4041,9 +4041,7 @@
     "button": {
       "__id__": 125
     },
-    "map": {
-      "__id__": 36
-    },
+    "Map": null,
     "_id": "fb//4lRUZISoPXrKzajAlB"
   },
   {

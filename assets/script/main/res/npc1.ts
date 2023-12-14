@@ -54,7 +54,7 @@ export default class npc1 extends Component{
     }
     restart()
     {
-
+        this.turn()
     }
 
     turn() {

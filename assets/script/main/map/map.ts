@@ -2,6 +2,7 @@ import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsS
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager';
 import npc1 from '../res/npc1';
+import npc2 from '../res/npc2';
 const gameDataManager = GameDataManager.getInstance();
 interface NPC{
     name:string,
@@ -64,7 +65,7 @@ export default class map extends Component {
             let p = PhysicsSystem2D.instance
             p.enable = true;
           //  p.debugDrawFlags = 1;
-          
+
             
             
             this.initmap()
@@ -191,6 +192,8 @@ setNPC()
                 this.map.node.addChild(node);
                 if(object.move == 1)
                 {node.addComponent(npc1);}
+                else
+                {node.addComponent(npc2);}
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
                 node.setPosition(object.offset.x, y);
                 this.npclist.push(node);
@@ -217,12 +220,18 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
 }
 talk(e1,e2)
 {
-const script = this.npclist[e1].getComponent(npc1)
+let script = this.npclist[e1].getComponent(npc1)
 console.log(e1,script)
     if(script)
     {
         script.talk(e2)
+        return
     }
+    else{
+        this.npclist[e1].getComponent(npc2).talk(e2)
+    }
+
+    
 }
 
 

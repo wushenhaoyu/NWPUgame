@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ScrollView, Vec2 } from 'cc';
+import { _decorator, Component, Node, ScrollView, Vec2 ,tween ,v3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('phoneview')
@@ -100,8 +100,11 @@ export class phoneview extends Component {
 
     dealWithApp(e,c)
     {
-
-        console.log(c);
+        console.log(c)
+        tween(this.node)
+        .to(1, { position: v3(0,this.node.position.y) }) // 这里假设你希望节点在 y 轴上保持原来的位置
+        .start();
+        
     }
 
 }
