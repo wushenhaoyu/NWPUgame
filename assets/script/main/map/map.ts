@@ -18,7 +18,7 @@ interface TPPoint {//传送点
     map:string
 };
 @ccclass('map')
-export class map extends Component {
+export default class map extends Component {
     @property({type:TiledMap})
     public map:TiledMap = null;
     @property({type:Node})
@@ -41,6 +41,7 @@ export class map extends Component {
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
    this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
+   this.node.on('talk',this.talk,this);
         
        
 
@@ -62,7 +63,8 @@ export class map extends Component {
             this.map.tmxAsset = tiledMapAsset
             let p = PhysicsSystem2D.instance
             p.enable = true;
-            p.debugDrawFlags = 1;
+          //  p.debugDrawFlags = 1;
+          
             
             
             this.initmap()
@@ -185,11 +187,10 @@ setNPC()
                 // 添加到场景
                 let object = NPC[i];
                 // console.log(this.map)
+                node.name = object.dialogue;
                 this.map.node.addChild(node);
                 if(object.move == 1)
                 {node.addComponent(npc1);}
-                console.log(node)
-                node.name = NPC[i].name;
                 let y = this.map.getMapSize().height * this.map.getTileSize().height - object.offset.y - object.height;
                 node.setPosition(object.offset.x, y);
                 this.npclist.push(node);
@@ -214,6 +215,15 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
         }
     }
 }
+talk(e1,e2)
+{
+const script = this.npclist[e1].getComponent(npc1)
+console.log(e1,script)
+    if(script)
+    {
+        script.talk(e2)
+    }
+}
 
 
     
@@ -223,6 +233,7 @@ switchMap(map:string,name:string)//切换地图
 director.loadScene('loading',() => {
 })
 }
+
 
     update(deltaTime: number) {
         

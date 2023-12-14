@@ -1,4 +1,4 @@
-import { _decorator,PhysicsGroup, Component, Node, Prefab,instantiate,RigidBody2D,v2, BoxCollider2D, Contact2DType, ERigidBody2DType, size } from 'cc';
+import { _decorator,PhysicsGroup, Component, Node, Prefab,instantiate,RigidBody2D,v2, BoxCollider2D, Contact2DType, ERigidBody2DType, size, AnimationComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 
@@ -11,15 +11,15 @@ export default class npc1 extends Component{
     private isColliding: boolean = false;
     roation:number = 2;
     box:BoxCollider2D = null;
-
+    animation:AnimationComponent = null;
     constructor() {
         super();
     }
 
     start() {
         this.node.on('talk', this.talk, this);
-
         // 获取 RigidBody2D 组件并确保存在
+        this.animation = this.node.getComponent(AnimationComponent);
         this.speed = this.node.getComponent(RigidBody2D);
         if (!this.speed) {
             console.error('RigidBody2D component is missing or not yet initialized.');
@@ -27,16 +27,35 @@ export default class npc1 extends Component{
         }
         // 尝试调用 newCollision 方法
         this.initCollision();
-        console.log(PhysicsGroup);
-        console.log(this.node)
     }
-    talk()
+    talk(e2)
+    {
+        console.log(2)
+        this.speed.linearVelocity = v2(0,0);
+        switch(e2)
+        {
+            case 0:
+                this.animation.play("right")
+                break;
+            case 1:
+                this.animation.play("up")
+                break;
+            case 2:
+                this.animation.play("left")
+                break;
+            case 3:
+                this.animation.play("down")
+                break;
+        }
+        this.animation.pause()
+    }
+    restart()
     {
 
     }
 
     turn() {
-        console.log(this.speed, this.speed.enabledContactListener);
+        
         this.updateRoation();
     
         // 推迟修改到下一帧
@@ -60,21 +79,25 @@ export default class npc1 extends Component{
         switch(this.roation)
         {
             case 0:
-                console.log("向左")
+              
                 this.speed.linearVelocity = v2(2,0);
                 this.box.offset = v2(this.getRandomInt(10,50),0);
+                this.animation.play("right")
                 break;
             case 1:
                 this.speed.linearVelocity = v2(0,2);
                 this.box.offset = v2(0,this.getRandomInt(10,50));
+                this.animation.play("up")
                 break;
             case 2:
                 this.speed.linearVelocity = v2(-2,0);
                 this.box.offset = v2(-this.getRandomInt(10,50),0);
+                this.animation.play("left")
                 break;
             case 3:
                 this.speed.linearVelocity = v2(0,-2);
                 this.box.offset = v2(0,-this.getRandomInt(10,50));
+                this.animation.play("down")
                 break;
         }
         this.box.apply();

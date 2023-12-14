@@ -2,6 +2,7 @@ import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, director, EventT
 const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
+import map  from '../map/map';
 @ccclass
 export class Joystick extends Component {
     @property({type:Node})
@@ -19,7 +20,8 @@ export class Joystick extends Component {
     @property({type:Node})
     button:Node = null;
     @property({type:TiledMap})
-    map:TiledMap = null;
+    Map:TiledMap = null;
+    MapScript:map = null;
     p = PhysicsSystem2D.instance
     private touchLocation: Vec2 = new Vec2();
     playerPosition:Vec3 = new Vec3();
@@ -38,6 +40,8 @@ export class Joystick extends Component {
     onLoad() {
         this.animationComponent = this.player.getComponent(AnimationComponent);
         this.speed = this.player.getComponent(RigidBody2D);
+        this.MapScript = this.player.getParent().getParent().getComponent(map);
+        console.log(this.MapScript);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
@@ -53,61 +57,38 @@ export class Joystick extends Component {
     }
     hudong() //检测是否附件有npc互动
     {
-        const npc = this.map.getObjectGroup('NPC').getObjects()
-       
-        if(!this.npcPosition.length)
-        {
-
+        const npc = this.MapScript.npclist
             for(var i =0; i< npc.length; i++)
             {
-                this.npcPosition.push(v3(npc[i].x,npc[i].y,0) ) 
-            }
-
-        }
-
-
-        const position = this.player.position
-
-        for(var i =0; i< this.npcPosition.length; i++)
-        {
-            if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
+                const position = this.player.position
+                console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
+                if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
             {
-                this.dialogue.emit('npc', npc[i].dialogue);
-        
+                this.dialogue.emit('npc', npc[i].name);
+                this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
+                return;
             }
-        }
-     /*   var x= 0;
-        var y = 0;
-        if(this.angle == 1 )
-        {
-            y = 400;
-        }
-        else if(this.angle == 2)
-        {
-            y = -400;
-        }
-        if(this.angle == 3 )
-        {
-            x = -400;
-        }
-        else if(this.angle == 4)
-        {
-            x = -400;
-        }
-        console.log(this.player)
-       const position = this.player.getPosition()
-       console.log(position)
-      let res =  this.p.raycast(position,v3(position.x + x, position.y +y,0),ERaycast2DType.All)
-        if(res)
-        {
-            console.log(res)
-            this.node.emit('dialogue');
-            if(res[0].collider.group == 8){
-                console.log("检测到npc")
-                this.node.emit('npc',res[0].collider.node );
             }
-        }*/
     }
+    calculateDirection(playerPosition, npcPosition) {
+        // 计算玩家相对于 NPC 的方向
+        const deltaX = playerPosition.x - npcPosition.x;
+        const deltaY = playerPosition.y - npcPosition.y;
+    
+        // 比较差值的绝对值
+        const absDeltaX = Math.abs(deltaX);
+        const absDeltaY = Math.abs(deltaY);
+    
+        // 根据差值的绝对值判断方向
+        if (absDeltaX > absDeltaY) {
+            // 水平方向
+            return deltaX > 0 ? 0 : 2; // 0：右，2：左
+        } else {
+            // 垂直方向
+            return deltaY > 0 ? 3 : 1; // 3：下，1：上
+        }
+    }
+    
     getPlayerAgain(event)
     {
         
@@ -256,11 +237,12 @@ if (angle > threshold && angle < 3 * threshold) {
     }
     else{
         const player = find('gameWorld/gameCanvas/Map/door/1');
-        const map = find('gameWorld/gameCanvas/Map/door')
-        if(map) this.map = map.getComponent(TiledMap);
+        const Map = find('gameWorld/gameCanvas/Map/door')
+        if(Map) this.Map = Map.getComponent(TiledMap);
         if(player) this.player = player
         this.animationComponent = this.player.getComponent(AnimationComponent);
         this.speed = this.player.getComponent(RigidBody2D);
+        this.MapScript = this.player.getParent().getParent().getComponent(map);
     }
 }
 
