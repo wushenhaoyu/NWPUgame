@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ScrollView, Vec2 ,tween ,v3 } from 'cc';
+import { _decorator, Component, Node, ScrollView, Vec2 ,tween ,v3 ,Widget, UITransform, UIOpacity } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('phoneview')
@@ -6,7 +6,8 @@ export class phoneview extends Component {
 
     @property({type: Node})
     public page: Node = null;
-
+    @property({type:Node})
+    public phone: Node = null;
     private scrollingSpeed: number = 0;
     private scrollView: ScrollView = null;
     private maxScrollOffset: number = 0;
@@ -15,11 +16,13 @@ export class phoneview extends Component {
 
     private currentPage: number = 1;
     private maxPage: number = 2;
-
+    private leftOffset: number = 0;
+    @property({type: Node})
+    public window1: Node = null;
+   
 
 
     start() {
-
         this.scrollView = this.node.getComponent(ScrollView);
         this.maxScrollOffset = this.scrollView.getMaxScrollOffset().x
         this.node.on(Node.EventType.TOUCH_END, this.scrollEnded, this);
@@ -97,16 +100,47 @@ export class phoneview extends Component {
         }
 
     }
+    back(){
+        this.phone.active = false;
+    }
+    index(){
+        tween(this.window1.getComponent(UIOpacity))
+            .to(0.4,{'opacity':0},
+            {
+                onComplete: () =>{
+                    this.window1.active = false;
+                   const widget =this.node.getParent().getComponent(Widget);
+                   tween(widget)
+                   .to(0.6, { left: this.leftOffset},{
+                    onComplete: () =>{
+                        widget.isAlignHorizontalCenter = true;
+                    }
+                   })
+                   .start();
+                }
+            }).start();
+    }
 
     dealWithApp(e,c)
     {
-        console.log(c)
-        tween(this.node)
-        .to(1, { position: v3(0,this.node.position.y) }) // 这里假设你希望节点在 y 轴上保持原来的位置
-        .start();
-        
-    }
+        const node =this.node.getParent();
 
+// 获取节点上的 Widget 组件
+const widget = node.getComponent(Widget);
+widget.isAlignHorizontalCenter = false;
+widget.isAlignLeft = true;
+if(!this.leftOffset)
+    {this.leftOffset = widget.left;}
+    tween(widget)
+        .to(0.6, { left: 0 },{onComplete: () => {
+            this.window1.active = true;
+            this.window1.getComponent(Widget).left = this.node.parent.getComponent(UITransform).width ;
+            tween(this.window1.getComponent(UIOpacity))
+                .to(0.4,{opacity: 255})
+                .start()
+        }}) 
+        .start();
+}
 }
 
 

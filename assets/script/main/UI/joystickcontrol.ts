@@ -115,7 +115,6 @@ export class Joystick extends Component {
             this.handle.setPosition(newDirection.x,newDirection.y);
            this.getJoystickDirection()
         }
-     
         // 更新摇杆的朝向和速度，可以根据需要自定义逻辑
         // 这里可以根据操纵点的位置计算角色移动的方向和速度
         // 例如，根据操控点的位置计算角色移动的方向和速度
