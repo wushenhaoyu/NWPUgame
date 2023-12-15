@@ -1,0 +1,84 @@
+{
+    "ball_pen": {
+         "ImgUrl": "main/UI/item1/ball_pen",
+         "Name": "圆珠笔",
+         "Id": 1,
+         "Info": "上课的学生咋能煤油笔，是吧"
+     },
+
+    "basket_metab": {
+        "ImgUrl": "main/UI/item1/basket_metax",
+        "Name": "购物篮",
+        "Id": 2,
+        "Info": "买的太多就用我吧"
+    },
+    "batteries": {
+        "ImgUrl": "main/UI/item1/batteries",
+        "Name": "电池",
+        "Id": 3,
+        "Info": "日常用品"
+    },
+    "cleaning_brush": {
+        "ImgUrl": "main/UI/item1/cleaning_brush",
+        "Name": "清洁刷",
+        "Id": 4,
+        "Info": "可以用来清洗宿舍的东西"
+    },
+    "cleaning_gloves": {
+        "ImgUrl": "main/UI/item1/cleaning_gloves",
+        "Name": "清洁手套",
+        "Id": 5,
+        "Info": "脏活累活交给我吧！"
+    },
+    "credit_card": {
+        "ImgUrl": "main/UI/item1/credit_card_1",
+        "Name": "信用卡",
+        "Id": 6,
+        "Info": "尽情刷我吧"
+    },
+    "dry_dog_food": {
+        "ImgUrl": "main/UI/item1/dry_dog_food",
+        "Name": "狗粮",
+        "Id": 7,
+        "Info": "请给校园里的小狗狗们一点关心"
+    },
+
+    "receipt": {
+        "ImgUrl": "main/UI/item1/receipt",
+        "Name": "收据",
+        "Id": 8,
+        "Info": "别忘了拿着我"
+    },
+   
+    "scissors": {
+        "ImgUrl": "main/UI/item1/scissors",
+        "Name": "剪刀",
+        "Id": 9,
+        "Info": "日常用品"
+    },
+    "toilet_paper": {
+        "ImgUrl": "main/UI/item1/toilet_paper",
+        "Name": "厕纸",
+        "Id": 10,
+        "Info": "简简单单的厕纸"
+    },
+    "toothbrush": {
+        "ImgUrl": "main/UI/item1/toothbrush",
+        "Name": "牙刷",
+        "Id": 11,
+        "Info": "日常用品"
+    },
+    "toothpaste": {
+        "ImgUrl": "main/UI/item1/toothpaste",
+        "Name": "牙膏",
+        "Id": 12,
+        "Info": "日常用品"
+    },
+    "toothbrush_set": {
+        "ImgUrl": "main/UI/item1/toothbrush_set",
+        "Name": "大包牙刷",
+        "Id": 13,
+        "Info": "日常用品"
+    }
+
+ }
