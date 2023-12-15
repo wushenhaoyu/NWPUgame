@@ -6,7 +6,7 @@ import shopItem from '../res/shopItem'
 @ccclass('shopDataControl')
 export class shopDataControl extends Component {
     public json = null;
-    public Factory:ItemFactory = null;
+    public Factory:ItemFactory = null; 
     @property ({type:Prefab})
    public ItemStyle:Prefab = null;
    @property({type:Node})
@@ -47,7 +47,10 @@ export class shopDataControl extends Component {
 
         })
     }
-    
+    back()
+    {
+        this.node.active = false;
+    }
 
     update(deltaTime: number) {
         
