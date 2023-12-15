@@ -89,7 +89,7 @@ export default class BagDataManager {
     
 }
 
- class ItemFactory {
+export class ItemFactory {
     private static instance: ItemFactory;
     private itemClassMap: { [key: string]: typeof Item } = {};
 
@@ -119,14 +119,15 @@ export default class BagDataManager {
   
 
  export abstract class Item {
-    protected _type: string;
-    protected _ImgUrl: string;
-    protected _Name: string;
-    protected _Count: number;
-    protected _Id: number;
-    protected _Info: string;
+    protected _type: string; //物品类型
+    protected _ImgUrl: string; //图片地址
+    protected _Name: string; //名称
+    protected _Count: number; //数量
+    protected _Id: number; //ID
+    protected _Info: string; //信息
     protected _canInteract: boolean; // 添加一个标志，表示物品是否可以使用
     protected _actionText: string;
+    protected _value:number; //价值
  
      constructor(data: any) {
          this._type = data.type|| "";
@@ -137,12 +138,20 @@ export default class BagDataManager {
          this._Info = data.Info || "";
          this._canInteract = true; // 默认为可以使用
          this._actionText = data.actionText || "";
+         this._value = data.value || 0;
      }
  
      // 抽象方法，需要在子类中实现
      abstract specialFunction(): void;
      abstract toJSON(): any;
      // 使用 getter 方法获取属性值
+     get Type():String{
+        return this._type;
+     }
+     get Value(): number {
+        return this._value;
+    }
+    
      get ImgUrl(): string {
          return this._ImgUrl;
      }

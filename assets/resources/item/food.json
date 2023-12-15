@@ -3,6 +3,7 @@
         "type": "food",
         "ImgUrl": "main/UI/item2/07_bread",
         "Name": "bread",
+        "value": 5,
         "Id": 1,
         "Info": "This is item 1",
         "actionText": "食用"
@@ -11,6 +12,7 @@
         "type": "food",
         "ImgUrl": "main/UI/item2/81_pizza",
         "Name": "pizza",
+        "value": 16,
         "Id": 2,
         "Info": "This is item 1",
         "actionText": "食用"

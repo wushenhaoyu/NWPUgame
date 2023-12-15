@@ -125,7 +125,6 @@ export class BagDataControl extends Component {
             const Img = gridNode.getChildByName('Img');
             Img.getComponent(Sprite).spriteFrame = spriteFrame;
             Img.getComponentInChildren(Label).string = item.Count.toString();
-            console.log(item)
         })
     }
 
