@@ -1,23 +1,32 @@
-import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType, Prefab, instantiate } from 'cc';
+import { _decorator, Component, JsonAsset, Label, Node, resources, Sprite,error,SpriteFrame,find,input, Button, NodeEventType, Prefab, instantiate, TextureCube } from 'cc';
 const { ccclass, property } = _decorator;
 
 import PlotDataManager from '../../data/PlotDataManager';
 const plotDataManager = PlotDataManager.getInstance();
 import GameDataManager from '../../data/GameDataManager';
 const gameDataManager = GameDataManager.getInstance();
-interface TextData  {
-   Name: "",
-   Text: "",
-   Speaker: true,//是否为自己说
-   Img:""
-};
+import { Npc } from '../NPC/npc'
+
+interface TextData {
+
+    Name: string,
+    Text: string,
+    Speaker: boolean, //是否為自己說
+    Img: string,
+
+}
+
+interface SendData{
+
+    type: number,
+    name: string,
+    choice: string[],
+    dialog: TextData[],
+
+}
 
 @ccclass('text')
 export default class text extends Component {
-    // @property({type:Node})
-    // select1:Node = null;
-    // @property({type:Node})
-    // select2:Node = null;
 
     @property({type:Prefab})
     public selectChoicePrefab:Prefab = null;
@@ -35,83 +44,43 @@ export default class text extends Component {
    public selfImg:Sprite = null;
    @property ({type:Label})
    public Name:Label = null;
-   public plotScriptNode:Node = null;
    @property ({type:Label})
    public Text:Label = null;
    @property ({type:Node})
    public mapNode = null;
    public control:number = 0; //0为普通对话，1为剧情
-   textData:  TextData[] = [] //装对话的数组
-   textIndex = -1; //索引
    textEnd = true; //是否到头
    nowText = ""; //即将播放的文字
    map:string = ""
    tt = 0;
    firstText: TextData = null;
-   npcName: String = null; //正在互动的npc
+   npcName: string = null; //正在互动的npc
    plotjump: Array<number> | number = null; //剧情的跳转
    @property ({type:Node})
    public startBtn:Node = null; //互动鍵
-
+   
    @property ({type:Node})
    public choiceBoxes: Node = null; //互动選項
-
-
+   
+    private textIndex = -1; //索引
+    private textData:  TextData[] = [] //装对话的数组
+    private npcNode: Node = null;
+    private npcComponent: Npc = null;
+    private isPlotNpc: boolean = null;
+    private choices: Array<string> = [];
 
 
    start() {
-       this.node.on("plot",this.initPlotData,this)  //监听特殊对话脚本回调
-       this.node.on('npc',this.initstart,this)  
-       this.map = gameDataManager.getMap();
-       this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, this.initDialogueData, this) //普通对话回调
-       this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, this.initplot, this)  //特殊对话回调
-       this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)  //关闭对话框回调
-   }
-   initplot() //开启特殊对话脚本
-   {
-    
 
-    const map =  this.plot.getChildByName(this.map);
-    
-    for (let i = 0; i < map.children.length; i++) {
-        
-        if (map.children[i].name == this.npcName) {
-            
-            map.children[i].active = true;
+        this.node.on('npc',this.initstart,this)  
 
-        }
+        this.node.on("conversation", this.startConversation, this)
 
-    }
-
-   }
-
-   initPlotData(event: Node,event2: number){  //初始化特殊对话脚本 并判断是否带选择？
-    this.control = 0;
-    this.plotScriptNode = event;
-    const i = event2; 
-    
-    resources.load('dialogue/'+this.map+'/'+this.plotScriptNode.name,JsonAsset,(err, jsonAsset) => {
-
-        if (err) {
-            error(err);
-            return;
-        }
-        this.textData = jsonAsset.json.plot[i].dialog;
-        this.firstText = this.textData[0];
-        this.setTextData(this.firstText)
-        this.textIndex = 0
-        this.plotjump = jsonAsset.json.plot[i].plotjump;
-        this.dialogue.active = true;
+        this.map = gameDataManager.getMap();
+        this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox normal dialogue'), this) //普通对话回调
+        this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox plot dialogue'), this)  //特殊对话回调
+        this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)  //关闭对话框回调
         this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
-        this.choiceBoxes.active = false;
-        if( jsonAsset.json.plot[i].type){
-
-            this.initplotchoice(jsonAsset.json.plot[i].choice)
-            this.control = 1;
-        }
-        // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
-    })
-
    }
 
     initplotchoice(choices: Array<string>){
@@ -128,76 +97,56 @@ export default class text extends Component {
     }
 
 
-   initstart(event) //初始话npc对话功能
+   initstart(event: string) //初始话npc对话功能 event = npcName
    {
+
+       this.npcNode = find(`UI/plot/${event}`)
+
+        this.npcComponent = this.npcNode.getComponent(event) as Npc
+
         this.map = gameDataManager.getMap();
         
-       this.dialogue.active = true;
+        this.dialogue.active = true;
 
-       this.unpersistUI.active = false;
-       
-       this.choiceBoxes.active = true;
-
-       this.npcName = event;
-   
-       resources.load(`dialogue/${this.map}/${this.npcName}`,JsonAsset,(err, jsonAsset) => {
-        if (err) {
-            error(err);
-            return;
-        }
-        this.firstText = jsonAsset.json.start ;
+        this.unpersistUI.active = false;
         
-        this.choiceBoxes.getChildByName("choicebox2").getComponentInChildren(Label).string = jsonAsset.json.plot[0].name ;
-        this.setTextData(this.firstText)
-        // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
-    })
+        
+        this.npcName = event;
+        
+        this.firstText = this.npcComponent.firstText;
+        
+        this.setTextData(this.firstText);
+        
+        this.isPlotNpc = this.npcComponent.isPlotNpc;
 
-   }
+        this.nowText = this.firstText.Text;
 
-   initDialogueData(event = null)
-   {
-
-       
-       this.control = 0;
-       resources.load(`dialogue/${this.map}/${this.npcName}`,JsonAsset,(err, jsonAsset) => {
-           if (err) {
-               error(err);
-               return;
-           }
-           this.textData = jsonAsset.json.dialog[0] ;
-
-
-           this.firstText = this.textData[0];
-           
-           this.setTextData(this.firstText)
-           // 现在，jsonData 包含了从JSON文件中读取的数据，可以在游戏中使用它
-       })
-       this.textIndex = 0
-       this.dialogue.active = true;
-       this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
-       this.choiceBoxes.active = false;
    }
    
    nextTextData()
    {
 
-          
+        
 
-           if(this.textEnd)  //檢查對話是否完結
-           {
+       if(this.textEnd)  //檢查對話是否完結
+       {
                
-               if(++this.textIndex < this.textData.length)  //檢查是否為最後一句
-               {
-                   
-                   this.setTextData(this.textData[this.textIndex])
+            if(!this.choiceBoxes.active){
 
-               }
-               else
-               {
-                   
-                   this.closeDialog()
-               
-               }
+                if(++this.textIndex < this.textData.length)  //檢查是否為最後一句
+                {
+                    
+                    this.setTextData(this.textData[this.textIndex])
+ 
+                }
+                else
+                {
+                    
+                    this.closeDialog()
+                
+                }
+                
+            }
            }
            else
            {
@@ -224,11 +173,6 @@ export default class text extends Component {
            this.otherImg.spriteFrame = texture
        }
       })
-
-       // if(this.Text.string.length < this.nowText.length)
-       // {
-       //     this.Text.string = this.nowText
-       // }
      
    }    
    closeDialog(){
@@ -242,33 +186,34 @@ export default class text extends Component {
         
         for(let i = 0;i<choices.length;i++){
             
-            choices[i].on(NodeEventType.TOUCH_START,() => this.selection(this.plotjump[i]),this)
+            choices[i].on(NodeEventType.TOUCH_START,() => this.selection(i),this)
 
         }
-
 
     }
     else{
         
-        if(this.plotScriptNode != null)
+        if(this.npcNode != null)
         {
-            this.plotScriptNode.emit("select2", this.plotjump)
+            this.npcNode.emit("select2")
         }
         
        this.dialogue.active = false
        this.unpersistUI.active = true
        this.choiceBoxes.active = false
        this.textIndex = 0;
-       this.plotScriptNode = null;
+       this.npcNode = null;
        this.npcWalkAgain()
+       this.textIndex = -1
         
     }
+
 
    }
    selection(index: number){
     this.select.active = false;
     this.control=0;
-    this.plotScriptNode.emit(`select1`,index)
+    this.npcNode.emit(`select1`,index)
     const choices = this.select.getChildByName("selections").children
     choices.map((choice: Node, index: number) => {
 
@@ -306,8 +251,60 @@ export default class text extends Component {
            else{
                this.textEnd = true;
                this.nowText = null;
+                console.log("yoyoyoyo", this.textIndex, this.npcNode)
+               if(this.textIndex == -1 && this.npcNode != null)
+               {
+
+                    console.log("asdf")
+
+                    this.choiceBoxes.active = true;
+                    this.choiceBoxes.getChildByName("choicebox1").active = true; //if isPlotData open all, else dont open plot
+                    this.choiceBoxes.getChildByName("choicebox3").active = true;
+
+                    if(this.isPlotNpc)
+                    {
+
+                        this.choiceBoxes.getChildByName("choicebox2").active = true;
+                        this.choiceBoxes.getChildByName("choicebox2").getComponentInChildren(Label).string = this.npcComponent.plotText[0].name ;
+
+                    }
+
+               }
            }
            this.tt = 0;
        }
    }
+
+   startConversation(sendedTextData: SendData)
+   {
+
+        this.control = sendedTextData.type
+        this.textIndex = 0
+        this.textData = sendedTextData.dialog
+
+        this.setTextData(this.textData[this.textIndex])
+        this.choices = sendedTextData.choice;
+        this.dialogue.active = true;
+        this.choiceBoxes.active = false;
+
+        this.initplotchoice(this.choices)
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

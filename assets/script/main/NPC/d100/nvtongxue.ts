@@ -1,57 +1,33 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 import PlotDataManager from '../../../data/PlotDataManager';
+import { Npc } from '../npc';
 const plotDataManager = PlotDataManager.getInstance();
 
 @ccclass('nvtongxue')
-export class nvtongxue extends Component {
-    @property({type:Node})
-    public text:Node = null;
-
-    @property({type:Node})
-    public mapNode:Node = null;
-
-    private npcName: String = "nvtongxue";
+export class nvtongxue extends Npc {
 
     start() {
-        this.node.on("select1",this.init1,this)//接受带选择的
-        this.node.on("select2",this.init2,this)//不带选择的
+
+        this._npcName = 'nvtongxue';
+        super.start();
+
+    }
+
+    selectionHandler(event: number){
+
+        if(this.plotJump[event] != -1)
+        {
+
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
+
+            this.plotfunc()
+
+        }
+
     }
     
-    protected onEnable(): void {
-        this.text.emit("plot", this.node,plotDataManager.plotdata.d100.nvtongxue.plot); 
-        
-    }
-    init1(event){
-        if(event == 1)
-        {
-            this.closeplot();
-        }
-    }
-    init2(){
-        //总体逻辑判断
-    }
-    closeplot() {
-        this.node.active = false;
-        this.npcWalkAgain()
-    }
 
-    update(deltaTime: number) {
-        
-    }
-
-    npcWalkAgain(){
-
-        const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this.npcName)
-        if(npcNode.getComponent('npc1'))
-        {
-
-            console.log(npcNode.getComponent('npc1'))
-            npcNode.getComponent('npc1').restart()
-
-        }
-
-   }
 }
 
 

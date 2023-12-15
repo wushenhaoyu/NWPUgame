@@ -1,6 +1,8 @@
 {
     "name":"室友",
-    "uuid":2,
+    "uuid":3,
+    "isPlotNpc": false,
+    "mapName": "sushe",
     "start":{
         "Name": "室友",
         "Text": "嗨",

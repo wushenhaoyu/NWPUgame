@@ -1,6 +1,8 @@
 {
     "name":"销售员",
     "uuid":4,
+    "isPlotNpc": true,
+    "mapName": "dachao",
     "start":{
         "Name": "销售员",
         "Text": "您好，需要什么吗",
@@ -13,7 +15,7 @@
             "type":0,
             "name":"购物",
             "script":"xiaoshouyuan",
-            "plotjump": [],
+            "plotjump": [0],
             "dialog": []
         }
 
