@@ -20,6 +20,16 @@ export default class PlotDataManager {
                 dialogue:number,
             }
         },
+        dachao:{
+
+            xiaoshouyuan:{
+
+                plot: number,
+                dialogue:number,
+
+            }
+
+        }
     }
     private constructor() {
         // 私有构造函数，防止外部直接实例化
@@ -42,6 +52,16 @@ export default class PlotDataManager {
                     dialogue:0,
                 }
             },
+            dachao:{
+
+                xiaoshouyuan:{
+
+                    plot: 0,
+                    dialogue: 0,
+
+                }
+
+            }
         }
     }
 

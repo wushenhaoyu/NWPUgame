@@ -1,0 +1,57 @@
+{
+    "name":"销售员",
+    "uuid":4,
+    "start":{
+        "Name": "销售员",
+        "Text": "您好，需要什么吗",
+        "Speaker": false,
+        "Img": "NPC/OIP"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type":0,
+            "name":"购物",
+            "script":"xiaoshouyuan",
+            "plotjump": [],
+            "dialog": []
+        }
+
+        
+
+    ],
+    "dialog":[
+        [
+            {
+                "Name": "销售员",
+                "Text": "Hi there! You can buy lots of things here",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "Oh really?",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "销售员",
+                "Text": "Yeah! The prizes here are make sense. We won't scam you, obviously...",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "That's great!",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "销售员",
+                "Text": "Enjoy your day!",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            }
+        ]
+]
+}

@@ -35,7 +35,6 @@ export class phoneview extends Component {
             this.scrollingSpeed = (this.scrollView.getScrollOffset().x - this.previousX) / deltaTime;
             this.previousX = this.scrollView.getScrollOffset().x;
 
-            console.log('x:', -this.previousX, 'limit:', 195);
         }
         //195
     }
@@ -82,13 +81,11 @@ export class phoneview extends Component {
             case 1:
                 
                 this.scrollView.scrollTo(this.scrollView.getMaxScrollOffset(), 0.1);
-                console.log("scroll to 1")
                 break;
 
             case 2:
                 
                 this.scrollView.scrollTo(new Vec2(0, 1), 0.1);
-                console.log("scroll to 2")
                 break;
 
             // case 2:

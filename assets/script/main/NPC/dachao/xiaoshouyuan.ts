@@ -3,15 +3,15 @@ const { ccclass, property } = _decorator;
 import PlotDataManager from '../../../data/PlotDataManager';
 const plotDataManager = PlotDataManager.getInstance();
 
-@ccclass('nvtongxue')
-export class nvtongxue extends Component {
+@ccclass('xiaoshouyuan')
+export class xiaoshouyuan extends Component {
     @property({type:Node})
     public text:Node = null;
 
     @property({type:Node})
     public mapNode:Node = null;
 
-    private npcName: String = "nvtongxue";
+    private npcName: String = "xiaoshouyuan";
 
     start() {
         this.node.on("select1",this.init1,this)//接受带选择的
@@ -19,7 +19,7 @@ export class nvtongxue extends Component {
     }
     
     protected onEnable(): void {
-        this.text.emit("plot", this.node,plotDataManager.plotdata.d100.nvtongxue.plot); 
+        this.text.emit("plot", this.node,plotDataManager.plotdata.dachao.xiaoshouyuan.plot); 
         
     }
     init1(event){
