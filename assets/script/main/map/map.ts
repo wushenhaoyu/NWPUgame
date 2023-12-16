@@ -1,4 +1,4 @@
-import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find} from 'cc';
+import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find, Camera} from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager';
 import npc1 from '../res/npc1';
@@ -20,6 +20,8 @@ interface TPPoint {//传送点
 };
 @ccclass('map')
 export default class map extends Component {
+    @property({type:Node})
+    public camera:Node = null;
     @property({type:TiledMap})
     public map:TiledMap = null;
     @property({type:Node})
@@ -67,7 +69,7 @@ export default class map extends Component {
           //  p.debugDrawFlags = 1;
 
             
-            
+            this.camera.emit('map')
             this.initmap()
         })
     }
