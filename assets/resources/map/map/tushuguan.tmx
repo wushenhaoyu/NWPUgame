@@ -1950,12 +1950,12 @@
   </object>
  </objectgroup>
  <objectgroup id="16" name="start">
-  <object id="3" x="1526.67" y="124">
+  <object id="3" x="1393.34" y="122.667">
    <properties>
     <property name="name" value="tushuguan"/>
    </properties>
   </object>
-  <object id="4" x="797.333" y="2620">
+  <object id="4" x="797.333" y="2477.33">
    <properties>
     <property name="name" value="tushuguan1"/>
    </properties>
