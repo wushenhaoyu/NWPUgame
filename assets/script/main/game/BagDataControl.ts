@@ -33,7 +33,8 @@ export class BagDataControl extends Component {
     start() {
         // 获取背包物品数据
         this.initdata();
-        this.node.on('bag',this.updateBag,this);
+        // this.node.on('bag',this.updateBag,this);
+        bagDataManager.bagUI = this.node.getComponent(BagDataControl)
 
     }
     initdata() {

@@ -16,6 +16,7 @@ export default class PlayerDataManager {
     private energyMax:number = 30
     private emotion:emotion = emotion.surprise
     private grade:number = 0
+    public coinNode:Component = null;
     private constructor() {
         // 私有构造函数，防止外部直接实例化
    
@@ -106,6 +107,8 @@ export default class PlayerDataManager {
     }
     loseMoney(money:number){
         this.money -= money
+        console.log(this.coinNode)
+        this.coinNode.updatePlayerData()
     }
     setinfo(name:string, gender:number)
     {

@@ -1,4 +1,5 @@
-import { _decorator,resources,error,JsonAsset,native,sys } from 'cc';
+import { _decorator,resources,error,JsonAsset,native,sys,Node, Component } from 'cc';
+import { BagDataControl } from '../main/game/BagDataControl';
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -9,6 +10,7 @@ export default class BagDataManager {
         // 私有构造函数，防止外部直接实例化
         
     }
+    public bagUI: BagDataControl = null;
 
  
     public static getInstance(): BagDataManager {
@@ -107,6 +109,8 @@ export default class BagDataManager {
         if (callback) {
             callback();
         }
+
+        this.bagUI.updateBag()
 
 
     }

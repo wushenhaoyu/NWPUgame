@@ -93,11 +93,7 @@ export class shopDataControl extends Component {
 
             playerDataManager.loseMoney(item.Value);
 
-            let bagData: Item[] = [];
-
-            bagDataManager.addItem(item.Type, item.Name, itemNumber,()=>{
-            this.BagUI.emit('bag')
-            })
+            bagDataManager.addItem(item.Type, item.Name, itemNumber)
             
 
 

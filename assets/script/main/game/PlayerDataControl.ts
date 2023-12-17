@@ -12,6 +12,7 @@ export class PlayerDataControl extends Component {
     public energyBar:ProgressBar = null;
     start() {
         this.updatePlayerData();
+        playerDataManager.coinNode = this.node.getComponent(PlayerDataControl);
     }
     updatePlayerData() {
         this.money.string = playerDataManager.getMoney().toString();

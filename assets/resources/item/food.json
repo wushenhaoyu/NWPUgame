@@ -6,7 +6,8 @@
         "label":"面包",
         "Id": 1,
         "Info": "日常充饥",
-        "actionText": "食用"
+        "actionText": "食用",
+        "value": 100
     },
     "pizza": {
         "type": "food",
@@ -15,7 +16,8 @@
         "label":"披萨",
         "Id": 2,
         "Info": "意大利馅饼",
-        "actionText": "食用"
+        "actionText": "食用",
+        "value": 200
     },
     "apple_pie": {
         "type": "food",
