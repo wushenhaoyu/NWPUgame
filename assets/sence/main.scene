@@ -29697,7 +29697,7 @@
     "_string": "芝士雪豹狐狸示例",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 15,
+    "_actualFontSize": 19.96875,
     "_fontSize": 15,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -29930,7 +29930,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 26.625,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -30191,7 +30191,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 79.9849618544601,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -30224,7 +30224,7 @@
     "_string": "物品名称",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 26.625,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -30300,7 +30300,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
+      "width": 39.99248092723005,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -30333,7 +30333,7 @@
     "_string": "价格",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 26.625,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -30409,7 +30409,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 79.9849618544601,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -30442,7 +30442,7 @@
     "_string": "购买数量",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 26.625,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -31039,6 +31039,9 @@
     },
     "layout": {
       "__id__": 846
+    },
+    "BagUI": {
+      "__id__": 355
     },
     "_id": "e81XAyRKdDz7N2FjmdBcsh"
   },
@@ -33977,6 +33980,9 @@
     },
     "mapNode": {
       "__id__": 4
+    },
+    "shopUI": {
+      "__id__": 766
     },
     "_id": "adkUEWPQpAlJOhCZlGCsbb"
   },

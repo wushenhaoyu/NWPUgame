@@ -2,7 +2,8 @@
    "bread": {
         "type": "food",
         "ImgUrl": "main/UI/item2/07_bread",
-        "Name": "面包",
+        "Name": "bread",
+        "label":"面包",
         "Id": 1,
         "Info": "日常充饥",
         "actionText": "食用"
@@ -10,7 +11,8 @@
     "pizza": {
         "type": "food",
         "ImgUrl": "main/UI/item2/81_pizza",
-        "Name": "披萨",
+        "Name": "pizza",
+        "label":"披萨",
         "Id": 2,
         "Info": "意大利馅饼",
         "actionText": "食用"

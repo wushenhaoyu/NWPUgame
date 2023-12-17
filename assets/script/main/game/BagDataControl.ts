@@ -1,7 +1,7 @@
 import { _decorator, Component, Node,Label ,Prefab,instantiate,Sprite,director,resources,error, SpriteFrame, ProgressBar} from 'cc';
 const { ccclass, property } = _decorator;
 import BagDataManager  from '../../data/BagDataManager';
-import Item from '../../data/BagDataManager'; 
+import { Item } from '../../data/BagDataManager'; 
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const bagDataManager = BagDataManager.getInstance();
 const playerDataManager = PlayerDataManager.getInstance();
@@ -24,16 +24,23 @@ export class BagDataControl extends Component {
     @property(Node)
     public interactionButton:Node = null;
     selected:string = ""; 
+
+    protected currentItems: Item[] = null
+
     onLoad(){
 
     }
     start() {
         // 获取背包物品数据
         this.initdata();
+        this.node.on('bag',this.updateBag,this);
+
     }
     initdata() {
         
         bagDataManager.getItems((items) => {
+
+            this.currentItems = items
             
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];
@@ -129,7 +136,25 @@ export class BagDataControl extends Component {
     }
 
     update(deltaTime: number) {
-        
+
+    }
+
+    updateBag()
+    {
+
+        bagDataManager.getItems((items) => {
+
+            this.currentItems = items
+            this.bag.destroyAllChildren();
+            console.log(items, this.currentItems)
+            
+            for (var i = 0; i < items.length; i++) {
+                const item = items[i];
+                this.initPrefab(item);
+            }
+
+        });
+
     }
 }
 

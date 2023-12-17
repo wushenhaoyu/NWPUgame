@@ -1,4 +1,4 @@
-import { _decorator, Component, Node ,Label, Sprite , error ,resources,JsonAsset, SpriteFrame} from 'cc';
+import { _decorator, Component, Node ,Label, Sprite , error ,resources,JsonAsset, SpriteFrame, find, Button} from 'cc';
 const { ccclass, property } = _decorator;
 import {Item} from '../../data/BagDataManager';
 
@@ -14,6 +14,9 @@ export default class shopItem extends Component {
     public costLabel:Label = null;
     @property({type:Sprite})
     public Img:Sprite = null;
+
+    public shopDataControl: Node = null;
+
     start() {
 
     }
@@ -22,16 +25,18 @@ export default class shopItem extends Component {
         this.item = item;
         this.nameLabel.string = this.item.Name;
         this.costLabel.string = String(this.item.Value);
+        this.shopDataControl = find('UI/UICanvas/UI/window/shop')
         resources.load(this.item.ImgUrl,SpriteFrame,(err, res) => {
             if (err) {
                 error(err);
                 return;
             }
             this.Img.spriteFrame = res;
-        }
-            
-            )
+        })
+
+
     }
+
     add(){
         this.itemNumber +=1;
         if(this.itemNumber > 99)
@@ -48,11 +53,17 @@ export default class shopItem extends Component {
             this.itemNumber =1;
         }
         this.itemNumberLabel.getComponent(Label).string = String(this.itemNumber);
+        console.log("wtf")
     }
     updateNumber(){
         this.itemNumber =  Number(this.itemNumberLabel.getComponent(Label).string);
     }
     
+    buy(){
+
+        this.shopDataControl.emit('buy', this.item, this.itemNumber)
+
+    }
 
 
     update(deltaTime: number) {

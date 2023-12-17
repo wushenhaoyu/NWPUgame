@@ -9,6 +9,7 @@ export default class BagDataManager {
         // 私有构造函数，防止外部直接实例化
         
     }
+
  
     public static getInstance(): BagDataManager {
         if (!BagDataManager.instance) {
@@ -32,6 +33,7 @@ export default class BagDataManager {
             }   
         });
     }
+
     if (callback) {
         callback();
     }
@@ -55,24 +57,60 @@ export default class BagDataManager {
         if (itemClass) {
             const itemInstance = new itemClass(itemData);
             this.items.push(itemInstance);// 假设将实例化的物品添加到 BagDataManager 管理的物品数组中
+            console.log(this.items)
             return itemInstance;
         } else {
             console.error(`Unsupported item type: ${itemType}`);
             return null;
         }
     } 
-    protected setItem(itemType: string, itemName: string, itemCount: number){
-        resources.load(`item/${itemType}`,JsonAsset,(err, jsonAsset) => {
+
+    protected setItem(itemType: string, itemNameOrID: string | number, itemCount: number) {
+        resources.load(`item/${itemType}`, JsonAsset, (err, jsonAsset) => {
             if (err) {
                 error(err);
                 return;
             }
-       const data = jsonAsset.json
-      const item = this.instantiateItem(data[itemName].type, data[itemName]);
-      item.Count = itemCount;
-        
-    })
- }
+            const data = jsonAsset.json;
+
+            let item;
+            if (typeof itemNameOrID === 'string') {
+                // Handle string case (itemName)
+                item = this.instantiateItem(data[itemNameOrID].type, data[itemNameOrID]);
+            } else {
+                // Handle number case (itemID)
+                item = this.instantiateItem(data[itemNameOrID - 1].type, data[itemNameOrID - 1]);
+            }
+    
+            item.Count = itemCount;
+        });
+    }
+    
+
+    public addItem(itemType: string, itemName: string, itemCount: number,callback?: () => void): void {
+
+        const aimItem = this.items.find((item) => item.Name === itemName);
+        if(typeof aimItem !== 'undefined')
+        {
+
+            aimItem.Count += itemCount;
+
+            console.log(this.items)
+
+        }
+        else
+        {
+
+            this.setItem(itemType, itemName, itemCount);
+
+        }
+        if (callback) {
+            callback();
+        }
+
+
+    }
+
     public removeItemsWithZeroCount(): void {
         this.items = this.items.filter(item => item.Count > 0);
     }
@@ -145,7 +183,7 @@ export class ItemFactory {
      abstract specialFunction(): void;
      abstract toJSON(): any;
      // 使用 getter 方法获取属性值
-     get Type():String{
+     get Type():string{
         return this._type;
      }
      get Value(): number {

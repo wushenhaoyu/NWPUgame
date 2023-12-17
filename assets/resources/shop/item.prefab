@@ -28,17 +28,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 101
+        "__id__": 102
       },
       {
-        "__id__": 103
+        "__id__": 104
       },
       {
-        "__id__": 105
+        "__id__": 106
       }
     ],
     "_prefab": {
-      "__id__": 107
+      "__id__": 108
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -445,17 +445,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 94
+        "__id__": 95
       },
       {
-        "__id__": 96
+        "__id__": 97
       },
       {
-        "__id__": 98
+        "__id__": 99
       }
     ],
     "_prefab": {
-      "__id__": 100
+      "__id__": 101
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -592,7 +592,7 @@
     "_string": "小可爱",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 21,
+    "_actualFontSize": 27,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -767,7 +767,7 @@
     "_string": "50",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26,
+    "_actualFontSize": 34,
     "_fontSize": 25,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1005,7 +1005,7 @@
     "_string": "1",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 25,
+    "_actualFontSize": 33.28125,
     "_fontSize": 25,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1833,11 +1833,11 @@
         "__id__": 89
       },
       {
-        "__id__": 91
+        "__id__": 92
       }
     ],
     "_prefab": {
-      "__id__": 93
+      "__id__": 94
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1932,7 +1932,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
+      "width": 49.99812023180751,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -1971,7 +1971,7 @@
     "_string": "购买",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 25,
+    "_actualFontSize": 33.28125,
     "_fontSize": 25,
     "_fontFamily": "Arial",
     "_lineHeight": 25,
@@ -2089,7 +2089,11 @@
     "__prefab": {
       "__id__": 90
     },
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 91
+      }
+    ],
     "_interactable": true,
     "_transition": 3,
     "_normalColor": {
@@ -2139,6 +2143,16 @@
     "fileId": "01pljAw/lGXb5Yc/zKCxu8"
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "acd948p9Z1N4YNPFQsRMsoO",
+    "handler": "buy",
+    "customEventData": ""
+  },
+  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -2148,7 +2162,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 92
+      "__id__": 93
     },
     "_alignFlags": 42,
     "_target": null,
@@ -2197,7 +2211,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 95
+      "__id__": 96
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -2225,7 +2239,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 97
+      "__id__": 98
     },
     "_customMaterial": null,
     "_srcBlendFactor": 2,
@@ -2270,7 +2284,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 99
+      "__id__": 100
     },
     "_alignFlags": 42,
     "_target": null,
@@ -2319,7 +2333,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 102
+      "__id__": 103
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -2347,7 +2361,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 104
+      "__id__": 105
     },
     "_alignFlags": 40,
     "_target": null,
@@ -2383,7 +2397,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 106
+      "__id__": 107
     },
     "itemNumberLabel": {
       "__id__": 36

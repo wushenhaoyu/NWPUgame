@@ -76,6 +76,8 @@ export default class text extends Component {
 
         this.node.on("conversation", this.startConversation, this)
 
+        this.node.on("force close conversation", this.closeDialog, this)
+
         this.map = gameDataManager.getMap();
         this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox normal dialogue'), this) //普通对话回调
         this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox plot dialogue'), this)  //特殊对话回调
@@ -114,6 +116,8 @@ export default class text extends Component {
         this.npcName = event;
         
         this.firstText = this.npcComponent.firstText;
+
+        console.log("this firstText", this.npcComponent)
         
         this.setTextData(this.firstText);
         

@@ -88,20 +88,6 @@ export class Npc extends Component {
 
         
     }
-    
-    // protected onEnable(): void {
-
-    //     if(this.isPlotNpc)
-    //     {
-
-    //         this.text.emit("plot", this.node,plotDataManager.plotdata[this._mapName][this._npcName].plot); 
-
-    //         return
-    //     }
-
-    //     // this.text.emit("npc", this.node,this._npcData.npc);
-        
-    // }
 
     plotfunc(){ //from choicebox
 
