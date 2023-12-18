@@ -108,11 +108,7 @@ export class phoneview extends Component {
                     this.window1.active = false;
                    const widget =this.node.getParent().getComponent(Widget);
                    tween(widget)
-                   .to(0.6, { left: this.leftOffset},{
-                    onComplete: () =>{
-                        widget.isAlignHorizontalCenter = true;
-                    }
-                   })
+                   .to(0.6, { horizontalCenter:0})
                    .start();
                 }
             }).start();
@@ -124,14 +120,9 @@ export class phoneview extends Component {
 
 // 获取节点上的 Widget 组件
 const widget = node.getComponent(Widget);
-widget.isAlignHorizontalCenter = false;
-widget.isAlignLeft = true;
-if(!this.leftOffset)
-    {this.leftOffset = widget.left;}
     tween(widget)
-        .to(0.6, { left: 0 },{onComplete: () => {
+        .to(0.6, { horizontalCenter:-400 },{onComplete: () => {
             this.window1.active = true;
-            this.window1.getComponent(Widget).left = this.node.parent.getComponent(UITransform).width ;
             tween(this.window1.getComponent(UIOpacity))
                 .to(0.4,{opacity: 255})
                 .start()
