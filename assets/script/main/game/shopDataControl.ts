@@ -86,12 +86,12 @@ export class shopDataControl extends Component {
 
         const money = playerDataManager.getMoney();
 
-        const canaAffort = money >= item.Value;
+        const canaAffort = money >= item.Value * itemNumber;
 
         if(canaAffort)
         {
 
-            playerDataManager.loseMoney(item.Value);
+            playerDataManager.loseMoney(item.Value * itemNumber);
 
             bagDataManager.addItem(item.Type, item.Name, itemNumber)
             
