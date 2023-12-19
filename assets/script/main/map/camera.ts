@@ -1,4 +1,4 @@
-import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform } from 'cc';
+import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('camera')
@@ -15,6 +15,7 @@ export class camera extends Component {
     playerPosition:Vec3 = v3(0,0,0)
     playerWidth:number = 0;
     playerHeight:number = 0;
+    rigid:RigidBody2D = null;
 
     private camera: Camera = null;
 
@@ -23,6 +24,7 @@ export class camera extends Component {
     }
     init()
     {
+        this.rigid = this.player.getComponent(RigidBody2D)
         this.playerHeight = this.player.getComponent(UITransform).height;
         this.playerWidth = this.player.getComponent(UITransform).width;
         this.camera = this.getComponent(Camera);
@@ -39,7 +41,8 @@ export class camera extends Component {
     }
 
     checkCameraBoundaries() {
-        this.playerPosition = this.player.getPosition();
+        
+       
         console.log(this.playerPosition.x,this.mapWidth)
         if (this.playerPosition.x - this.cameraWidth <= 0) {
             // 摄像机到达左边缘，限制其移动
@@ -62,5 +65,6 @@ export class camera extends Component {
       //  tween(this.camera.node)
         //    .to(1,{position:this.cameraPosition})
         this.node.setPosition(this.cameraPosition)
+        this.playerPosition = this.player.getPosition();
     }
 }

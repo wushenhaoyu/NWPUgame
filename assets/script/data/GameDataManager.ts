@@ -8,8 +8,8 @@ export default class GameDataManager {
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
-        this.map = "dachao"
-        this.start = "dachao"
+        this.map = "d100"
+        this.start = "d100"
     }
  
     public static getInstance(): GameDataManager {
