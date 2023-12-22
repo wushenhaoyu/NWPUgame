@@ -1,4 +1,4 @@
-import { _decorator, Component, error, JsonAsset, Node, resources } from 'cc';
+import { _decorator, Component, error, find, JsonAsset, Node, resources, UITransform } from 'cc';
 const { ccclass, property } = _decorator;
 import PlotDataManager from '../../data/PlotDataManager';
 const plotDataManager = PlotDataManager.getInstance();
@@ -158,8 +158,11 @@ export class Npc extends Component {
     }
 
     npcWalkAgain(){
-
-        const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this._npcName)
+        if(!this.mapNode.name)
+        {
+            this.mapNode =  find('/gameWorld/gameCanvas/Map');
+        }
+        const npcNode = this.mapNode.components[1].npclist.find((npc: Node) => npc.name == this._npcName)
         if(npcNode.getComponent('npc1'))
         {
 

@@ -228,8 +228,12 @@ export default class text extends Component {
    }
 
    npcWalkAgain(){
-
-        const npcNode = this.mapNode.getComponent('map').npclist.find((npc: Node) => npc.name == this.npcName)
+    if(!this.mapNode.name)
+    {
+        this.mapNode =  find('/gameWorld/gameCanvas/Map');
+ 
+    }
+        const npcNode = this.mapNode.components[1].npclist.find((npc: Node) => npc.name == this.npcName)
         
         if(npcNode.getComponent('npc1'))
         {
