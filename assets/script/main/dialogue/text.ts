@@ -158,81 +158,81 @@ export default class text extends Component {
            }
    }
 
-   setTextData(data:TextData){
-       this.selfImg.spriteFrame = null;
-       this.otherImg.spriteFrame = null;
-       if(!this.textEnd) return;
-       this.textEnd = false;
-       this.Name.string = data.Name;
-       this.Text.string = '';
-       this.nowText = data.Text
-       const img = data.Img + '/spriteFrame'
-      resources.load(img,SpriteFrame,null,(error,texture)=>{
-       if (data.Speaker)
-       {
-           this.selfImg.spriteFrame = texture
-       }
-       else
-       {
-           this.otherImg.spriteFrame = texture
-       }
-      })
-     
-   }    
-   closeDialog(){
-    if(this.control){   
-        //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
-        
-        this.select.active = true;
-
-        const choices = this.select.getChildByName("selections").children
-
-        
-        for(let i = 0;i<choices.length;i++){
-            
-            choices[i].on(NodeEventType.TOUCH_START,() => this.selection(i),this)
-
-        }
-
-    }
-    else{
-        
-        if(this.npcNode != null)
+    setTextData(data:TextData){
+        this.selfImg.spriteFrame = null;
+        this.otherImg.spriteFrame = null;
+        if(!this.textEnd) return;
+        this.textEnd = false;
+        this.Name.string = data.Name;
+        this.Text.string = '';
+        this.nowText = data.Text
+        const img = data.Img + '/spriteFrame'
+        resources.load(img,SpriteFrame,null,(error,texture)=>{
+        if (data.Speaker)
         {
-            this.npcNode.emit("select2")
+            this.selfImg.spriteFrame = texture
         }
+        else
+        {
+            this.otherImg.spriteFrame = texture
+        }
+        })
         
-       this.dialogue.active = false
-       this.unpersistUI.active = true
-       this.choiceBoxes.active = false
-       this.textIndex = 0;
-       this.npcNode = null;
-       this.npcWalkAgain()
-       this.textIndex = -1
-        
-    }
+    }    
+    closeDialog(){
+        if(this.control){   
+            //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
+            
+            this.select.active = true;
 
+            const choices = this.select.getChildByName("selections").children
+
+            
+            for(let i = 0;i<choices.length;i++){
+                
+                choices[i].on(NodeEventType.TOUCH_START,() => this.selection(i),this)
+
+            }
+
+        }
+        else{
+            
+            if(this.npcNode != null)
+            {
+                this.npcNode.emit("select2")
+            }
+            
+            this.dialogue.active = false
+            this.unpersistUI.active = true
+            this.choiceBoxes.active = false
+            this.textIndex = 0;
+            this.npcNode = null;
+            this.npcWalkAgain()
+            this.textIndex = -1
+                
+            }
+
+
+    }
+    selection(index: number){
+        this.select.active = false;
+        this.control=0;
+        this.npcNode.emit(`select1`,index)
+        const choices = this.select.getChildByName("selections").children
+        choices.map((choice: Node, index: number) => {
+
+            choice.destroy()  //重置選項
+
+        })
 
    }
-   selection(index: number){
-    this.select.active = false;
-    this.control=0;
-    this.npcNode.emit(`select1`,index)
-    const choices = this.select.getChildByName("selections").children
-    choices.map((choice: Node, index: number) => {
 
-        choice.destroy()  //重置選項
-
-    })
-
-   }
-
-   npcWalkAgain(){
-    if(!this.mapNode.name)
-    {
-        this.mapNode =  find('/gameWorld/gameCanvas/Map');
- 
-    }
+    npcWalkAgain(){
+        if(!this.mapNode.name)
+        {
+            this.mapNode =  find('/gameWorld/gameCanvas/Map');
+    
+        }
         const npcNode = this.mapNode.components[1].npclist.find((npc: Node) => npc.name == this.npcName)
         
         if(npcNode.getComponent('npc1'))
