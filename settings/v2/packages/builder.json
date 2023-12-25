@@ -75,6 +75,6 @@
   },
   "splash-setting": {
     "url": "project://settings/splash.png",
-    "displayRatio": 4
+    "displayRatio": 3
   }
 }

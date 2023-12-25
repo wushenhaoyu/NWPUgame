@@ -80,8 +80,8 @@ export default class map extends Component {
         this.settensor()
         let p = PhysicsSystem2D.instance
         p.enable = true;
-       
-        let node = this.map.node.getChildByName('1');
+       console.log(this.map.node.children)
+        let node = this.map.node.getChildByName('player');
       
         this.map.node.removeChild(node);
         this.map.node.insertChild(node, 1);

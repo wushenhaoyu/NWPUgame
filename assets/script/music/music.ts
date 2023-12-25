@@ -11,6 +11,7 @@ export class music extends Component {
     start() {
 
         this.node.on("switchMusic", this.switchMusic, this)
+        const audio = this.node.getComponent(AudioSource).volume = 1;
 
     }
 
