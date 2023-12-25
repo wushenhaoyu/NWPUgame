@@ -73,6 +73,8 @@ export class loading extends Component {
 
     update(deltaTime: number) {
         // 可以在这里实现加载过程中的逻辑更新
+
+
     }
 }
 

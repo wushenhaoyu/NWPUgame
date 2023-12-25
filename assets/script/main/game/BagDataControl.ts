@@ -120,7 +120,8 @@ export class BagDataControl extends Component {
                     this.infoName.string = item.Name;
                     this.info.string = item.Info;
                     gridNode.children[0].active = true;
-                    if(item.canInteract)
+                    // if(item.canInteract) 劣化调整
+                    if(false)
                     {
                         
                         this.interactionButton.getComponentInChildren(Label).string = item.actionText;
