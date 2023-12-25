@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, NodeEventType, Sprite ,Color,Label, director } from 'cc';
+import { _decorator, Component, Node, NodeEventType, Sprite ,Color,Label, director, input, Input } from 'cc';
 const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
@@ -21,7 +21,8 @@ export class frist extends Component {
     start() {
         this.femaleButton.on(NodeEventType.TOUCH_START,this.femaleSelect,this)
         this.maleButton.on(NodeEventType.TOUCH_START,this.maleSelect,this)
-    this.Start.on(NodeEventType.TOUCH_START,this.startGame,this)
+        this.Start.on(NodeEventType.TOUCH_START,this.startGame,this)
+        input.on(Input.EventType.KEY_UP, this.showStart, this);
     
         
     }
@@ -55,6 +56,7 @@ export class frist extends Component {
     }
     showStart()
     {
+        
         if(this.Label.string != ""&& this.selected != 0 ){
         this.Start.active = true;
         }
@@ -73,6 +75,8 @@ export class frist extends Component {
 
     update(deltaTime: number) {
         
+        this.showStart()
+
     }
 }
 

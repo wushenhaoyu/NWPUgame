@@ -116,8 +116,6 @@ export default class text extends Component {
         this.npcName = event;
         
         this.firstText = this.npcComponent.firstText;
-
-        console.log("this firstText", this.npcComponent)
         
         this.setTextData(this.firstText);
         
@@ -238,7 +236,6 @@ export default class text extends Component {
         if(npcNode.getComponent('npc1'))
         {
 
-            console.log(npcNode.getComponent('npc1'))
             npcNode.getComponent('npc1').restart()
 
         }
@@ -259,11 +256,8 @@ export default class text extends Component {
            else{
                this.textEnd = true;
                this.nowText = null;
-                console.log("yoyoyoyo", this.textIndex, this.npcNode)
                if(this.textIndex == -1 && this.npcNode != null)
                {
-
-                    console.log("asdf")
 
                     this.choiceBoxes.active = true;
                     this.choiceBoxes.getChildByName("choicebox1").active = true; //if isPlotData open all, else dont open plot

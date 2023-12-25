@@ -1,4 +1,4 @@
-import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources } from 'cc';
+import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources, TiledMapAsset } from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../data/GameDataManager';
 import BagDataManager from '../data/BagDataManager';
@@ -12,6 +12,7 @@ export class loading extends Component {
     @property(ProgressBar)
     progressBar: ProgressBar = null;
 
+
     start() {
         this.loadResources();
     }
@@ -22,7 +23,17 @@ export class loading extends Component {
         bagDataManager.init(this.onBagLoaded.bind(this));
         playerDataManager.init(this.onPlayerLoaded.bind(this));
         director.preloadScene('main', this.onSceneLoaded.bind(this));
-        resources.preload('map/map/' + 'yourMapName', this.onMapLoaded.bind(this));
+
+        resources.loadDir('map/map/', TiledMapAsset, (err, resources)=>{
+
+            if (err) {
+                console.error(`Failed to preload assets in folder map/map/: ${err}`);
+                return;
+            }
+
+            this.onMapLoaded()
+        })
+    
     }
 
     onBagLoaded() {
