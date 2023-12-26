@@ -30,7 +30,7 @@ export default class book_move extends Component {
         //物理调试
         let p = PhysicsSystem2D.instance
         p.enable = true;
-        p.debugDrawFlags = 1;
+       // p.debugDrawFlags = 1;
 
         //获取碰撞
         this.rb = this.target.getComponent(RigidBody2D);

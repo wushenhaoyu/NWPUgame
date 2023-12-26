@@ -1367,7 +1367,7 @@
     "_priority": 1,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 422.15962441314554,
+    "_orthoHeight": 360,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -1587,7 +1587,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.8550469483568,
+      "width": 77.861328125,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1620,7 +1620,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 46.59375,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1649,7 +1649,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.4995234741784,
+    "_right": -81.5026640625,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -1877,7 +1877,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54.460942084800465,
+      "width": 54.46533203125,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1910,7 +1910,7 @@
     "_string": "1天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 46.59375,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -1941,7 +1941,7 @@
       "__id__": 66
     },
     "_left": 64.72666796875,
-    "_right": -78.92247104240022,
+    "_right": -78.92466601562498,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -2315,7 +2315,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 32.881875,
+    "_actualFontSize": 24.7,
     "_fontSize": 24.7,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3309,7 +3309,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.99436069542253,
+      "width": 70,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3342,7 +3342,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 46.59375,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3371,7 +3371,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.002819652288736,
+    "_right": 15,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -3599,7 +3599,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.99436069542253,
+      "width": 70,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3632,7 +3632,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 46.59375,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -3661,7 +3661,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.002819652288736,
+    "_right": 15,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -4376,10 +4376,10 @@
       "b": 0,
       "a": 255
     },
-    "_string": "互动",
+    "_string": "对话",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26.625,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4404,7 +4404,7 @@
       "__id__": 134
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 139
@@ -4458,7 +4458,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 142.19982165126174,
+      "width": 142.2265625,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -4491,7 +4491,7 @@
     "_string": "在NPC旁可互动",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26.625,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
