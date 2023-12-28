@@ -2,7 +2,7 @@
   "ver": "1.0.26",
   "importer": "image",
   "imported": true,
-  "uuid": "ebef146d-1bf8-4602-aac9-ff9a6637fc94",
+  "uuid": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "ebef146d-1bf8-4602-aac9-ff9a6637fc94@6c48a",
-      "displayName": "00080-1696377090-_lora_cozy anime_20230630155224_1_,1boy,solo,blue archive,student,male,",
+      "uuid": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8@6c48a",
+      "displayName": "female1",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "ebef146d-1bf8-4602-aac9-ff9a6637fc94",
+        "imageUuidOrDatabaseUri": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,20 +34,20 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "ebef146d-1bf8-4602-aac9-ff9a6637fc94@f9941",
-      "displayName": "00080-1696377090-_lora_cozy anime_20230630155224_1_,1boy,solo,blue archive,student,male,",
+      "uuid": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8@f9941",
+      "displayName": "female1",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
         "trimType": "auto",
         "trimThreshold": 1,
         "rotated": false,
-        "offsetX": 0,
-        "offsetY": 0,
+        "offsetX": -6,
+        "offsetY": 0.5,
         "trimX": 0,
         "trimY": 0,
-        "width": 512,
-        "height": 512,
+        "width": 500,
+        "height": 511,
         "rawWidth": 512,
         "rawHeight": 512,
         "borderTop": 0,
@@ -61,17 +61,17 @@
         "meshType": 0,
         "vertices": {
           "rawPosition": [
-            -256,
-            -256,
+            -250,
+            -255.5,
             0,
-            256,
-            -256,
+            250,
+            -255.5,
             0,
-            -256,
-            256,
+            -250,
+            255.5,
             0,
-            256,
-            256,
+            250,
+            255.5,
             0
           ],
           "indexes": [
@@ -85,36 +85,36 @@
           "uv": [
             0,
             512,
-            512,
+            500,
             512,
             0,
-            0,
-            512,
-            0
+            1,
+            500,
+            1
           ],
           "nuv": [
             0,
+            0.001953125,
+            0.9765625,
+            0.001953125,
             0,
             1,
-            0,
-            0,
-            1,
-            1,
+            0.9765625,
             1
           ],
           "minPos": [
-            -256,
-            -256,
+            -250,
+            -255.5,
             0
           ],
           "maxPos": [
-            256,
-            256,
+            250,
+            255.5,
             0
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "ebef146d-1bf8-4602-aac9-ff9a6637fc94@6c48a",
+        "imageUuidOrDatabaseUri": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.12",
@@ -128,7 +128,7 @@
   "userData": {
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
-    "hasAlpha": false,
-    "redirect": "ebef146d-1bf8-4602-aac9-ff9a6637fc94@f9941"
+    "hasAlpha": true,
+    "redirect": "f19d4ed8-0c00-4a20-8354-21a7f7d608e8@f9941"
   }
 }

@@ -11,7 +11,7 @@
     "6c48a": {
       "importer": "texture",
       "uuid": "99bda5ae-c8fb-4f64-9115-d5ed22e7627b@6c48a",
-      "displayName": "00107-0-blue archive,upper_body,solo,student,bishoujo,_lora_cozy anime_20230630155224_,1girl,medium breasts,highres,artbook,standing,con",
+      "displayName": "female",
       "id": "6c48a",
       "name": "texture",
       "userData": {
@@ -35,7 +35,7 @@
     "f9941": {
       "importer": "sprite-frame",
       "uuid": "99bda5ae-c8fb-4f64-9115-d5ed22e7627b@f9941",
-      "displayName": "00107-0-blue archive,upper_body,solo,student,bishoujo,_lora_cozy anime_20230630155224_,1girl,medium breasts,highres,artbook,standing,con",
+      "displayName": "female",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
