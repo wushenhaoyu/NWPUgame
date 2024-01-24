@@ -57,6 +57,17 @@ export default class map extends Component {
             this.map1 = "door"
             this.name1 = "dongmen"
         }
+        for(var i = 0 ; i < gameDataManager.mapLoadListAlready.length ; i++)
+        {
+            if(gameDataManager.mapLoadListAlready[i] == this.map1)
+            {
+
+            }
+            else{
+                resources.release('map/map'+gameDataManager.mapLoadListAlready[i],TiledMapAsset);
+            }
+           
+        }
         resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {
             if (err) {
                 error(err);
@@ -70,6 +81,7 @@ export default class map extends Component {
 
             
             this.camera.emit('map')
+            gameDataManager.mapLoadListAlready = [];
             this.initmap()
         })
     }
@@ -128,6 +140,7 @@ const birthpoints = start.getObjects();
 
 
 // 遍历起始点数据
+var i = 0;
 for (const birthpoint of birthpoints) {
     const TPPoint:TPPoint ={
         map:birthpoint.map,
@@ -162,6 +175,8 @@ for (const birthpoint of birthpoints) {
     // 将从对象层中读取的数据附加到节点，以在事件处理程序中使用
     sensorNode.name = birthpoint.name;
     sensorCollider.name = birthpoint.map; 
+    resources.preload('map/map'+birthpoint.name);
+    gameDataManager.mapLoadListAlready[i] = birthpoint.name;
     
 }
 

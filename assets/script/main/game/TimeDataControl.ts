@@ -8,6 +8,7 @@ export class TimeDataControl extends Component {
     public time:Label = null;
     start() {
         this.updateTime();
+        GameDataManager.timeDataControl = this.node.getComponent(TimeDataControl);
     }
     updateTime()
     {

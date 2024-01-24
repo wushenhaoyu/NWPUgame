@@ -24,13 +24,20 @@ export class loading extends Component {
         playerDataManager.init(this.onPlayerLoaded.bind(this));
         director.preloadScene('main', this.onSceneLoaded.bind(this));
 
-        resources.loadDir('map/map/', TiledMapAsset, (err, resources)=>{
+        /*resources.loadDir('map/map/', TiledMapAsset, (err, resources)=>{
 
             if (err) {
                 console.error(`Failed to preload assets in folder map/map/: ${err}`);
                 return;
             }
 
+            this.onMapLoaded()
+        })*/
+        resources.loadDir('map/map/'+gameDataManager.getMap(),TiledMapAsset,(err,resources)=>{
+            if(err) {
+                console.error(`Failed to preload assets in folder map/map/: ${err}`);
+                return;
+            }
             this.onMapLoaded()
         })
     

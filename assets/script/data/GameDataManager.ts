@@ -1,10 +1,14 @@
 import { _decorator,resources,error,JsonAsset,sys} from 'cc';
 const { ccclass, property } = _decorator;
+import { TimeDataControl } from '../main/game/TimeDataControl';
 export default class GameDataManager {
+    public timeDataControl:TimeDataControl;
     private static instance: GameDataManager;
     private day:number
     private start:string 
     private map:string 
+    public mapLoadListAlready:String[] = [];  //已经加载的地图，需要被卸载
+    public mapLoadListIng:String[] = [];    //等待加载的地图
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
@@ -37,7 +41,9 @@ export default class GameDataManager {
     }
    
     public nextDay(){
-        this.day++
+        this.day++;
+        this.timeDataControl.updateTime();
+        
     }
     public getDay(){
         return this.day

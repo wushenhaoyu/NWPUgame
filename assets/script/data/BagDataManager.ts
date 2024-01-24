@@ -10,7 +10,7 @@ export default class BagDataManager {
         // 私有构造函数，防止外部直接实例化
         
     }
-    public bagUI: BagDataControl = null;
+    public bagDataControl: BagDataControl = null;
 
  
     public static getInstance(): BagDataManager {
@@ -110,7 +110,7 @@ export default class BagDataManager {
             callback();
         }
 
-        this.bagUI.updateBag()
+        this.bagDataControl.updateBag()
 
 
     }
