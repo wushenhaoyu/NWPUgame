@@ -1,4 +1,4 @@
-import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D } from 'cc';
+import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D,view } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('camera')
@@ -13,58 +13,62 @@ export class camera extends Component {
     mapHeight:number = 0;
     cameraPosition:Vec3 = v3(0,0,0)
     playerPosition:Vec3 = v3(0,0,0)
+    playerCurrentPosition:Vec3 = v3(0,0,0);
     playerWidth:number = 0;
     playerHeight:number = 0;
     rigid:RigidBody2D = null;
+    cameraMaxX1:number = 0;
+    cameraMaxY1:number = 0;
+    cameraMaxX2:number = 0;
+    cameraMaxY2:number = 0;
 
     private camera: Camera = null;
 
     start() {
-        this.node.on('map',this.init,this)
+
+        this.node.on('map',this.init,this);
+
     }
+
     init()
     {
-        this.rigid = this.player.getComponent(RigidBody2D)
+        const tileSize = this.tiledMap.getTileSize();
+        console.log(tileSize)
         this.playerHeight = this.player.getComponent(UITransform).height;
         this.playerWidth = this.player.getComponent(UITransform).width;
-        this.camera = this.getComponent(Camera);
-        this.cameraHeight = this.camera.camera.height /2;
-        this.cameraWidth = this.camera.camera.width /2;
-        const tileSize = this.tiledMap.getTileSize();
-        this.mapWidth = this.tiledMap.getMapSize().width* tileSize.width ;
-        this.mapHeight = this.tiledMap.getMapSize().height* tileSize.height;
-        console.log(this.tiledMap,this.tiledMap.getMapSize(),this.tiledMap.getTileSize())
+        console.log(this.tiledMap.getMapSize().width* tileSize.width / 2,this.tiledMap.getMapSize().height* tileSize.height / 2)
+        this.cameraMaxX1 = view.getVisibleSize().width / 2 + this.playerWidth / 2;
+        this.cameraMaxY1 = view.getVisibleSize().height / 2 + this.playerHeight / 2;
+        this.cameraMaxX2 = this.tiledMap.getMapSize().width* tileSize.width  - view.getVisibleSize().width / 2 -  this.playerWidth / 2;
+        this.cameraMaxY2 = this.tiledMap.getMapSize().height* tileSize.height  - view.getVisibleSize().height / 2 -  this.playerHeight / 2;
+        console.log(this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2);
     }
 
     update() {
-       this.checkCameraBoundaries()
+       this.updateCameraPosition();
     }
-
-    checkCameraBoundaries() {
+    updateCameraPosition() {
+        this.playerCurrentPosition = this.player.getPosition();
         
-       
-        console.log(this.playerPosition.x,this.mapWidth)
-        if (this.playerPosition.x - this.cameraWidth <= 0) {
-            // 摄像机到达左边缘，限制其移动
-            this.cameraPosition.x = this.cameraWidth - this.playerPosition.x + this.playerWidth;
-        } else if (this.playerPosition.x + this.cameraWidth >= this.mapWidth) {
-            // 摄像机到达右边缘，限制其移动
-            this.cameraPosition.x = -this.playerPosition.x - this.cameraWidth + this.mapWidth - this.playerWidth;
+        if(this.playerPosition.x !=this.playerCurrentPosition.x ||this.playerPosition.y !=this.playerCurrentPosition.y){
+           // console.log(this.playerPosition.x !=this.playerCurrentPosition.x ,this.playerPosition.y !=this.playerCurrentPosition.y)
+       this. cameraPosition = this.playerCurrentPosition;
+      // console.log(this.cameraPosition)
+        if (this. cameraPosition.x > this.cameraMaxX2) {
+          this. cameraPosition.x = this.cameraMaxX2;
         }
-        
-        // 检测上下边缘
-        if (this.playerPosition.y - this.cameraHeight <= 0) {
-            // 摄像机到达上边缘，限制其移动 
-            this.cameraPosition.y = this.cameraHeight - this.playerPosition.y +this.playerHeight;
-        } else if (this.playerPosition.y + this.cameraHeight >= this.mapHeight) {
-            // 摄像机到达下边缘，限制其移动
-            this.cameraPosition.y = -this.playerPosition.y - this.cameraHeight + this.mapHeight -this.playerHeight;
+        if (this. cameraPosition.x < this.cameraMaxX1) {
+          this. cameraPosition.x = this.cameraMaxX1;
         }
-        
-        // 应用新的相机位置
-      //  tween(this.camera.node)
-        //    .to(1,{position:this.cameraPosition})
-        this.node.setPosition(this.cameraPosition)
-        this.playerPosition = this.player.getPosition();
+        if (this. cameraPosition.y > this.cameraMaxY2) {
+          this. cameraPosition.y = this.cameraMaxY2;
+        }
+        if (this. cameraPosition.y < this.cameraMaxY1) {
+          this. cameraPosition.y = this.cameraMaxY1;
+        }
+       // console.log(this. cameraPosition,this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2)
+        this.playerPosition = this.playerCurrentPosition;
+        this.node.setPosition(this. cameraPosition);
     }
+      }
 }
