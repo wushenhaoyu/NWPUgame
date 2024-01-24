@@ -1,4 +1,4 @@
-import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources, TiledMapAsset } from 'cc';
+import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources, TiledMapAsset,tween } from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../data/GameDataManager';
 import BagDataManager from '../data/BagDataManager';
@@ -66,7 +66,8 @@ export class loading extends Component {
     updateProgressBar(progress: number) {
         // 更新进度条的显示
         if (this.progressBar) {
-            this.progressBar.progress += progress;
+            //this.progressBar.progress += progress;
+            tween(this.progressBar).to(1,{'progress':this.progressBar.progress += progress}).start();
         }
         if (this.progressBar.progress >= 1) {
             this.next();
