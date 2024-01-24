@@ -21,6 +21,8 @@ interface TPPoint {//传送点
 @ccclass('map')
 export default class map extends Component {
     @property({type:Node})
+    public mapwindow:Node = null;
+    @property({type:Node})
     public camera:Node = null;
     @property({type:TiledMap})
     public map:TiledMap = null;
@@ -44,7 +46,7 @@ export default class map extends Component {
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
    this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
-   this.node.on('talk',this.talk,this);
+   this.node.on('talk',this.talk,this.map1);
         
        
 
@@ -131,6 +133,12 @@ export default class map extends Component {
             collider.group = 8;
             
         }
+        if(this.mapwindow.name == "")
+        {
+            this.mapwindow = find('UI/UICanvas/UI/window/map/mapwindow');
+        }
+        this.mapwindow.getParent().active = true;
+        this.mapwindow.emit('map',this.map1);
     }
     settensor()
     {

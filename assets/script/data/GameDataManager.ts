@@ -20,6 +20,7 @@ export default class GameDataManager {
         this.day = 1
         this.map = "dachao"
         this.start = "dachao"
+        this.mapDictionaryInit();
     }
  
     public static getInstance(): GameDataManager {
@@ -79,5 +80,53 @@ export default class GameDataManager {
         this.map = map
         this.start = start
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    mapDictionary:Map<string,string> = new Map();
+    mapDictionaryInit()         //屎!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    {
+        this.mapDictionary.set('aoxiangxueshengzhongxin','翱翔学生中心');
+        this.mapDictionary.set('chaochang','星天苑操场');
+        this.mapDictionary.set('d100','长安大道南段');
+        this.mapDictionary.set('dachao','大学生超市');
+        this.mapDictionary.set('dachaomengkou','星天苑南餐厅');
+        this.mapDictionary.set('dongmne','正门');
+        this.mapDictionary.set('feiji','通惠园');
+        this.mapDictionary.set('jiaodongc1','教学东楼东侧');
+        this.mapDictionary.set('jiaodongd','教学东楼西侧');
+        this.mapDictionary.set('jiaodongc','教学东楼北侧');
+        this.mapDictionary.set('jiaoxi','教学西楼');
+        this.mapDictionary.set('jiaoxia','教学西楼A座');
+        this.mapDictionary.set('jiaoxia1','教学西楼A座东侧');
+        this.mapDictionary.set('jiaoxid','教学西楼D座');
+        this.mapDictionary.set('qizhenhu','启真湖');
+        this.mapDictionary.set('shuzihuadalou','数字化大楼');
+        this.mapDictionary.set('sushe','你滴小窝');
+        this.mapDictionary.set('tushuguan','启真楼');
+        this.mapDictionary.set('xingtianyuanf','星天苑F座');
+        this.mapDictionary.set('yinhelu','银河路');
+        this.mapDictionary.set('youyongguan','游泳馆');
+        this.mapDictionary.set('yuntianyuancanting','云天苑餐厅');
+    }
+
+
+
+
+
+
  }
 
