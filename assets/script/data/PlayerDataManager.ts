@@ -12,12 +12,10 @@ export default class PlayerDataManager {
     private name: string = "faker";
     private gender: number = 1; //1female, 2male
     private money:number = 2000
-    private energy:number = 30
-    private energyMax:number = 30
     private emotion:emotion = emotion.surprise
     private grade:number = 0
     public coinNode:Component = null;
-    private constructor() {
+    private constructor() { 
         // 私有构造函数，防止外部直接实例化
    
     }
@@ -42,8 +40,6 @@ export default class PlayerDataManager {
                 }
                 const playerData = jsonAsset.json;
                 this.money = playerData.money;
-                this.energy = playerData.energy;
-                this.energyMax = playerData.energyMax;
                 this.emotion = playerData.emotion;
                 this.grade = playerData.grade;
             });
@@ -66,8 +62,6 @@ export default class PlayerDataManager {
     public toJSON(): any { //转化为json格式
         return {
             money: this.money,
-            energy: this.energy,
-            energyMax: this.energyMax,
             emotion: this.emotion,
             grade: this.grade
         };
@@ -81,24 +75,7 @@ export default class PlayerDataManager {
     getEmotion():emotion {
         return this.emotion;
     }
-    getMaxEnergy():number {
-        return this.energyMax
-    }
-    getEnergy():number {
-        return this.energy
-    }
-    gainEnergy(amount:number){
-        this.energy += amount
-        if(this.energy > this.energyMax){
-            this.energy = this.energyMax
-        }
-    }
-    loseEnergy(amount:number){
-        this.energy -= amount
-        if(this.energy < 0){
-            this.energy = 0
-        }
-    }
+   
     getMoney():number {
         return this.money
     }
