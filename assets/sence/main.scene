@@ -34071,7 +34071,14 @@
     "_showProbe": true,
     "_showWireframe": true,
     "_showConvex": false,
-    "_data": null,
+    "_data": {
+      "__id__": 955
+    },
     "_lightProbeSphereVolume": 1
+  },
+  {
+    "__type__": "cc.LightProbesData",
+    "_probes": [],
+    "_tetrahedrons": []
   }
 ]
