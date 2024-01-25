@@ -16,6 +16,9 @@ export class home extends Component
     @property(Node)
     public settingsbtn: Node = null;
 
+    @property(Node)
+    public settingsWindow: Node = null;
+
     start() {
         this.startbtn.on(Node.EventType.TOUCH_END, this.startgame, this);
         this.resumebtn.on(Node.EventType.TOUCH_END, this.resumegame, this);
@@ -24,7 +27,10 @@ export class home extends Component
     }
 
     update(deltaTime: number) {
-        
+        if(this.settingsWindow.active)
+        {
+            console.log(this.settingsWindow.position, this.settingsbtn.position)
+        }
     }
 
     startgame()
@@ -46,7 +52,8 @@ export class home extends Component
 
     showsettings()
     {
-
+        this.settingsWindow.active = true;
+        console.log("settings")
     }
 }
 
