@@ -3,7 +3,7 @@ const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
 import map  from '../map/map';
-@ccclass
+@ccclass('Joystick')
 export class Joystick extends Component {
     @property({type:Node})
     player:Node = null;

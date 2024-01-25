@@ -165,6 +165,8 @@ export default class text extends Component {
         this.Text.string = '';
         this.nowText = data.Text
         const img = data.Img + '/spriteFrame'
+        if(data.Img != "")
+        {
         resources.load(img,SpriteFrame,null,(error,texture)=>{
         if (data.Speaker)
         {
@@ -175,7 +177,7 @@ export default class text extends Component {
             this.otherImg.spriteFrame = texture
         }
         })
-        
+    }
     }    
     closeDialog(){
         if(this.control){   

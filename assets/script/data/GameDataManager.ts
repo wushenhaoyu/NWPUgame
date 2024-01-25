@@ -1,7 +1,8 @@
-import { _decorator,resources,error,JsonAsset,sys} from 'cc';
+import { _decorator,resources,error,JsonAsset,sys,find} from 'cc';
 const { ccclass, property } = _decorator;
 import { TimeDataControl } from '../main/game/TimeDataControl';
-enum timeTypeDef{
+import { PlotDataControl } from '../main/game/PlotDataControl';
+export enum timeTypeDef{
     morning = 1,
     afternoon = 2,
     evening = 3
@@ -15,12 +16,16 @@ export default class GameDataManager {
     private time:timeTypeDef = timeTypeDef.morning;
     public mapLoadListAlready:String[] = [];  //已经加载的地图，需要被卸载
     public mapLoadListIng:String[] = [];    //等待加载的地图
+    public plotDataControl:PlotDataControl;
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
+        this.time = timeTypeDef.morning;
         this.map = "dachao"
         this.start = "dachao"
         this.mapDictionaryInit();
+       // this.timeDataControl = find('UI/GameManager/TimeControl').getComponent('TimeDataControl')
+       // this.plotDataControl = find('UI/GameManager/TimeControl').getComponent('PlotDataControl')
     }
  
     public static getInstance(): GameDataManager {
@@ -65,6 +70,7 @@ export default class GameDataManager {
         this.day++;
         this.time = timeTypeDef.morning;
         this.timeDataControl.updateTime();
+        this.plotDataControl.checkPlot();
         //回到寝室
     }
     public getDay(){
@@ -79,6 +85,10 @@ export default class GameDataManager {
     public setMap(map:string,start:string){
         this.map = map
         this.start = start
+    }
+    public getTime()
+    {
+        return this.time
     }
 
 
