@@ -114,7 +114,13 @@ export default class text extends Component {
 
         this.npcName = event;
 
+        this.firstText = this.npcComponent.firstText;
+        
+        this.setTextData(this.firstText);
+        
         this.isPlotNpc = this.npcComponent.isPlotNpc;
+
+        this.nowText = this.firstText.Text;
     }
 
 
@@ -226,7 +232,7 @@ export default class text extends Component {
             this.choiceBoxes.active = false
             this.textIndex = 0;
             this.npcNode = null;
-            this.npcWalkAgain()
+            //this.npcWalkAgain()
             this.textIndex = -1
                 
             }
@@ -246,7 +252,7 @@ export default class text extends Component {
 
    }
 
-    npcWalkAgain(){
+   /* npcWalkAgain(){
         if(!this.mapNode.name)
         {
             this.mapNode =  find('/gameWorld/gameCanvas/Map');
@@ -261,7 +267,7 @@ export default class text extends Component {
 
         }
 
-   }
+   }*/
 
    update(deltaTime: number) {
 

@@ -121,7 +121,7 @@ export class Npc extends Component {
         if(this.isPlot)
         {
             console.log(this._npcName)
-            this.text.emit('plot',this._npcName)
+            this.text.getComponent(text).initPlotStart(this._npcName);
         }
 
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
@@ -183,7 +183,10 @@ export class Npc extends Component {
         }
 
         this.node.active = false;
-        this.npcWalkAgain()
+        if(!this.isPlot)
+        {
+            this.npcWalkAgain()
+        }
 
     }
 
