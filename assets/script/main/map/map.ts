@@ -56,9 +56,10 @@ export default class map extends Component {
      start() {
         if(!this.map1)
         {
-            this.map1 = "door"
+            this.map1 = "dongmen"
             this.name1 = "dongmen"
         }
+        console.log(this.map);
         for(var i = 0 ; i < gameDataManager.mapLoadListAlready.length ; i++)
         {
             if(gameDataManager.mapLoadListAlready[i] == this.map1)
@@ -70,15 +71,17 @@ export default class map extends Component {
             }
            
         }
+        const self = this;
+        console.log(self.node.name)
         resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {
             if (err) {
                 error(err);
                 return;
             }
-            
-            this.map.tmxAsset = tiledMapAsset
-            let p = PhysicsSystem2D.instance
-            p.enable = true;
+            console.log(self.node.name)
+            self.map.tmxAsset = tiledMapAsset
+          //  let p = PhysicsSystem2D.instance
+          //  p.enable = true;
           //  p.debugDrawFlags = 1;
 
             
@@ -109,7 +112,10 @@ export default class map extends Component {
                 name:birthpoint.name
             }
             if(StartPoint.name == this.name1)
-                node.setPosition(birthpoint.x,birthpoint.y)
+                {
+                    node.setPosition(birthpoint.x,birthpoint.y)
+                    gameDataManager.plotDataControl.node.emit('ready');
+                }
             
            
 
@@ -184,8 +190,7 @@ for (const birthpoint of birthpoints) {
     sensorNode.name = birthpoint.name;
     sensorCollider.name = birthpoint.map; 
     resources.preload('map/map'+birthpoint.name);
-    gameDataManager.mapLoadListAlready[i] = birthpoint.name;
-    
+    gameDataManager.mapLoadListAlready[i] = birthpoint.name;//地图加载完毕向剧情节点发送
 }
 
 
@@ -235,10 +240,6 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
     {
         if(this.TPPointData[i].name == selfCollider.node.name&&this.TPPointData[i].map == selfCollider.name )
         {
-            
-            
-            let p = PhysicsSystem2D.instance
-            p.enable = false;
             this.switchMap(this.TPPointData[i].map,this.TPPointData[i].name)
         }
     }
@@ -261,7 +262,7 @@ console.log(e1,script)
 
 
     
-switchMap(map:string,name:string)//切换地图
+public switchMap(map:string,name:string)//切换地图
 {
      gameDataManager.setMap(map,name);
 director.loadScene('loading',() => {

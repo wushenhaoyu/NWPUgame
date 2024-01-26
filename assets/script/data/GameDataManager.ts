@@ -17,12 +17,13 @@ export default class GameDataManager {
     public mapLoadListAlready:String[] = [];  //已经加载的地图，需要被卸载
     public mapLoadListIng:String[] = [];    //等待加载的地图
     public plotDataControl:PlotDataControl;
+    public isPlayerFirstPlay:boolean = true;//玩家是否第一次进入游戏?
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
         this.time = timeTypeDef.morning;
-        this.map = "dachao"
-        this.start = "dachao"
+        this.map = "dongmen"
+        this.start = "dongmen"
         this.mapDictionaryInit();
        // this.timeDataControl = find('UI/GameManager/TimeControl').getComponent('TimeDataControl')
        // this.plotDataControl = find('UI/GameManager/TimeControl').getComponent('PlotDataControl')

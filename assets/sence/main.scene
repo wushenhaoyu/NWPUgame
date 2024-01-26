@@ -15335,6 +15335,12 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "musicNode": {
+      "__id__": 277
+    },
+    "text": {
+      "__id__": 52
+    },
     "_id": "8171GtINRPRJ0+8nuaCjz3"
   },
   {

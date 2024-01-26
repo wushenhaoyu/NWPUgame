@@ -105,7 +105,7 @@ export class setting extends Component {
 
         this.isMusicOn = !this.isMusicOn;
 
-        this.musicManager.emit('switchMusic')
+        this.musicManager.emit('pauseMusic')
 
     }
 

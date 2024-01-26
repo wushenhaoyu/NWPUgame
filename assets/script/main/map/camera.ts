@@ -1,16 +1,16 @@
-import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D,view } from 'cc';
+import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D,view ,Tween} from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('camera')
-export class camera extends Component {
+export  class camera extends Component {
     @property({type:Node})
     public player:Node = null;
     @property({ type: TiledMap })
     tiledMap: TiledMap = null;
-    cameraWidth:number = 0;
-    cameraHeight:number = 0;
-    mapWidth:number = 0;
-    mapHeight:number = 0;
+    cameraWidth:number = 0;     //摄像机宽
+    cameraHeight:number = 0;    //摄像机高
+    mapWidth:number = 0;    //地图宽
+    mapHeight:number = 0;   //地图高
     cameraPosition:Vec3 = v3(0,0,0)
     playerPosition:Vec3 = v3(0,0,0)
     playerCurrentPosition:Vec3 = v3(0,0,0);
@@ -25,7 +25,7 @@ export class camera extends Component {
     ifControlY:boolean = true;  //是否Y方向移动
 
     private camera: Camera = null;
-
+    isPlot:boolean = false; //是否为剧情所控制？
     start() {
 
         this.node.on('map',this.init,this);
@@ -35,34 +35,80 @@ export class camera extends Component {
     init()
     {
         const tileSize = this.tiledMap.getTileSize();
-        console.log(tileSize)
+        this.cameraWidth =view.getVisibleSize().width
+        this.cameraHeight = view.getVisibleSize().height
+        this.mapHeight = this.tiledMap.getMapSize().height* tileSize.height
+        this.mapWidth = this.tiledMap.getMapSize().width* tileSize.width
         this.playerHeight = this.player.getComponent(UITransform).height;
         this.playerWidth = this.player.getComponent(UITransform).width;
-        console.log(this.tiledMap.getMapSize().width* tileSize.width / 2,this.tiledMap.getMapSize().height* tileSize.height / 2)
-        this.cameraMaxX1 = view.getVisibleSize().width / 2 + this.playerWidth / 2;
-        this.cameraMaxY1 = view.getVisibleSize().height / 2 + this.playerHeight / 2;
-        this.cameraMaxX2 = this.tiledMap.getMapSize().width* tileSize.width  - view.getVisibleSize().width / 2 -  this.playerWidth / 2;
-        this.cameraMaxY2 = this.tiledMap.getMapSize().height* tileSize.height  - view.getVisibleSize().height / 2 -  this.playerHeight / 2;
+        console.log(this.mapWidth / 2,this.mapHeight / 2)
+        this.cameraMaxX1 = this.cameraWidth / 2 + this.playerWidth / 2;
+        this.cameraMaxY1 =  this.cameraHeight  / 2 + this.playerHeight / 2;
+        this.cameraMaxX2 = this.mapWidth  - this.cameraWidth / 2 -  this.playerWidth / 2;
+        this.cameraMaxY2 = this.mapHeight  -  this.cameraHeight  / 2 -  this.playerHeight / 2;
         console.log(this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2);
         if(this.cameraMaxX1 > this.cameraMaxX2 )
         {
             this.ifControlX = false;
             let position = this.node.getPosition();
-            position.x = this.tiledMap.getMapSize().width* tileSize.width / 2;
+            position.x = this.mapWidth / 2;
             this.node.setPosition(position);
         }
         if(this.cameraMaxY1 > this.cameraMaxY2)
         {
             this.ifControlY = false;
             let position = this.node.getPosition();
-            position.y = this.tiledMap.getMapSize().height* tileSize.height / 2;
+            position.y = this.mapHeight / 2;
             this.node.setPosition(position);
         }
+        this.updateCameraPosition()
     }
 
+    changeControl()//移交镜头控制权
+    {
+        this.isPlot = !this.isPlot;
+    }
+     /**
+     *
+     * @zh
+     * 移动镜头要保证isPlot为true时才能进行结束后应及时将控制器返回给玩家即isPlot = false
+     * @param x x轴移动的比例
+     * @param y y轴移动的比例y
+     * @param time 持续时间单位为second
+     * @example
+     * move(0.5,0.5,1)
+     * x轴0.5个屏幕 y轴0.5个屏幕 1秒钟
+     */
+
+   async  move(x: number, y: number, time: number, callback?: () => void) {
+        const onCompleteCallback = () => {
+          //this.isPlot = false;
+          if (callback) {
+            callback();
+          }
+        };
+        let p = new Vec3()
+        p =   await  Vec3.add(p,this.cameraPosition,v3(x * this.cameraWidth  , y * this.cameraHeight, 0))
+        this.isPlot = true;
+        console.log(p,v3(x * this.cameraWidth  , y * this.cameraHeight, 0));
+          tween(this.node)
+          .to(time, { position: p })
+          .call(onCompleteCallback) 
+          .start()
+      }
+
+
+
+
+
+
+
+
+
+
     update() {
-    
-       this.updateCameraPosition();
+    if(!this.isPlot)
+       {this.updateCameraPosition();}
     }
     updateCameraPosition() {
         this.playerCurrentPosition = this.player.getPosition();

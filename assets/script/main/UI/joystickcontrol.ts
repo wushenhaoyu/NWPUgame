@@ -41,7 +41,7 @@ export class Joystick extends Component {
         this.animationComponent = this.player.getComponent(AnimationComponent);
         this.speed = this.player.getComponent(RigidBody2D);
         this.MapScript = this.player.getParent().getParent().getComponent(map);
-        console.log(this.MapScript);
+      //  console.log(this.MapScript);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
