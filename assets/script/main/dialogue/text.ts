@@ -78,6 +78,8 @@ export default class text extends Component {
 
         this.node.on("force close conversation", this.closeDialog, this)
 
+        this.node.on('plot',this.initPlotStart,this)
+
         this.map = gameDataManager.getMap();
         this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox normal dialogue'), this) //普通对话回调
         this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox plot dialogue'), this)  //特殊对话回调
@@ -97,6 +99,24 @@ export default class text extends Component {
         }
 
     }
+    initPlotStart(event:string)
+    {
+        this.npcNode = find(`UI/plot/Plot/${event}`)
+        console.log(event,find(`UI/plot/Plot/${event}`))
+
+        this.npcComponent = this.npcNode.getComponent(event) as Npc
+
+        this.map = gameDataManager.getMap();
+
+        this.dialogue.active = true;
+
+        this.unpersistUI.active = false;
+
+        this.npcName = event;
+
+        this.isPlotNpc = this.npcComponent.isPlotNpc;
+    }
+
 
 
    initstart(event: string) //初始话npc对话功能 event = npcName
@@ -111,7 +131,6 @@ export default class text extends Component {
         this.dialogue.active = true;
 
         this.unpersistUI.active = false;
-        
         
         this.npcName = event;
         

@@ -1,41 +1,123 @@
 {
-    "name":"",
-    "uuid":1,
-    "isPlotNpc": false,
-    "mapName": "dongmen",
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
     "start":{
-        "Name": "门卫大爷",
-        "Text": "同学你好",
+        "Name": "迷茫的女同学",
+        "Text": "同学你好，呃，请问图书馆是怎么去的？",
         "Speaker": false,
-        "Img": "lihui/female1"
+        "Img": "NPC/OIP"
     },
+    "plot":[
+        {
+            "id": 0,
+            "type":1,
+            "name":"初次邂逅",
+            "script":"nvtongxue",
+            "choice":["羞澀地加微信","殘忍拒絕"],
+            "plotjump": [1, 2],
+            "dialog": [
+                {
+                    "Name": "迷茫的女同学",
+                    "Text": "同学你好，呃，请问图书馆是怎么去的？",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "单大狗",
+                    "Text": "Whatsup? walk to the east",
+                    "Speaker": true,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "迷茫的女同学",
+                    "Text": "I want your WeChat",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "单大狗",
+                    "Text": "I see",
+                    "Speaker": true,
+                    "Img": "NPC/OIP"
+                },
+                {
+                    "Name": "迷茫的女同学",
+                    "Text": "It is nice to meet you",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+            ]
+        },
 
+        {
+            "id": 1,
+            "type":0,
+            "name":"羞澀地加微信",
+            "script":"nvtongxue",
+            "choice":[],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "因為你不再迷茫的女同学",
+                    "Text": "我們有緣再見？",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+            ]
+        },
+
+        {
+            "id": 2,
+            "type":0,
+            "name":"殘忍拒絕",
+            "script":"nvtongxue",
+            "choice":[],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "不屑的女同学",
+                    "Text": "哼！討厭.....",
+                    "Speaker": false,
+                    "Img": "NPC/OIP"
+                }
+                
+            ]
+        }
+    ],
     "dialog":[
         [
-    {
-        "Name": "单大狗",
-        "Text": "大爷好!",
-        "Speaker": true,
-        "Img": "lihui/female1"
-    },
-    {
-        "Name": "门卫大爷",
-        "Text": "小心，这间大学有很多诈骗犯?",
-        "Speaker": false,
-        "Img": "lihui/female1"
-    },
-    {
-        "Name": "单大狗",
-        "Text": "那么恐怖！？",
-        "Speaker": true,
-        "Img": "lihui/female1"
-    },
-    {
-        "Name": "门卫大爷",
-        "Text": "凡事都要三思，别败光你的家产",
-        "Speaker": false,
-        "Img": "lihui/female1"
-    }
-]
+            {
+                "Name": "迷茫的女同学",
+                "Text": "同学你好，呃，请问图书馆是怎么去的？",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "Whatsup? walk to the east",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "I want your WeChat",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "单大狗",
+                "Text": "I see",
+                "Speaker": true,
+                "Img": "NPC/OIP"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "It is nice to meet you",
+                "Speaker": false,
+                "Img": "NPC/OIP"
+            }
+        ]
 ]
 }

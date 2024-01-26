@@ -29,6 +29,12 @@ export default class PlotDataManager {
 
             }
 
+        },
+        Plot:{
+            Plot1_1:{
+                plot: number,
+                dialogue:number,
+            }
         }
     }
     private constructor() {
@@ -61,6 +67,12 @@ export default class PlotDataManager {
 
                 }
 
+            },
+            Plot:{
+                Plot1_1:{
+                    plot: 0,
+                    dialogue:0,
+                }
             }
         }
     }

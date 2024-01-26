@@ -7,6 +7,7 @@ const gameDataManager = GameDataManager.getInstance();
 import music  from '../../music/music'
 import {camera} from '../map/camera'
 import text from '../dialogue/text'
+import { Npc } from '../NPC/npc';
 
 @ccclass('PlotDataControl')
 export class PlotDataControl extends Component {
@@ -48,7 +49,7 @@ export class PlotDataControl extends Component {
         this.checkIsMapScriptNull() 
         switch(day) {
             case 1 :
-                if(day == timeTypeDef.morning )
+                if(time == timeTypeDef.morning )
                 {
                     console.log('入学')
                     this.Plot1_1();
@@ -66,7 +67,7 @@ export class PlotDataControl extends Component {
         this.UINode.active = false; //关闭UI
         this.cameraScript.changeControl();//将镜头控制权转为剧情控制
         this.cameraScript.move(0,1,8);
-        this.text.emit('npc',"Plot/Plot1_1")
+        find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
         
 
     }
