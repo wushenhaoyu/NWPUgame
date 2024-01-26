@@ -68,7 +68,7 @@ export class PlotDataControl extends Component {
         this.cameraScript.changeControl();//将镜头控制权转为剧情控制
         this.cameraScript.move(0,1,8);
         find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
-        
+
 
     }
 }

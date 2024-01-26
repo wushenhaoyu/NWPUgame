@@ -16,6 +16,19 @@ export class Plot1_1 extends Npc {
         super.start();
 
     }
+
+    selectionHandler(event: number){
+
+        if(this.plotJump[event] != -1)
+        {
+
+            plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]
+
+            this.plotfunc()
+
+        }
+
+    }
     
 
 }

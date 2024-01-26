@@ -118,25 +118,30 @@ export class Npc extends Component {
     }
 
     plotfunc(){ //from choicebox
-        if(this.isPlot)
-        {
-            console.log(this._npcName)
-            this.text.getComponent(text).initPlotStart(this._npcName);
-        }
-
+        
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
         console.log("current plot", currentPlot)
         const dialogueData: SendData = {
-
+            
             type: currentPlot.type,
             name: currentPlot.name,
             choice: currentPlot.choice,
             dialog: currentPlot.dialog,
-
+            
         }
         this.text.emit("conversation", dialogueData);
-
+        
         this.plotJump = currentPlot.plotjump
+
+        if(this.isPlot)
+        {
+            console.log(this._npcName)
+            if(currentPlot.id == 0)
+            {
+
+                this.text.getComponent(text).initPlotStart(this._npcName);
+            }
+        }
 
     }
 
