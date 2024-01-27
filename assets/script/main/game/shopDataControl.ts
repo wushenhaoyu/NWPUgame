@@ -34,7 +34,6 @@ export class shopDataControl extends Component {
                 let data = this.json[i][j]
                     resources.load(`item/${data.type}`, JsonAsset, (err, jsonAsset) => {
                         if (err) {
-                            console.error(err);
                             return;
                         }
                         const name = data.name;
@@ -44,11 +43,9 @@ export class shopDataControl extends Component {
                             const itemInstance = new itemClass(json);
                             let node = instantiate(this.ItemStyle);
                             let script = node.getComponent(shopItem);
-                            console.log(itemInstance)
                             script.init(itemInstance);
                             this.layout.addChild(node);
                         } else {
-                            console.error(`初始化商品实例失败`);
                             return null;
                         }
                     });

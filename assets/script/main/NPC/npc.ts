@@ -68,7 +68,6 @@ export class Npc extends Component {
 
 
     start() {
-        console.log(this._npcName)
         if(this.isPlot)
         {
             resources.load(`dialogue/Plot/${this._npcName}`,JsonAsset,(err, jsonAsset) => {
@@ -120,7 +119,6 @@ export class Npc extends Component {
     plotfunc(){ //from choicebox
         
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
-        console.log("current plot", currentPlot)
         const dialogueData: SendData = {
             
             type: currentPlot.type,
@@ -135,7 +133,7 @@ export class Npc extends Component {
 
         if(this.isPlot)
         {
-            console.log(this._npcName)
+
            // if(currentPlot.type == 0)
            // {
 
@@ -147,7 +145,7 @@ export class Npc extends Component {
 
     normalfunc(){  //from choicebox
 
-        console.log(this._mapName,this._npcName);
+
         const currentDialog: TextData[] = this._npcData.dialog[plotDataManager.plotdata[this._mapName][this._npcName].dialogue]
 
         const dialogueData: SendData = {
@@ -183,7 +181,6 @@ export class Npc extends Component {
         {
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[0]
-            console.log("this plot Jump", this.plotJump)
 
         }
 
@@ -208,7 +205,6 @@ export class Npc extends Component {
         if(npcNode.getComponent('npc1'))
         {
 
-            console.log(npcNode.getComponent('npc1'))
             npcNode.getComponent('npc1').restart()
 
         }

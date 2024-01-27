@@ -17,7 +17,6 @@ export class hudong extends Component {
     }
     initOperateBar(event)
     {
-        console.log("npc");
     }
     update(deltaTime: number) {
         

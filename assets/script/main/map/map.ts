@@ -45,8 +45,8 @@ export default class map extends Component {
       // 根据常驻节点上的脚本组件的名称获取它的引用
     this.name1 = gameDataManager.getStart(); // 调用 component 的 getName 方法
     this.map1 = gameDataManager.getMap();
-   this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
-   this.node.on('talk',this.talk,this.map1);
+    this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
+    this.node.on('talk',this.talk,this);
         
        
 
@@ -59,7 +59,6 @@ export default class map extends Component {
             this.map1 = "dongmen"
             this.name1 = "dongmen"
         }
-        console.log(this.map);
         for(var i = 0 ; i < gameDataManager.mapLoadListAlready.length ; i++)
         {
             if(gameDataManager.mapLoadListAlready[i] == this.map1)
@@ -72,13 +71,11 @@ export default class map extends Component {
            
         }
         const self = this;
-        console.log(self.node.name)
         resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {
             if (err) {
                 error(err);
                 return;
             }
-            console.log(self.node.name)
             self.map.tmxAsset = tiledMapAsset
           //  let p = PhysicsSystem2D.instance
           //  p.enable = true;
@@ -97,7 +94,6 @@ export default class map extends Component {
         this.settensor()
         let p = PhysicsSystem2D.instance
         p.enable = true;
-       console.log(this.map.node.children)
         let node = this.map.node.getChildByName('player');
       
         this.map.node.removeChild(node);
@@ -247,7 +243,6 @@ onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IP
 talk(e1,e2)
 {
 let script = this.npclist[e1].getComponent(npc1)
-console.log(e1,script)
     if(script)
     {
         script.talk(e2)

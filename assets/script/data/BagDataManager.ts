@@ -59,10 +59,8 @@ export default class BagDataManager {
         if (itemClass) {
             const itemInstance = new itemClass(itemData);
             this.items.push(itemInstance);// 假设将实例化的物品添加到 BagDataManager 管理的物品数组中
-            console.log(this.items)
             return itemInstance;
         } else {
-            console.error(`Unsupported item type: ${itemType}`);
             return null;
         }
     } 
@@ -96,8 +94,6 @@ export default class BagDataManager {
         {
 
             aimItem.Count += itemCount;
-
-            console.log(this.items)
 
         }
         else
@@ -209,7 +205,7 @@ export class ItemFactory {
         if (value >= 0) {
             this._Count = value;
         } else {
-            console.error("Count cannot be negative.");
+  
         }
      }
  

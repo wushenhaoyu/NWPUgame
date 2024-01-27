@@ -53,7 +53,7 @@ export default class shopItem extends Component {
             this.itemNumber =1;
         }
         this.itemNumberLabel.getComponent(Label).string = String(this.itemNumber);
-        console.log("wtf")
+
     }
     updateNumber(){
         this.itemNumber =  Number(this.itemNumberLabel.getComponent(Label).string);

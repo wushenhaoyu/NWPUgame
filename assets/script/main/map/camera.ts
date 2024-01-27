@@ -41,12 +41,10 @@ export  class camera extends Component {
         this.mapWidth = this.tiledMap.getMapSize().width* tileSize.width
         this.playerHeight = this.player.getComponent(UITransform).height;
         this.playerWidth = this.player.getComponent(UITransform).width;
-        console.log(this.mapWidth / 2,this.mapHeight / 2)
         this.cameraMaxX1 = this.cameraWidth / 2 + this.playerWidth / 2;
         this.cameraMaxY1 =  this.cameraHeight  / 2 + this.playerHeight / 2;
         this.cameraMaxX2 = this.mapWidth  - this.cameraWidth / 2 -  this.playerWidth / 2;
         this.cameraMaxY2 = this.mapHeight  -  this.cameraHeight  / 2 -  this.playerHeight / 2;
-        console.log(this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2);
         if(this.cameraMaxX1 > this.cameraMaxX2 )
         {
             this.ifControlX = false;
@@ -90,7 +88,6 @@ export  class camera extends Component {
         let p = new Vec3()
         p =   await  Vec3.add(p,this.cameraPosition,v3(x * this.cameraWidth  , y * this.cameraHeight, 0))
         this.isPlot = true;
-        console.log(p,v3(x * this.cameraWidth  , y * this.cameraHeight, 0));
           tween(this.node)
           .to(time, { position: p })
           .call(onCompleteCallback) 

@@ -148,7 +148,6 @@ export class BagDataControl extends Component {
 
             this.currentItems = items
             this.bag.destroyAllChildren();
-            console.log(items, this.currentItems)
             
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];

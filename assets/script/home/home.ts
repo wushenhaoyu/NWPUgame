@@ -29,7 +29,7 @@ export class home extends Component
     update(deltaTime: number) {
         if(this.settingsWindow.active)
         {
-            console.log(this.settingsWindow.position, this.settingsbtn.position)
+
         }
     }
 
@@ -53,7 +53,7 @@ export class home extends Component
     showsettings()
     {
         this.settingsWindow.active = true;
-        console.log("settings")
+
     }
 }
 

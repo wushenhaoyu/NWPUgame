@@ -105,7 +105,6 @@ export default class text extends Component {
         if(this.npcNode == null)
         {
         this.npcNode = find(`UI/plot/Plot/${event}`)
-        console.log(event,find(`UI/plot/Plot/${event}`))
 
         this.npcComponent = this.npcNode.getComponent(event) as Npc
 
@@ -320,7 +319,6 @@ export default class text extends Component {
 
    startConversation(sendedTextData: SendData)
    {
-        console.log('开始对')
         this.control = sendedTextData.type
         this.textIndex = 0
         this.textData = sendedTextData.dialog

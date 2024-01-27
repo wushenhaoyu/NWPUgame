@@ -84,7 +84,6 @@ export default class PlayerDataManager {
     }
     loseMoney(money:number){
         this.money -= money
-        console.log(this.coinNode)
         this.coinNode.updatePlayerData()
     }
     setinfo(name:string, gender:number)

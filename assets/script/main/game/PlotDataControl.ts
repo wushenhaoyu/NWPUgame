@@ -53,7 +53,6 @@ export class PlotDataControl extends Component {
             case 1 :
                 if(time == timeTypeDef.morning )
                 {
-                    console.log('入学')
                     this.Plot1_1();
                 }
                 break;
@@ -78,7 +77,6 @@ export class PlotDataControl extends Component {
                     return
                 }
                 this.musicScript.pauseMusic();
-                console.log(this.mapScript);
                 this.UINode.active = false; //关闭UI
                 this.cameraScript.changeControl();//将镜头控制权转为剧情控制
                 this.cameraScript.move(0,1,4);
