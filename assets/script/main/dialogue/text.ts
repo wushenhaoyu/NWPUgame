@@ -68,6 +68,7 @@ export default class text extends Component {
     private npcComponent: Npc = null;
     private isPlotNpc: boolean = null;
     private choices: Array<string> = [];
+    public isPurePlot: boolean = false; //是否为纯剧情？
 
 
    start() {
@@ -101,6 +102,8 @@ export default class text extends Component {
     }
     initPlotStart(event:string)
     {
+        if(this.npcNode == null)
+        {
         this.npcNode = find(`UI/plot/Plot/${event}`)
         console.log(event,find(`UI/plot/Plot/${event}`))
 
@@ -114,13 +117,16 @@ export default class text extends Component {
 
         this.npcName = event;
 
-        this.firstText = this.npcComponent.firstText;
+        //this.firstText = this.npcComponent.firstText;
         
-        this.setTextData(this.firstText);
+       // this.setTextData(this.firstText);
         
         this.isPlotNpc = this.npcComponent.isPlotNpc;
 
-        this.nowText = this.firstText.Text;
+        this.isPurePlot = true;
+
+        //this.nowText = this.firstText.Text;
+        }
     }
 
 
@@ -147,6 +153,8 @@ export default class text extends Component {
         this.isPlotNpc = this.npcComponent.isPlotNpc;
 
         this.nowText = this.firstText.Text;
+
+        this.isPurePlot = false;
 
    }
    
@@ -226,13 +234,19 @@ export default class text extends Component {
             {
                 this.npcNode.emit("select2")
             }
+
             
             this.dialogue.active = false
             this.unpersistUI.active = true
             this.choiceBoxes.active = false
             this.textIndex = 0;
             this.npcNode = null;
-            //this.npcWalkAgain()
+            gameDataManager.plotDataControl.isReovered = true;
+            gameDataManager.plotDataControl.checkPlot();
+            if(!this.isPurePlot)
+            {
+                this.npcWalkAgain()
+            }
             this.textIndex = -1
                 
             }
@@ -252,7 +266,7 @@ export default class text extends Component {
 
    }
 
-   /* npcWalkAgain(){
+    npcWalkAgain(){
         if(!this.mapNode.name)
         {
             this.mapNode =  find('/gameWorld/gameCanvas/Map');
@@ -267,7 +281,7 @@ export default class text extends Component {
 
         }
 
-   }*/
+   }
 
    update(deltaTime: number) {
 
@@ -306,7 +320,7 @@ export default class text extends Component {
 
    startConversation(sendedTextData: SendData)
    {
-
+        console.log('开始对')
         this.control = sendedTextData.type
         this.textIndex = 0
         this.textData = sendedTextData.dialog

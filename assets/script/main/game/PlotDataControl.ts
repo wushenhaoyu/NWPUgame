@@ -1,4 +1,4 @@
-import { _decorator, Component, Node,find, tween } from 'cc';
+import { _decorator, Component, Node,find, tween, Tween } from 'cc';
 const { ccclass, property } = _decorator;
 import map from '../map/map'
 import GameDataManager  from'../../data/GameDataManager'
@@ -20,6 +20,8 @@ export class PlotDataControl extends Component {
     public cameraScript:camera = null; //
     public mapScript:map = null; //地图脚本
     public UINode:Node = null; //UI节点
+    public stage:number = 0;//当前剧情进行阶段
+    public isReovered:boolean = false;//是否应该复原了
     start() {   
         this.node.on('ready',this.checkPlot,this)
         this.textScript = this.text.getComponent(text);
@@ -62,13 +64,30 @@ export class PlotDataControl extends Component {
 
     Plot1_1()
     {
-        this.musicScript.stopMusic();
-        console.log(this.mapScript);
-        this.UINode.active = false; //关闭UI
-        this.cameraScript.changeControl();//将镜头控制权转为剧情控制
-        this.cameraScript.move(0,1,8);
-        find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
+        switch(this.stage)
+        {
+            case 0:
+                if(this.isReovered)
+                {
+                    Tween.stopAll();
+                    this.UINode.active = true;
+                    this.cameraScript.changeControl(); 
+                    this.isReovered = false
+                    this.stage = 1;
+                    this.musicScript.playMusic();
+                    return
+                }
+                this.musicScript.pauseMusic();
+                console.log(this.mapScript);
+                this.UINode.active = false; //关闭UI
+                this.cameraScript.changeControl();//将镜头控制权转为剧情控制
+                this.cameraScript.move(0,1,4);
+                find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
+                break;
+            case 1:
 
+        }
+            
 
     }
 }

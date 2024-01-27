@@ -4,52 +4,47 @@
     "isPlotNpc": true,
     "mapName": "Plot",
     "start":{
-        "Name": "迷茫的女同学",
-        "Text": "同学你好，呃，请问图书馆是怎么去的？",
+        "Name": "",
+        "Text": "！",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": ""
     },
     "plot":[
         {
-            "id": 0,
-            "type":1,
-            "name":"初次邂逅",
-            "script":"nvtongxue",
-            "choice":["羞澀地加微信","殘忍拒絕"],
-            "plotjump": [1, 2],
+            "id": 1,
+            "type": 1,
+            "name": "初到校园",
+            "script": "Plot1_2",
+            "choice": ["积极探索校园", "悠闲漫步校园"],
+            "plotjump": [1,2],
             "dialog": [
                 {
-                    "Name": "迷茫的女同学",
-                    "Text": "同学你好，呃，请问图书馆是怎么去的？",
-                    "Speaker": false,
-                    "Img": "NPC/OIP"
-                },
-                {
-                    "Name": "单大狗",
-                    "Text": "Whatsup? walk to the east",
+                    "Name": "你",
+                    "Text": "踏入西北工业大学，一片宽广而充满活力的校园。",
                     "Speaker": true,
-                    "Img": "NPC/OIP"
+                    "Img": "lihui/female1"
                 },
                 {
-                    "Name": "迷茫的女同学",
-                    "Text": "I want your WeChat",
-                    "Speaker": false,
-                    "Img": "NPC/OIP"
-                },
-                {
-                    "Name": "单大狗",
-                    "Text": "I see",
+                    "Name": "你",
+                    "Text": "这里的氛围真是让人心旷神怡，仿佛融入了一片新的世界。",
                     "Speaker": true,
-                    "Img": "NPC/OIP"
+                    "Img": "lihui/female1"
                 },
                 {
-                    "Name": "迷茫的女同学",
-                    "Text": "It is nice to meet you",
-                    "Speaker": false,
-                    "Img": "NPC/OIP"
+                    "Name": "你",
+                    "Text": "或许这里将是我未来学业和人生的起点。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我决定好好探索这个校园，看看有什么新奇的事物等待着我。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
                 }
             ]
         },
+        
 
         {
             "id": 1,

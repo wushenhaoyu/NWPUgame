@@ -136,11 +136,11 @@ export class Npc extends Component {
         if(this.isPlot)
         {
             console.log(this._npcName)
-            if(currentPlot.id == 0)
-            {
+           // if(currentPlot.type == 0)
+           // {
 
                 this.text.getComponent(text).initPlotStart(this._npcName);
-            }
+           // }
         }
 
     }
