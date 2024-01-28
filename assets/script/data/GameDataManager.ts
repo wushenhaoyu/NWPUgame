@@ -5,7 +5,8 @@ import { PlotDataControl } from '../main/game/PlotDataControl';
 export enum timeTypeDef{
     morning = 1,
     afternoon = 2,
-    evening = 3
+    evening = 3,
+    night = 4
 }
 export default class GameDataManager {
     public timeDataControl:TimeDataControl;
@@ -53,17 +54,25 @@ export default class GameDataManager {
         });
     }
     public nextTime(){
-        if(this.time == timeTypeDef.evening)
+        if(this.time == timeTypeDef.night)
         {
             this.nextDay();
+            return
+        }
+        if(this.time == timeTypeDef.evening)
+        {
+            this.time = timeTypeDef.night;
+            return
         }
         if(this.time == timeTypeDef.afternoon)
         {
             this.time = timeTypeDef.evening;
+            return
         }
         if(this.time == timeTypeDef.morning)
         {
             this.time = timeTypeDef.afternoon;
+            return
         }
     }
    

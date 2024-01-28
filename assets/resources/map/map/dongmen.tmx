@@ -1439,7 +1439,12 @@
     <property name="name" value="tushuguan1"/>
    </properties>
   </object>
-  <object id="116" x="1598" y="639" width="17" height="417"/>
+  <object id="116" x="1598" y="639" width="17" height="417">
+   <properties>
+    <property name="map" value="sushe"/>
+    <property name="name" value="sushe"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="13" name="object">
   <object id="1" x="232" y="1103" width="392" height="21"/>
@@ -1547,7 +1552,7 @@
   </object>
   <object id="110" x="1533.82" y="906.006" width="15.3727" height="21.1374">
    <properties>
-    <property name="name" value="yinhelu"/>
+    <property name="name" value="sushe"/>
    </properties>
   </object>
  </objectgroup>

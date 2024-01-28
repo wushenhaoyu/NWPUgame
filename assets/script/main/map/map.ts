@@ -33,6 +33,7 @@ export default class map extends Component {
     public NPC:NPC[] = []//存储tiled中npc信息
     public npclist:Node[] = []; //存储实例化的npc节点
     public text:Node = null;
+    public eventNode:Node = null; //event的脚本节点
     map1:string = ""
     name1:string = ""
     onLoad(){
@@ -47,6 +48,7 @@ export default class map extends Component {
     this.map1 = gameDataManager.getMap();
     this.text =  find('UI/UICanvas/dialogue');//先找到dialogue
     this.node.on('talk',this.talk,this);
+    this.node.on('offEvent',this.offEvent,this)
         
        
 
@@ -92,6 +94,7 @@ export default class map extends Component {
     {
         this.setNPC()
         this.settensor()
+        this.setevent()
         let p = PhysicsSystem2D.instance
         p.enable = true;
         let node = this.map.node.getChildByName('player');
@@ -142,56 +145,51 @@ export default class map extends Component {
         this.mapwindow.getParent().active = true;
         this.mapwindow.emit('map',this.map1);
     }
-    settensor()
-    {
-        // 从对象层中获取起始点数据
-const start = this.map.getObjectGroup('sensor');
-const birthpoints = start.getObjects();
-
-
-// 遍历起始点数据
-var i = 0;
-for (const birthpoint of birthpoints) {
-    const TPPoint:TPPoint ={
-        map:birthpoint.map,
-        name:birthpoint.name
-    }
-    this.TPPointData.push(TPPoint)
-    // 创建一个节点用于表示传感器
-    const sensorNode = new Node();
-    this.node.addChild(sensorNode);
-    
-    const body = sensorNode.addComponent(RigidBody2D);
-    body.type = ERigidBody2DType.Static;
-    body.group = 4;
    
-    // 创建一个碰撞组件，通常使用 BoxCollider2D
-    const sensorCollider = sensorNode.addComponent(BoxCollider2D);
-    sensorCollider.group = 4
-    // 将碰撞组件设置为传感器
-    sensorCollider.sensor = true;
+
+setevent()
+{
+    const eventList = this.map.getObjectGroup('event');
+    if(eventList)
+    {
+        const event = eventList.getObjects();
+        for (let i = 0; i < event.length; i++) {
+            const eventNode = new Node();
+            this.node.addChild(eventNode);
+            const body = eventNode.addComponent(RigidBody2D);
+            body.type = ERigidBody2DType.Static;
+            body.group = 4;
+           
+            // 创建一个碰撞组件，通常使用 BoxCollider2D
+            const eventCollider = eventNode.addComponent(BoxCollider2D);
+            eventCollider.group = 4
+            // 将碰撞组件设置为传感器
+            eventCollider.sensor = true;
+            
+            // 设置碰撞组件的大小和位置，使用从对象层中读取的数据
+            eventCollider.size = size(event[i].width, event[i].height); // 设置传感器的大小
+            eventNode.setPosition(event[i].x, event[i].y); // 设置传感器的位置
+            eventCollider.offset = v2(event[i].width / 2, event[i].height / -2);
+                    eventCollider.on(Contact2DType.BEGIN_CONTACT, this.onEvent, this);
+                    body.enabledContactListener = true;
+            eventCollider.name = event[i].name
+           
+        }
+    }
+}
+onEvent (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+    // 只在两个碰撞体开始接触时被调用一次
+    this.eventNode = find('UI/Event/'+ selfCollider.name)
+    find('UI/UICanvas/UI/unpersistUI').active = false
+    this.eventNode.components[0].load();
+}
+offEvent()
+{
+    this.eventNode.components[0].eventstart()
+    find('UI/UICanvas/UI/unpersistUI').active = true
     
-    // 设置碰撞组件的大小和位置，使用从对象层中读取的数据
-    sensorCollider.size = size(birthpoint.width, birthpoint.height); // 设置传感器的大小
-    sensorNode.setPosition(birthpoint.x, birthpoint.y); // 设置传感器的位置
-    sensorCollider.offset = v2(birthpoint.width / 2, birthpoint.height / -2);
-            sensorCollider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
-            body.enabledContactListener = true;
-    // 添加碰撞事件，以侦听与玩家的接触
-    /*sensorCollider.on(Contact2DType.BEGIN_CONTACT, (selfCollider:Collider2D, otherCollider:Collider2D,contact:IPhysics2DContact | null)=>{
-        
-    }, this);*/
-
-    // 将从对象层中读取的数据附加到节点，以在事件处理程序中使用
-    sensorNode.name = birthpoint.name;
-    sensorCollider.name = birthpoint.map; 
-    resources.preload('map/map'+birthpoint.name);
-    gameDataManager.mapLoadListAlready[i] = birthpoint.name;//地图加载完毕向剧情节点发送
 }
 
-
-
-}
 
 setNPC()
 {
@@ -228,8 +226,58 @@ setNPC()
         }
     }
 } 
+settensor()
+{
+    // 从对象层中获取起始点数据
+const start = this.map.getObjectGroup('sensor');
+const birthpoints = start.getObjects();
 
-onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+
+// 遍历起始点数据
+var i = 0;
+for (const birthpoint of birthpoints) {
+const TPPoint:TPPoint ={
+    map:birthpoint.map,
+    name:birthpoint.name
+}
+this.TPPointData.push(TPPoint)
+// 创建一个节点用于表示传感器
+const sensorNode = new Node();
+this.node.addChild(sensorNode);
+
+const body = sensorNode.addComponent(RigidBody2D);
+body.type = ERigidBody2DType.Static;
+body.group = 4;
+
+// 创建一个碰撞组件，通常使用 BoxCollider2D
+const sensorCollider = sensorNode.addComponent(BoxCollider2D);
+sensorCollider.group = 4
+// 将碰撞组件设置为传感器
+sensorCollider.sensor = true;
+
+// 设置碰撞组件的大小和位置，使用从对象层中读取的数据
+sensorCollider.size = size(birthpoint.width, birthpoint.height); // 设置传感器的大小
+sensorNode.setPosition(birthpoint.x, birthpoint.y); // 设置传感器的位置
+sensorCollider.offset = v2(birthpoint.width / 2, birthpoint.height / -2);
+        sensorCollider.on(Contact2DType.BEGIN_CONTACT, this.onSensor, this);
+        body.enabledContactListener = true;
+// 添加碰撞事件，以侦听与玩家的接触
+/*sensorCollider.on(Contact2DType.BEGIN_CONTACT, (selfCollider:Collider2D, otherCollider:Collider2D,contact:IPhysics2DContact | null)=>{
+    
+}, this);*/
+
+// 将从对象层中读取的数据附加到节点，以在事件处理程序中使用
+sensorNode.name = birthpoint.name;
+sensorCollider.name = birthpoint.map; 
+resources.preload('map/map'+birthpoint.name);
+gameDataManager.mapLoadListAlready[i] = birthpoint.name;//地图加载完毕向剧情节点发送
+}
+
+
+
+}
+
+onSensor (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
     // 只在两个碰撞体开始接触时被调用一次
     
     for(var i =0 ; i < this.TPPointData.length ; i++)
