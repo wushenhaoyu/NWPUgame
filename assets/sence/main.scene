@@ -4191,7 +4191,7 @@
     "_enabled": true,
     "__prefab": null,
     "selectChoicePrefab": {
-      "__uuid__": "02b97f9c-115e-487d-9545-12d5a49335f9",
+      "__uuid__": "f09f9580-0d55-4b53-84a9-5b49c2a0ad86",
       "__expectedType__": "cc.Prefab"
     },
     "select": {
@@ -4408,8 +4408,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
-      "height": 50.4
+      "width": 69.99709159352301,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4441,7 +4441,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.171875,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4470,7 +4470,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15,
+    "_right": 15.001454203238495,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -4698,8 +4698,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
-      "height": 50.4
+      "width": 69.99709159352301,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4731,7 +4731,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.171875,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4760,7 +4760,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15,
+    "_right": 15.001454203238495,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -5491,7 +5491,7 @@
     "_string": "对话",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
+    "_actualFontSize": 25.8125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -12875,7 +12875,7 @@
     "_string": "1天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.171875,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -13102,8 +13102,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54.46533203125,
-      "height": 50.4
+      "width": 54.463067966858354,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13127,7 +13127,7 @@
       "__id__": 366
     },
     "_left": 64.72666796875,
-    "_right": -78.92466601562498,
+    "_right": -78.92353398342915,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -13229,7 +13229,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35,
+    "_actualFontSize": 45.171875,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -13269,7 +13269,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 68.022,
+      "x": 68.02200000000002,
       "y": 0,
       "z": 0
     },
@@ -13456,8 +13456,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.861328125,
-      "height": 50.4
+      "width": 77.85808868038741,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13479,7 +13479,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.5026640625,
+    "_right": -81.50104434019372,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -22101,7 +22101,7 @@
     "_priority": 1,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 435.4479418886199,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -35775,8 +35775,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 50.4
+      "width": 119.98836637409202,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -35808,7 +35808,7 @@
     "_string": "西工大",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 40,
+    "_actualFontSize": 51.625,
     "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,

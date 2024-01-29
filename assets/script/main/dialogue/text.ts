@@ -86,6 +86,7 @@ export default class text extends Component {
         this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox plot dialogue'), this)  //特殊对话回调
         this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)  //关闭对话框回调
         this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
+        this.select.getChildByName("selections").on(NodeEventType.TOUCH_START, () => console.log("gggg"), this)
    }
 
     initplotchoice(choices: Array<string>){
@@ -96,6 +97,7 @@ export default class text extends Component {
             this.select.getChildByName("selections").addChild(choiceNode)
             let choiceName = choiceNode.getComponentInChildren(Label)
             choiceName.string = choices[i]
+            choiceNode.on(NodeEventType.TOUCH_END,() => this.selection(i),this)
 
         }
 
@@ -217,14 +219,23 @@ export default class text extends Component {
             
             this.select.active = true;
 
-            const choices = this.select.getChildByName("selections").children
+            // if(this.npcName == "Plot1_1")
+            // {
+            //     this.selection(0)
+
+            // }
+
+            // const choices = this.select.getChildByName("selections").children
 
             
-            for(let i = 0;i<choices.length;i++){
+            // for(let i = 0;i<choices.length;i++){
                 
-                choices[i].on(NodeEventType.TOUCH_START,() => this.selection(i),this)
+            //     // choices[i].on(NodeEventType.TOUCH_END,() => this.selection(i),this)
+            //     choices[i].on(NodeEventType.TOUCH_END,() => console.log("hihi"),this)
 
-            }
+            // }
+
+            
 
         }
         else{
