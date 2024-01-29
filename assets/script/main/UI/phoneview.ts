@@ -119,7 +119,7 @@ export class phoneview extends Component {
         const node =this.node.getParent();
 
 // 获取节点上的 Widget 组件
-const widget = node.getComponent(Widget);
+    const widget = node.getComponent(Widget);
     tween(widget)
         .to(0.6, { horizontalCenter:-400 },{onComplete: () => {
             this.window1.active = true;
