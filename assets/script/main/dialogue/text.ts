@@ -253,6 +253,7 @@ export default class text extends Component {
 
     }
     selection(index: number){
+        console.log('yes')
         this.select.active = false;
         this.control=0;
         this.npcNode.emit(`select1`,index)
