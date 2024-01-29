@@ -116,8 +116,9 @@ export class Npc extends Component {
         
     }
 
-    plotfunc(){ //from choicebox
+  plotfunc(){ //from choicebox
         
+    setTimeout(()=>{console.log(this._npcData)
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
         const dialogueData: SendData = {
             
@@ -139,7 +140,8 @@ export class Npc extends Component {
 
                 this.text.getComponent(text).initPlotStart(this._npcName);
            // }
-        }
+        }},100)
+      
 
     }
 

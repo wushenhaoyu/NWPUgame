@@ -240,7 +240,7 @@ export default class text extends Component {
             this.choiceBoxes.active = false
             this.textIndex = 0;
             this.npcNode = null;
-            gameDataManager.plotDataControl.isReovered = true;
+           // gameDataManager.plotDataControl.isReovered = false;
             gameDataManager.plotDataControl.checkPlot();
             if(!this.isPurePlot)
             {

@@ -2,6 +2,7 @@ import { _decorator,resources,error,JsonAsset,sys,find} from 'cc';
 const { ccclass, property } = _decorator;
 import { TimeDataControl } from '../main/game/TimeDataControl';
 import { PlotDataControl } from '../main/game/PlotDataControl';
+import { Joystick } from '../main/UI/joystickcontrol';
 export enum timeTypeDef{
     morning = 1,
     afternoon = 2,
@@ -19,6 +20,7 @@ export default class GameDataManager {
     public mapLoadListIng:String[] = [];    //等待加载的地图
     public plotDataControl:PlotDataControl;
     public isPlayerFirstPlay:boolean = true;//玩家是否第一次进入游戏?
+    public joystick:Joystick;
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1

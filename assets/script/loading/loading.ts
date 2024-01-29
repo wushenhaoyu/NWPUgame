@@ -33,12 +33,13 @@ export class loading extends Component {
 
             this.onMapLoaded()
         })*/
-        resources.loadDir('map/map/'+gameDataManager.getMap(),TiledMapAsset,(err,resources)=>{
+        resources.load('map/map/'+gameDataManager.getMap(),TiledMapAsset,(err,resources)=>{
             if(err) {
                 console.error(`Failed to preload assets in folder map/map/: ${err}`);
                 return;
             }
             this.onMapLoaded()
+            console.log('地图加载完成')
         })
     
     }
@@ -46,11 +47,13 @@ export class loading extends Component {
     onBagLoaded() {
         // 这里可以处理背包加载完成后的逻辑
         this.updateProgressBar(0.2);
+        console.log('背包加载完成')
     }
 
     onSceneLoaded() {
         // 这里可以处理场景加载完成后的逻辑
         this.updateProgressBar(0.3);
+        console.log('场景加载完成')
     }
 
     onMapLoaded() {

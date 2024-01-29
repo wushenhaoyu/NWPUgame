@@ -2,6 +2,8 @@ import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, director, EventT
 const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
+import GameDataManager  from '../../data/GameDataManager';
+const gameDataManager = GameDataManager.getInstance();
 import map  from '../map/map';
 @ccclass('Joystick')
 export class Joystick extends Component {
@@ -38,6 +40,10 @@ export class Joystick extends Component {
     animationComponent:AnimationComponent = null;
     speed:RigidBody2D = null;
     onLoad() {
+       
+    }
+    start() {
+        gameDataManager.joystick = this.node.getComponent(Joystick);
         this.animationComponent = this.player.getComponent(AnimationComponent);
         this.speed = this.player.getComponent(RigidBody2D);
         this.MapScript = this.player.getParent().getParent().getComponent(map);
@@ -176,6 +182,27 @@ if (angle > threshold && angle < 3 * threshold) {
             this.animationComponent.play(this.an);
              
         }
+    changeState(c:number){
+        switch(c){
+            case 0:
+                this.animationComponent.play("1_up");
+                this.animationComponent.pause();
+                break;
+            case 1:
+                this.animationComponent.play("1_down");
+                this.animationComponent.pause();
+                break;
+            case 2:
+                this.animationComponent.play("1_left");
+                this.animationComponent.pause();
+                break;
+            case 3:
+                this.animationComponent.play("1_right");
+                this.animationComponent.pause();
+                break;
+        }
+
+    }
     
     onTouchEnd() {
         // 当触摸结束时，将操纵点重置到摇杆背景中央

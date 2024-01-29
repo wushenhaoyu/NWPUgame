@@ -21,7 +21,7 @@ export class PlotDataControl extends Component {
     public mapScript:map = null; //地图脚本
     public UINode:Node = null; //UI节点
     public stage:number = 0;//当前剧情进行阶段
-    public isReovered:boolean = false;//是否应该复原了
+    public isReovered:boolean = true;//是否复原了
     start() {   
         this.node.on('ready',this.checkPlot,this)
         this.textScript = this.text.getComponent(text);
@@ -38,13 +38,14 @@ export class PlotDataControl extends Component {
     
     checkIsMapScriptNull()
     {
-        if(this.mapScript.name == "")
+        if(this.mapScript.node == null)
         {
             this.mapScript = find('gameWorld/gameCanvas/Map').getComponent(map);
         }
     }
    async checkPlot()//检查是否应该发生剧情了 
     {
+        console.log('check')
         gameDataManager.isPlayerFirstPlay = true;
         let day = gameDataManager.getDay();
         let time = gameDataManager.getTime();
@@ -68,21 +69,44 @@ export class PlotDataControl extends Component {
             case 0:
                 if(this.isReovered)
                 {
-                    Tween.stopAll();
-                    this.UINode.active = true;
-                    this.cameraScript.changeControl(); 
+                    this.musicScript.pauseMusic();
+                    this.UINode.active = false; //关闭UI
+                    this.cameraScript.changeControl();//将镜头控制权转为剧情控制
+                    this.cameraScript.move(0,1,4);
+                    find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
                     this.isReovered = false
-                    this.stage = 1;
-                    this.musicScript.playMusic();
-                    return
+                    break;
                 }
-                this.musicScript.pauseMusic();
-                this.UINode.active = false; //关闭UI
-                this.cameraScript.changeControl();//将镜头控制权转为剧情控制
-                this.cameraScript.move(0,1,4);
-                find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
-                break;
+                else{
+                    Tween.stopAll();
+                   // this.UINode.active = true;
+                    this.cameraScript.changeControl(); 
+                    this.isReovered = true
+                    this.stage = 1;
+                    //this.Plot1_1();
+                   // this.musicScript.playMusic();
+                   this.mapScript.switchMap('sushe','sushe',()=>{
+                    console.log('切换地图')
+                 })
+                 break;
+                }
+                
             case 1:
+                if(this.isReovered)
+                {
+                         this.isReovered = false; 
+                         console.log(this.mapScript)
+                         this.mapScript.tpPlotStart('Plot1_1','sheyou');
+                         find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc();
+                }
+                else{
+                   this.UINode.active = true;
+                   this.musicScript.playMusic();
+                   this.stage = 2;
+                   this.isReovered = true
+                }
+                break;
+
 
         }
             

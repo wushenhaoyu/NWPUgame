@@ -73,7 +73,7 @@ export default class map extends Component {
            
         }
         const self = this;
-        resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {
+        resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {   
             if (err) {
                 error(err);
                 return;
@@ -113,6 +113,7 @@ export default class map extends Component {
             if(StartPoint.name == this.name1)
                 {
                     node.setPosition(birthpoint.x,birthpoint.y)
+                    console.log(this.map)
                     gameDataManager.plotDataControl.node.emit('ready');
                 }
             
@@ -302,14 +303,32 @@ let script = this.npclist[e1].getComponent(npc1)
 
     
 }
+tpPlotStart(plot:string,name:string)//传送到剧情地点
+{
+    console.log(this.mapNameName)
+    const plotStartList =  this.map.getObjectGroup('plotstart');
+    if(plotStartList)
+    {
+        const event = plotStartList.getObjects();
+        for(let i = 0; i < event.length; i++)
+        {
+            if(event[i].name==name&&event[i].plot==plot)
+            {
+                this.player.setPosition(event[i].x,event[i].y)
+            }
+        }
+    }
+}
 
 
     
-public switchMap(map:string,name:string)//切换地图
-{
-     gameDataManager.setMap(map,name);
-director.loadScene('loading',() => {
-})
+public switchMap(map: string, name: string, callback?: Function) {
+    gameDataManager.setMap(map, name);
+    director.loadScene('loading', ()=>{
+        if (callback) {
+            callback();
+        }
+    });
 }
 
 
