@@ -16,8 +16,7 @@ export class loading extends Component {
 
     start() {
         this.loadResources();
-        this.UINode =  find('UI/UICanvas/UI')
-        this.UINode.active = false;
+        find('UI/UICanvas/UI').active = false;
 
     }
 
@@ -84,7 +83,7 @@ export class loading extends Component {
     next() {
         // 所有资源加载完成，可以切换到下一个场景了
         director.loadScene('main', () => {
-            this.UINode.active = true;
+            find('UI/UICanvas/UI').active = true;
         });
     }
 

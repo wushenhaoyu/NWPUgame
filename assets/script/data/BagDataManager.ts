@@ -159,13 +159,14 @@ export class ItemFactory {
  export abstract class Item {
     protected _type: string; //物品类型
     protected _ImgUrl: string; //图片地址
-    protected _Name: string; //名称
+    protected _Name: string; //英文名称
     protected _Count: number; //数量
     protected _Id: number; //ID
     protected _Info: string; //信息
     protected _canInteract: boolean; // 添加一个标志，表示物品是否可以使用
     protected _actionText: string;
     protected _value:number; //价值
+    protected _Label:string;//中文名称
  
      constructor(data: any) {
          this._type = data.type|| "";
@@ -177,6 +178,7 @@ export class ItemFactory {
          this._canInteract = true; // 默认为可以使用
          this._actionText = data.actionText || "";
          this._value = data.value || 0;
+         this._Label = data.Label || "";
      }
  
      // 抽象方法，需要在子类中实现
@@ -207,6 +209,9 @@ export class ItemFactory {
         } else {
   
         }
+     }
+     get Label(): string {
+        return this._Label;
      }
  
      get Id(): number {
