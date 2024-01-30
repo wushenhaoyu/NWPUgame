@@ -183,24 +183,27 @@ if (angle > threshold && angle < 3 * threshold) {
              
         }
     changeState(c:number){
+        this.refind()
         switch(c){
             case 0:
                 this.animationComponent.play("1_up");
-                this.animationComponent.pause();
+                
                 break;
             case 1:
                 this.animationComponent.play("1_down");
-                this.animationComponent.pause();
+               
                 break;
             case 2:
                 this.animationComponent.play("1_left");
-                this.animationComponent.pause();
+                
                 break;
             case 3:
                 this.animationComponent.play("1_right");
-                this.animationComponent.pause();
                 break;
         }
+        this.scheduleOnce(()=>{
+            this.animationComponent.pause();
+        }, 0);
 
     }
     
@@ -262,7 +265,12 @@ if (angle > threshold && angle < 3 * threshold) {
 
     }
     else{
-        const player = find('gameWorld/gameCanvas/Map/door/player');
+        this.refind();
+    }
+}
+refind()
+{
+    const player = find('gameWorld/gameCanvas/Map/door/player');
         const Map = find('gameWorld/gameCanvas/Map/door')
         if(Map) this.Map = Map.getComponent(TiledMap);
         if(player) 
@@ -272,7 +280,6 @@ if (angle > threshold && angle < 3 * threshold) {
             this.speed = this.player.getComponent(RigidBody2D);
             this.MapScript = this.player.getParent().getParent().getComponent(map);
         }
-    }
 }
 
 

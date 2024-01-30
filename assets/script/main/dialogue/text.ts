@@ -244,6 +244,14 @@ export default class text extends Component {
             {
                 this.npcNode.emit("select2")
             }
+            const choices = this.select.getChildByName("selections").children
+            if(choices)
+            {
+                for(var i = 0 ; i < choices.length ; i++ )
+                {
+                    choices[i].destroy();
+                }
+            }
 
             
             this.dialogue.active = false
@@ -339,8 +347,11 @@ export default class text extends Component {
         this.choices = sendedTextData.choice;
         this.dialogue.active = true;
         this.choiceBoxes.active = false;
-
-        this.initplotchoice(this.choices)
+        if(this.control )
+        
+        {
+            this.initplotchoice(this.choices)
+        }
 
 
    }

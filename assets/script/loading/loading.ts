@@ -1,4 +1,4 @@
-import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources, TiledMapAsset,tween } from 'cc';
+import { _decorator, Component, Node ,assetManager, ProgressBar,director, resources, TiledMapAsset,tween, find } from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../data/GameDataManager';
 import BagDataManager from '../data/BagDataManager';
@@ -11,10 +11,14 @@ const gameDataManager = GameDataManager.getInstance();
 export class loading extends Component {
     @property(ProgressBar)
     progressBar: ProgressBar = null;
+    UINode:Node = null;
 
 
     start() {
         this.loadResources();
+        this.UINode =  find('UI/UICanvas/UI')
+        this.UINode.active = false;
+
     }
 
     loadResources() {
@@ -79,7 +83,9 @@ export class loading extends Component {
 
     next() {
         // 所有资源加载完成，可以切换到下一个场景了
-        director.loadScene('main', () => {});
+        director.loadScene('main', () => {
+            this.UINode.active = true;
+        });
     }
 
     update(deltaTime: number) {

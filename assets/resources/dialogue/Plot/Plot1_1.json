@@ -51,7 +51,7 @@
             "name":"羞澀地加微信",
             "script":"nvtongxue",
             "choice":[],
-            "plotjump": [0],
+            "plotjump": [3],
             "dialog": [
                 {
                     "Name": "因為你不再迷茫的女同学",
@@ -68,7 +68,7 @@
             "name":"殘忍拒絕",
             "script":"nvtongxue",
             "choice":[],
-            "plotjump": [0],
+            "plotjump": [3],
             "dialog": [
                 {
                     "Name": "不屑的女同学",

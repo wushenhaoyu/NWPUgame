@@ -1,7 +1,7 @@
 {
     "name":"室友",
     "uuid":3,
-    "isPlotNpc": false,
+    "isPlotNpc": true,
     "mapName": "sushe",
     "start":{
         "Name": "室友",
@@ -54,7 +54,7 @@
             "type":0,
             "name":"已领取",
             "script":"shiyou",
-            "plotjump": 0,
+            "plotjump": [0],
             "dialog": [
                 {
                     "Name": "室友",
@@ -73,7 +73,7 @@
             "type":0,
             "name":"未领取",
             "script":"shiyou",
-            "plotjump": 0,
+            "plotjump": [0],
             "dialog": [
                 {
                     "Name": "室友",
@@ -92,7 +92,7 @@
             "type":0,
             "name":"饮用水……",
             "script":"shiyou",
-            "plotjump": 0,
+            "plotjump": [0],
             "dialog": [
                 {
                     "Name": "室友",
@@ -111,7 +111,7 @@
             "type":0,
             "name":"网络……",
             "script":"shiyou",
-            "plotjump": 0,
+            "plotjump": [0],
             "dialog": [
                 {
                     "Name": "室友",

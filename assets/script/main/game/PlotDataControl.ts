@@ -96,6 +96,7 @@ export class PlotDataControl extends Component {
                 {
                          this.isReovered = false; 
                          console.log(this.mapScript)
+                         gameDataManager.joystick.changeState(0)
                          this.mapScript.tpPlotStart('Plot1_1','sheyou');
                          find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc();
                 }

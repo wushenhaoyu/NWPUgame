@@ -4408,8 +4408,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.98915434068059,
-      "height": 50.4
+      "width": 69.98388520704334,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4441,7 +4441,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35.35546875,
+    "_actualFontSize": 35.328125,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4470,7 +4470,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.005422829659707,
+    "_right": 15.008057396478328,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -4698,8 +4698,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.98915434068059,
-      "height": 50.4
+      "width": 69.98388520704334,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4731,7 +4731,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35.35546875,
+    "_actualFontSize": 35.328125,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -4760,7 +4760,7 @@
     "_alignFlags": 36,
     "_target": null,
     "_left": 0,
-    "_right": 15.005422829659707,
+    "_right": 15.008057396478328,
     "_top": 0,
     "_bottom": -43,
     "_horizontalCenter": 0,
@@ -5491,7 +5491,7 @@
     "_string": "对话",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.203125,
+    "_actualFontSize": 20.1875,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -12875,7 +12875,7 @@
     "_string": "1天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35.35546875,
+    "_actualFontSize": 35.328125,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -12915,7 +12915,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 76.69199999999998,
+      "x": 76.692,
       "y": 0,
       "z": 0
     },
@@ -13102,8 +13102,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54.456886238399065,
-      "height": 50.4
+      "width": 54.45279242453561,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13127,7 +13127,7 @@
       "__id__": 366
     },
     "_left": 64.72666796875,
-    "_right": -78.92044311919952,
+    "_right": -78.9183962122678,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -13229,7 +13229,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 35.35546875,
+    "_actualFontSize": 35.328125,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -13456,8 +13456,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.8492362722351,
-      "height": 50.4
+      "width": 77.84339928405574,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -13479,7 +13479,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.49661813611755,
+    "_right": -81.49369964202786,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -22101,7 +22101,7 @@
     "_priority": 1,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 416.27223511214225,
+    "_orthoHeight": 594.4272445820434,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -30475,8 +30475,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 119.98142038863108,
-      "height": 50.4
+      "width": 119.98512480650156,
+      "height": 50.400000000000006
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -30508,7 +30508,7 @@
     "_string": "西工大",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 40.40625,
+    "_actualFontSize": 40.375,
     "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
