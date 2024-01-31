@@ -26,7 +26,7 @@ export class gamesManager extends Component {
 
     gameCount: number; //how many game did the player finish
 
-    MAXGAMECOUNT: number = 10; //maximum game the player can finish
+    MAXGAMECOUNT: number = 1; //maximum game the player can finish
 
     MAXGAMESCENE: number = 3; //maximum game scene the player can go to
 
@@ -40,6 +40,7 @@ export class gamesManager extends Component {
         this.score = 0
 
         this.node.on('timeBarEnd', this.timeBarEndHandler, this)
+        this.node.on('gameEnd', this.gameEndHandler, this)
 
         this.startbtn.on(NodeEventType.TOUCH_END, this.startGame, this)
 
@@ -55,7 +56,8 @@ export class gamesManager extends Component {
         if(this.gameCount < this.MAXGAMECOUNT)
         {
             this.timeBar.active = true //show the time bar when the game start
-            const gamescene = this.pickRandomGame()
+            // const gamescene = this.pickRandomGame()
+            const gamescene = 1
             console.log(gamescene)
             this.changeScene(gamescene)
         }
@@ -70,16 +72,18 @@ export class gamesManager extends Component {
         this.changeScene(0) //change the game to the home scene
     }
 
-    gameEndHandler()
+    gameEndHandler(score: number)
     {
         //win
         console.log("you win")
+        this.timeBar.active = false //hide the time bar when the game end
         this.score += 100
         if(this.gameCount < this.MAXGAMECOUNT)
         {
 
             this.gameCount++;
             this.changeScene(this.pickRandomGame()); //change the game to a random new game
+            this.timeBar.active = true //show the time bar when the game start
             return
 
         }

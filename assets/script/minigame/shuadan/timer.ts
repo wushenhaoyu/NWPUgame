@@ -14,7 +14,7 @@ export class timer extends Component {
 
     start() {
 
-        this.maxtime = 2; // 设置最大时间
+        this.maxtime = 10; // 设置最大时间
         this.currenttime = this.maxtime;
 
     }
