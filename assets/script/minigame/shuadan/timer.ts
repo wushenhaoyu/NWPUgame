@@ -7,14 +7,20 @@ export class timer extends Component {
     @property(Node)
     private manager: Node = null;
 
-    ticking: boolean = true; // 是否正在计时
+    public ticking: boolean = true; // 是否正在计时
 
-    maxtime: number
+    public maxtime: number
     currenttime: number
 
     start() {
 
-        this.maxtime = 10; // 设置最大时间
+        this.maxtime = 2; // 设置最大时间
+        this.currenttime = this.maxtime;
+
+    }
+
+    protected onLoad(): void {
+        
         this.currenttime = this.maxtime;
 
     }
@@ -28,7 +34,8 @@ export class timer extends Component {
             if(this.currenttime <= 0)
             {
 
-                this.manager.emit("time bar end");
+                this.manager.emit("timeBarEnd");
+                this.ticking = false; // 计时结束，停止计时
 
             }
 
