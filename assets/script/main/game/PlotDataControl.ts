@@ -7,7 +7,7 @@ const gameDataManager = GameDataManager.getInstance();
 import music  from '../../music/music'
 import {camera} from '../map/camera'
 import text from '../dialogue/text'
-import { Npc } from '../NPC/npc';
+import { Npc } from '../res/npc';
 
 @ccclass('PlotDataControl')
 export class PlotDataControl extends Component {

@@ -35,6 +35,14 @@ export default class PlotDataManager {
                 plot: number,
                 dialogue:number,
             }
+        },
+        aoxiangxueshengzhongxin:{
+            xiaoyuanka:{
+
+                plot: number,
+                dialogue:number,
+
+            }
         }
     }
     private constructor() {
@@ -73,6 +81,14 @@ export default class PlotDataManager {
                 Plot1_1:{
                     plot: 0,
                     dialogue:0,
+                }
+            },
+            aoxiangxueshengzhongxin:{
+                xiaoyuanka:{
+    
+                    plot: 0,
+                    dialogue:0,
+    
                 }
             }
         }

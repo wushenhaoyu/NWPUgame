@@ -1,7 +1,7 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 import PlotDataManager from '../../../data/PlotDataManager';
-import { Npc } from '../npc';
+import { Npc } from '../../res/npc';
 const plotDataManager = PlotDataManager.getInstance();
 
 @ccclass('menwei')

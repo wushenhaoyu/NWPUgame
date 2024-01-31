@@ -216,8 +216,14 @@ export default class text extends Component {
     closeDialog(){
         if(this.control){   
             //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
-            
-            this.select.active = true;
+            if(this.choices.length > 0)
+            {
+                this.select.active = true;
+            }
+            else{
+                this.selection(0)
+            }
+
 
             // if(this.npcName == "Plot1_1")
             // {
@@ -259,6 +265,7 @@ export default class text extends Component {
             this.choiceBoxes.active = false
             this.textIndex = 0;
             this.npcNode = null;
+            this.choices = [];
            // gameDataManager.plotDataControl.isReovered = false;
             gameDataManager.plotDataControl.checkPlot();
             if(!this.isPurePlot)
@@ -347,9 +354,9 @@ export default class text extends Component {
         this.choices = sendedTextData.choice;
         this.dialogue.active = true;
         this.choiceBoxes.active = false;
-        if(this.control )
-        
+        if(this.control)
         {
+            
             this.initplotchoice(this.choices)
         }
 

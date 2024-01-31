@@ -4,15 +4,12 @@ import PlotDataManager from '../../../data/PlotDataManager';
 import { Npc } from '../../res/npc';
 const plotDataManager = PlotDataManager.getInstance();
 
-@ccclass('Plot1_1')
-export class Plot1_1 extends Npc {
+@ccclass('xiaoyuanka')
+export class xiaoyuanka extends Npc {
 
-    onLoad() {
-        this._npcName = 'Plot1_1';
-        this.isPlot = true;
-    }
     start() {
 
+        this._npcName = 'xiaoyuanka';
         super.start();
 
     }
@@ -22,9 +19,7 @@ export class Plot1_1 extends Npc {
         if(this.plotJump[event] != -1)
         {
 
-            console.log("Plot1_1: " + event);
-
-            plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 
             this.plotfunc()
 
@@ -34,5 +29,4 @@ export class Plot1_1 extends Npc {
     
 
 }
-
 
