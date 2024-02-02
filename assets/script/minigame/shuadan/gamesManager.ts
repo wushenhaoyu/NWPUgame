@@ -1,4 +1,4 @@
-import { _decorator, Component, game, Node, NodeEventType } from 'cc';
+import { _decorator, Component, game, Node, NodeEventType, toDegree } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('gamesManager')
@@ -6,6 +6,9 @@ export class gamesManager extends Component {
 
     @property(Node)
     public homeScene = null;
+
+    @property(Node)
+    public scoreboard = null
 
     @property(Node)
     public game1Scene = null;
@@ -26,7 +29,7 @@ export class gamesManager extends Component {
 
     gameCount: number; //how many game did the player finish
 
-    MAXGAMECOUNT: number = 1; //maximum game the player can finish
+    MAXGAMECOUNT: number = 10; //maximum game the player can finish
 
     MAXGAMESCENE: number = 3; //maximum game scene the player can go to
 
@@ -39,8 +42,11 @@ export class gamesManager extends Component {
         this.gameCount = 0
         this.score = 0
 
+        const continueBtn = this.scoreboard.getChildByName("continueBtn")
+
         this.node.on('timeBarEnd', this.timeBarEndHandler, this)
         this.node.on('gameEnd', this.gameEndHandler, this)
+        continueBtn.on(NodeEventType.TOUCH_END, this.continueHandler, this)
 
         this.startbtn.on(NodeEventType.TOUCH_END, this.startGame, this)
 
@@ -57,7 +63,7 @@ export class gamesManager extends Component {
         {
             this.timeBar.active = true //show the time bar when the game start
             // const gamescene = this.pickRandomGame()
-            const gamescene = 1
+            const gamescene = 2
             console.log(gamescene)
             this.changeScene(gamescene)
         }
@@ -67,35 +73,29 @@ export class gamesManager extends Component {
     timeBarEndHandler()
     {
         //lose
-        console.log("you lose")
-        this.timeBar.active = false //hide the time bar when the game end
-        this.changeScene(0) //change the game to the home scene
+        this.lose
     }
 
-    gameEndHandler(score: number)
+    gameEndHandler(state: string)
     {
         //win
-        console.log("you win")
-        this.timeBar.active = false //hide the time bar when the game end
-        this.score += 100
-        if(this.gameCount < this.MAXGAMECOUNT)
+        if(state == "win")
         {
 
-            this.gameCount++;
-            this.changeScene(this.pickRandomGame()); //change the game to a random new game
-            this.timeBar.active = true //show the time bar when the game start
+            this.win()
             return
-
         }
 
-        this.changeScene(0); //change the game to the home scene
+        this.lose()
+
+
 
     }
 
     pickRandomGame()
     {
 
-        return Math.floor(Math.random() * this.MAXGAMESCENE + 1) + 1; //returns a random number between 1 and 3
+        return Math.floor(Math.random() * this.MAXGAMESCENE) + 1; //returns a random number between 1 and 3
 
     }
 
@@ -103,7 +103,11 @@ export class gamesManager extends Component {
 
         switch(scene)
         {
-
+            case -1:
+                this.currentScene.active = false;
+                this.scoreboard.active = true
+                this.currentScene = this.scoreboard;
+                break 
             case 0:
                 this.currentScene.active = false;
                 this.homeScene.active = true;
@@ -128,6 +132,48 @@ export class gamesManager extends Component {
         }
 
     }
+
+    win()
+    {
+
+        console.log("you win")
+        this.timeBar.active = false //hide the time bar when the game end
+        this.score += 100
+        this.gameCount++;
+        if(this.gameCount < this.MAXGAMECOUNT)
+        {
+    
+            this.changeScene(-1); //change the game to a random new game
+            return
+    
+        }
+    
+        this.changeScene(0); //change the game to the home scene
+
+    }
+
+    lose()
+    {
+        console.log("you lose")
+        this.timeBar.active = false //hide the time bar when the game end
+        this.changeScene(0) //change the game to the home scene
+    }
+
+    continueHandler()
+    {
+
+        console.log("continue")
+        this.changeScene(this.pickRandomGame())
+        this.timeBar.active = true //show the time bar when the game start
+
+    }
+
+    get currentScore()
+    {
+        return this.score
+    }
+
+
 }
 
 

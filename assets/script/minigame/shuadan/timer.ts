@@ -19,7 +19,7 @@ export class timer extends Component {
 
     }
 
-    protected onLoad(): void {
+    protected onEnable(): void {
         
         this.currenttime = this.maxtime;
 
