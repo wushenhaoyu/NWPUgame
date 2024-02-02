@@ -1,6 +1,6 @@
-import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find, Camera} from 'cc';
+import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find, Camera, Material, TiledLayer, Color, color} from 'cc';
 const { ccclass, property } = _decorator;
-import GameDataManager from '../../data/GameDataManager';
+import GameDataManager, { timeTypeDef } from '../../data/GameDataManager';
 import npc1 from '../res/npc1';
 import npc2 from '../res/npc2';
 const gameDataManager = GameDataManager.getInstance();
@@ -28,6 +28,8 @@ export default class map extends Component {
     public map:TiledMap = null;
     @property({type:Node})
     public player:Node = null;
+    @property({type:Material})
+    public light:Material = null;
     StartPointData:StartPoint[] = [];
     TPPointData:TPPoint[] = [];
     public NPC:NPC[] = []//存储tiled中npc信息
@@ -92,6 +94,7 @@ export default class map extends Component {
 
     initmap()
     {
+        this.switchLight()
         this.setNPC()
         this.settensor()
         this.setevent()
@@ -145,6 +148,30 @@ export default class map extends Component {
         }
         this.mapwindow.getParent().active = true;
         this.mapwindow.emit('map',this.map1);
+    }
+    switchLight()
+    {
+       let time = gameDataManager.getTime();
+       switch(time)
+       {
+        case timeTypeDef.morning:
+            this.light.setProperty('ambientLight', color(255, 255,255,255));
+            break;
+        case timeTypeDef.afternoon:
+            this.light.setProperty('ambientLight', color(255, 240, 202, 255));
+            break;
+        case timeTypeDef.evening:
+            this.light.setProperty('ambientLight', color(111,111,111, 255));
+            break;
+        case timeTypeDef.night:
+            this.light.setProperty('ambientLight', color(32,32,32, 255));
+            break;
+       }
+       let layers = this.map.getComponentsInChildren(TiledLayer)
+            for(var i = 0 ; i  < layers.length; i++) {
+             layers[i].customMaterial = this.light
+             console.log(layers[i])
+            }
     }
    
 
@@ -305,7 +332,7 @@ let script = this.npclist[e1].getComponent(npc1)
 }
 tpPlotStart(plot:string,name:string)//传送到剧情地点
 {
-    console.log(this.mapNameName)
+   
     const plotStartList =  this.map.getObjectGroup('plotstart');
     if(plotStartList)
     {

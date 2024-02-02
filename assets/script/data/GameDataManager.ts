@@ -59,21 +59,25 @@ export default class GameDataManager {
         if(this.time == timeTypeDef.night)
         {
             this.nextDay();
+            this.plotDataControl.mapScript.switchLight();
             return
         }
         if(this.time == timeTypeDef.evening)
         {
             this.time = timeTypeDef.night;
+            this.plotDataControl.mapScript.switchLight();
             return
         }
         if(this.time == timeTypeDef.afternoon)
         {
             this.time = timeTypeDef.evening;
+            this.plotDataControl.mapScript.switchLight();
             return
         }
         if(this.time == timeTypeDef.morning)
         {
             this.time = timeTypeDef.afternoon;
+            this.plotDataControl.mapScript.switchLight();
             return
         }
     }
