@@ -22,7 +22,7 @@ export class game1 extends Component {
 
     }
 
-    protected onLoad(): void {
+    protected onEnable(): void {
         
         this.generateReceipt()  //generate first receipt
         this.score = 0; // 初始化分数为0
@@ -39,7 +39,7 @@ export class game1 extends Component {
             {
 
                 this.node.destroyAllChildren()              //delete all receipt
-                this.manager.emit('gameEnd', this.score)    //tell manager end the game
+                this.manager.emit('gameEnd', "win")    //tell manager end the game
                 return
 
             }
@@ -56,13 +56,13 @@ export class game1 extends Component {
         {
             
             // 获取触摸位置
-            let delta = event.getUIDelta();             //get 相对位置
+            let delta = event.getUIDelta();                  //get 相对位置
             const dy = delta.y;
     
             const x = this.receiptNode.position.x
             const y = this.receiptNode.position.y
     
-            this.receiptNode.setPosition(x, y + dy, 0); // 设置节点位置
+            this.receiptNode.setPosition(x, y + dy, 0);     // 设置节点位置, drag receipt position
 
         }
     }
@@ -102,6 +102,8 @@ export class game1 extends Component {
             .start()
 
     }
+
+    
 
 }
 
