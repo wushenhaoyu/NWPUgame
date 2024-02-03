@@ -56,6 +56,7 @@ export default class GameDataManager {
         });
     }
     public nextTime(){
+        this.plotDataControl.transition();
         if(this.time == timeTypeDef.night)
         {
             this.nextDay();
@@ -86,7 +87,7 @@ export default class GameDataManager {
         this.day++;
         this.time = timeTypeDef.morning;
         this.timeDataControl.updateTime();
-        this.plotDataControl.checkPlot();
+        this.plotDataControl.checkPlotByTime();
         //回到寝室
     }
     public getDay(){

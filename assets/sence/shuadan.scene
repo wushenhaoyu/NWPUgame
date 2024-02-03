@@ -193,7 +193,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 435.4479418886199,
+    "_orthoHeight": 416.27223511214225,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -581,8 +581,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.78539034125303,
-      "height": 50.400000000000006
+      "width": 77.78091466067285,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -614,7 +614,7 @@
     "_string": "start",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 51.625,
+    "_actualFontSize": 40.40625,
     "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -751,7 +751,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 581.1642611228814,
+      "width": 581.1306071152359,
       "height": 50.400000000000006
     },
     "_anchorPoint": {
@@ -784,7 +784,7 @@
     "_string": "Wise Ways to Survive",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 77.4375,
+    "_actualFontSize": 60.60937500000001,
     "_fontSize": 60,
     "_fontFamily": "Arial",
     "_lineHeight": 40,

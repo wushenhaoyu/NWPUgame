@@ -1,4 +1,4 @@
-import { _decorator, Component, Node,find, tween, Tween } from 'cc';
+import { _decorator, Component, Node,find, tween, Tween, UIOpacity } from 'cc';
 const { ccclass, property } = _decorator;
 import map from '../map/map'
 import GameDataManager  from'../../data/GameDataManager'
@@ -20,8 +20,10 @@ export class PlotDataControl extends Component {
     public cameraScript:camera = null; //
     public mapScript:map = null; //地图脚本
     public UINode:Node = null; //UI节点
-    public stage:number = 0;//当前剧情进行阶段
+    public stageByTime:number = 0;//当前剧情进行阶段（自由触发事件）
+    public stageByString:number = 0;//当前剧情进行阶段（时间强制事件）
     public isReovered:boolean = true;//是否复原了
+    public currentPlot:String = "";//当前进行的剧情
     start() {   
         this.node.on('ready',this.checkPlot,this)
         this.textScript = this.text.getComponent(text);
@@ -35,6 +37,39 @@ export class PlotDataControl extends Component {
             this.checkPlot();
         }*/
     }
+    transition(firstCallback?, secondCallback?) {
+        let Mask = find('UI/UICanvas/Mask');
+        Mask.active = true;
+    
+        tween(Mask.getComponent(UIOpacity))
+            .to(2, { opacity: 255 }, {
+                onComplete: () => {
+                    if (firstCallback && typeof firstCallback === 'function') {
+                        firstCallback();
+                    }
+    
+                    // 第一个onComplete事件的逻辑
+                    console.log('hide');
+                    setTimeout(() => {
+                        console.log('show');
+                        tween(Mask.getComponent(UIOpacity))
+                            .to(2, { opacity: 0 },{
+                                onComplete:()=>{
+                                    if (secondCallback && typeof secondCallback === 'function') {
+                                        secondCallback();
+                                    }
+                                    Mask.active = false;
+
+                                }
+                            })
+                            .start();
+                    }, 2000);
+                }
+            })
+            .start();
+    }
+    
+    
     
     checkIsMapScriptNull()
     {
@@ -43,9 +78,19 @@ export class PlotDataControl extends Component {
             this.mapScript = find('gameWorld/gameCanvas/Map').getComponent(map);
         }
     }
-   async checkPlot()//检查是否应该发生剧情了 
+    checkPlotByString()//根据当前存储进行事件名推进剧情（自由事件）
     {
-        console.log('check')
+        console.log('checkByString:',this.currentPlot)
+        switch(this.currentPlot)
+        {
+            case "water":
+                this.water()
+                break;
+        }
+    }
+   async checkPlotByTime()//通过时间检查是否应该发生剧情了 （强迫事件）
+    {
+        console.log('checkByTime')
         gameDataManager.isPlayerFirstPlay = true;
         let day = gameDataManager.getDay();
         let time = gameDataManager.getTime();
@@ -60,11 +105,16 @@ export class PlotDataControl extends Component {
         }
        
     }
-
-
-    Plot1_1()
+    checkPlot()
     {
-        switch(this.stage)
+        this.checkPlotByTime();
+        this.checkPlotByString();
+    }
+
+
+    Plot1_1()//进入学校的剧情控制
+    {
+        switch(this.stageByTime)
         {
             case 0:
                 if(this.isReovered)
@@ -82,7 +132,7 @@ export class PlotDataControl extends Component {
                    // this.UINode.active = true;
                     this.cameraScript.changeControl(); 
                     this.isReovered = true
-                    this.stage = 1;
+                    this.stageByTime = 1;
                     //this.Plot1_1();
                    // this.musicScript.playMusic();
                    this.mapScript.switchMap('sushe','sushe',()=>{
@@ -103,7 +153,7 @@ export class PlotDataControl extends Component {
                 else{
                    this.UINode.active = true;
                    this.musicScript.playMusic();
-                   this.stage = 2;
+                   this.stageByTime = 2;
                    this.isReovered = true
                 }
                 break;
@@ -113,6 +163,29 @@ export class PlotDataControl extends Component {
             
 
     }
+
+    water()//饮用水的剧情
+    {
+        this.currentPlot = "water";
+        if(this.isReovered)
+        {
+            this.UINode.active = false;
+            this.transition(()=>{
+                this.mapScript.tpPlotStart('water','water');
+                gameDataManager.joystick.changeState(3);
+                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
+                this.isReovered = false;
+            })
+        }
+        else{
+            gameDataManager.nextTime();
+            this.UINode.active = true;
+            this.isReovered = true;
+            this.currentPlot = "";
+        }
+    }
+
+    
 }
 
 

@@ -1,13 +1,13 @@
 {
-    "name":"室友",
-    "uuid":3,
+    "name":"女同学",
+    "uuid":2,
     "isPlotNpc": true,
-    "mapName": "sushe",
+    "mapName": "Plot",
     "start":{
-        "Name": "室友",
-        "Text": "嗨",
+        "Name": "",
+        "Text": "！",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": ""
     },
     "plot":[
         {
@@ -32,7 +32,7 @@
             "name": "室友剧情",
             "script": "Plot1_2",
             "choice": [],
-            "plotjump": [0],
+            "plotjump": [4],
             "dialog": [
                 {
                     "Name": "室友",
@@ -48,11 +48,11 @@
             "name": "室友剧情",
             "script": "Plot1_2",
             "choice": [],
-            "plotjump": [0],
+            "plotjump": [4],
             "dialog": [
                 {
                     "Name": "室友",
-                    "Text": "刚才又学长来推销饮用水，明天早上似乎还会过来",
+                    "Text": "刚才又学长来推销饮用水，一会儿似乎还会过来",
                     "Speaker": false,
                     "Img": "lihui/female1"
                 }
@@ -64,7 +64,7 @@
             "name": "室友剧情",
             "script": "Plot1_2",
             "choice": [],
-            "plotjump": [0],
+            "plotjump": [4],
             "dialog": [
                 {
                     "Name": "室友",
@@ -91,38 +91,6 @@
             ]
         }
     ],
-    "dialog":[
-        [
-            {
-                "Name": "室友",
-                "Text": "我叫陈小明",
-                "Speaker": false,
-                "Img": "NPC/OIP"
-            },
-            {
-                "Name": "单大狗",
-                "Text": "hi, my name is 单大狗",
-                "Speaker": true,
-                "Img": "NPC/OIP"
-            },
-            {
-                "Name": "室友",
-                "Text": "你玩原神吗",
-                "Speaker": false,
-                "Img": "NPC/OIP"
-            },
-            {
-                "Name": "单大狗",
-                "Text": "Yes",
-                "Speaker": true,
-                "Img": "NPC/OIP"
-            },
-            {
-                "Name": "室友",
-                "Text": "Hell yeah！",
-                "Speaker": false,
-                "Img": "NPC/OIP"
-            }
-        ]
+    "dialog":[   
 ]
 }

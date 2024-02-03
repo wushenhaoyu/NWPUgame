@@ -1,0 +1,621 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
+    "start":{
+        "Name": "",
+        "Text": "！",
+        "Speaker": false,
+        "Img": ""
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 0,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [1],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你已成功添加好友，点击手机查看兼职信息。",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["我平时还要上课，刷单费时间吗？", "没有很多存款也能刷单吗？"],
+            "plotjump": [2,3],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "你已成功添加好友，点击手机查看兼职信息。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["怎么刷单", "我想兼职","结束对话"],
+            "plotjump": [4,4,0],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，每天花费一个小时刷单就能赚到250+",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["怎么刷单", "我想兼职","结束对话"],
+            "plotjump": [4,4,0],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，没关系的，你可以先接取小额订单，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "等赚到了一部分钱后在进行大额订单。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["输入真实信息", "随便填写，糊弄过去"],
+            "plotjump": [5,6],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "请按报名表填写报名信息。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }    
+            ]
+        },
+        {
+            "id": 5,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["输入真实信息"],
+            "plotjump": [6],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "我们刚刚打你填写的这个电话，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "号码不存在哦，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "请认真填写。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "啊哈哈，刚才不小心填错了。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["为什么不在平台里付款","为在哪里下单"],
+            "plotjump": [7,8],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "报名成功。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "亲，请按下面要求完成首单培训。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "1、点击链接进入【商品页面】；",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "2、将商品加入购物车，请勿直接付款；",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "3、加入成功后，截图给我；",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "4、首单需支付60元，可返佣金6元。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["点击链接查看"],
+            "plotjump": [9],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "在平台直接付款，商家就要发货啦,",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "还要出快递费，刷单成本就变高了，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "而且这样容易封号。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["点击链接查看"],
+            "plotjump": [9],
+            "dialog": [
+            ]
+        },
+        {
+            "id": 9,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["发送购物车截图"],
+            "plotjump": [10],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，请把购物车的截图发给我~",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "完成操作了吗?",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我弄好了.",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["扫描二维码付款"],
+            "plotjump": [11],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "确认无误，请扫码付款100元",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["这样的我可以做100单","我已经等不及了"],
+            "plotjump": [12,12],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "已确认到账，完成首单培训。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "返利6元，请收款。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "就这么简单，",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我怎么没早点知道这种兼职。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "哈哈，是呀。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "要继续派单吗？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                } 
+            ]
+        },
+        {
+            "id": 12,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["哈哈我做完了","发送购物车截图"],
+            "plotjump": [13,13],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "派单成功，请按要求完成5单。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["扫描二维码付款"],
+            "plotjump": [14],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "清扫描下面二维码付款。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["双重任务！？你刚才又没说。","还要完成5单！？"],
+            "plotjump": [15,15],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，已确认到账，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "您现在已经完成双重任务一，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "请继续完成双重任务二，再按要求刷5单",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["不会吧之前都没有说过","我不要佣金了，请把本金还我"],
+            "plotjump": [16,16],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，你看任务，不懂怎么不问呢？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "我刚帮你提交了系统结算，也是才看到，您这个任务是双层的。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "您必须按任务要求完成任务后，系统才能自动结算，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "您可以继续完成5单，任务完成后系统将在3~5分钟内结算本金和佣金。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "那我不继续了，",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "完成双重任务，系统才能把本金和佣金退给你哟。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "type": 1,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["继续刷5单，等本金来回来就放弃。","可是我没钱继续刷单了啊","放弃刷单"],
+            "plotjump": [17,18,19],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "亲，这个是由系统控制的，我没办法控制。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, {
+                    "Name": "小李",
+                    "Text": "你再刷5单，完成任务二，系统才能退钱给你。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "type": 0,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你花费500元继续刷了5单，最终又被骗了500元。",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "type": 0,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": ["了解详情","放弃贷款"],
+            "plotjump": [20,19],
+            "dialog": [
+                {
+                    "Name": "小李",
+                    "Text": "没钱，你可以去贷款啊,",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "我这有一个贷款渠道,",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "小李",
+                    "Text": "你可以去试试。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "type": 0,
+            "name": "刷单剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你在最后一刻拒绝了继续刷单，",
+                    "Speaker": false,
+                    "Img": ""
+                },
+                {
+                    "Name": "",
+                    "Text": "但你还是被骗了500元。",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "type": 1,
+            "name": "贷款剧情",
+            "script": "Plot1_2",
+            "choice": ["办理贷款","拒绝贷款"],
+            "plotjump": [21,22],
+            "dialog": [
+                {
+                    "Name": "郝仁",
+                    "Text": "华贝贷款，任意金额，无抵押，低利息，随借随还。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我想贷款500元，利息大概有多少啊？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郝仁",
+                    "Text": "我们华贝贷款，无抵押，迅速到账，利息仅需10元。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "type": 1,
+            "name": "贷款剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [23],
+            "dialog": [
+                {
+                    "Name": "郝仁",
+                    "Text": "你已成功办理华贝贷款。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郝仁",
+                    "Text": "请在20天之内还1700元。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郝仁",
+                    "Text": "如果不还钱，我们将去你学校里进行追债。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "1700！？不是只有10元利息吗？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郝仁",
+                    "Text": "利息是很低，但是办理贷款需要1190元的手续费。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郝仁",
+                    "Text": "你自己没问清楚，怪谁？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "type": 0,
+            "name": "贷款剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你拒绝了贷款，在最后一刻放弃了刷单。",
+                    "Speaker": false,
+                    "Img": ""
+                },
+                {
+                    "Name": "",
+                    "Text": "但你还是被骗了500元。",
+                    "Speaker": true,
+                    "Img": ""
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "type": 1,
+            "name": "贷款剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [24],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你成功办理华贝贷款继续刷了5单，",
+                    "Speaker": false,
+                    "Img": ""
+                },
+                {
+                    "Name": "",
+                    "Text": "最终你不仅又被骗了500元，还欠下了1700元贷款。",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        }
+    ],
+    "dialog":[   
+]
+}

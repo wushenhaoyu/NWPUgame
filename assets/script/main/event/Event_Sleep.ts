@@ -46,27 +46,7 @@ export class Event_Sleep extends Component {
         console.log('睡一觉！')
         gameDataManager.nextTime();
         console.log(gameDataManager.getDay(),gameDataManager.getTime())
-        let Mask = find('UI/UICanvas/Mask')
-        Mask.active = true;
-        tween(Mask.getComponent(UIOpacity))
-            .to(2,{opacity:255},{
-                onComplete(){
-                    console.log('hide')
-                    setTimeout(()=>{
-                        console.log('show')
-                        tween(Mask.getComponent(UIOpacity))
-                        .to(2,{opacity:0},{
-                        onComplete(){
-                            find('UI/UICanvas/UI/unpersistUI').active = true
-                            Mask.active = false
-                        }
-                    })
-                    .start()
-                    },2000)
-                    
-                }
-            }).start()
-            
+        //gameDataManager.plotDataControl.transition();//黑屏过度
 
 
 

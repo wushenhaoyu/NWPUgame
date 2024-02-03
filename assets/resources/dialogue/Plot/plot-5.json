@@ -1,0 +1,157 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
+    "start":{
+        "Name": "",
+        "Text": "！",
+        "Speaker": false,
+        "Img": ""
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "助学金剧情",
+            "script": "Plot1_2",
+            "choice": ["申请助学金", "果断拒绝"],
+            "plotjump": [1,0],
+            "dialog": [
+                {
+                    "Name": "贾老师",
+                    "Text": "单同学是吧？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "贾老师",
+                    "Text": "我是学院的书记贾老师，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "贾老师",
+                    "Text": "你满足学校助学金的领取条件，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "贾老师",
+                    "Text": "你是否需要申请助学金？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 1,
+            "name": "助学金剧情",
+            "script": "Plot1_2",
+            "choice": ["好的，我马上把银行卡号和密码发给你", "为什么还要发密码？"],
+            "plotjump": [2,4],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "嗯嗯，我该如何申请。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "贾老师",
+                    "Text": "你先将你的银行卡号和密码发给我，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "贾老师",
+                    "Text": "你等会填一下。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "助学金剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [3],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "银行账号：955888*********4259",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "你",
+                    "Text": "账号密码：sdg123456",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "你",
+                    "Text": "支付密码：123456",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+                
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "助学金剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "您的银行账户尾号00于4时42分进行一笔金额500.00元人民币国际汇款交易。",
+                    "Speaker": false,
+                    "Img": ""
+                }, 
+                {
+                    "Name": "",
+                    "Text": "很遗憾你被骗了500元",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "助学金剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "",
+                    "Text": "你对于要发银行卡密码的行为充满了怀疑，",
+                    "Speaker": false,
+                    "Img": ""
+                }, 
+                {
+                    "Name": "",
+                    "Text": "你怀疑遇到了诈骗，打算去学院问问老师。",
+                    "Speaker": false,
+                    "Img": ""
+                }, 
+                {
+                    "Name": "",
+                    "Text": "恭喜你，识破了骗局。",
+                    "Speaker": false,
+                    "Img": ""
+                }
+            ]
+        }
+    ],
+    "dialog":[   
+]
+}

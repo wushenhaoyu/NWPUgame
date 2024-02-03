@@ -34,6 +34,10 @@ export default class PlotDataManager {
             Plot1_1:{
                 plot: number,
                 dialogue:number,
+            },
+            water:{
+                plot: number,
+                dialogue:number,
             }
         },
         aoxiangxueshengzhongxin:{
@@ -79,6 +83,10 @@ export default class PlotDataManager {
             Plot:{
                 
                 Plot1_1:{
+                    plot: 0,
+                    dialogue:0,
+                },
+                water:{
                     plot: 0,
                     dialogue:0,
                 }
