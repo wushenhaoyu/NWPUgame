@@ -56,8 +56,9 @@ export default class GameDataManager {
         });
     }
     public nextTime(){
-        this.plotDataControl.transition();
-        if(this.time == timeTypeDef.night)
+        this.plotDataControl.stageByTime = 0;
+        this.plotDataControl.transition(null,()=>{
+            if(this.time == timeTypeDef.night)
         {
             this.nextDay();
             this.plotDataControl.mapScript.switchLight();
@@ -81,6 +82,8 @@ export default class GameDataManager {
             this.plotDataControl.mapScript.switchLight();
             return
         }
+        });
+        
     }
    
     public nextDay(){

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node,find, tween, Tween, UIOpacity } from 'cc';
+import { _decorator, Component, Node,find, tween, Tween, UIOpacity, resources, TiledMapAsset } from 'cc';
 const { ccclass, property } = _decorator;
 import map from '../map/map'
 import GameDataManager  from'../../data/GameDataManager'
@@ -22,7 +22,7 @@ export class PlotDataControl extends Component {
     public UINode:Node = null; //UI节点
     public stageByTime:number = 0;//当前剧情进行阶段（自由触发事件）
     public stageByString:number = 0;//当前剧情进行阶段（时间强制事件）
-    public isReovered:boolean = true;//是否复原了
+    public isRecovered:boolean = true;//是否复原了
     public currentPlot:String = "";//当前进行的剧情
     start() {   
         this.node.on('ready',this.checkPlot,this)
@@ -55,10 +55,10 @@ export class PlotDataControl extends Component {
                         tween(Mask.getComponent(UIOpacity))
                             .to(2, { opacity: 0 },{
                                 onComplete:()=>{
+                                    Mask.active = false;
                                     if (secondCallback && typeof secondCallback === 'function') {
                                         secondCallback();
                                     }
-                                    Mask.active = false;
 
                                 }
                             })
@@ -101,6 +101,16 @@ export class PlotDataControl extends Component {
                 {
                     this.Plot1_1();
                 }
+                if(time == timeTypeDef.night)
+                {
+                    resources.preload('map/aoxiangxueshengzhongxin',TiledMapAsset)
+                }
+                break;
+            case 2:
+                if(time == timeTypeDef.morning)
+                {
+                    this.schoolcard();
+                }
                 break;
         }
        
@@ -117,21 +127,21 @@ export class PlotDataControl extends Component {
         switch(this.stageByTime)
         {
             case 0:
-                if(this.isReovered)
+                if(this.isRecovered)
                 {
                     this.musicScript.pauseMusic();
                     this.UINode.active = false; //关闭UI
                     this.cameraScript.changeControl();//将镜头控制权转为剧情控制
                     this.cameraScript.move(0,1,4);
                     find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
-                    this.isReovered = false
+                    this.isRecovered = false
                     break;
                 }
                 else{
                     Tween.stopAll();
                    // this.UINode.active = true;
                     this.cameraScript.changeControl(); 
-                    this.isReovered = true
+                    this.isRecovered = true
                     this.stageByTime = 1;
                     //this.Plot1_1();
                    // this.musicScript.playMusic();
@@ -142,9 +152,9 @@ export class PlotDataControl extends Component {
                 }
                 
             case 1:
-                if(this.isReovered)
+                if(this.isRecovered)
                 {
-                         this.isReovered = false; 
+                         this.isRecovered = false; 
                          console.log(this.mapScript)
                          gameDataManager.joystick.changeState(0)
                          this.mapScript.tpPlotStart('Plot1_1','sheyou');
@@ -154,7 +164,7 @@ export class PlotDataControl extends Component {
                    this.UINode.active = true;
                    this.musicScript.playMusic();
                    this.stageByTime = 2;
-                   this.isReovered = true
+                   this.isRecovered = true
                 }
                 break;
 
@@ -167,22 +177,82 @@ export class PlotDataControl extends Component {
     water()//饮用水的剧情
     {
         this.currentPlot = "water";
-        if(this.isReovered)
+        if(this.isRecovered)
         {
             this.UINode.active = false;
             this.transition(()=>{
                 this.mapScript.tpPlotStart('water','water');
                 gameDataManager.joystick.changeState(3);
                 find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
-                this.isReovered = false;
+                this.isRecovered = false;
             })
         }
         else{
             gameDataManager.nextTime();
             this.UINode.active = true;
-            this.isReovered = true;
+            this.isRecovered = true;
             this.currentPlot = "";
         }
+    }
+    schoolcard()//校园卡的剧情
+    {
+       switch(this.stageByTime)
+       {
+            case 0:
+                this.stageByTime = 1;
+                this.mapScript.switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
+                    console.log('切换地图')
+                 })
+                 break;
+            case 1:
+                if(this.isRecovered)
+                {
+                         this.isRecovered = false; 
+                         gameDataManager.joystick.changeState(0)
+                         this.mapScript.tpPlotStart('schoolcard','schoolcard');
+                         find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
+                }
+                else{
+                  // this.UINode.active = true;
+                  // this.musicScript.playMusic();
+                   this.stageByTime = 2;
+                   this.isRecovered = true
+                   this.mapScript.switchMap('sushe','sushe',()=>{
+                    console.log('切换地图')
+                 })
+                }
+                break;
+            case 2:
+                if(this.isRecovered)
+                {
+                    this.isRecovered = false; 
+                    gameDataManager.joystick.changeState(0)
+                    this.mapScript.tpPlotStart('Plot1_1','sheyou');
+                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
+                }
+                else{
+                    this.stageByTime = 3;
+                    this.isRecovered = true;
+                    this.mapScript.switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
+                     })
+                }
+                break;
+            case 3:
+                    this.mapScript.tpPlotStart('schoolcard','schoolcard');
+                    gameDataManager.joystick.changeState(0)
+                    this.mapScript.tpPlotStart('schoolcard','schoolcard');
+                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
+                    this.stageByTime = 4;
+                
+                break;
+            case 4:{
+                console.log('校园卡剧情结束')
+                this.UINode.active = true;
+                gameDataManager.nextTime();
+                this.stageByTime = 5;
+            }
+
+       }
     }
 
     

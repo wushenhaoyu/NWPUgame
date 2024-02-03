@@ -38,6 +38,10 @@ export default class PlotDataManager {
             water:{
                 plot: number,
                 dialogue:number,
+            },
+            schoolcard:{
+                plot: number,
+                dialogue:number,
             }
         },
         aoxiangxueshengzhongxin:{
@@ -87,6 +91,10 @@ export default class PlotDataManager {
                     dialogue:0,
                 },
                 water:{
+                    plot: 0,
+                    dialogue:0,
+                },
+                schoolcard:{
                     plot: 0,
                     dialogue:0,
                 }
