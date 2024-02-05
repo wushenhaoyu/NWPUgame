@@ -51,6 +51,14 @@ export default class PlotDataManager {
                 dialogue:number,
 
             }
+        },
+        Phone:{
+            kuaidi:{
+
+                plot: number,
+                dialogue:number,
+
+            }
         }
     }
     public friendlist:string[]=['kuaidi']
@@ -106,6 +114,15 @@ export default class PlotDataManager {
                     plot: 0,
                     dialogue:0,
     
+                }
+            },
+            Phone:{
+
+                kuaidi:{
+
+                    plot: 0,
+                    dialogue:0,
+
                 }
             }
         }
