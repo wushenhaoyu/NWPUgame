@@ -21,14 +21,15 @@ export class friend extends Component {
     show()
     {
         
+        
     }
-    init(name:string,)
+    init(name:string)
     {
         this.Name.string = name;
     }
 
     update(deltaTime: number) {
-        
+              
     }
 }
 

@@ -53,6 +53,7 @@ export default class PlotDataManager {
             }
         }
     }
+    public friendlist:string[]=['kuaidi']
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.plotdata = {
