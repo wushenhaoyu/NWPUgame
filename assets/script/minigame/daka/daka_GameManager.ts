@@ -1,4 +1,4 @@
-import { _decorator, AnimationComponent, BoxCollider, Component, input, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, v2, Vec3, view, View } from 'cc';
+import { _decorator, AnimationComponent, BoxCollider, Component, input, Label, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, v2, Vec3, view, View } from 'cc';
 const { ccclass, property } = _decorator;
 enum status{
     none = 0,
@@ -17,15 +17,22 @@ export class daka_GameManager extends Component {
     public right:Node = null;
     @property({type:Node})
     public collider:Node = null;
+    @property({type:Label})
+    public mile:Label = null;
     @property()
     public speed:number = 100;
     @property()
     public gameSpeed:number = 5;
+    @property({type:Label})
+    public timeLabel:Label = null;
     public currentGameSpeed:number = 5;
     status = status.none;
     control:boolean = true; //控制是否加速
     player_position:Vec3 = new Vec3(0,0,0);
     body:RigidBody2D = null;
+    length:number = 0;
+    time:number = 0;
+    power:number = 100;
     start() {
         view.setOrientation(macro.ORIENTATION_PORTRAIT)
         this.left.on(NodeEventType.TOUCH_START,this.left_start,this);
@@ -138,21 +145,33 @@ export class daka_GameManager extends Component {
         if( this.control )
         {
             this.currentGameSpeed += deltaTime * this.gameSpeed;
-            for(var i = 0 ; i < this.collider.children.length ; i++)
+            let body =  this.collider.getComponentsInChildren(RigidBody2D)
+            for(var i = 0 ; i < body.length ; i++)
             {
-                this.collider.children[i].getComponent(RigidBody2D).linearVelocity = v2(0,-this.currentGameSpeed)
+                body[i].linearVelocity = v2(0,-this.currentGameSpeed)
             }
             if(this.currentGameSpeed >= this.gameSpeed )
             {
                 this.control = false;
             }
         }
+        if(this.length / 100 >= 3.2)
+        {
+            return;
+        }
+        this.time += deltaTime;
+        this.timeLabel.string = "时间" + this.time.toFixed(1) + "/60S"
+        if(this.currentGameSpeed != 0)
+        {
+            this.length += deltaTime * this.currentGameSpeed;
+            this.mile.string = '距离：' + (this.length / 100).toFixed(2) + '/ 3.20Km'
+        }
 
         switch(this.status)
         {
             case 0 : 
             this.body.linearVelocity = v2(0 , 0)
-            break;
+            return;
             case 1 :
                     this.body.linearVelocity = v2(-this.speed , 0)
              break;
@@ -163,8 +182,11 @@ export class daka_GameManager extends Component {
                 break;
             //右转
             case 3:
+                
+                
             //加速
         }
+    
         
     }
 }
