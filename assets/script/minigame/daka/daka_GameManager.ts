@@ -33,6 +33,7 @@ export class daka_GameManager extends Component {
     length:number = 0;
     time:number = 0;
     power:number = 100;
+    isPeek:boolean = false;
     start() {
         view.setOrientation(macro.ORIENTATION_PORTRAIT)
         this.left.on(NodeEventType.TOUCH_START,this.left_start,this);
@@ -144,6 +145,19 @@ export class daka_GameManager extends Component {
     update(deltaTime: number) {
         if( this.control )
         {
+            if(this.isPeek)
+            {
+                if(this.power > 1)
+                {
+                    this.power -= deltaTime;
+                }
+                else{
+                    this.gameSpeed = 5;
+                    if(this.currentGameSpeed > 5.2)
+                    this.currentGameSpeed = 5
+                    this.isPeek = false
+                }
+            }
             this.currentGameSpeed += deltaTime * this.gameSpeed;
             let body =  this.collider.getComponentsInChildren(RigidBody2D)
             for(var i = 0 ; i < body.length ; i++)
@@ -166,7 +180,11 @@ export class daka_GameManager extends Component {
             this.length += deltaTime * this.currentGameSpeed;
             this.mile.string = '距离：' + (this.length / 100).toFixed(2) + '/ 3.20Km'
         }
-
+        if(this.isPeek)
+        {
+            this.gameSpeed = 8;
+            this.control =true;
+        }
         switch(this.status)
         {
             case 0 : 
@@ -182,6 +200,12 @@ export class daka_GameManager extends Component {
                 break;
             //右转
             case 3:
+                if(this.power > 1)
+                {
+                    this.isPeek = true;
+                }else{
+                    this.isPeek = false;
+                }
                 
                 
             //加速
