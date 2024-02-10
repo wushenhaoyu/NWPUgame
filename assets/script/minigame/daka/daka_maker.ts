@@ -168,7 +168,7 @@ export class daka_maker extends Component {
     }
 
     update(deltaTime: number) {
-        if(this.gamemanager.length / 100 - this.currentLength >= 0.2)
+        if(this.gamemanager.length / 100 - this.currentLength >= 0.15)
         {
             this.currentLength = this.gamemanager.length / 100;
             this.generate()

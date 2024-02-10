@@ -25,6 +25,10 @@ export class daka_GameManager extends Component {
     public gameSpeed:number = 5;
     @property({type:Label})
     public timeLabel:Label = null;
+    @property({type:Label})
+    public pwoerLabel:Label = null;
+    @property({type:Label})
+    public playerLabel:Label = null;
     public currentGameSpeed:number = 5;
     status = status.none;
     control:boolean = true; //控制是否加速
@@ -32,10 +36,12 @@ export class daka_GameManager extends Component {
     body:RigidBody2D = null;
     length:number = 0;
     time:number = 0;
-    power:number = 100;
+    power:number = 0;
+    powerLimit:number = 30;
     isPeek:boolean = false;
+    protect:boolean = false; //是否有护盾？
     start() {
-        view.setOrientation(macro.ORIENTATION_PORTRAIT)
+        //view.setOrientation(macro.ORIENTATION_PORTRAIT)
         this.left.on(NodeEventType.TOUCH_START,this.left_start,this);
         this.left.on(NodeEventType.TOUCH_MOVE,this.left_move,this);
         this.left.on(NodeEventType.TOUCH_END,this.left_end,this);
@@ -58,7 +64,7 @@ export class daka_GameManager extends Component {
             this.stop()
             this.begin()
         })
-
+        this.power = this.powerLimit
         this.body = this.player.getComponent(RigidBody2D)
     }
 
@@ -68,13 +74,13 @@ export class daka_GameManager extends Component {
         switch(event)
         {
             case 1 ://护盾
+                this.protect = true;
                 break;
             case 2 ://补充体力
-
-            break;
-
+                this.power = this.powerLimit
+                this.showPower()
+            break;       
             case 3 ://加速
-
             break;
 
         }
@@ -127,6 +133,11 @@ export class daka_GameManager extends Component {
     }
     stop()
     {
+        if(this.protect)
+        {
+            this.protect = false;
+            return
+        }
         this.control  = false;
         this.currentGameSpeed = 0;
         for(var i = 0 ; i < this.collider.children.length ; i++)
@@ -140,6 +151,10 @@ export class daka_GameManager extends Component {
         this.control = true;
         this.player.getComponent(AnimationComponent).play()
     }
+    showPower()
+    {
+        this.pwoerLabel.string = "体力" + this.power.toFixed(0) + "/" + this.powerLimit.toString()
+    }
     
 
     update(deltaTime: number) {
@@ -149,7 +164,8 @@ export class daka_GameManager extends Component {
             {
                 if(this.power > 1)
                 {
-                    this.power -= deltaTime;
+                    this.power -= deltaTime * 10;
+                    this.showPower()
                 }
                 else{
                     this.gameSpeed = 5;
@@ -157,6 +173,13 @@ export class daka_GameManager extends Component {
                     this.currentGameSpeed = 5
                     this.isPeek = false
                 }
+            }
+            else
+            {
+                this.gameSpeed = 5;
+                if(this.currentGameSpeed > 5.2)
+                this.currentGameSpeed = 5
+                this.isPeek = false
             }
             this.currentGameSpeed += deltaTime * this.gameSpeed;
             let body =  this.collider.getComponentsInChildren(RigidBody2D)
@@ -174,7 +197,7 @@ export class daka_GameManager extends Component {
             return;
         }
         this.time += deltaTime;
-        this.timeLabel.string = "时间" + this.time.toFixed(1) + "/60S"
+        this.timeLabel.string = "时间：" + this.time.toFixed(1) + "/60S"
         if(this.currentGameSpeed != 0)
         {
             this.length += deltaTime * this.currentGameSpeed;
@@ -188,18 +211,22 @@ export class daka_GameManager extends Component {
         switch(this.status)
         {
             case 0 : 
-            this.body.linearVelocity = v2(0 , 0)
+                this.body.linearVelocity = v2(0 , 0)
+                this.isPeek = false;
             return;
             case 1 :
-                    this.body.linearVelocity = v2(-this.speed , 0)
+                this.body.linearVelocity = v2(-this.speed , 0)
+                this.isPeek = false;
              break;
                 
             //左转
             case 2:
                 this.body.linearVelocity = v2(this.speed , 0)
+                this.isPeek = false;
                 break;
             //右转
             case 3:
+                this.body.linearVelocity = v2(0 , 0)
                 if(this.power > 1)
                 {
                     this.isPeek = true;
