@@ -1,4 +1,4 @@
-import { _decorator, AnimationComponent, BoxCollider, Component, input, Label, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, v2, Vec3, view, View } from 'cc';
+import { _decorator, AnimationComponent, BoxCollider, Component, input, Label, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, tween, UIOpacity, v2, Vec3, view, View } from 'cc';
 const { ccclass, property } = _decorator;
 enum status{
     none = 0,
@@ -27,8 +27,8 @@ export class daka_GameManager extends Component {
     public timeLabel:Label = null;
     @property({type:Label})
     public pwoerLabel:Label = null;
-    @property({type:Label})
-    public playerLabel:Label = null;
+    @property({type:Label}) 
+    public playerLabel:Label = null;//显示玩家道具
     public currentGameSpeed:number = 5;
     status = status.none;
     control:boolean = true; //控制是否加速
@@ -57,7 +57,6 @@ export class daka_GameManager extends Component {
             this.stop()
         },this)
         this.node.on('blockEnd',()=>{
-            console.log('begin')
             this.begin()
         },this)
         this.node.on('personBegin',()=>{
@@ -75,15 +74,38 @@ export class daka_GameManager extends Component {
         {
             case 1 ://护盾
                 this.protect = true;
+                this.showPlyaer('护盾')
                 break;
             case 2 ://补充体力
                 this.power = this.powerLimit
                 this.showPower()
+                this.showPlyaer('体力+')
             break;       
             case 3 ://加速
             break;
 
         }
+    }
+    showPlyaer(s:string)
+    {
+        this.playerLabel.string =s;
+        let opacity = this.playerLabel.node.getComponent(UIOpacity);
+        tween(opacity)
+            .to(0.5,{opacity:255},{
+                onComplete(){
+                    tween(opacity)
+                        .delay(1)
+                        .to(0.5,{opacity:0},{
+                            onComplete(){
+                                opacity.node.getComponent(Label).string = "";
+                            }
+                        })
+                        .start()
+                }
+
+            })
+            .start()
+            
     }
     left_start()
     {
@@ -153,7 +175,7 @@ export class daka_GameManager extends Component {
     }
     showPower()
     {
-        this.pwoerLabel.string = "体力" + this.power.toFixed(0) + "/" + this.powerLimit.toString()
+        this.pwoerLabel.string = "体力值：" + this.power.toFixed(0) + "/" + this.powerLimit.toString()
     }
     
 

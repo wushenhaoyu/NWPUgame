@@ -50,15 +50,15 @@ export class daka_maker extends Component {
    }
    whichItem(tag:number)
    {
-    if(0<=tag&&tag<10)
+    if(0<=tag&&tag<20)
     {
         return 1;
     }
-    else if(10<=tag&&tag<50)
+    else if(20<=tag&&tag<60)
     {
         return 2;
     }
-    else if(50<=tag&&tag<=100)
+    else if(60<=tag&&tag<=100)
     {
         return 3;
     }
