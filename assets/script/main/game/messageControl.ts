@@ -55,9 +55,10 @@ export class messageControl extends Component {
     select2:Node = null;
     @property({type:Node})
     select3:Node = null;
-    public  currentChatData:Chatdata = null;
-    public scoend:number = 0;
-    public currentMessageName:string = "";
+    public  currentChatData:Chatdata = null;//当前的一小段对话
+    public currentMessageName:string = "";//联系人json文件名称
+    public currentChat:PhonePlotContainer = null;//json读的东西存起来
+    public currentJump:number = 0;//有需要就转为0，1，2，没有就保持为0
     start() {
 
         for(var i = 0 ; i < plotDataManager.friendlist.length ; i ++)
@@ -120,18 +121,18 @@ export class messageControl extends Component {
                 console.error(err.message || err);
             }
         
-            const json = jsonAsset.json as PhonePlotContainer;
+            this.currentChat= jsonAsset.json as PhonePlotContainer;
             const allChatDatas = [];
-            this.currentChatData = json.chatData[plot];
+            this.currentChatData = this.currentChat.chatData[plot];
             
         
             while(this.currentChatData.parent !== null){
-                this.currentChatData = json.chatData[this.currentChatData.parent];
+                this.currentChatData = this.currentChat.chatData[this.currentChatData.parent];
                 allChatDatas.unshift(this.currentChatData);
             }
         
             Promise.all(allChatDatas.map((chatdata, index) => {
-                return this.showMessage(json.name, chatdata);
+                return this.showMessage(this.currentChat.name, chatdata);
             })).then(() => {
                 this.chatListContent.active = true; 
             });
@@ -205,21 +206,76 @@ export class messageControl extends Component {
     }
     showCurrentMessageOneByOne()//一个一个地
     {
-        let data = this.currentChatData
+        this.currentChatData
         let index = plotDataManager.plotdata.Phone[this.currentMessageName].index
+        if(index >= this.currentChatData.chat.length )
+        {
+            if(this.currentChatData.type == 1)
+            {
+                 plotDataManager.plotdata.Phone[this.currentMessageName].plot = this.currentChatData.plotjump[this.currentJump]
+                 plotDataManager.plotdata.Phone[this.currentMessageName].index = 0;
+                 this.currentChatData =  this.currentChat.chatData[plotDataManager.plotdata.Phone[this.currentMessageName].plot];
+                 this.currentJump = 0;
+                 this.showCurrentMessageOneByOne();
+            }else{
+                //等待别的脚本操作plotdatamanager
+                 return;
+            }
+            return
+        }
         if( index == this.currentChatData.chat.length)
         {
-            
-            return
+            if(this.currentChatData.choice.length != 0)
+            {
+                switch(this.currentChatData.choice.length)
+                {
+                    case 3 :
+                        this.select3.active = true;
+                        this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[2];
+                    case 2 :
+                        this.select2.active = true;
+                        this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[1];
+                    case 1 :
+                        this.select1.active = true;
+                        this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[0];
+                }
+            }
+            else{
+                plotDataManager.plotdata.Phone[this.currentMessageName].index++
+                this.showCurrentMessageOneByOne()
+            }
         }
         else{
             setTimeout(() => {
-                this.showSingleMssgae(data.chat[index].type,data.chat[index].Speaker,this.currentMessageName,data.chat[index].content)
+                this.showSingleMssgae(this.currentChatData.chat[index].type,this.currentChatData.chat[index].Speaker,this.currentMessageName,this.currentChatData.chat[index].content)
                 this.showCurrentMessageOneByOne()
+                plotDataManager.plotdata.Phone[this.currentMessageName].index++
             }, 3000);
         }
     }
-
+    dealWithChioce(event,custom:string)
+    {
+        switch(custom)
+        {
+            case "1"://选择了1
+                console.log('选择了1')
+                this.currentJump = 0;
+                break;
+            case "2"://选择了2
+                console.log('选择了2')
+                this.currentJump = 1;
+                break;
+            case "3"://选择了3
+                console.log('选择了3')
+                this.currentJump = 2;
+                break;
+        }
+        this.select1.active = false;
+        this.select2.active = false;
+        this.select3.active = false;
+        plotDataManager.plotdata.Phone[this.currentMessageName].index++
+        this.showCurrentMessageOneByOne()
+    }
     update(deltaTime: number) {
         
     }
