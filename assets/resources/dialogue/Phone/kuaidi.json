@@ -4,22 +4,10 @@
       {
         "id": 0,
         "type": 1,
-        "choice": ["发送基本信息"],
+        "choice": [],
         "plotjump": [1],
         "parent": null,
         "chat": [
-          {
-            "type": 0,
-            "content": "你已成功添加好友，点击手机查看兼职信息。",
-            "Speaker": false
-            
-          },
-          {
-            "type": 0,
-            "content": "我通过了你的朋友验证请求，现在我们可以开始聊天了。",
-            "Speaker": false
-            
-          },
           {
             "type": 1,
             "content": "lihui/female1",
@@ -52,7 +40,6 @@
             "type": 0,
             "content": "好的，没问题。",
             "Speaker": true
-            
           }
         ]
       },
@@ -74,7 +61,7 @@
       {
         "id": 2,
         "type": 1,
-        "choice": ["提交保证金"],
+        "choice": [],
         "plotjump": [3],
         "parent": 1,
         "chat": [

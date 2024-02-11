@@ -8,17 +8,18 @@ export class message_picture extends Component {
     @property({type:Sprite})
     public content:Sprite = null;
     start() {
-        this.init('老师','main/UI/Smartphone1/spriteFrame');
     }
     init(name:string , Img:string){
         this.Name.string = name;
-        resources.load(Img,SpriteFrame,(err,data)=>{
+        resources.load(Img + '/spriteFrame',SpriteFrame,(err,data)=>{
+            var percent = data.width / data.height
             console.log(data);
             this.content.spriteFrame = data;
             let ui = this.content.node.getComponent(UITransform)
-        if(ui.width > 400)
+        if(ui.width > 360)
         {
-            ui.width = 400;
+            ui.width = 360;
+            ui.height = 360 * percent
         }
         })
 

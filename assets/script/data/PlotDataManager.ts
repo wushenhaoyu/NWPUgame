@@ -57,6 +57,7 @@ export default class PlotDataManager {
 
                 plot: number,
                 dialogue:number,
+                index:number
 
             }
         }
@@ -122,6 +123,7 @@ export default class PlotDataManager {
 
                     plot: 0,
                     dialogue:0,
+                    index:0
 
                 }
             }

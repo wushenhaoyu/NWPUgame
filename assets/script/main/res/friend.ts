@@ -3,8 +3,6 @@ const { ccclass, property } = _decorator;
 
 @ccclass('friend')
 export class friend extends Component {
-    @property({type:Node})
-    public content:Node = null;
     @property({type:Label})
     public Name:Label = null;
     @property({type:Prefab})
