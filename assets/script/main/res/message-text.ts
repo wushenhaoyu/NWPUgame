@@ -15,10 +15,10 @@ export class message_text extends Component {
         this.content.string = content;
         this.content.updateRenderData(true);
         let ui = this.content.node.getComponent(UITransform)
-        if(ui.width > 400)
+        if(ui.width > 360)
         {
             this.content.overflow = Overflow.RESIZE_HEIGHT;
-            ui.width = 400;
+            ui.width = 360;
         }
     }
 

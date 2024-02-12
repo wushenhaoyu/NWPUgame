@@ -105,6 +105,12 @@ export class messageControl extends Component {
         }
      
      }
+     protected onEnable(): void {
+        if(this.currentChatData != null)
+        {
+            this.showCurrentMessageOneByOne()
+        }
+     }
 
 
 
@@ -135,6 +141,7 @@ export class messageControl extends Component {
                 return this.showMessage(this.currentChat.name, chatdata);
             })).then(() => {
                 this.chatListContent.active = true; 
+                this.showCurrentMessageOneByOne()
             });
         });
 
@@ -150,7 +157,7 @@ export class messageControl extends Component {
                 const type = message.type
                 const speaker = message.Speaker
                 const content = message.content
-                this.showSingleMssgae(type,speaker,name,content)
+                this.showSingleMssgae(type,speaker,content)
                 resolve()
             })
         })
@@ -158,18 +165,18 @@ export class messageControl extends Component {
         return Promise.all(promises).then(() => undefined);
     }
 
-    showSingleMssgae(type:number,speaker:boolean,name:string,content:string)
+    showSingleMssgae(type:number,speaker:boolean,content:string)
     {
         let chatNode: Node = null
         if(type == 1)
         {
             
 
-                if(speaker == true)  //npc
+                if(speaker == false)  //npc
                 {
                     chatNode = instantiate(this.messagePicFromOther)
-                    chatNode.getChildByName("name").getComponent(Label).string = name
-                    chatNode.getComponent(message_picture).init(name,content)
+                    chatNode.getChildByName("name").getComponent(Label).string = this.currentChat.name
+                    chatNode.getComponent(message_picture).init(this.currentChat.name,content)
                 }
                 else
                 {
@@ -182,10 +189,10 @@ export class messageControl extends Component {
         }
         else
         {
-            if(speaker == true)
+            if(speaker == false)
             {
                 chatNode = instantiate(this.messageTextFromOther)
-                chatNode.getComponent(message_text).init(name,content)
+                chatNode.getComponent(message_text).init(this.currentChat.name,content)
             }
             else
             {
@@ -200,15 +207,14 @@ export class messageControl extends Component {
         for(var i = 0 ; i < plotDataManager.plotdata.Phone[this.currentMessageName].index; i++)
         {
             let data = this.currentChatData
-            this.showSingleMssgae(data.chat[i].type,data.chat[i].Speaker,this.currentMessageName,data.chat[i].content)
+            this.showSingleMssgae(data.chat[i].type,data.chat[i].Speaker,data.chat[i].content)
         }
 
     }
     showCurrentMessageOneByOne()//一个一个地
     {
-        this.currentChatData
         let index = plotDataManager.plotdata.Phone[this.currentMessageName].index
-        if(index >= this.currentChatData.chat.length )
+        if(index > this.currentChatData.chat.length )
         {
             if(this.currentChatData.type == 1)
             {
@@ -223,6 +229,7 @@ export class messageControl extends Component {
             }
             return
         }
+        console.log(index,this.currentChatData.chat.length)
         if( index == this.currentChatData.chat.length)
         {
             if(this.currentChatData.choice.length != 0)
@@ -234,10 +241,10 @@ export class messageControl extends Component {
                         this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[2];
                     case 2 :
                         this.select2.active = true;
-                        this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[1];
+                        this.select2.getComponentInChildren(Label).string = this.currentChatData.choice[1];
                     case 1 :
                         this.select1.active = true;
-                        this.select3.getComponentInChildren(Label).string = this.currentChatData.choice[0];
+                        this.select1.getComponentInChildren(Label).string = this.currentChatData.choice[0];
                 }
             }
             else{
@@ -247,9 +254,9 @@ export class messageControl extends Component {
         }
         else{
             setTimeout(() => {
-                this.showSingleMssgae(this.currentChatData.chat[index].type,this.currentChatData.chat[index].Speaker,this.currentMessageName,this.currentChatData.chat[index].content)
-                this.showCurrentMessageOneByOne()
+                this.showSingleMssgae(this.currentChatData.chat[index].type,this.currentChatData.chat[index].Speaker,this.currentChatData.chat[index].content)
                 plotDataManager.plotdata.Phone[this.currentMessageName].index++
+                this.showCurrentMessageOneByOne()
             }, 3000);
         }
     }
@@ -259,14 +266,17 @@ export class messageControl extends Component {
         {
             case "1"://选择了1
                 console.log('选择了1')
+                this.showSingleMssgae(0,true,this.currentChatData.choice[0])
                 this.currentJump = 0;
                 break;
             case "2"://选择了2
                 console.log('选择了2')
+                this.showSingleMssgae(0,true,this.currentChatData.choice[1])
                 this.currentJump = 1;
                 break;
             case "3"://选择了3
                 console.log('选择了3')
+                this.showSingleMssgae(0,true,this.currentChatData.choice[2])
                 this.currentJump = 2;
                 break;
         }

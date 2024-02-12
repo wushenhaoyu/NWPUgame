@@ -35,11 +35,6 @@
             "content": "发一下你的基本信息哈。",
             "Speaker": false
             
-          },
-          {
-            "type": 0,
-            "content": "好的，没问题。",
-            "Speaker": true
           }
         ]
       },

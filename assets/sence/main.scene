@@ -25681,7 +25681,7 @@
         "__id__": 868
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 955
@@ -31174,7 +31174,7 @@
         "__id__": 886
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 947
@@ -34088,7 +34088,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_opacity": 255,
+    "_opacity": 0,
     "_id": "a9RnsxUAVLgqcPDqrdpeNM"
   },
   {
