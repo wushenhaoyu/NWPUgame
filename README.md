@@ -8,3 +8,9 @@
 2.写一个对应名称的ts脚本到plot位置挂载写上相应逻辑
 3.在plotDataManager中写相应记录
 4.在plotDataControl中写剧情触发
+
+
+部署联系人剧情
+1.写json文件在dialogue/Phone
+2.写对应名称ts脚本（放在scirpt/main/messgae中）并且变为预制体放在phone/messgae/friend
+3.在plotDataManager中写相应的记录 可以是plot和index dialogue可能没用

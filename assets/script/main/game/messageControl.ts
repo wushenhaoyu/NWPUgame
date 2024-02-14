@@ -59,8 +59,9 @@ export class messageControl extends Component {
     public currentMessageName:string = "";//联系人json文件名称
     public currentChat:PhonePlotContainer = null;//json读的东西存起来
     public currentJump:number = 0;//有需要就转为0，1，2，没有就保持为0
+    public currentFriendNode:Node = null;//当前被选中的好友节点
+    public index:number = 0;//当前剧情数据下标
     start() {
-
         for(var i = 0 ; i < plotDataManager.friendlist.length ; i ++)
         {
             let newNode = instantiate(this.friend);
@@ -68,8 +69,7 @@ export class messageControl extends Component {
             var friendScript =  newNode.getComponent(friend);
             friendScript.init(plotDataManager.friendlist[i]);   //insert datas to the new friend node
             const plotName = plotDataManager.friendlist[i];
-            newNode.on(Node.EventType.TOUCH_END, () => this.switchMessage(plotName), this)
-     
+            newNode.on(Node.EventType.TOUCH_END, () => this.switchMessage(plotName,newNode), this)
             resources.preload(`dialogue/Phone/${plotName}`, JsonAsset, (err, jsonAsset) => 
             {
                 if (err) 
@@ -98,6 +98,15 @@ export class messageControl extends Component {
                             }
                         });
                     });
+                    resources.load(`phone/message/friend/${plotName}`,Prefab,(err,data)=>{
+                        if (err) 
+                        {
+                            console.error(err.message || err);
+                            return;
+                        }
+                        let scriptNode = instantiate(data);
+                        newNode.addChild(scriptNode)             
+                    })
                 });
             })
             
@@ -115,8 +124,8 @@ export class messageControl extends Component {
 
 
 
-    switchMessage(name: string) {
-
+    switchMessage(name: string,self:Node) {
+        this.currentFriendNode = self;
         this.chatListContent.active = false; 
         this.currentMessageName = name;
         this.chatListContent.destroyAllChildren();
@@ -165,7 +174,7 @@ export class messageControl extends Component {
         return Promise.all(promises).then(() => undefined);
     }
 
-    showSingleMssgae(type:number,speaker:boolean,content:string)
+    showSingleMssgae(type:number,speaker:boolean,content:string)//显示单个信息
     {
         let chatNode: Node = null
         if(type == 1)
@@ -202,7 +211,7 @@ export class messageControl extends Component {
             this.chatListContent.addChild(chatNode)
         }
     }
-    showCurrentMessage()
+    showCurrentMessage()//显示当前信息中已经显示过的部分
     {
         for(var i = 0 ; i < plotDataManager.plotdata.Phone[this.currentMessageName].index; i++)
         {
@@ -213,8 +222,8 @@ export class messageControl extends Component {
     }
     showCurrentMessageOneByOne()//一个一个地
     {
-        let index = plotDataManager.plotdata.Phone[this.currentMessageName].index
-        if(index > this.currentChatData.chat.length )
+        this.index = plotDataManager.plotdata.Phone[this.currentMessageName].index
+        if(this.index > this.currentChatData.chat.length )
         {
             if(this.currentChatData.type == 1)
             {
@@ -229,8 +238,8 @@ export class messageControl extends Component {
             }
             return
         }
-        console.log(index,this.currentChatData.chat.length)
-        if( index == this.currentChatData.chat.length)
+        console.log(this.index,this.currentChatData.chat.length)
+        if( this.index == this.currentChatData.chat.length)
         {
             if(this.currentChatData.choice.length != 0)
             {
@@ -254,7 +263,7 @@ export class messageControl extends Component {
         }
         else{
             setTimeout(() => {
-                this.showSingleMssgae(this.currentChatData.chat[index].type,this.currentChatData.chat[index].Speaker,this.currentChatData.chat[index].content)
+                this.showSingleMssgae(this.currentChatData.chat[this.index].type,this.currentChatData.chat[this.index].Speaker,this.currentChatData.chat[this.index].content)
                 plotDataManager.plotdata.Phone[this.currentMessageName].index++
                 this.showCurrentMessageOneByOne()
             }, 3000);
@@ -280,6 +289,8 @@ export class messageControl extends Component {
                 this.currentJump = 2;
                 break;
         }
+        //this.currentFriendNode.emit('')
+        this.currentFriendNode.children[2].emit('select',custom,this.index)
         this.select1.active = false;
         this.select2.active = false;
         this.select3.active = false;
