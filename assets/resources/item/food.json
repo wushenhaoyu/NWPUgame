@@ -1,399 +1,324 @@
 {
-   "bread": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/07_bread",
-        "Name": "bread",
-        "Label":"面包",
-        "Id": 1,
-        "Info": "日常充饥",
-        "actionText": "食用",
-        "value": 100
-    },
-    "pizza": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/81_pizza",
-        "Name": "pizza",
-        "Label":"披萨",
-        "Id": 2,
-        "Info": "意大利馅饼",
-        "actionText": "食用",
-        "value": 200
-    },
-    "apple_pie": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/05_apple_pie",
-        "Name": "苹果派",
-        "Id": 3,
-        "Info": "This is item 1",
-        "actionText": "食用"
-    },
-    "bacon": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/13_bacon",
-        "Name": "培根",
-        "Id": 4,
-        "Info": "你猜这是美式培根还是英式培根",
-        "actionText": "食用"
-    },
-    "burger": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/18_burger",
-        "Name": "汉堡",
-        "Id": 5,
-        "Info": "确实很香",
-        "actionText": "食用"
-    },
-    "begal": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/20_begal",
-        "Name": "面包圈",
-        "Id": 6,
-        "Info": "普普通通的面包圈",
-        "actionText": "食用"
-    },
-    "cheesecake": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/22_cheesecake",
-        "Name": "芝士",
-        "Id": 7,
-        "Info": "芝士雪豹~",
-        "actionText": "食用"
-    },
-    "chocolate": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/26_chocolate",
-        "Name": "巧克力",
-        "Id": 8,
-        "Info": "横扫饥饿，做回自己",
-        "actionText": "食用"
-    },
-    "cookies": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/28_cookies",
-        "Name": "饼干",
-        "Id": 9,
-        "Info": "日常零食",
-        "actionText": "食用"
-    },
-    "chocolatecake": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/30_chocolatecake",
-        "Name": "巧克力蛋糕",
-        "Id": 10,
-        "Info": "巧克力制成的蛋糕",
-        "actionText": "食用"
-    },
-    "curry": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/32_curry",
-        "Name": "咖喱",
-        "Id": 11,
-        "Info": "多种香料调配而成的调料",
-        "actionText": "食用"
-    },
-    "dumplings": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/36_dumplings",
-        "Name": "饺子",
-        "Id": 12,
-        "Info": "过年一起吃饺子！",
-        "actionText": "食用"
-    },
-    "friedegg": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/38_friedegg",
-        "Name": "煎蛋",
-        "Id": 13,
-        "Info": "早餐必备（馋）",
-        "actionText": "食用"
-    },
-    "eggsaled": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/40_eggsaled",
-        "Name": "鸡蛋沙拉",
-        "Id": 14,
-        "Info": "爽口清淡",
-        "actionText": "食用"
-    },
-    "eggtart": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/42_eggtart",
-        "Name": "蛋挞",
-        "Id": 15,
-        "Info": "作者最爱吃的蛋挞，吃下它，你将会得到作者的祝福",
-        "actionText": "食用"
-    },
-    "frenchfries": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/44_frenchfries",
-        "Name": "薯条",
-        "Id": 16,
-        "Info": "确实美味",
-        "actionText": "食用"
-    },
-    "fruitcake": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/46_fruitcake",
-        "Name": "水果蛋糕",
-        "Id": 17,
-        "Info": "有水果的蛋糕",
-        "actionText": "食用"
-    },
-    "giantgummybear": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/50_giantgummybear",
-        "Name": "巨型小熊软糖",
-        "Id": 18,
-        "Info": "神奇的小熊软糖,吃下它你的运气将会倍增",
-        "actionText": "食用"
-    },
-    "wine": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/wine_white3",
-        "Name": "白葡萄酒",
-        "Id": 19,
-        "Info": "white wine 是白葡萄酒",
-        "actionText": "饮用"
-    },
-    "hotdog": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/54_hotdog",
-        "Name": "热狗",
-        "Id": 20,
-        "Info": "热狗是香肠的一种吃法",
-        "actionText": "食用"
-    },
-    "icecream": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/57_icecream",
-        "Name": "冰激凌",
-        "Id": 21,
-        "Info": "冬天就免了吧",
-        "actionText": "食用"
-    },
-    "jelly": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/59_jellr",
-        "Name": "果冻",
-        "Id": 22,
-        "Info": "哦！我妹妹爱吃的果冻",
-        "actionText": "食用"
-    },
-    "lemonpie": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/63_lemonpie",
-        "Name": "柠檬派",
-        "Id": 23,
-        "Info": "简单的柠檬派",
-        "actionText": "食用"
-    },
-    "meatball": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/69_meatball_dish",
-        "Name": "狮子头",
-        "Id": 24,
-        "Info": "肉球狮子头",
-        "actionText": "食用"
-    },
-    "pudding": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/75_pudding",
-        "Name": "布丁",
-        "Id": 25,
-        "Info": "英国的传统食品",
-        "actionText": "食用"
-    },
-    "popcorn": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/83_popcorn",
-        "Name": "爆米花",
-        "Id": 26,
-        "Info": "看电影必备",
-        "actionText": "食用"
-    },
-    "roastedchicken": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/85_roastedchicken",
-        "Name": "烤鸡",
-        "Id": 27,
-        "Info": "烤鸡，要不要加点孜然",
-        "actionText": "食用"
-    },
-    "strawberrycake": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/90_strawberrycake",
-        "Name": "草莓蛋糕",
-        "Id": 28,
-        "Info": "草莓做的蛋糕",
-        "actionText": "食用"
-    },
-    "salmon": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/88_salmon",
-        "Name": "鲑鱼",
-        "Id": 29,
-        "Info": "多吃点鱼脑汁会变得聪明",
-        "actionText": "食用"
-    },
-    "sandwich": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/92_sandwich",
-        "Name": "三明治",
-        "Id": 30,
-        "Info": "以两片面包夹几片肉和奶酪、炼乳等各种调料制作而成",
-        "actionText": "食用"
-    },
-    "spaghetti": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/94_spaghetti",
-        "Name": "意大利面条",
-        "Id": 31,
-        "Info": "西餐正餐中最接近中国人饮食习惯的面点",
-        "actionText": "食用"
-    },
-    "steak": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/96_steak",
-        "Name": "牛排",
-        "Id": 32,
-        "Info": "西餐常见之一的牛排",
-        "actionText": "食用"
-    },
-    "sushi": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/97_sushi",
-        "Name": "寿司",
-        "Id": 33,
-        "Info": "日本传统食品",
-        "actionText": "食用"
-    },
-    "waffle": {
-        "type": "food",
-        "ImgUrl": "main/UI/item2/101_waffle",
-        "Name": "华夫饼",
-        "Id": 34,
-        "Info": "华夫饼小零食，你值得拥有",
-        "actionText": "食用"
-    },
-    "water": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/water",
-        "Name": "水",
-        "Id": 35,
-        "Info": "必需品",
-        "actionText": "饮用"
-    },
-    "watermelon": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/watermelon1",
-        "Name": "西瓜",
-        "Id": 36,
-        "Info": "香甜水果",
-        "actionText": "食用"
-    },
-    "wine_red": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/wine_read",
-        "Name": "葡萄酒",
-        "Id": 37,
-        "Info": "共度烛光晚餐吗？",
-        "actionText": "饮用"
-    },
-    "snack1": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/snack1",
-        "Name": "零食",
-        "Id": 38,
-        "Info": "人间美味",
-        "actionText": "食用"
-    },
-    "snack2": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/snack2",
-        "Name": "零食",
-        "Id": 39,
-        "Info": "人间美味",
-        "actionText": "食用"
-    },
-    "drink1": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/soft_drink_blue",
-        "Name": "饮料",
-        "Id": 40,
-        "Info": "肥宅水",
-        "actionText": "饮用"
-    },
-    "drink2": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/soft_drink_green",
-        "Name": "饮料",
-        "Id": 41,
-        "Info": "肥宅水",
-        "actionText": "饮用"
-    },
-    "drink3": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/soft_drink_red",
-        "Name": "饮料",
-        "Id": 42,
-        "Info": "肥宅水",
-        "actionText": "饮用"
-    },
-    "drink4": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/soft_drink_yellow",
-        "Name": "饮料",
-        "Id": 43,
-        "Info": "肥宅水",
-        "actionText": "饮用"
-    },
-    "green_apple": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/green_apple",
-        "Name": "绿苹果",
-        "Id": 44,
-        "Info": "苹果看起来还没熟",
-        "actionText": "食用"
-    },
-    "green_grape": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/green_grape",
-        "Name": "绿葡糖",
-        "Id": 45,
-        "Info": "葡萄看起来还没熟",
-        "actionText": "食用"
-    },
-    "milk": {
-        "type": "drink",
-        "ImgUrl": "main/UI/item1/milk_bottle",
-        "Name": "牛奶",
-        "Id": 46,
-        "Info": "想长高多喝点牛奶",
-        "actionText": "饮用"
-    },
-    "red_apple": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/red_apple",
-        "Name": "红苹果",
-        "Id": 47,
-        "Info": "这苹果看起来熟透了",
-        "actionText": "食用"
-    },
-    "red_grape": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/red_grape",
-        "Name": "红葡萄",
-        "Id": 48,
-        "Info": "熟透了确实好吃",
-        "actionText": "食用"
-    },
-    "banana": {
-        "type": "food",
-        "ImgUrl": "main/UI/item1/banana",
-        "Name": "香蕉",
-        "Id": 49,
-        "Info": "香蕉不呐呐",
-        "actionText": "食用"
-    }
-
-}
+    "bread": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/07_bread",
+         "Name": "bread",
+         "Label":"面包",
+         "Id": 1,
+         "Info": "日常充饥",
+         "actionText": "食用",
+         "value": 3
+     },
+     "pizza": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/81_pizza",
+         "Name": "pizza",
+         "Label":"披萨",
+         "Id": 2,
+         "Info": "意大利馅饼",
+         "actionText": "食用",
+         "value": 15
+     },
+     "burger": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/15_burger",
+         "Name": "burger",
+         "Label":"金拱门汉堡",
+         "Id": 5,
+         "Info": "hello,我们都吃金拱门....",
+         "actionText": "食用",
+         "value": 5
+     },
+     "cheesecake": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/22_cheesecake",
+         "Name": "cheesecake",
+         "Label":"芝士蛋糕",
+         "Id": 7,
+         "Info": "在山里我能听到各种各样的叫声",
+         "actionText": "食用",
+         "value": 12
+     },
+     "chocolate": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/26_chocolate",
+         "Name": "chocolate",
+         "Label":"士力架",
+         "Id": 8,
+         "Info": "横扫饥饿，做回自己",
+         "actionText": "食用",
+         "value": 3
+     },
+     "cookies": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/28_cookies",
+         "Name": "cookies",
+         "Label":"饼干",
+         "Id": 9,
+         "Info": "日常零食",
+         "actionText": "食用",
+         "value": 2
+     },
+     "dumplings": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/36_dumplings",
+         "Name": "dumplings",
+         "Label":"饺子",
+         "Id": 12,
+         "Info": "嗯!妈妈的味道,太好吃了!!!",
+         "actionText": "食用",
+         "value": 1
+     },
+     "eggtart": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/42_eggtart",
+         "Name": "egg tart",
+         "Label":"蛋挞",
+         "Id": 15,
+         "Info": "作者最爱吃的蛋挞，吃下它，你将会得到作者的祝福",
+         "actionText": "食用",
+         "value": 3
+     },
+     "frenchfries": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/44_frenchfries",
+         "Name": "french fries",
+         "Label":"薯条",
+         "Id": 16,
+         "Info": "确实美味",
+         "actionText": "食用",
+         "value": 4
+     },
+     "giantgummybear": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/50_giantgummybear",
+         "Name": "giant gummy bear",
+         "Label":"巨型小熊软糖",
+         "Id": 18,
+         "Info": "神奇的小熊软糖,吃下它你的运气将会倍增",
+         "actionText": "食用",
+         "value": 7
+     },
+     "wine": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/wine_white3",
+         "Name": "wine",
+         "Label":"白葡萄酒",
+         "Id": 19,
+         "Info": "white wine 是白葡萄酒",
+         "actionText": "饮用",
+         "value": 30
+     },
+     "hotdog": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/54_hotdog",
+         "Name": "hotdog",
+         "Label":"烤肠",
+         "Id": 20,
+         "Info": "热狗是香肠的一种吃法",
+         "actionText": "食用",
+         "value": 2
+     },
+     "icecream": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/57_icecream",
+         "Name": "ice cream",
+         "Label":"冰激凌",
+         "Id": 21,
+         "Info": "冬天就免了吧",
+         "actionText": "食用",
+         "value": 3
+     },
+     "jelly": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/59_jelly",
+         "Name": "jelly",
+         "Label":"果冻",
+         "Id": 22,
+         "Info": "妈妈要当太空人,爷爷奶奶可高兴了",
+         "actionText": "食用",
+         "value": 2
+     },
+     "meatball": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/70_meatball_dish",
+         "Name": "meatball",
+         "Label":"狮子头",
+         "Id": 24,
+         "Info": "红烧狮子头",
+         "actionText": "食用",
+         "value": 3
+     },
+     "popcorn": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/83_popcorn",
+         "Name": "popcorn",
+         "Label":"爆米花",
+         "Id": 26,
+         "Info": "看电影必备",
+         "actionText": "食用",
+         "value": 6
+     },
+     "roastedchicken": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/85_roastedchicken",
+         "Name": "roasted chicken",
+         "Label":"烤鸡",
+         "Id": 27,
+         "Info": "烤只因，要不要加点孜然",
+         "actionText": "食用",
+         "value": 16
+     },
+     "sandwich": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/92_sandwich",
+         "Name": "sandwich",
+         "Label":"三明治",
+         "Id": 30,
+         "Info": "以两片面包夹几片肉和奶酪、炼乳等各种调料制作而成",
+         "actionText": "食用",
+         "value": 7
+     },
+     "spaghetti": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/94_spaghetti",
+         "Name": "spaghetti",
+         "Label":"意大利面条",
+         "Id": 31,
+         "Info": "西餐正餐中最接近中国人饮食习惯的面点",
+         "actionText": "食用",
+         "value": 7
+     },
+     "waffle": {
+         "type": "food",
+         "ImgUrl": "main/UI/item2/101_waffle",
+         "Name": "waffle",
+         "Label":"华夫饼",
+         "Id": 34,
+         "Info": "华夫饼小零食，你值得拥有",
+         "actionText": "食用",
+         "value": 2
+     },
+     "water": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/water",
+         "Name": "water",
+         "Label":"水",
+         "Id": 35,
+         "Info": "必需品",
+         "actionText": "饮用",
+         "value": 1
+     },
+     "watermelon": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/watermelon1",
+         "Name": "watermelon",
+         "Label":"西瓜",
+         "Id": 36,
+         "Info": "香甜水果",
+         "actionText": "食用",
+         "value": 3
+     },
+     "snack1": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/snack1",
+         "Name": "snack",
+         "Label":"零食",
+         "Id": 38,
+         "Info": "人间美味",
+         "actionText": "食用",
+         "value": 2
+     },
+     "snack2": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/snack2",
+         "Name": "snack",
+         "Label":"零食",
+         "Id": 39,
+         "Info": "人间美味",
+         "actionText": "食用",
+         "value": 2
+     },
+     "drink1": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/soft_drink_blue",
+         "Name": "drink",
+         "Label":"饮料",
+         "Id": 40,
+         "Info": "肥宅水",
+         "actionText": "饮用",
+         "value": 3
+     },
+     "drink2": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/soft_drink_green",
+         "Name": "drink",
+         "Label":"饮料",
+         "Id": 41,
+         "Info": "肥宅水",
+         "actionText": "饮用",
+         "value": 3
+     },
+     "drink3": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/soft_drink_red",
+         "Name": "drink",
+         "Label":"饮料",
+         "Id": 42,
+         "Info": "肥宅水",
+         "actionText": "饮用",
+         "value": 3
+     },
+     "drink4": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/soft_drink_yellow",
+         "Name": "drink",
+         "Label":"饮料",
+         "Id": 43,
+         "Info": "肥宅水",
+         "actionText": "饮用",
+         "value": 3
+     },
+     "green_apple": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/green_apple",
+         "Name": "green apple",
+         "Label":"绿苹果",
+         "Id": 44,
+         "Info": "苹果看起来还没熟",
+         "actionText": "食用",
+         "value": 2
+     },
+     "milk": {
+         "type": "drink",
+         "ImgUrl": "main/UI/item1/milk_bottle",
+         "Name": "milk",
+         "Label":"牛奶",
+         "Id": 46,
+         "Info": "想长高多喝点牛奶",
+         "actionText": "饮用",
+         "value": 4
+     },
+     "red_apple": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/red_apple",
+         "Name": "red apple",
+         "Label":"红苹果",
+         "Id": 47,
+         "Info": "这苹果看起来熟透了",
+         "actionText": "食用",
+         "value": 2
+     },
+     "banana": {
+         "type": "food",
+         "ImgUrl": "main/UI/item1/banana",
+         "Name": "banana",
+         "Label":"香蕉",
+         "Id": 49,
+         "Info": "香蕉不呐呐",
+         "actionText": "食用",
+         "value": 2
+     }
+ 
+ }
+ 

@@ -6342,7 +6342,7 @@
         "__id__": 360
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 368
@@ -8642,8 +8642,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.3,
-      "height": 66.1
+      "width": 55,
+      "height": 53.30000000000001
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8675,7 +8675,7 @@
     "_spriteFrame": null,
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -8700,10 +8700,10 @@
     "__prefab": null,
     "_alignFlags": 45,
     "_target": null,
-    "_left": 5.350000000000001,
-    "_right": 5.350000000000001,
-    "_top": 6.950000000000003,
-    "_bottom": 6.950000000000003,
+    "_left": 12.5,
+    "_right": 12.5,
+    "_top": 13.349999999999994,
+    "_bottom": 13.349999999999994,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": true,
@@ -8814,7 +8814,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 25.234374999999996,
+    "_actualFontSize": 25.253906250000004,
     "_fontSize": 25,
     "_fontFamily": "Arial",
     "_lineHeight": 25,
@@ -9047,7 +9047,7 @@
     "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
-    "_actualFontSize": 20.1875,
+    "_actualFontSize": 20.203125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -9308,8 +9308,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 79.9702496130031,
-      "height": 50.400000000000006
+      "width": 79.98761359242071,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9341,7 +9341,7 @@
     "_string": "物品名称",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.1875,
+    "_actualFontSize": 20.203125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -9417,8 +9417,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 39.98512480650155,
-      "height": 50.400000000000006
+      "width": 39.99380679621036,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9450,7 +9450,7 @@
     "_string": "价格",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.1875,
+    "_actualFontSize": 20.203125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -9526,8 +9526,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 79.9702496130031,
-      "height": 50.400000000000006
+      "width": 79.98761359242071,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9559,7 +9559,7 @@
     "_string": "购买数量",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 20.1875,
+    "_actualFontSize": 20.203125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
