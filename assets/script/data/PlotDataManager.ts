@@ -6,10 +6,18 @@ export default class PlotDataManager {
             menwei:{
                 plot:number
                 dialogue:number
+            },
+            student1:{
+                plot:number
+                dialogue:number
             }
         }
         d100:{
             nvtongxue:{
+                plot:number
+                dialogue:number
+            },
+            student3:{
                 plot:number
                 dialogue:number
             }
@@ -18,6 +26,14 @@ export default class PlotDataManager {
             shiyou:{
                 plot: number,
                 dialogue:number,
+            }
+        },
+        tushuguan:{
+            student2:{
+
+                plot: number,
+                dialogue:number,
+
             }
         },
         dachao:{
@@ -71,9 +87,17 @@ export default class PlotDataManager {
                     plot: 0, // 初始值
                     dialogue: 0, // 初始值
                 },
+                student1:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                }
             },
             d100:{
                 nvtongxue:{
+                    plot:0,
+                    dialogue:0
+                },
+                student3:{
                     plot:0,
                     dialogue:0
                 }
@@ -82,6 +106,14 @@ export default class PlotDataManager {
                 shiyou:{
                     plot: 0,
                     dialogue:0,
+                }
+            },
+            tushuguan:{
+                student2:{
+    
+                    plot: 0,
+                    dialogue:0,
+    
                 }
             },
             dachao:{

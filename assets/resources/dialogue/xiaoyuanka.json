@@ -7,7 +7,7 @@
         "Name": "学长",
         "Text": "你好同学，校园卡需要了解一下吗？",
         "Speaker": false,
-        "Img": "lihui/female1"
+        "Img": "lihui/luren2"
     },
     "plot":[
         {
@@ -28,19 +28,19 @@
                     "Name": "学长",
                     "Text": "在校园内没有网络，使用手机流量手机流量1MB就要3分钱，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "你如果花费100元办一张校园电话卡，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "一个月60元即可享受20G的流量和30分钟的通话时长的套餐。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         },
@@ -56,13 +56,13 @@
                     "Name": "学长",
                     "Text": "同学，这是你办理的校园卡，请收好。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "有什么问题可以随时来找我。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         },
@@ -106,13 +106,13 @@
                     "Name": "学长",
                     "Text": "不好意思，这个校园卡是无法退款的,",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "只能从下个月起取消套餐,这样下个月你就不用交钱了。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "你",
@@ -134,7 +134,7 @@
                     "Name": "学长",
                     "Text": "祝你能拥有一个美好的大学生活。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         }

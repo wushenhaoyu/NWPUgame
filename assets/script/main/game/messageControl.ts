@@ -190,7 +190,7 @@ export class messageControl extends Component {
                 else
                 {
                     chatNode = instantiate(this.messagePicFromPlayer)
-                    chatNode.getComponent(message_picture).init('单大狗',content)
+                    chatNode.getComponent(message_picture).init('你',content)
                 }
 
                 this.chatListContent.addChild(chatNode)
@@ -206,7 +206,7 @@ export class messageControl extends Component {
             else
             {
                 chatNode = instantiate(this.messageTextFromPlayer)
-                chatNode.getComponent(message_text).init('单大狗',content)
+                chatNode.getComponent(message_text).init('你',content)
             }
             this.chatListContent.addChild(chatNode)
         }

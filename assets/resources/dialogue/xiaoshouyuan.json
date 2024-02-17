@@ -7,7 +7,7 @@
         "Name": "销售员",
         "Text": "您好，需要什么吗",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     },
     "plot":[
         {
@@ -28,31 +28,31 @@
                 "Name": "销售员",
                 "Text": "Hi there! You can buy lots of things here",
                 "Speaker": false,
-                "Img": "NPC/OIP"
+                "Img": "lihui/luren1"
             },
             {
-                "Name": "单大狗",
+                "Name": "你",
                 "Text": "Oh really?",
                 "Speaker": true,
-                "Img": "NPC/OIP"
+                "Img": "lihui/female1"
             },
             {
                 "Name": "销售员",
                 "Text": "Yeah! The prizes here are make sense. We won't scam you, obviously...",
                 "Speaker": false,
-                "Img": "NPC/OIP"
+                "Img": "lihui/luren1"
             },
             {
-                "Name": "单大狗",
+                "Name": "你",
                 "Text": "That's great!",
                 "Speaker": true,
-                "Img": "NPC/OIP"
+                "Img": "lihui/female1"
             },
             {
                 "Name": "销售员",
                 "Text": "Enjoy your day!",
                 "Speaker": false,
-                "Img": "NPC/OIP"
+                "Img": "lihui/luren1"
             }
         ]
 ]

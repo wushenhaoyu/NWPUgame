@@ -13,7 +13,7 @@
     "dialog":[
         [
     {
-        "Name": "单大狗",
+        "Name": "你",
         "Text": "大爷好!",
         "Speaker": true,
         "Img": "lihui/female1"
@@ -25,7 +25,7 @@
         "Img": "lihui/female1"
     },
     {
-        "Name": "单大狗",
+        "Name": "你",
         "Text": "那么恐怖！？",
         "Speaker": true,
         "Img": "lihui/female1"

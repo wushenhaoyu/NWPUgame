@@ -22,25 +22,25 @@
                     "Name": "贾老师",
                     "Text": "单同学是吧？",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }, 
                 {
                     "Name": "贾老师",
                     "Text": "我是学院的书记贾老师，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }, 
                 {
                     "Name": "贾老师",
                     "Text": "你满足学校助学金的领取条件，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }, 
                 {
                     "Name": "贾老师",
                     "Text": "你是否需要申请助学金？",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }
             ]
         },
@@ -62,13 +62,13 @@
                     "Name": "贾老师",
                     "Text": "你先将你的银行卡号和密码发给我，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }, 
                 {
                     "Name": "贾老师",
                     "Text": "你等会填一下。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren1"
                 }
             ]
         },

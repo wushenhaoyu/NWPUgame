@@ -28,7 +28,7 @@
                     "Name": "学长",
                     "Text": "你需要饮用水吗？",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         },
@@ -44,19 +44,19 @@
                     "Name": "学长",
                     "Text": "在宿舍楼内部是没有饮用水的，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "你每天需要花费3元购买水，",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "学长",
                     "Text": "我这里现在有一个套餐，50元即可获得一个月的饮用水。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         },
@@ -72,7 +72,7 @@
                     "Name": "学长",
                     "Text": "这是你的水票，请收好。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 },
                 {
                     "Name": "",
@@ -138,7 +138,7 @@
                     "Name": "学长",
                     "Text": "你已经购买过了饮用水套餐。",
                     "Speaker": false,
-                    "Img": "lihui/female1"
+                    "Img": "lihui/luren2"
                 }
             ]
         }
