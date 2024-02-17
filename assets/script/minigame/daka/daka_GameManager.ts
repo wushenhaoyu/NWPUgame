@@ -1,4 +1,5 @@
-import { _decorator, AnimationComponent, BoxCollider, Component, input, Label, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, tween, UIOpacity, v2, Vec3, view, View } from 'cc';
+import { _decorator, AnimationComponent, BoxCollider, Component, director, input, Label, macro, Node, NodeEventType, PhysicsSystem2D, RigidBody2D, tween, UIOpacity, v2, Vec3, view, View } from 'cc';
+import GameDataManager from '../../data/GameDataManager';
 const { ccclass, property } = _decorator;
 enum status{
     none = 0,
@@ -6,9 +7,12 @@ enum status{
     right = 2,
     speed = 3
 }
+const gameDataManager = GameDataManager.getInstance();
 
 @ccclass('daka_GameManager')
 export class daka_GameManager extends Component {
+    @property({type:Node})
+    public end:Node = null;
     @property({type:Node})
     public player:Node = null;
     @property({type:Node})
@@ -65,6 +69,13 @@ export class daka_GameManager extends Component {
         })
         this.power = this.powerLimit
         this.body = this.player.getComponent(RigidBody2D)
+    }
+    back()
+    {
+        console.log('back')
+        director.loadScene('main',null,()=>{
+            gameDataManager.plotDataControl.UINode.active = true;
+        })
     }
 
     
@@ -216,6 +227,7 @@ export class daka_GameManager extends Component {
         }
         if(this.length / 100 >= 3.2)
         {
+            this.end.active = true;
             return;
         }
         this.time += deltaTime;

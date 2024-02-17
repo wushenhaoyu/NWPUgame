@@ -10,12 +10,12 @@
         "chat": [
           {
             "type": 1,
-            "content": "lihui/female1",
+            "content": "phone/message/pic/data",
             "Speaker": false
           },
           {
             "type": 1,
-            "content": "lihui/female1",
+            "content": "phone/message/pic/data",
             "Speaker": true
           },
           {

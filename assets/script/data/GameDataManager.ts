@@ -134,7 +134,7 @@ export default class GameDataManager {
         this.mapDictionary.set('d100','长安大道南段');
         this.mapDictionary.set('dachao','大学生超市');
         this.mapDictionary.set('dachaomengkou','星天苑南餐厅');
-        this.mapDictionary.set('dongmne','正门');
+        this.mapDictionary.set('dongmen','正门');
         this.mapDictionary.set('feiji','通惠园');
         this.mapDictionary.set('jiaodongc1','教学东楼东侧');
         this.mapDictionary.set('jiaodongd','教学东楼西侧');
