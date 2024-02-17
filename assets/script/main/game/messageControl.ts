@@ -125,6 +125,10 @@ export class messageControl extends Component {
 
 
     switchMessage(name: string,self:Node) {
+        if(this.currentFriendNode == self)
+        {
+            return;
+        }
         this.currentFriendNode = self;
         this.chatListContent.active = false; 
         this.currentMessageName = name;

@@ -20,7 +20,7 @@ export class advertisement extends Component {
     }
     init(name:string)
     {
-        resources.load('phone/ad/json/zhiyuan',JsonAsset,null,(err,json)=>{
+        resources.load('phone/ad/json/'+name,JsonAsset,null,(err,json)=>{
             if (err) {
                 error("this is an error:", err);
                 return;
@@ -33,7 +33,7 @@ export class advertisement extends Component {
                 }
                 this.icon.spriteFrame = spriteFrame
             })
-            resources.load(data.Img,SpriteFrame,null,(err,spriteFrame)=>{
+            resources.load(data.Img + '/spriteFrame',SpriteFrame,null,(err,spriteFrame)=>{
                 if (err) {
                     error("this is an error:", err);
                     return;

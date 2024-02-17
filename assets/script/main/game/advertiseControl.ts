@@ -13,7 +13,7 @@ export class advertiseControl extends Component {
         {
             let newNode = instantiate(this.ad);
             this.list.addChild(newNode);
-            newNode.getComponent(advertisement).init('zhiyuan');
+            newNode.getComponent(advertisement).init('shuadan');
         }
     }
 
