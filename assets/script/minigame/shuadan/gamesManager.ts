@@ -73,7 +73,7 @@ export class gamesManager extends Component {
     timeBarEndHandler()
     {
         //lose
-        this.lose
+        this.lose()
     }
 
     gameEndHandler(state: string)
