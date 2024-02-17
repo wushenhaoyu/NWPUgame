@@ -39,7 +39,7 @@ export class frist extends Component {
             this.selected = 0;
            
             this.bgfemale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
-            this.bgfemale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 200;
+            this.bgfemale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 150;
     }
 }
     maleSelect() {
@@ -54,7 +54,7 @@ export class frist extends Component {
         else{
             this.selected = 0;
             this.bgmale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
-            this.bgmale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 200;
+            this.bgmale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 150;
             
         }
     }

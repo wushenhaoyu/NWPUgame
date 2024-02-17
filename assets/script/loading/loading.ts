@@ -10,14 +10,15 @@ const gameDataManager = GameDataManager.getInstance();
 @ccclass('loading')
 export class loading extends Component {
     @property(ProgressBar)
-    progressBar: ProgressBar = null;
+    public progressBar: ProgressBar = null;
     UINode:Node = null;
+    public c:number = 0;
 
 
     start() {
         this.loadResources();
         find('UI/UICanvas/UI').active = false;
-
+        console.log(this.progressBar)
     }
 
     loadResources() {
@@ -67,16 +68,23 @@ export class loading extends Component {
     onPlayerLoaded() {
         // 这里可以处理玩家加载完成后的逻辑
         this.updateProgressBar(0.2);
+        console.log('玩家数据加载完成')
     }
 
-    updateProgressBar(progress: number) {
+    updateProgressBar(p: number) {
         // 更新进度条的显示
         if (this.progressBar) {
-            //this.progressBar.progress += progress;
-            tween(this.progressBar).to(1,{'progress':this.progressBar.progress += progress}).start();
-        }
-        if (this.progressBar.progress >= 1) {
-            this.next();
+            this.c += p;
+            console.log(this.c)
+            tween(this.progressBar)
+                .to(1,{progress:this.c})
+                .start()
+           /*tween(this.progressBar).to(2,{progress:this.progressBar.progress += progress},{
+                onComplete()
+                {
+                    console.log(this.progressBar.progress)
+                }
+            }).start();*/
         }
     }
 
@@ -89,7 +97,9 @@ export class loading extends Component {
 
     update(deltaTime: number) {
         // 可以在这里实现加载过程中的逻辑更新
-
+        if (this.progressBar.progress >= 1) {
+            this.next();
+        }
 
     }
 }

@@ -13,7 +13,7 @@
         {
             "id": 0,
             "type":1,
-            "name":"初次邂逅",
+            "name":"询问",
             "script":"nvtongxue",
             "choice":["羞澀地加微信","殘忍拒絕"],
             "plotjump": [1, 2],

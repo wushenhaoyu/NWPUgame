@@ -10,6 +10,10 @@ export default class PlotDataManager {
             student1:{
                 plot:number
                 dialogue:number
+            },
+            suguanayi:{
+                plot:number,
+                dialogue:number
             }
         }
         d100:{
@@ -90,6 +94,10 @@ export default class PlotDataManager {
                 student1:{
                     plot: 0, // 初始值
                     dialogue: 0, // 初始值
+                },
+                suguanayi:{
+                    plot:0,
+                    dialogue:0
                 }
             },
             d100:{

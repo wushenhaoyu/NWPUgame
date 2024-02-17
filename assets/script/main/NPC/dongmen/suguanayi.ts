@@ -4,12 +4,12 @@ import PlotDataManager from '../../../data/PlotDataManager';
 import { Npc } from '../../res/npc';
 const plotDataManager = PlotDataManager.getInstance();
 
-@ccclass('nvtongxue')
-export class nvtongxue extends Npc {
+@ccclass('suguanayi')
+export class suguanayi extends Npc {
 
     start() {
 
-        this._npcName = 'nvtongxue';
+        this._npcName = 'suguanayi';
         super.start();
 
     }
@@ -29,4 +29,3 @@ export class nvtongxue extends Npc {
     
 
 }
-
