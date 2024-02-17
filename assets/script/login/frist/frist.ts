@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, NodeEventType, Sprite ,Color,Label, director, input, Input } from 'cc';
+import { _decorator, Component, Node, NodeEventType, Sprite ,Color,Label, director, input, Input, UIOpacity } from 'cc';
 const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
@@ -30,27 +30,31 @@ export class frist extends Component {
         if(this.selected != 1)
         {
             this.selected = 1;
-            this.bgfemale.getComponent(Sprite).color = new Color(160,94,133,148)
-            this.bgmale.getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgfemale.getChildByName("bg").getComponent(Sprite).color = new Color(160,94,133,148)
+            this.bgmale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgfemale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 255;
             this.showStart()
         }
         else{
             this.selected = 0;
            
-            this.bgfemale.getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgfemale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgfemale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 200;
     }
 }
     maleSelect() {
         if(this.selected != 2)
         {
             this.selected = 2;
-            this.bgmale.getComponent(Sprite).color = new Color(93,96,167,147)
-            this.bgfemale.getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgmale.getChildByName("bg").getComponent(Sprite).color = new Color(93,96,167,147)
+            this.bgfemale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgmale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 255;
             this.showStart()
         }
         else{
             this.selected = 0;
-            this.bgmale.getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgmale.getChildByName("bg").getComponent(Sprite).color = new Color(87,89,99,148)
+            this.bgmale.getChildByName("Sprite").getComponent(UIOpacity).opacity = 200;
             
         }
     }

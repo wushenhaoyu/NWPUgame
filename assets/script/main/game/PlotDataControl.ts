@@ -132,7 +132,7 @@ export class PlotDataControl extends Component {
                     this.musicScript.pauseMusic();
                     this.UINode.active = false; //关闭UI
                     this.cameraScript.changeControl();//将镜头控制权转为剧情控制
-                    this.cameraScript.move(0,1,4);
+                    this.cameraScript.move(0,3,10);
                     find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
                     this.isRecovered = false
                     break;
