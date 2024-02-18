@@ -1,4 +1,4 @@
-import { _decorator,resources,error,JsonAsset,sys,find} from 'cc';
+import { _decorator,resources,error,JsonAsset,sys,find, director} from 'cc';
 const { ccclass, property } = _decorator;
 import { TimeDataControl } from '../main/game/TimeDataControl';
 import { PlotDataControl } from '../main/game/PlotDataControl';
@@ -91,6 +91,8 @@ export default class GameDataManager {
         this.time = timeTypeDef.morning;
         this.timeDataControl.updateTime();
         this.plotDataControl.checkPlotByTime();
+        this.setMap('sushe','sushe');
+        director.loadScene('loading')
         //回到寝室
     }
     public getDay(){

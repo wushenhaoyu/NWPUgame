@@ -62,6 +62,10 @@ export default class PlotDataManager {
             schoolcard:{
                 plot: number,
                 dialogue:number,
+            },
+            credit:{
+                plot:number,
+                dialogue:number
             }
         },
         aoxiangxueshengzhongxin:{

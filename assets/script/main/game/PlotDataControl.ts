@@ -106,12 +106,19 @@ export class PlotDataControl extends Component {
                     resources.preload('map/aoxiangxueshengzhongxin',TiledMapAsset)
                 }
                 break;
-            case 2:
+            /*case 2:
                 if(time == timeTypeDef.morning)
                 {
                     this.schoolcard();
                 }
+                break;*/
+            case 2:
+                if(time == timeTypeDef.morning)
+                {
+                    this.credit();
+                }
                 break;
+
         }
        
     }
@@ -207,10 +214,10 @@ export class PlotDataControl extends Component {
             case 1:
                 if(this.isRecovered)
                 {
-                         this.isRecovered = false; 
-                         gameDataManager.joystick.changeState(0)
-                         this.mapScript.tpPlotStart('schoolcard','schoolcard');
-                         find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
+                    this.isRecovered = false; 
+                    gameDataManager.joystick.changeState(0)
+                    this.mapScript.tpPlotStart('schoolcard','schoolcard');
+                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
                 }
                 else{
                   // this.UINode.active = true;
@@ -219,7 +226,7 @@ export class PlotDataControl extends Component {
                    this.isRecovered = true
                    this.mapScript.switchMap('sushe','sushe',()=>{
                     console.log('切换地图')
-                 })
+                 })     
                 }
                 break;
             case 2:
@@ -253,6 +260,20 @@ export class PlotDataControl extends Component {
             }
 
        }
+    }
+    credit()//信征剧情
+    {
+        switch(this.stageByTime) {
+            case 0:
+                if(this.isRecovered)
+                {
+                    this.isRecovered = false; 
+                    gameDataManager.joystick.changeState(1)
+                    find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+                }
+                break;
+
+        }
     }
 
     
