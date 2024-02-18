@@ -177,7 +177,25 @@ if (angle > threshold && angle < 3 * threshold) {
              if(this.an == an ) return;
              if(an == "")
              {
-                this.animationComponent.pause();
+                switch(this.an)
+                {
+                    case "walk_up":
+                        this.an = "";
+                        this.animationComponent.play("stand_up");
+                        return;
+                    case "walk_down":
+                        this.an = "";
+                        this.animationComponent.play("stand_down");
+                        return;
+                    case "walk_left":
+                        this.an = "";
+                        this.animationComponent.play("stand_left");
+                        return;
+                    case "walk_right":
+                        this.an = "";
+                        this.animationComponent.play("stand_right");
+                        return;    
+                }
              }
              this.an = an;
             this.animationComponent.play(this.an);
@@ -187,19 +205,18 @@ if (angle > threshold && angle < 3 * threshold) {
         this.refind()
         switch(c){
             case 0:
-                this.animationComponent.play("1_up");
-                
+                this.animationComponent.play("walk_up");
                 break;
             case 1:
-                this.animationComponent.play("1_down");
+                this.animationComponent.play("walk_down");
                
                 break;
             case 2:
-                this.animationComponent.play("1_left");
+                this.animationComponent.play("walk_left");
                 
                 break;
             case 3:
-                this.animationComponent.play("1_right");
+                this.animationComponent.play("walk_right");
                 break;
         }
         this.scheduleOnce(()=>{
@@ -233,26 +250,26 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.playerPosition.y += 200 * dt;
                 this.player.setPosition(this.playerPosition);*/
                 this.lv.x = 0;
-                this.lv.y = 400 * dt;
+                this.lv.y = 300 * dt;
                 this.angle = 1;
-                an = "1_up"
+                an = "walk_up"
                 break;
             case 2:
                 this.lv.x = 0;
-                this.lv.y = -400 * dt;
-                an = "1_down"
+                this.lv.y = -300 * dt;
+                an = "walk_down"
                 this.angle = 2;
                 break;
             case 3:
                 this.lv.y = 0;
-                this.lv.x = -400 * dt;
-                an = "1_left"
+                this.lv.x = -300 * dt;
+                an = "walk_left"
                 this.angle = 3;
                 break;
             case 4:
                 this.lv.y = 0;
-                this.lv.x = 400 * dt;
-                an = "1_right"
+                this.lv.x = 300 * dt;
+                an = "walk_right"
                 this.angle = 4;
                 break;
         }
