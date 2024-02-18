@@ -31,7 +31,6 @@ export class game2 extends Component {
             {
 
                 button.on(Node.EventType.TOUCH_END, () => {
-                    // console.log(button.name);
                     this.playerText += button.name;
                     this.answerBoard.getChildByName("Label").getComponent(Label).string = this.playerText;
                 })

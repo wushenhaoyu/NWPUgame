@@ -22,7 +22,7 @@ export default class PlayerDataManager {
     public init(callback?: () => void) {
         // 判断是否存在本地存储中的数据
         const playerDataString = sys.localStorage.getItem('player');
-       /* console.log('playerDataString', playerDataString);
+       /* 
         if (playerDataString) {
             // 如果本地存储中有数据，则解析为对象
             const playerData = JSON.parse(playerDataString);

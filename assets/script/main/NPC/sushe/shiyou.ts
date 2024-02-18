@@ -36,7 +36,6 @@ export class shiyou extends Npc {
             case 1 : //学生手册选择
             break;
             case 2 : // 饮用水选择
-                console.log('触发饮用水事件')
                 gameDataManager.plotDataControl.currentPlot = "water";
                 
             break;

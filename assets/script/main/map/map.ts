@@ -239,7 +239,6 @@ setNPC()
                 // 可以设置节点的位置等属性
                 // 添加到场景
                 let object = NPC[i];
-                // console.log(this.map)
                 node.name = object.dialogue;
                 this.map.node.addChild(node);
                 if(object.move == 1)

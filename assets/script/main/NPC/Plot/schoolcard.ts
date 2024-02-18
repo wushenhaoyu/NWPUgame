@@ -24,7 +24,6 @@ export class schoolcard extends Npc {
         if(this.plotJump[event] != -1)
         {
 
-            console.log("schoolcard: " + event);
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 

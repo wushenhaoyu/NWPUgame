@@ -43,7 +43,6 @@ export class Event_Read extends Component {
     eventstart()//进行事件 每个必有
     {
         this.node.off('event')
-        console.log('读书')
         gameDataManager.nextTime();
         console.log(gameDataManager.getDay(),gameDataManager.getTime())
         //gameDataManager.plotDataControl.transition();//黑屏过度

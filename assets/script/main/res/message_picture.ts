@@ -13,7 +13,6 @@ export class message_picture extends Component {
         this.Name.string = name;
         resources.load(Img + '/spriteFrame',SpriteFrame,(err,data)=>{
             var percent = data.width / data.height
-            console.log(data);
             this.content.spriteFrame = data;
             let ui = this.content.node.getComponent(UITransform)
         if(ui.width > 360)

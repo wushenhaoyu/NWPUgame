@@ -3976,7 +3976,7 @@
   <object id="174" x="2012" y="124"/>
  </objectgroup>
  <objectgroup id="17" name="NPC">
-  <object id="118" x="1347.5" y="1936" width="6.5" height="7.5">
+  <object id="118" x="1185.5" y="1988.67" width="6.5" height="7.5">
    <properties>
     <property name="dialogue" value="menwei"/>
     <property name="model" value="2"/>
@@ -3990,7 +3990,7 @@
     <property name="name" value="同学"/>
    </properties>
   </object>
-  <object id="179" x="1453" y="1601" width="8" height="6">
+  <object id="179" x="1168.75" y="1583.5" width="8" height="6">
    <properties>
     <property name="dialogue" value="suguanayi"/>
     <property name="model" value="2"/>

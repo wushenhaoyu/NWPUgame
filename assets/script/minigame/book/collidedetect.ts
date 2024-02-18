@@ -46,7 +46,6 @@ export class collidedetect extends Component {
 
     //碰撞检测的执行
     onCollision(self,other:BoxCollider2D){
-        console.log(other.group);
         
         //检测云，如果与玩家颜色相同或者颜色为白色，则可以实体化
         if(other.group == 16)

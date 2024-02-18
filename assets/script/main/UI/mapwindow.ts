@@ -18,7 +18,6 @@ export class mapwindow extends Component {
         this.c.top = 0;
         this.opacity.opacity = 255;
         this.node.getComponentInChildren(Label).string = gameDataManager.mapDictionary.get(e1) ;
-        console.log(gameDataManager.mapDictionary.get(e1))
         tween(this.c)
             .to(1.5,{'top':80},
             {

@@ -18,7 +18,7 @@ export class loading extends Component {
     start() {
         this.loadResources();
         find('UI/UICanvas/UI').active = false;
-        console.log(this.progressBar)
+
     }
 
     loadResources() {
@@ -43,7 +43,7 @@ export class loading extends Component {
                 return;
             }
             this.onMapLoaded()
-            console.log('地图加载完成')
+
         })
     
     }
@@ -51,13 +51,11 @@ export class loading extends Component {
     onBagLoaded() {
         // 这里可以处理背包加载完成后的逻辑
         this.updateProgressBar(0.2);
-        console.log('背包加载完成')
     }
 
     onSceneLoaded() {
         // 这里可以处理场景加载完成后的逻辑
         this.updateProgressBar(0.3);
-        console.log('场景加载完成')
     }
 
     onMapLoaded() {
@@ -68,14 +66,12 @@ export class loading extends Component {
     onPlayerLoaded() {
         // 这里可以处理玩家加载完成后的逻辑
         this.updateProgressBar(0.2);
-        console.log('玩家数据加载完成')
     }
 
     updateProgressBar(p: number) {
         // 更新进度条的显示
         if (this.progressBar) {
             this.c += p;
-            console.log(this.c)
             tween(this.progressBar)
                 .to(1,{progress:this.c})
                 .start()

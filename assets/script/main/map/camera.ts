@@ -1,4 +1,4 @@
-import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D,view ,Tween} from 'cc';
+import { _decorator, Component, Camera, TiledMap, Vec3, tween, v3 ,Node,v2, UITransform, RigidBody2D,view ,Tween, easing} from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('camera')
@@ -23,9 +23,8 @@ export  class camera extends Component {
     cameraMaxY2:number = 0;
     ifControlX:boolean = true; //是否X方向移动(因为有的地图太小了)  T_T
     ifControlY:boolean = true;  //是否Y方向移动
-
-    private camera: Camera = null;
     isPlot:boolean = false; //是否为剧情所控制？
+    camera:Camera = null;
     start() {
 
         this.node.on('map',this.init,this);
@@ -34,6 +33,9 @@ export  class camera extends Component {
 
     init()
     {
+        this.camera = this.node.getComponent(Camera)
+        this.node.on('begin',this.beginTalkWithNpc,this)
+        this.node.on('end',this.endTalkWithNpc,this)
         const tileSize = this.tiledMap.getTileSize();
         this.cameraWidth =view.getVisibleSize().width
         this.cameraHeight = view.getVisibleSize().height
@@ -61,6 +63,74 @@ export  class camera extends Component {
         }
         this.updateCameraPosition()
     }
+    beginTalkWithNpc(event: Vec3) {
+        this.changeControl(); // 将控制权交给剧情
+        //this.node.getComponent(Camera).orthoHeight = 200; // 设置摄像机高度为200
+    
+        // 获取玩家和NPC位置信息
+        const playerPosition = this.player.getPosition();
+        const npcPosition = event;
+    
+        // 计算玩家和NPC位置的中间点
+        const middlePosition = new Vec3();
+        Vec3.lerp(middlePosition, playerPosition, npcPosition, 0.5); // 中间点位置 = (玩家位置 + NPC位置) / 2
+        // 将摄像机位置设置为中间点位置
+        //this.node.getComponent(Camera).node.setPosition(middlePosition);
+        const tween1 = tween(this.camera).to(1,{orthoHeight:150},{easing:easing.quadOut});
+        const tween2 = tween(this.node).to(1,{position:middlePosition},{easing:easing.quadOut});
+        tween1.start();
+        tween2.start();
+    }
+    endTalkWithNpc(event: Vec3) {
+        console.log('end')
+        this.playerCurrentPosition = this.player.getPosition();
+        
+ 
+           // console.log(this.playerPosition.x !=this.playerCurrentPosition.x ,this.playerPosition.y !=this.playerCurrentPosition.y)
+       this. cameraPosition = this.playerCurrentPosition;
+      // console.log(this.cameraPosition)
+      if(this.ifControlX || this.ifControlY)
+      {
+        if(this.ifControlX ){
+                if (this. cameraPosition.x > this.cameraMaxX2) {
+                    this. cameraPosition.x = this.cameraMaxX2;
+                }
+                if (this. cameraPosition.x < this.cameraMaxX1) {
+                    this. cameraPosition.x = this.cameraMaxX1;
+                }
+            }
+            else{
+                this.cameraPosition.x = this.node.position.x;
+            }
+        if(this.ifControlY){
+            if (this. cameraPosition.y > this.cameraMaxY2) {
+            this. cameraPosition.y = this.cameraMaxY2;
+            }
+            if (this. cameraPosition.y < this.cameraMaxY1) {
+            this. cameraPosition.y = this.cameraMaxY1;
+            }
+        }
+        else{
+            this.cameraPosition.y = this.node.position.y;
+        }
+    }
+    else{
+        this.cameraPosition.x = this.mapWidth / 2;
+        this.cameraPosition.y = this.mapHeight / 2; 
+    }
+
+    this.playerPosition = this.playerCurrentPosition;
+    const tween1 =  tween(this.node).to(1,{position:this.cameraPosition},{easing:easing.quadOut})
+    const tween2 = tween(this.camera).to(1,{orthoHeight:360})
+    tween1.start();
+    tween2.start()
+    setTimeout(()=>{this.changeControl()},500)
+       // console.log(this. cameraPosition,this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2)
+       
+       
+   
+    }
+    
 
     changeControl()//移交镜头控制权
     {
@@ -93,27 +163,18 @@ export  class camera extends Component {
           .call(onCompleteCallback) 
           .start()
       }
-
-
-
-
-
-
-
-
-
-
     update() {
-    if(!this.isPlot)
-       {this.updateCameraPosition();}
+        if(this.isPlot)
+        {
+            return
+        }
+       this.updateCameraPosition();
     }
     updateCameraPosition() {
         this.playerCurrentPosition = this.player.getPosition();
         
         if(this.playerPosition.x !=this.playerCurrentPosition.x ||this.playerPosition.y !=this.playerCurrentPosition.y){
-           // console.log(this.playerPosition.x !=this.playerCurrentPosition.x ,this.playerPosition.y !=this.playerCurrentPosition.y)
        this. cameraPosition = this.playerCurrentPosition;
-      // console.log(this.cameraPosition)
       if(this.ifControlX || this.ifControlY)
       {
         if(this.ifControlX ){
@@ -141,7 +202,7 @@ export  class camera extends Component {
         this.playerPosition = this.playerCurrentPosition;
         this.node.setPosition(this. cameraPosition);
     }
-       // console.log(this. cameraPosition,this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2)
+
        
        
     }

@@ -70,6 +70,7 @@ export class Joystick extends Component {
                 console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
                 if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
             {
+                find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin',npc[i].position)
                 this.dialogue.emit('npc', npc[i].name);
                 this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
                 return;

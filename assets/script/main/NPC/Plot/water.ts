@@ -22,7 +22,6 @@ export class water extends Npc {
         if(this.plotJump[event] != -1)
         {
 
-            console.log("water: " + event);
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 

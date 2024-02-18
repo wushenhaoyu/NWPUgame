@@ -43,7 +43,7 @@ export class Event_Run extends Component {
     eventstart()//进行事件 每个必有
     {
         this.node.off('event')
-        console.log('睡一觉！')
+
         director.loadScene('daka',() =>{
             gameDataManager.plotDataControl.UINode.active = false;
         })

@@ -259,7 +259,7 @@ export default class text extends Component {
                 }
             }
 
-            
+            find('gameWorld/gameCanvas/Map/door/gameCamera').emit('end')
             this.dialogue.active = false
             this.unpersistUI.active = true
             this.choiceBoxes.active = false
@@ -279,7 +279,6 @@ export default class text extends Component {
 
     }
     selection(index: number){
-        console.log('yes')
         this.select.active = false;
         this.control=0;
         this.npcNode.emit(`select1`,index)

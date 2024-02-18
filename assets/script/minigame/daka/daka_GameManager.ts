@@ -72,7 +72,6 @@ export class daka_GameManager extends Component {
     }
     back()
     {
-        console.log('back')
         director.loadScene('main',null,()=>{
             gameDataManager.plotDataControl.UINode.active = true;
         })
