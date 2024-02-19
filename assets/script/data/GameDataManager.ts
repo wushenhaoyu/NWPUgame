@@ -21,6 +21,7 @@ export default class GameDataManager {
     public plotDataControl:PlotDataControl;
     public isPlayerFirstPlay:boolean = true;//玩家是否第一次进入游戏?
     public joystick:Joystick;
+    protected _storedCallback: Function | null = null;//存储回调函数
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
@@ -61,25 +62,25 @@ export default class GameDataManager {
             if(this.time == timeTypeDef.night)
         {
             this.nextDay();
-            this.plotDataControl.mapScript.switchLight();
+            this.plotDataControl.getMapScript().switchLight();
             return
         }
         if(this.time == timeTypeDef.evening)
         {
             this.time = timeTypeDef.night;
-            this.plotDataControl.mapScript.switchLight();
+            this.plotDataControl.getMapScript().switchLight();
             return
         }
         if(this.time == timeTypeDef.afternoon)
         {
             this.time = timeTypeDef.evening;
-            this.plotDataControl.mapScript.switchLight();
+            this.plotDataControl.getMapScript().switchLight();
             return
         }
         if(this.time == timeTypeDef.morning)
         {
             this.time = timeTypeDef.afternoon;
-            this.plotDataControl.mapScript.switchLight();
+            this.plotDataControl.getMapScript().switchLight();
             return
         }
         });
@@ -112,7 +113,16 @@ export default class GameDataManager {
     {
         return this.time
     }
-
+    public getFunction()//调用存储回调函数，并在调用完清空
+    {
+        const func = this._storedCallback;
+        this._storedCallback = null
+        return func;
+    }
+    public setFunction(callback: Function)//设置回调函数
+    {
+        this._storedCallback = callback;
+    }
 
 
 

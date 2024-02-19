@@ -4,6 +4,7 @@ import PlotDataManager from '../../data/PlotDataManager';
 const plotDataManager = PlotDataManager.getInstance();
 import GameDataManager from '../../data/GameDataManager';
 import text from '../dialogue/text';
+import { PlotDataControl } from '../game/PlotDataControl';
 const gameDataManager = GameDataManager.getInstance();
 
 interface NpcDataContainer {
@@ -65,9 +66,10 @@ export class Npc extends Component {
 
     protected isPlot:boolean = false; //是否为纯剧情不带一点npc的
 
-
+    public plotDatControl:PlotDataControl = null;
 
     start() {
+        this.plotDatControl = find('UI/GameManager/PlotDataControl').getComponent(PlotDataControl)
         if(this.isPlot)
         {
             resources.load(`dialogue/Plot/${this._npcName}`,JsonAsset,(err, jsonAsset) => {
@@ -82,8 +84,8 @@ export class Npc extends Component {
     
                 if(this._isPlotNpc)
                 {
-                    this.node.on("select1",this.selectionHandler,this)//接受带选择的
-                    this.node.on("select2",this.endConverstion,this)//不带选择的
+                    this.node.on("selection",this.selectionHandler,this)//接受带选择的
+                    this.node.on("end",this.endConverstion,this)//不带选择的
                     this.node.on('choicebox plot dialogue', this.plotfunc, this)
                 }
         
@@ -104,8 +106,8 @@ export class Npc extends Component {
 
             if(this._isPlotNpc)
             {
-                this.node.on("select1",this.selectionHandler,this)//接受带选择的
-                this.node.on("select2",this.endConverstion,this)//不带选择的
+                this.node.on("selection",this.selectionHandler,this)//接受带选择的
+                this.node.on("end",this.endConverstion,this)//不带选择的
                 this.node.on('choicebox plot dialogue', this.plotfunc, this)
             }
     
@@ -117,7 +119,7 @@ export class Npc extends Component {
     }
 
   plotfunc(){ //from choicebox
-        
+    let isPlot = true;
     setTimeout(()=>{console.log(this._npcData)
         console.log("mapname:"+this._mapName,"npcName:"+this._npcName,plotDataManager.plotdata)
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
@@ -129,7 +131,7 @@ export class Npc extends Component {
             dialog: currentPlot.dialog,
             
         }
-        this.text.emit("conversation", dialogueData);
+        this.text.emit("conversation", dialogueData,isPlot);
         
         this.plotJump = currentPlot.plotjump
 
@@ -148,7 +150,7 @@ export class Npc extends Component {
 
     normalfunc(){  //from choicebox
 
-
+        let isPlot = false;
         const currentDialog: TextData[] = this._npcData.dialog[plotDataManager.plotdata[this._mapName][this._npcName].dialogue]
 
         const dialogueData: SendData = {
@@ -159,35 +161,17 @@ export class Npc extends Component {
             dialog: currentDialog,
 
         }
-        this.text.emit("conversation", dialogueData);
+        this.text.emit("conversation", dialogueData,isPlot);
 
     }
 
 
 
-    selectionHandler(event: number){
-
-        // if(this.plotJump[event] != -1)
-        // {
-
-        //     plotDataManager.plotdata[this._mapName][this._npcName].plot = event
-
-        //     this.plotfunc()
-
-        // }
-
+    selectionHandler(event: number,type?:number){
+        
     }
 
-    endConverstion(){
-
-        if(this.plotJump.length > 0)
-        {
-
-            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[0]
-
-        }
-
-        this.node.active = false;
+    endConverstion(event){
         if(!this.isPlot)
         {
             this.npcWalkAgain()

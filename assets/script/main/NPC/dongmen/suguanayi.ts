@@ -14,14 +14,21 @@ export class suguanayi extends Npc {
 
     }
 
-    selectionHandler(event: number){
+    selectionHandler(event: number,type:number){
 
         if(this.plotJump[event] != -1)
         {
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 
-            this.plotfunc()
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{
+                this.text.emit('end')
+            }
+
 
         }
 
@@ -29,3 +36,6 @@ export class suguanayi extends Npc {
     
 
 }
+    
+
+

@@ -1,4 +1,4 @@
-import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find, Camera, Material, TiledLayer, Color, color} from 'cc';
+import { _decorator,SystemEvent, Component,PhysicsGroup, Node ,TiledMap,PhysicsSystem2D,RigidBody2D,BoxCollider2D,ERigidBody2DType,size,Prefab,instantiate,v2,resources,TiledMapAsset,error, Contact2DType, Collider2D, IPhysics2DContact, Asset, AssetManager, director, Input, input, find, Camera, Material, TiledLayer, Color, color, systemEvent, game} from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager, { timeTypeDef } from '../../data/GameDataManager';
 import npc1 from '../res/npc1';
@@ -148,6 +148,10 @@ export default class map extends Component {
         }
         this.mapwindow.getParent().active = true;
         this.mapwindow.emit('map',this.map1);
+        const callback = gameDataManager.getFunction(); // 获取回调函数
+        if (callback) {
+            callback(); // 执行回调函数
+        }
     }
     switchLight()
     {
@@ -351,9 +355,7 @@ tpPlotStart(plot:string,name:string)//传送到剧情地点
 public switchMap(map: string, name: string, callback?: Function) {
     gameDataManager.setMap(map, name);
     director.loadScene('loading', ()=>{
-        if (callback) {
-            callback();
-        }
+        gameDataManager.setFunction(callback)
     });
 }
 

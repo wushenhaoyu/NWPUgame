@@ -16,32 +16,38 @@ export class shiyou extends Npc {
 
     }
 
-    selectionHandler(event: number){
+    selectionHandler(event: number,type:number){
 
         if(this.plotJump[event] != -1)
         {
+
+            switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
+            {
+                case 1 : //学生手册选择
+                break;
+                case 2 : // 饮用水选择
+                    gameDataManager.plotDataControl.currentPlot = "water";
+                    
+                break;
+                case 3 : //网络选择
+            }
+
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
-            console.log(plotDataManager.plotdata[this._mapName][this._npcName].plot)
-            this.whichEvent();
-            this.plotfunc() 
+
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{
+                this.text.emit('end')
+            }
+
 
         }
 
     }
 
-    whichEvent()
-    {
-        switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
-        {
-            case 1 : //学生手册选择
-            break;
-            case 2 : // 饮用水选择
-                gameDataManager.plotDataControl.currentPlot = "water";
-                
-            break;
-            case 3 : //网络选择
-        }
-    }
+
     
 
 }

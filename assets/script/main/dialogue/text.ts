@@ -48,7 +48,7 @@ export default class text extends Component {
    public Text:Label = null;
    @property ({type:Node})
    public mapNode = null;
-   public control:number = 0; //0为普通对话，1为剧情
+   public type:number = 0; //1为连续 0为不连续
    textEnd = true; //是否到头
    nowText = ""; //即将播放的文字
    map:string = ""
@@ -69,6 +69,7 @@ export default class text extends Component {
     private isPlotNpc: boolean = null;
     private choices: Array<string> = [];
     public isPurePlot: boolean = false; //是否为纯剧情？
+    public isPlot:boolean = false;//是否为特殊对话？
 
 
    start() {
@@ -80,6 +81,8 @@ export default class text extends Component {
         this.node.on("force close conversation", this.closeDialog, this)
 
         this.node.on('plot',this.initPlotStart,this)
+
+        this.node.on('end',this.end,this)
 
         this.map = gameDataManager.getMap();
         this.choiceBoxes.getChildByName("choicebox1").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox normal dialogue'), this) //普通对话回调
@@ -214,84 +217,64 @@ export default class text extends Component {
     }
     }    
     closeDialog(){
-        if(this.control){   
-            //写显示选项并且能知道选择了哪个并返回给脚本结果 要通过监听来一开始就知道是哪个脚本发送的（还没写）
-            if(this.choices.length > 0)
-            {
-                this.select.active = true;
-            }
-            else{
-                this.selection(0)
-            }
-
-
-            // if(this.npcName == "Plot1_1")
-            // {
-            //     this.selection(0)
-
-            // }
-
-            // const choices = this.select.getChildByName("selections").children
-
-            
-            // for(let i = 0;i<choices.length;i++){
-                
-            //     // choices[i].on(NodeEventType.TOUCH_END,() => this.selection(i),this)
-            //     choices[i].on(NodeEventType.TOUCH_END,() => console.log("hihi"),this)
-
-            // }
-
-            
-
-        }
-        else{
-            
-            if(this.npcNode != null)
-            {
-                this.npcNode.emit("select2")
-            }
-            const choices = this.select.getChildByName("selections").children
-            if(choices)
-            {
-                for(var i = 0 ; i < choices.length ; i++ )
-                {
-                    choices[i].destroy();
+        console.log(this.isPlot)
+            if(this.isPlot)
+            {   //特殊对话处理
+                const choices = this.select.getChildByName("selections").children
+                console.log(choices)
+                if(choices.length > 0)
+                {   //有选项就选
+                    this.select.active = true;
                 }
-            }
+                else{//没选项就jump0
+                    this.selection(0)
+                }
 
-            find('gameWorld/gameCanvas/Map/door/gameCamera').emit('end')
-            this.dialogue.active = false
-            this.unpersistUI.active = true
-            this.choiceBoxes.active = false
-            this.textIndex = 0;
-            this.npcNode = null;
-            this.choices = [];
+            }
+            else
+            {   //普通对话处理
+                this.npcNode.emit('end')
+                find('gameWorld/gameCanvas/Map/door/gameCamera').emit('end')
+                this.dialogue.active = false
+                this.unpersistUI.active = true
+                this.choiceBoxes.active = false
+                this.textIndex = 0;
+                this.npcNode = null;
+                this.choices = [];
+                this.isPlot = false;
+                this.textIndex = -1
+                this.type = 0;
+            }
            // gameDataManager.plotDataControl.isReovered = false;
-            gameDataManager.plotDataControl.checkPlot();
-            if(!this.isPurePlot)
-            {
-                this.npcWalkAgain()
-            }
-            this.textIndex = -1
-                
-            }
+           //gameDataManager.plotDataControl.checkPlot()
+           // }
+    }
 
-
+    end()//真正结束对话
+    {
+        this.npcNode.emit('end')
+        find('gameWorld/gameCanvas/Map/door/gameCamera').emit('end')
+        this.dialogue.active = false
+        this.unpersistUI.active = true
+        this.choiceBoxes.active = false
+        this.textIndex = 0;
+        this.npcNode = null;
+        this.choices = [];
+        this.isPlot = false;
+        this.textIndex = -1
+        this.type = 0;
     }
     selection(index: number){
         this.select.active = false;
-        this.control=0;
-        this.npcNode.emit(`select1`,index)
+        this.npcNode.emit(`selection`,index ,this.type)
         const choices = this.select.getChildByName("selections").children
         choices.map((choice: Node, index: number) => {
-
             choice.destroy()  //重置選項
-
         })
 
    }
 
-    npcWalkAgain(){
+    /*npcWalkAgain(){
         if(!this.mapNode.name)
         {
             this.mapNode =  find('/gameWorld/gameCanvas/Map');
@@ -306,7 +289,7 @@ export default class text extends Component {
 
         }
 
-   }
+   }*/
 
    update(deltaTime: number) {
 
@@ -343,9 +326,10 @@ export default class text extends Component {
        }
    }
 
-   startConversation(sendedTextData: SendData)
+   startConversation(sendedTextData: SendData,isPlot:boolean)
    {
-        this.control = sendedTextData.type
+        this.isPlot = isPlot;
+        this.type = sendedTextData.type
         this.textIndex = 0
         this.textData = sendedTextData.dialog
 
@@ -353,9 +337,8 @@ export default class text extends Component {
         this.choices = sendedTextData.choice;
         this.dialogue.active = true;
         this.choiceBoxes.active = false;
-        if(this.control)
+        if(isPlot)
         {
-            
             this.initplotchoice(this.choices)
         }
 

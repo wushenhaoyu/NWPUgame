@@ -49,8 +49,8 @@
             "type": 0,
             "name": "初次见面",
             "script": "Plot2_1",
-            "choice": ["热情打招呼", "静静观察"],
-            "plotjump": [0],
+            "choice": [],
+            "plotjump": [2],
             "dialog": [
                 {
                     "Name": "你",

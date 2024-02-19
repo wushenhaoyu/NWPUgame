@@ -13,6 +13,30 @@ export class student1 extends Npc {
         super.start();
 
     }
+
+    selectionHandler(event: number,type:number){
+
+        if(this.plotJump[event] != -1)
+        {
+
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
+
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{
+                this.text.emit('end')
+            }
+
+
+        }
+
+    }
     
 
 }
+    
+
+
+
