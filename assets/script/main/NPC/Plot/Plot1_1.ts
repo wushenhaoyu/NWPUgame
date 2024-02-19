@@ -20,30 +20,61 @@ export class Plot1_1 extends Npc {
         if(this.plotJump[event] != -1)
         {
             console.log(event)
-            switch(plotDataManager.plotdata.Plot.Plot1_1.plot)
+            switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
                  case 0:
                     this.plotDatControl.tweenStop()
                     this.plotDatControl.getCameraScript().changeControl();
                     this.scheduleOnce(() => {
                         this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
-                            this.node.getComponent(Npc).plotfunc();
+                            this.plotDatControl.UINode.active = false;
+                            gameDataManager.joystick.changeState(0)
+                            this.node.getComponent(Npc).plotfunc();//回调函数
                          })
                     }, 0);
                      break;
                  case 1:
+                    this.plotDatControl.UINode.active = true;
             }
-            plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
             if(type)
             {   //如果连续
                 this.plotfunc();
             }
-            else{
+            else{//不连续就让text结束对话
+                this.plotDatControl.UINode.active = true;
                 this.text.emit('end')
             }
         }
 
     }
+
+    /*
+        模板在这自取
+
+        selectionHandler(event: number,type:number){
+        if(this.plotJump[event] != -1)
+        {
+            console.log(event)
+            switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
+            {
+
+            }
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
+            if(type)
+            {   
+                this.plotfunc();
+            }
+            else{
+                this.plotDatControl.UINode.active = true;
+                this.text.emit('end')
+            }
+        }
+
+    }
+    
+    
+    */ 
     
 
 }

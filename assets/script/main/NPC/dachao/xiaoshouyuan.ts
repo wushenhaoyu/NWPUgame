@@ -26,33 +26,34 @@ export class xiaoshouyuan extends Npc {
 
     }
 
-    selectionHandler(event: number){
+    selectionHandler(event: number,type:number){
 
         if(this.plotJump[event] != -1)
         {
 
+            switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
+            {
+                case 1://办卡了
+                    this.openShop();
+                    break;
+                case 2://没办
+                    
+            }
+
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 
-            this.whichEvent(event)
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{
+                this.text.emit('end')
+            }
 
-            this.plotfunc()
 
         }
 
     }
-
-    whichEvent(event?:number)
-    {
-        switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
-        {
-            case 1://办卡了
-                this.openShop();
-                break;
-            case 2://没办
-                
-        }
-    }
-    
 
 }
 

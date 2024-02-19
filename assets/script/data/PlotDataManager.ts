@@ -54,26 +54,28 @@ export default class PlotDataManager {
             Plot1_1:{
                 plot: number,
                 dialogue:number,
+                isBegin:boolean   //isBegin用来控制这个剧情发生过没有
             },
             water:{
                 plot: number,
                 dialogue:number,
+                isBegin:boolean
             },
             schoolcard:{
                 plot: number,
                 dialogue:number,
+                isBegin:boolean
             },
             credit:{
                 plot:number,
-                dialogue:number
+                dialogue:number,
+                isBegin:boolean
             }
         },
         aoxiangxueshengzhongxin:{
             xiaoyuanka:{
-
                 plot: number,
                 dialogue:number,
-
             }
         },
         Phone:{
@@ -143,14 +145,22 @@ export default class PlotDataManager {
                 Plot1_1:{
                     plot: 0,
                     dialogue:0,
+                    isBegin:false
                 },
                 water:{
                     plot: 0,
                     dialogue:0,
+                    isBegin:false
                 },
                 schoolcard:{
                     plot: 0,
                     dialogue:0,
+                    isBegin:false
+                },
+                credit:{
+                    plot:0,
+                    dialogue:0,
+                    isBegin:false
                 }
             },
             aoxiangxueshengzhongxin:{

@@ -57,17 +57,10 @@ export default class GameDataManager {
         });
     }
     public nextTime(){
-        this.plotDataControl.stageByTime = 0;
         this.plotDataControl.transition(null,()=>{
-            if(this.time == timeTypeDef.night)
-        {
-            this.nextDay();
-            this.plotDataControl.getMapScript().switchLight();
-            return
-        }
         if(this.time == timeTypeDef.evening)
         {
-            this.time = timeTypeDef.night;
+            this.nextDay();
             this.plotDataControl.getMapScript().switchLight();
             return
         }
@@ -91,9 +84,15 @@ export default class GameDataManager {
         this.day++;
         this.time = timeTypeDef.morning;
         this.timeDataControl.updateTime();
+        if(this.map == "sushe")
+        {
+            
+        }
+        else{
+            this.setMap('sushe','sushe');
+            director.loadScene('loading')
+        }
         this.plotDataControl.checkPlotByTime();
-        this.setMap('sushe','sushe');
-        director.loadScene('loading')
         //回到寝室
     }
     public getDay(){

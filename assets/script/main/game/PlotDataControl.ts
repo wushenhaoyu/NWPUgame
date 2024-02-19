@@ -103,7 +103,8 @@ export class PlotDataControl extends Component {
             case 2:
                 if(time == timeTypeDef.morning)
                 {
-                    this.credit();
+                    console.log('校园卡剧情')
+                    this.schoolcard();
                 }
                 break;
 
@@ -123,66 +124,30 @@ export class PlotDataControl extends Component {
 
     Plot1_1()//进入学校的剧情控制
     {
-        if(plotDataManager.plotdata.Plot.Plot1_1.plot  == 0)
+        if(plotDataManager.plotdata.Plot.Plot1_1.isBegin == false)
         {
+            plotDataManager.plotdata.Plot.Plot1_1.isBegin = true;
             this.musicScript.pauseMusic();
             this.UINode.active = false; //关闭UI
             this._cameraScript.changeControl();//将镜头控制权转为剧情控制
             this._cameraScript.move(0,2.5,10);
             find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
         }
-        /*switch(this.stageByTime)
-        {
-            case 0:
-                if(this.isRecovered)
-                {
-                    this.musicScript.pauseMusic();
-                    this.UINode.active = false; //关闭UI
-                    this._cameraScript.changeControl();//将镜头控制权转为剧情控制
-                    this._cameraScript.move(0,2.5,10);
-                    find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc()
-                    this.isRecovered = false
-                    break;
-                }
-                else{
-                    Tween.stopAll();
-                   // this.UINode.active = true;
-                    this._cameraScript.changeControl(); 
-                    this.isRecovered = true
-                    this.stageByTime = 1;
-                    //this.Plot1_1();
-                   // this.musicScript.playMusic();
-                   this.getMapScript().switchMap('sushe','sushe',()=>{
-                    console.log('切换地图')
-                 })
-                 break;
-                }
-                
-            case 1:
-                if(this.isRecovered)
-                {
-                         this.isRecovered = false; 
-                         gameDataManager.joystick.changeState(0)
-                         this.getMapScript().tpPlotStart('Plot1_1','sheyou');
-                         find('UI/plot/Plot/Plot1_1').getComponent(Npc).plotfunc();
-                }
-                else{
-                   this.UINode.active = true;
-                   this.musicScript.playMusic();
-                   this.stageByTime = 2;
-                   this.isRecovered = true
-                }
-                break;
-
-
-        }*/
-            
-
     }
 
     water()//饮用水的剧情
     {
-        this.currentPlot = "water";
+        if(plotDataManager.plotdata.Plot.water.isBegin == false)
+        {
+            plotDataManager.plotdata.Plot.water.isBegin = true;
+            this.UINode.active = false;
+            this.transition(()=>{
+                //this.getMapScript().tpPlotStart('water','water');
+                gameDataManager.joystick.changeState(3);
+                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
+            })
+        }
+        /*this.currentPlot = "water";
         if(this.isRecovered)
         {
             this.UINode.active = false;
@@ -198,67 +163,21 @@ export class PlotDataControl extends Component {
             this.UINode.active = true;
             this.isRecovered = true;
             this.currentPlot = "";
-        }
+        }*/
     }
     schoolcard()//校园卡的剧情
     {
-       switch(this.stageByTime)
-       {
-            case 0:
-                this.stageByTime = 1;
-                this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-                    console.log('切换地图')
-                 })
-                 break;
-            case 1:
-                if(this.isRecovered)
-                {
-                    this.isRecovered = false; 
-                    gameDataManager.joystick.changeState(0)
-                    this.getMapScript().tpPlotStart('schoolcard','schoolcard');
-                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
-                }
-                else{
-                  // this.UINode.active = true;
-                  // this.musicScript.playMusic();
-                   this.stageByTime = 2;
-                   this.isRecovered = true
-                   this.getMapScript().switchMap('sushe','sushe',()=>{
-                    console.log('切换地图')
-                 })     
-                }
-                break;
-            case 2:
-                if(this.isRecovered)
-                {
-                    this.isRecovered = false; 
-                    gameDataManager.joystick.changeState(0)
-                    this.getMapScript().tpPlotStart('Plot1_1','sheyou');
-                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
-                }
-                else{
-                    this.stageByTime = 3;
-                    this.isRecovered = true;
-                    this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-                     })
-                }
-                break;
-            case 3:
-                    this.getMapScript().tpPlotStart('schoolcard','schoolcard');
-                    gameDataManager.joystick.changeState(0)
-                    this.getMapScript().tpPlotStart('schoolcard','schoolcard');
-                    find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
-                    this.stageByTime = 4;
-                
-                break;
-            case 4:{
-                console.log('校园卡剧情结束')
-                this.UINode.active = true;
-                gameDataManager.nextTime();
-                this.stageByTime = 5;
-            }
-
-       }
+        if(plotDataManager.plotdata.Plot.schoolcard.isBegin == false)
+        {
+            plotDataManager.plotdata.Plot.schoolcard.isBegin = true;
+        this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
+            console.log('到翱翔学生中心',gameDataManager.getMap())
+            gameDataManager.joystick.changeState(0)
+            gameDataManager.plotDataControl.UINode.active = false
+            //还差一个切换出生点
+            find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc();
+         })
+        }
     }
     credit()//信征剧情
     {

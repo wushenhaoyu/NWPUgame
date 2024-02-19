@@ -148,7 +148,7 @@ export default class map extends Component {
         }
         this.mapwindow.getParent().active = true;
         this.mapwindow.emit('map',this.map1);
-        const callback = gameDataManager.getFunction(); // 获取回调函数
+        const callback = gameDataManager.getFunction(); // 获取GameDataManager中存储的回调函数
         if (callback) {
             callback(); // 执行回调函数
         }
@@ -355,7 +355,7 @@ tpPlotStart(plot:string,name:string)//传送到剧情地点
 public switchMap(map: string, name: string, callback?: Function) {
     gameDataManager.setMap(map, name);
     director.loadScene('loading', ()=>{
-        gameDataManager.setFunction(callback)
+        gameDataManager.setFunction(callback)//将回调函数存储方便下次回到map中调用
     });
 }
 

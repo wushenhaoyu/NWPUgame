@@ -14,38 +14,37 @@ export class schoolcard extends Npc {
         this.isPlot = true;
     }
     start() {
-
         super.start();
-
+        console.log(this.node)
     }
 
-    selectionHandler(event: number){
-
+    selectionHandler(event: number,type:number){
         if(this.plotJump[event] != -1)
         {
-
-
+            console.log(event)
+            switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
+            {
+                case 1://办卡了
+                    /*this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
+                        this.plotDatControl.UINode.active = false;
+                    })*/
+                    break;
+                case 2://没办
+                    
+            }
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
-
-            this.whichEvent();
-
-            this.plotfunc()
-
+            if(type)
+            {   
+                this.plotfunc();
+            }
+            else{
+                this.plotDatControl.UINode.active = true;
+                this.text.emit('end')
+            }
         }
 
     }
-
-    whichEvent()
-    {
-        switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
-        {
-            case 1://办卡了
-                plotDataManager.plotdata.aoxiangxueshengzhongxin.xiaoyuanka.plot = 4;
-                break;
-            case 2://没办
-                gameDataManager.plotDataControl.stageByTime = 4;
-        }
-    }
+    
     
 
 }
