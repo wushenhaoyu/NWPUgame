@@ -2,7 +2,7 @@
   "ver": "1.0.26",
   "importer": "image",
   "imported": true,
-  "uuid": "f2c54d82-aa9b-450c-a227-4e6280cdbea4",
+  "uuid": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357",
   "files": [
     ".json",
     ".png"
@@ -10,14 +10,14 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "f2c54d82-aa9b-450c-a227-4e6280cdbea4@6c48a",
+      "uuid": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357@6c48a",
       "displayName": "飞机",
       "id": "6c48a",
       "name": "texture",
       "userData": {
         "wrapModeS": "clamp-to-edge",
         "wrapModeT": "clamp-to-edge",
-        "imageUuidOrDatabaseUri": "f2c54d82-aa9b-450c-a227-4e6280cdbea4",
+        "imageUuidOrDatabaseUri": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357",
         "isUuid": true,
         "visible": false,
         "minfilter": "linear",
@@ -34,7 +34,7 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "f2c54d82-aa9b-450c-a227-4e6280cdbea4@f9941",
+      "uuid": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357@f9941",
       "displayName": "飞机",
       "id": "f9941",
       "name": "spriteFrame",
@@ -114,7 +114,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "f2c54d82-aa9b-450c-a227-4e6280cdbea4@6c48a",
+        "imageUuidOrDatabaseUri": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.12",
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "f2c54d82-aa9b-450c-a227-4e6280cdbea4@f9941"
+    "redirect": "8f23c237-bd53-48fd-af2d-6a2ba0fb2357@f9941"
   }
 }
