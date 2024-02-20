@@ -1,6 +1,7 @@
-import { _decorator, Component, Label, Node, SpriteFrame,Sprite, resources, JsonAsset,error } from 'cc';
+import { _decorator, Component, Label, Node, SpriteFrame,Sprite, resources, JsonAsset,error, NodeEventType } from 'cc';
+import GameDataManager from '../../data/GameDataManager';
 const { ccclass, property } = _decorator;
-
+const gameDataManager = GameDataManager.getInstance();
 @ccclass('advertisement')
 export class advertisement extends Component {
     @property({type:Sprite})
@@ -15,11 +16,15 @@ export class advertisement extends Component {
     public content:Label = null;
     @property({type:Label})
     public reward:Label = null;
+    public Name:string = ""
     start() {
-
+        this.node.on(NodeEventType.TOUCH_START,()=>{
+            gameDataManager.advertiseControl.node.emit('select',this.Name)
+        },this)
     }
     init(name:string)
     {
+        this.Name = name
         resources.load('phone/ad/json/'+name,JsonAsset,null,(err,json)=>{
             if (err) {
                 error("this is an error:", err);

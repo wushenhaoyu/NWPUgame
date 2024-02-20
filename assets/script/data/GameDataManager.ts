@@ -3,6 +3,7 @@ const { ccclass, property } = _decorator;
 import { TimeDataControl } from '../main/game/TimeDataControl';
 import { PlotDataControl } from '../main/game/PlotDataControl';
 import { Joystick } from '../main/UI/joystickcontrol';
+import { advertiseControl } from '../main/game/advertiseControl';
 export enum timeTypeDef{
     morning = 1,
     afternoon = 2,
@@ -21,6 +22,7 @@ export default class GameDataManager {
     public plotDataControl:PlotDataControl;
     public isPlayerFirstPlay:boolean = true;//玩家是否第一次进入游戏?
     public joystick:Joystick;
+    public advertiseControl:advertiseControl = null;
     protected _storedCallback: Function | null = null;//存储回调函数
     private constructor() {
         // 私有构造函数，防止外部直接实例化
