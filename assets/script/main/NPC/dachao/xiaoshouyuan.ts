@@ -20,7 +20,6 @@ export class xiaoshouyuan extends Npc {
     }
     openShop()
     {
-        this.text.emit("force close conversation")
 
         this.shopUI.active = true;
 
@@ -33,10 +32,10 @@ export class xiaoshouyuan extends Npc {
 
             switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
-                case 1://办卡了
+                case 1:
                     this.openShop();
                     break;
-                case 2://没办
+                case 2:
                     
             }
 

@@ -13,7 +13,7 @@
         {
             "id": 0,
             "type": 1,
-            "name": "超市剧情",
+            "name": "购物",
             "script": "Plot1_2",
             "choice": ["购买生活物资", "抽奖"],
             "plotjump": [1,2],
@@ -36,7 +36,7 @@
             "dialog": [
                 {
                     "Name": "工作人员",
-                    "Text": "欢迎下次再来",
+                    "Text": "有什么需要的请尽情问我",
                     "Speaker": false,
                     "Img": "lihui/luren1"
                 }

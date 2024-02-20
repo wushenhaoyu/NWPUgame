@@ -174,7 +174,6 @@ export default class map extends Component {
        let layers = this.map.getComponentsInChildren(TiledLayer)
             for(var i = 0 ; i  < layers.length; i++) {
              layers[i].customMaterial = this.light
-             console.log(layers[i])
             }
     }
    

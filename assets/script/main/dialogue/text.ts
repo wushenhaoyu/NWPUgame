@@ -265,6 +265,7 @@ export default class text extends Component {
         this.type = 0;
     }
     selection(index: number){
+        console.log(this.select)
         this.select.active = false;
         this.npcNode.emit(`selection`,index ,this.type)
         const choices = this.select.getChildByName("selections").children
