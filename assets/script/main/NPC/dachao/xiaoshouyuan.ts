@@ -47,6 +47,7 @@ export class xiaoshouyuan extends Npc {
             }
             else{
                 this.text.emit('end')
+                this.plotDatControl.UINode.active = true;
             }
 
 

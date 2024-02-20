@@ -57,7 +57,7 @@ export default class GameDataManager {
         });
     }
     public nextTime(){
-        this.plotDataControl.transition(null,()=>{
+        this.plotDataControl.transition(()=>{
         if(this.time == timeTypeDef.evening)
         {
             this.nextDay();
@@ -76,7 +76,7 @@ export default class GameDataManager {
             this.plotDataControl.getMapScript().switchLight();
             return
         }
-        });
+        },null);
         
     }
    

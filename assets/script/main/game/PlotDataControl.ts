@@ -23,8 +23,6 @@ export class PlotDataControl extends Component {
     protected _mapScript:map = null; //地图脚本
     public UINode:Node = null; //UI节点
     public stageByTime:number = 0;//当前剧情进行阶段（自由触发事件）
-    public stageByString:number = 0;//当前剧情进行阶段（时间强制事件）
-    public isRecovered:boolean = true;//是否复原了
     public currentPlot:String = "";//当前进行的剧情
     start() {   
         this.node.on('ready',this.checkPlot,this)
@@ -39,7 +37,7 @@ export class PlotDataControl extends Component {
             this.checkPlot();
         }*/
     }
-    transition(firstCallback?, secondCallback?) {
+    transition(firstCallback?, secondCallback?) {//渐变黑过场动画
         let Mask = find('UI/UICanvas/Mask');
         Mask.active = true;
     
@@ -70,19 +68,36 @@ export class PlotDataControl extends Component {
             })
             .start();
     }
-    
-    
-
-    checkPlotByString()//根据当前存储进行事件名推进剧情（自由事件）
+    transitionIn(callback?)//渐黑转场
     {
-        console.log('checkByString:',this.currentPlot)
-        switch(this.currentPlot)
-        {
-            case "water":
-                this.water()
-                break;
-        }
+        let Mask = find('UI/UICanvas/Mask');
+        Mask.active = true;
+        tween(Mask.getComponent(UIOpacity))
+            .to(2,{opacity:255},{
+                onComplete:()=>{
+                    if(callback && typeof callback === 'function') {
+                        callback()
+                    }
+
+                }
+            }).start();
+
     }
+    transitionOut(callback?)
+    {
+        let Mask = find('UI/UICanvas/Mask');
+        tween(Mask.getComponent(UIOpacity))
+            .to(2,{opacity:255},{
+                onComplete:()=>{
+                    if(callback && typeof callback === 'function') {
+                        callback()
+                    }
+                    Mask.active = false;
+
+                }
+            }).start();
+    }
+    
    async checkPlotByTime()//通过时间检查是否应该发生剧情了 （强迫事件）
     {
         console.log('checkByTime')
@@ -114,7 +129,6 @@ export class PlotDataControl extends Component {
     checkPlot()
     {
         this.checkPlotByTime();
-        this.checkPlotByString();
     }
 
     tweenStop()
@@ -141,7 +155,7 @@ export class PlotDataControl extends Component {
         {
             plotDataManager.plotdata.Plot.water.isBegin = true;
             this.UINode.active = false;
-            this.transition(()=>{
+            this.transition(null,()=>{
                 //this.getMapScript().tpPlotStart('water','water');
                 gameDataManager.joystick.changeState(3);
                 find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
@@ -183,13 +197,6 @@ export class PlotDataControl extends Component {
     {
         switch(this.stageByTime) {
             case 0:
-                if(this.isRecovered)
-                {
-                    this.isRecovered = false; 
-                    gameDataManager.joystick.changeState(1)
-                    find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
-                }
-                break;
 
         }
     }

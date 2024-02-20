@@ -27,6 +27,7 @@ export class student1 extends Npc {
             }
             else{
                 this.text.emit('end')
+                this.plotDatControl.UINode.active = true;
             }
 
 

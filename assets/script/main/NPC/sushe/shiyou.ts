@@ -26,7 +26,8 @@ export class shiyou extends Npc {
                 case 1 : //学生手册选择
                 break;
                 case 2 : // 饮用水选择
-                    gameDataManager.plotDataControl.currentPlot = "water";
+                this.plotDatControl.water()//触发饮用水剧情
+                    
                     
                 break;
                 case 3 : //网络选择
@@ -40,6 +41,7 @@ export class shiyou extends Npc {
             }
             else{
                 this.text.emit('end')
+                this.plotDatControl.UINode.active = true;
             }
 
 

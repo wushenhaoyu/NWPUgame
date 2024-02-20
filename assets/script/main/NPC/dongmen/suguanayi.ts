@@ -27,6 +27,7 @@ export class suguanayi extends Npc {
             }
             else{
                 this.text.emit('end')
+                this.plotDatControl.UINode.active = true;
             }
 
 
