@@ -1,0 +1,419 @@
+{
+    "activeFile": "youyongguan.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "全部文件 (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 0.5
+        },
+        "caochang.tmx": {
+            "expandedObjectLayers": [
+                19
+            ],
+            "scale": 0.25,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 7946,
+                "y": 9634
+            }
+        },
+        "caochang.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Condominium_01": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#ME_Singles_School_16x16_Stands_3": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#ME_Singles_School_48x48_Basketball_Ball_2": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#ME_Singles_School_48x48_Basketball_Court_7": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#R": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Room_Builder_Office_48x48": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_10_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_22_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_69_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#Tileset_8_MV": {
+            "scaleInDock": 1
+        },
+        "caochang.tmx#school_playground": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx": {
+            "scale": 1.3145625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 399.75276945751915,
+                "y": 199.68620738838968
+            }
+        },
+        "dachao.tmx#14_Basement_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#19_Hospital_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#1_Generic_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Generic_Home_1_Layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Ice_Cream_Shop_Design_layer_2_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Ice_Cream_Shop_Design_layer_3_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Japanese_Home_1_Layer_2_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Museum_entrance_layer_2_48x48": {
+            "scaleInDock": 1
+        },
+        "dachao.tmx#Tileset_46_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx": {
+            "scale": 3,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1306.8333333333333,
+                "y": 1227.5
+            }
+        },
+        "dongmen - 副本.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#19_Hospital_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#22_Museum_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#23_Television_and_Film_Studio_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Condominium_Design_2_layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Generic_Home_1_Layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Museum_room_1_layer_2_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_25_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_30_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_58_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_69_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_71_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#Tileset_8_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen - 副本.tmx#wenzi": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx": {
+            "scale": 0.5244791666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 817.0009930486594,
+                "y": 815.0943396226414
+            }
+        },
+        "dongmen.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#19_Hospital_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#22_Museum_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#23_Television_and_Film_Studio_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Condominium_Design_2_layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Generic_Home_1_Layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Museum_room_1_layer_2_48x48": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_25_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_30_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_58_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_69_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_71_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#Tileset_8_MV": {
+            "scaleInDock": 1
+        },
+        "dongmen.tmx#wenzi": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx": {
+            "scale": 1.6432031249999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 319.80221556601526,
+                "y": 119.5835116245899
+            }
+        },
+        "sushe.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#4_Bedroom_48x48": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Generic_Home_1_Layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Kitchen_02": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Tileset_10_MV": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Tileset_22_MV": {
+            "scaleInDock": 1
+        },
+        "sushe.tmx#Tileset_30_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx": {
+            "scale": 1.0699375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.4906828669899,
+                "y": 400.4906828669899
+            }
+        },
+        "yinghe.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#19_Hospital_48x48": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#22_Museum_48x48": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#4_Bedroom_48x48": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Grocery_Store_05": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_20_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_25_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_30_MV": {
+            "scaleInDock": 1
+        },
+        "yinghe.tmx#Tileset_8_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 228.5,
+                "y": 399.5
+            }
+        },
+        "yinhelu.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#19_Hospital_48x48": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#22_Museum_48x48": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#4_Bedroom_48x48": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Grocery_Store_05": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_16_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_1_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_20_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_25_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_30_MV": {
+            "scaleInDock": 1
+        },
+        "yinhelu.tmx#Tileset_8_MV": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 1042,
+                "y": 786
+            }
+        },
+        "youyongguan.tmx#13_Conference_Hall_48x48": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#17_Visibile_Upstairs_System_48x48": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#19_Hospital_48x48": {
+            "scaleInDock": 0.75
+        },
+        "youyongguan.tmx#22_Museum_48x48": {
+            "scaleInDock": 0.5
+        },
+        "youyongguan.tmx#23_Television_and_Film_Studio_48x48": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#Condominium_Design_2_layer_1_48x48": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#Generic_Home_1_Layer_1_48x48": {
+            "scaleInDock": 0.33
+        },
+        "youyongguan.tmx#Museum_room_1_layer_2_48x48": {
+            "scaleInDock": 0.5
+        },
+        "youyongguan.tmx#Tileset_16_MV": {
+            "scaleInDock": 0.75
+        },
+        "youyongguan.tmx#Tileset_1_MV": {
+            "scaleInDock": 0.5
+        },
+        "youyongguan.tmx#Tileset_25_MV": {
+            "scaleInDock": 0.5
+        },
+        "youyongguan.tmx#Tileset_30_MV": {
+            "scaleInDock": 0.5
+        },
+        "youyongguan.tmx#Tileset_58_MV": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#Tileset_61_MV": {
+            "scaleInDock": 0.75
+        },
+        "youyongguan.tmx#Tileset_69_MV": {
+            "scaleInDock": 0.75
+        },
+        "youyongguan.tmx#Tileset_71_MV": {
+            "scaleInDock": 1
+        },
+        "youyongguan.tmx#Tileset_8_MV": {
+            "scaleInDock": 0.75
+        },
+        "youyongguan.tmx#poolRoom": {
+            "scaleInDock": 0.33
+        },
+        "youyongguan.tmx#wenzi": {
+            "scaleInDock": 1
+        }
+    },
+    "last.imagePath": "C:/Users/dan/Desktop/map/damen",
+    "openFiles": [
+        "youyongguan.tmx"
+    ],
+    "project": "",
+    "recentFiles": [
+        "youyongguan.tmx",
+        "caochang.tmx",
+        "dongmen - 副本.tmx",
+        "yinhelu.tmx",
+        "yinghe.tmx",
+        "sushe.tmx",
+        "dongmen.tmx",
+        "dachao.tmx",
+        "langqiuchang.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.margin": 0,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

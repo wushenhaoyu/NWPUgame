@@ -14,3 +14,6 @@
 1.写json文件在dialogue/Phone
 2.写对应名称ts脚本（放在scirpt/main/messgae中）并且变为预制体放在phone/messgae/friend
 3.在plotDataManager中写相应的记录 可以是plot和index dialogue可能没用
+
+更换性别时
+npc.ts start()中先判断性别然后读取不同的json文件，男性json后加_1， xxx_1.json然后读取这个

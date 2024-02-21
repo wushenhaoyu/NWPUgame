@@ -9,11 +9,11 @@ enum emotion{
 }
 export default class PlayerDataManager {
     private static instance: PlayerDataManager;
-    private name: string = "faker";
-    private gender: number = 1; //1female, 2male
-    private money:number = 2000
-    private emotion:emotion = emotion.surprise
-    private grade:number = 0
+    private _name: string = "faker";
+    private _gen: number = 0; //0female, 1male
+    private _money:number = 2000
+    private _emotion:emotion = emotion.surprise
+    private _grade:number = 0
     public coinNode:Component = null;
     private constructor() { 
         // 私有构造函数，防止外部直接实例化
@@ -33,7 +33,7 @@ export default class PlayerDataManager {
             this.grade = playerData.grade;
         } else {*/
             // 如果本地存储中没有数据，则从 resources 中加载数据
-            resources.load('save/player', JsonAsset, (err, jsonAsset) => {
+         /*   resources.load('save/player', JsonAsset, (err, jsonAsset) => {
                 if (err) {
                     error(err);
                     return;
@@ -42,7 +42,7 @@ export default class PlayerDataManager {
                 this.money = playerData.money;
                 this.emotion = playerData.emotion;
                 this.grade = playerData.grade;
-            });
+            });*/
             
         
 
@@ -61,9 +61,9 @@ export default class PlayerDataManager {
     }
     public toJSON(): any { //转化为json格式
         return {
-            money: this.money,
-            emotion: this.emotion,
-            grade: this.grade
+            money: this._money,
+            emotion: this._emotion,
+            grade: this._grade
         };
     }
     public static getInstance(): PlayerDataManager {
@@ -73,30 +73,34 @@ export default class PlayerDataManager {
         return PlayerDataManager.instance;
     }
     getEmotion():emotion {
-        return this.emotion;
+        return this._emotion;
     }
    
     getMoney():number {
-        return this.money
+        return this._money
     }
     gainMoney(money:number){
-        this.money += money
+        this._money += money
     }
     loseMoney(money:number){
-        this.money -= money
+        this._money -= money
         this.coinNode.updatePlayerData()
     }
     setinfo(name:string, gender:number)
     {
-        this.name = name;
-        this.gender = gender;
+        this._name = name;
+        this._gen = gender;
     }
-    gerGender(){
-        return this.gender;
+    getGender(){
+        return this._gen;
     }
     getname()
     {
-        return this.name;
+        return this._name;
+    }
+    setGender(gender:number){
+        console.log(gender)
+        this._gen = gender;
     }
     
  }

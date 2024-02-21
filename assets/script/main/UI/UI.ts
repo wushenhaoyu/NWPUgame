@@ -1,6 +1,7 @@
-import { _decorator, Component, Node, NodeEventType, NodePool, tween,Vec3 } from 'cc';
+import { _decorator, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
+import PlayerDataManager from '../../data/PlayerDataManager';
 const { ccclass, property } = _decorator;
-
+const playerDataManager = PlayerDataManager.getInstance();
 @ccclass('UI')
 export class UI extends Component {
     @property({type:Node})
@@ -21,7 +22,17 @@ export class UI extends Component {
     public window:Node = null;
     @property({type:Node})
     public ok:Node = null;
+    @property({type:SpriteFrame})
+    public male:SpriteFrame = null;
+    @property({type:Sprite})
+    public sprite:Sprite = null;
     start() {
+        console.log(playerDataManager.getGender())
+        if(playerDataManager.getGender())
+        {   
+            this.img.getComponentInChildren(Sprite).spriteFrame = this.male;
+            this.sprite.spriteFrame = this.male;
+        }
         this.img.on(NodeEventType.TOUCH_START,this.imgTouchStart,this)
         this.img.on(NodeEventType.TOUCH_END,this.imgTouchEnd,this)
         this.img.on(NodeEventType.TOUCH_CANCEL,this.imgTouchCancel,this)
@@ -43,6 +54,22 @@ export class UI extends Component {
     update(deltaTime: number) {
         
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     okTouchStart(){
         tween(this.ok).to(0.25,{scale:new Vec3(0.90, 0.90, 1)})
         .start()

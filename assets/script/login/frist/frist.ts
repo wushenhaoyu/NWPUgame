@@ -23,8 +23,6 @@ export class frist extends Component {
         this.maleButton.on(NodeEventType.TOUCH_START,this.maleSelect,this)
         this.Start.on(NodeEventType.TOUCH_START,this.startGame,this)
         input.on(Input.EventType.KEY_UP, this.showStart, this);
-    
-        
     }
     femaleSelect() {
         if(this.selected != 1)
@@ -68,8 +66,9 @@ export class frist extends Component {
     startGame()
     {
         if(this.Label.string != ""&& this.selected != 0)
-        {
-            playerDataManager.setinfo(this.Label.string,this.selected)
+        {   
+            playerDataManager.setinfo(this.Label.string,this.selected - 1)
+
             //开始游戏
             director.loadScene('loading',()=>{
                 
