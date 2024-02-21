@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
+import { _decorator, AnimationComponent, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
 import PlayerDataManager from '../../data/PlayerDataManager';
 const { ccclass, property } = _decorator;
 const playerDataManager = PlayerDataManager.getInstance();
@@ -26,12 +26,20 @@ export class UI extends Component {
     public male:SpriteFrame = null;
     @property({type:Sprite})
     public sprite:Sprite = null;
+    @property({type:AnimationComponent})
+    public animation:AnimationComponent = null;
+    public animationIndex:number = 0;
     start() {
         console.log(playerDataManager.getGender())
         if(playerDataManager.getGender())
         {   
             this.img.getComponentInChildren(Sprite).spriteFrame = this.male;
             this.sprite.spriteFrame = this.male;
+            for(var i = 0 ; i < this.animation.clips.length ; i++)
+            {
+                //删除女主背包小人
+               // this.animation.removeClip(this.animation.clips[i],true)
+            }
         }
         this.img.on(NodeEventType.TOUCH_START,this.imgTouchStart,this)
         this.img.on(NodeEventType.TOUCH_END,this.imgTouchEnd,this)
@@ -49,6 +57,34 @@ export class UI extends Component {
         this.ok.on(NodeEventType.TOUCH_END,this.okTouchEnd,this)
         this.ok.on(NodeEventType.TOUCH_CANCEL,this.okTouchCancel,this)
 
+    }
+    switchAnimation1()
+    {
+        this.animationIndex += 1;
+        this.swicthAnimation();
+    }
+    switchAnimation2()
+    {
+        this.animationIndex -= 1;
+        this.swicthAnimation();
+    }
+    swicthAnimation()
+    {
+        if(this.animationIndex <= -1)
+            this.animationIndex = 3;
+        if(this.animationIndex >= 4)
+            this.animationIndex = 0;
+        switch(this.animationIndex)
+        {
+            case 0: this.animation.play('stand_down')
+            break;
+            case 1: this.animation.play('stand_left')
+            break;
+            case 2: this.animation.play('stand_up')
+            break;
+            case 3: this.animation.play('stand_right')
+            break;
+        }
     }
 
     update(deltaTime: number) {
