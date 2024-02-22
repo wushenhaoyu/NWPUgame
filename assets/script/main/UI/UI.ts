@@ -1,4 +1,4 @@
-import { _decorator, AnimationComponent, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
+import { _decorator, AnimationClip, AnimationComponent, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
 import PlayerDataManager from '../../data/PlayerDataManager';
 const { ccclass, property } = _decorator;
 const playerDataManager = PlayerDataManager.getInstance();
@@ -29,6 +29,15 @@ export class UI extends Component {
     @property({type:AnimationComponent})
     public animation:AnimationComponent = null;
     public animationIndex:number = 0;
+    @property({type:AnimationClip})
+    public stand_up:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_left:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_down:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_right:AnimationClip = null;
+    @property({type:AnimationClip})
     start() {
         console.log(playerDataManager.getGender())
         if(playerDataManager.getGender())
@@ -37,9 +46,13 @@ export class UI extends Component {
             this.sprite.spriteFrame = this.male;
             for(var i = 0 ; i < this.animation.clips.length ; i++)
             {
-                //删除女主背包小人
-               // this.animation.removeClip(this.animation.clips[i],true)
+                this.animation.removeClip(this.animation.clips[i],true)
             }
+            this.animation.addClip(this.stand_up,'stand_up');
+            this.animation.addClip(this.stand_right,'stand_right');
+            this.animation.addClip(this.stand_left,'stand_left');
+            this.animation.addClip(this.stand_down,'stand_down');
+            this.animation.defaultClip = this.stand_down;
         }
         this.img.on(NodeEventType.TOUCH_START,this.imgTouchStart,this)
         this.img.on(NodeEventType.TOUCH_END,this.imgTouchEnd,this)

@@ -88,7 +88,6 @@ export class Npc extends Component {
                     this.node.on("end",this.endConverstion,this)//不带选择的
                     this.node.on('choicebox plot dialogue', this.plotfunc, this)
                 }
-        
                 this.node.on('choicebox normal dialogue', this.normalfunc, this)
             })
         }
