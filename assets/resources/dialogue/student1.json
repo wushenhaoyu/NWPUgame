@@ -1,0 +1,64 @@
+{
+    "name": "同学",
+    "uuid": 1,
+    "isPlotNpc": false,
+    "mapName": "dongmen",
+    "start": {
+        "Name": "同学",
+        "Text": "同学你好",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "嗨，同学！",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "嘿，你好啊！",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "这个学校怎么样？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "我觉得这里挺不错的，学风好，氛围友好，老师也很负责。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "听说这里的社团活动很丰富，你参加过吗？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "是的，我参加了几个社团，感觉很有意思，而且可以认识更多的朋友。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "太棒了！我也想尝试加入一些社团。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "你一定会喜欢上的，社团活动让校园生活更加丰富多彩。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+    ]
+}

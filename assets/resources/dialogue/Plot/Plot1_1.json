@@ -1,0 +1,115 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
+    "start":{
+        "Name": "",
+        "Text": "",
+        "Speaker": false,
+        "Img": ""
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 0,
+            "name": "初到校园",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [1],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "踏入西北工业大学，一片宽广而充满活力的校园。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "这里的氛围真是让人心旷神怡，仿佛融入了一片新的世界。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "或许这里将是我未来学业和人生的起点。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我决定好好探索这个校园，看看有什么新奇的事物等待着我。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "初次见面",
+            "script": "Plot2_1",
+            "choice": [],
+            "plotjump": [2],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "打开寝室门，看见一个陌生的脸庞。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "寝室舍友",
+                    "Text": "嘿，你好啊！我是你的室友，名字叫A。",
+                    "Speaker": true,
+                    "Img": "lihui/male1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "嗨，A！很高兴认识你，我是刚刚搬进来的新同学。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "寝室舍友",
+                    "Text": "欢迎欢迎！如果有什么需要帮忙的，尽管跟我说。",
+                    "Speaker": true,
+                    "Img": "lihui/male1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "谢谢！我们宿舍环境真好，看起来我们会相处得很愉快。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "寝室舍友",
+                    "Text": "是啊，没问题的话，我们慢慢熟悉一下彼此吧。",
+                    "Speaker": true,
+                    "Img": "lihui/male1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "当然，期待和你相处的这段时间。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "提示",
+                    "Text": "点击右侧互动按钮，试着与你的室友聊天吧.",
+                    "Speaker": true,
+                    "Img": ""
+                },
+                {
+                    "Name": "提示",
+                    "Text": "你可以通过对话得知重要信息，通过询问进行特殊事件",
+                    "Speaker": true,
+                    "Img": ""
+                }
+            ]
+        }
+        
+    ],
+    "dialog":[
+]
+}

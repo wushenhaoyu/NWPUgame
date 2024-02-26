@@ -30,7 +30,6 @@ export default class npc1 extends Component{
     }
     talk(e2)
     {
-        console.log(e2)
         this.speed.linearVelocity = v2(0,0);
         switch(e2)
         {

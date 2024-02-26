@@ -7,34 +7,34 @@
         "Name": "门卫大爷",
         "Text": "同学你好",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     },
 
     "dialog":[
         [
     {
-        "Name": "单大狗",
+        "Name": "你",
         "Text": "大爷好!",
         "Speaker": true,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     },
     {
         "Name": "门卫大爷",
         "Text": "小心，这间大学有很多诈骗犯?",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     },
     {
-        "Name": "单大狗",
+        "Name": "你",
         "Text": "那么恐怖！？",
         "Speaker": true,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     },
     {
         "Name": "门卫大爷",
         "Text": "凡事都要三思，别败光你的家产",
         "Speaker": false,
-        "Img": "NPC/OIP"
+        "Img": "lihui/female1"
     }
 ]
 ]

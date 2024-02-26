@@ -1,7 +1,7 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 import PlotDataManager from '../../../data/PlotDataManager';
-import { Npc } from '../npc';
+import { Npc } from '../../res/npc';
 const plotDataManager = PlotDataManager.getInstance();
 
 @ccclass('nvtongxue')
@@ -14,14 +14,22 @@ export class nvtongxue extends Npc {
 
     }
 
-    selectionHandler(event: number){
+    selectionHandler(event: number,type:number){
 
         if(this.plotJump[event] != -1)
         {
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 
-            this.plotfunc()
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{
+                this.text.emit('end')
+                this.plotDatControl.UINode.active = true;
+            }
+
 
         }
 
@@ -29,5 +37,4 @@ export class nvtongxue extends Npc {
     
 
 }
-
 

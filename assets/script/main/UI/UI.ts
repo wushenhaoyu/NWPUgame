@@ -1,6 +1,7 @@
-import { _decorator, Component, Node, NodeEventType, NodePool, tween,Vec3 } from 'cc';
+import { _decorator, AnimationClip, AnimationComponent, Component, Node, NodeEventType, NodePool, Sprite, SpriteFrame, tween,Vec3 } from 'cc';
+import PlayerDataManager from '../../data/PlayerDataManager';
 const { ccclass, property } = _decorator;
-
+const playerDataManager = PlayerDataManager.getInstance();
 @ccclass('UI')
 export class UI extends Component {
     @property({type:Node})
@@ -21,7 +22,38 @@ export class UI extends Component {
     public window:Node = null;
     @property({type:Node})
     public ok:Node = null;
+    @property({type:SpriteFrame})
+    public male:SpriteFrame = null;
+    @property({type:Sprite})
+    public sprite:Sprite = null;
+    @property({type:AnimationComponent})
+    public animation:AnimationComponent = null;
+    public animationIndex:number = 0;
+    @property({type:AnimationClip})
+    public stand_up:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_left:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_down:AnimationClip = null;
+    @property({type:AnimationClip})
+    public stand_right:AnimationClip = null;
+    @property({type:AnimationClip})
     start() {
+        console.log(playerDataManager.getGender())
+        if(playerDataManager.getGender())
+        {   
+            this.img.getComponentInChildren(Sprite).spriteFrame = this.male;
+            this.sprite.spriteFrame = this.male;
+            for(var i = 0 ; i < this.animation.clips.length ; i++)
+            {
+                this.animation.removeClip(this.animation.clips[i],true)
+            }
+            this.animation.addClip(this.stand_up,'stand_up');
+            this.animation.addClip(this.stand_right,'stand_right');
+            this.animation.addClip(this.stand_left,'stand_left');
+            this.animation.addClip(this.stand_down,'stand_down');
+            this.animation.defaultClip = this.stand_down;
+        }
         this.img.on(NodeEventType.TOUCH_START,this.imgTouchStart,this)
         this.img.on(NodeEventType.TOUCH_END,this.imgTouchEnd,this)
         this.img.on(NodeEventType.TOUCH_CANCEL,this.imgTouchCancel,this)
@@ -39,10 +71,54 @@ export class UI extends Component {
         this.ok.on(NodeEventType.TOUCH_CANCEL,this.okTouchCancel,this)
 
     }
+    switchAnimation1()
+    {
+        this.animationIndex += 1;
+        this.swicthAnimation();
+    }
+    switchAnimation2()
+    {
+        this.animationIndex -= 1;
+        this.swicthAnimation();
+    }
+    swicthAnimation()
+    {
+        if(this.animationIndex <= -1)
+            this.animationIndex = 3;
+        if(this.animationIndex >= 4)
+            this.animationIndex = 0;
+        switch(this.animationIndex)
+        {
+            case 0: this.animation.play('stand_down')
+            break;
+            case 1: this.animation.play('stand_left')
+            break;
+            case 2: this.animation.play('stand_up')
+            break;
+            case 3: this.animation.play('stand_right')
+            break;
+        }
+    }
 
     update(deltaTime: number) {
         
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     okTouchStart(){
         tween(this.ok).to(0.25,{scale:new Vec3(0.90, 0.90, 1)})
         .start()

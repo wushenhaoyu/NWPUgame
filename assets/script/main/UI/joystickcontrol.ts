@@ -2,8 +2,10 @@ import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, director, EventT
 const { ccclass, property } = _decorator;
 import PlayerDataManager  from '../../data/PlayerDataManager';
 const playerDataManager = PlayerDataManager.getInstance();
+import GameDataManager  from '../../data/GameDataManager';
+const gameDataManager = GameDataManager.getInstance();
 import map  from '../map/map';
-@ccclass
+@ccclass('Joystick')
 export class Joystick extends Component {
     @property({type:Node})
     player:Node = null;
@@ -38,10 +40,14 @@ export class Joystick extends Component {
     animationComponent:AnimationComponent = null;
     speed:RigidBody2D = null;
     onLoad() {
+       
+    }
+    start() {
+        gameDataManager.joystick = this.node.getComponent(Joystick);
         this.animationComponent = this.player.getComponent(AnimationComponent);
         this.speed = this.player.getComponent(RigidBody2D);
         this.MapScript = this.player.getParent().getParent().getComponent(map);
-        console.log(this.MapScript);
+      //  console.log(this.MapScript);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
@@ -64,6 +70,7 @@ export class Joystick extends Component {
                 console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
                 if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
             {
+                find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin',npc[i].position)
                 this.dialogue.emit('npc', npc[i].name);
                 this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
                 return;
@@ -170,12 +177,53 @@ if (angle > threshold && angle < 3 * threshold) {
              if(this.an == an ) return;
              if(an == "")
              {
-                this.animationComponent.pause();
+                switch(this.an)
+                {
+                    case "walk_up":
+                        this.an = "";
+                        this.animationComponent.play("stand_up");
+                        return;
+                    case "walk_down":
+                        this.an = "";
+                        this.animationComponent.play("stand_down");
+                        return;
+                    case "walk_left":
+                        this.an = "";
+                        this.animationComponent.play("stand_left");
+                        return;
+                    case "walk_right":
+                        this.an = "";
+                        this.animationComponent.play("stand_right");
+                        return;    
+                }
              }
              this.an = an;
             this.animationComponent.play(this.an);
              
         }
+    changeState(c:number){
+        this.refind()
+        switch(c){
+            case 0:
+                this.animationComponent.play("walk_up");
+                break;
+            case 1:
+                this.animationComponent.play("walk_down");
+               
+                break;
+            case 2:
+                this.animationComponent.play("walk_left");
+                
+                break;
+            case 3:
+                this.animationComponent.play("walk_right");
+                break;
+        }
+        this.scheduleOnce(()=>{
+            this.animationComponent.pause();
+        }, 0);
+
+    }
     
     onTouchEnd() {
         // 当触摸结束时，将操纵点重置到摇杆背景中央
@@ -202,26 +250,26 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.playerPosition.y += 200 * dt;
                 this.player.setPosition(this.playerPosition);*/
                 this.lv.x = 0;
-                this.lv.y = 400 * dt;
+                this.lv.y = 300 * dt;
                 this.angle = 1;
-                an = "1_up"
+                an = "walk_up"
                 break;
             case 2:
                 this.lv.x = 0;
-                this.lv.y = -400 * dt;
-                an = "1_down"
+                this.lv.y = -300 * dt;
+                an = "walk_down"
                 this.angle = 2;
                 break;
             case 3:
                 this.lv.y = 0;
-                this.lv.x = -400 * dt;
-                an = "1_left"
+                this.lv.x = -300 * dt;
+                an = "walk_left"
                 this.angle = 3;
                 break;
             case 4:
                 this.lv.y = 0;
-                this.lv.x = 400 * dt;
-                an = "1_right"
+                this.lv.x = 300 * dt;
+                an = "walk_right"
                 this.angle = 4;
                 break;
         }
@@ -235,7 +283,12 @@ if (angle > threshold && angle < 3 * threshold) {
 
     }
     else{
-        const player = find('gameWorld/gameCanvas/Map/door/1');
+        this.refind();
+    }
+}
+refind()
+{
+    const player = find('gameWorld/gameCanvas/Map/door/player');
         const Map = find('gameWorld/gameCanvas/Map/door')
         if(Map) this.Map = Map.getComponent(TiledMap);
         if(player) 
@@ -245,7 +298,6 @@ if (angle > threshold && angle < 3 * threshold) {
             this.speed = this.player.getComponent(RigidBody2D);
             this.MapScript = this.player.getParent().getParent().getComponent(map);
         }
-    }
 }
 
 

@@ -2,29 +2,40 @@ import { _decorator, Component, Node, director, AudioSource } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('music')
-export class music extends Component {
+export default class music extends Component {
 
 
     @property({type:Node})
     public settings:Node = null;
+    public music:AudioSource = null;
 
     start() {
 
-        this.node.on("switchMusic", this.switchMusic, this)
+        this.node.on("pauseMusic", this.pauseMusic, this)
+        this.music = this.node.getComponent(AudioSource)
+        this.music.volume = 1;
 
     }
 
     protected onLoad(): void {
         
-        director.addPersistRootNode(this.node); //背景音乐不会因切换场景而重新播放
+       // director.addPersistRootNode(this.node); //背景音乐不会因切换场景而重新播放
 
     }
 
-    switchMusic() {
+    stopMusic()
+    {
+        this.music.stop();
+    }
 
-        const audio = this.node.getComponent(AudioSource)
+    playMusic()
+    {
+        this.music.play();
+    }
 
-        audio.volume = audio.volume == 0 ? 1 : 0
+    pauseMusic() {
+
+    this.music.pause()
 
     }
 

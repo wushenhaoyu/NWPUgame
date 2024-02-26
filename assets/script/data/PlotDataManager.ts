@@ -6,10 +6,22 @@ export default class PlotDataManager {
             menwei:{
                 plot:number
                 dialogue:number
+            },
+            student1:{
+                plot:number
+                dialogue:number
+            },
+            suguanayi:{
+                plot:number,
+                dialogue:number
             }
         }
         d100:{
             nvtongxue:{
+                plot:number
+                dialogue:number
+            },
+            student3:{
                 plot:number
                 dialogue:number
             }
@@ -18,6 +30,14 @@ export default class PlotDataManager {
             shiyou:{
                 plot: number,
                 dialogue:number,
+            }
+        },
+        tushuguan:{
+            student2:{
+
+                plot: number,
+                dialogue:number,
+
             }
         },
         dachao:{
@@ -29,8 +49,46 @@ export default class PlotDataManager {
 
             }
 
+        },
+        Plot:{
+            Plot1_1:{
+                plot: number,
+                dialogue:number,
+                isBegin:boolean   //isBegin用来控制这个剧情发生过没有
+            },
+            water:{
+                plot: number,
+                dialogue:number,
+                isBegin:boolean
+            },
+            schoolcard:{
+                plot: number,
+                dialogue:number,
+                isBegin:boolean
+            },
+            credit:{
+                plot:number,
+                dialogue:number,
+                isBegin:boolean
+            }
+        },
+        aoxiangxueshengzhongxin:{
+            xiaoyuanka:{
+                plot: number,
+                dialogue:number,
+            }
+        },
+        Phone:{
+            kuaidi:{
+
+                plot: number,
+                dialogue:number,
+                index:number
+
+            }
         }
     }
+    public friendlist:string[]=['kuaidi']
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.plotdata = {
@@ -39,9 +97,21 @@ export default class PlotDataManager {
                     plot: 0, // 初始值
                     dialogue: 0, // 初始值
                 },
+                student1:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                suguanayi:{
+                    plot:0,
+                    dialogue:0
+                }
             },
             d100:{
                 nvtongxue:{
+                    plot:0,
+                    dialogue:0
+                },
+                student3:{
                     plot:0,
                     dialogue:0
                 }
@@ -50,6 +120,14 @@ export default class PlotDataManager {
                 shiyou:{
                     plot: 0,
                     dialogue:0,
+                }
+            },
+            tushuguan:{
+                student2:{
+    
+                    plot: 0,
+                    dialogue:0,
+    
                 }
             },
             dachao:{
@@ -61,6 +139,47 @@ export default class PlotDataManager {
 
                 }
 
+            },
+            Plot:{
+                
+                Plot1_1:{
+                    plot: 0,
+                    dialogue:0,
+                    isBegin:false
+                },
+                water:{
+                    plot: 0,
+                    dialogue:0,
+                    isBegin:false
+                },
+                schoolcard:{
+                    plot: 0,
+                    dialogue:0,
+                    isBegin:false
+                },
+                credit:{
+                    plot:0,
+                    dialogue:0,
+                    isBegin:false
+                }
+            },
+            aoxiangxueshengzhongxin:{
+                xiaoyuanka:{
+    
+                    plot: 0,
+                    dialogue:0,
+    
+                }
+            },
+            Phone:{
+
+                kuaidi:{
+
+                    plot: 0,
+                    dialogue:0,
+                    index:0
+
+                }
             }
         }
     }

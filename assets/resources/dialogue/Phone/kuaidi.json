@@ -1,0 +1,457 @@
+{
+    "name": "客服",
+    "chatData": [
+      {
+        "id": 0,
+        "type": 1,
+        "choice": [],
+        "plotjump": [1],
+        "parent": null,
+        "chat": [
+          {
+            "type": 1,
+            "content": "phone/message/pic/data",
+            "Speaker": false
+          },
+          {
+            "type": 1,
+            "content": "phone/message/pic/data",
+            "Speaker": true
+          },
+          {
+            "type": 0,
+            "content": "你好，我对你们这个快递单录入的兼职很感兴趣。",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "我能报名吗？",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "发一下你的基本信息哈。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "type": 1,
+        "choice": ["为啥", "好咧", "拒绝"],
+        "plotjump": [2, 3, 4],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "行,那你先给我转50元保证金。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 1,
+        "choice": [],
+        "plotjump": [3],
+        "parent": 1,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我把你信息报上去。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "万一你不来我怎么办。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "当然，我也不是要你钱。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "等你入职后，就还给你。",
+            "Speaker": false
+          
+          },
+          {
+            "type": 0,
+            "content": "我肯定去，不会骗你的。",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": 0,
+        "choice": [],
+        "plotjump": [5],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我先帮你提交基本信息，有消息再回复你。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "那真实太可惜了，如果改变想法了随时可以找我。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": 1,
+        "choice": ["是有什么好消息吗？", "有什么事吗？"],
+        "plotjump": [6, 6],
+        "parent": 3,
+        "chat": [
+          {
+            "type": 0,
+            "content": "嗨，同学。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "type": 1,
+        "choice": ["啊，还需要培训呀？", "培训什么内容咧？"],
+        "plotjump": [7, 8],
+        "parent": 5,
+        "chat": [
+          {
+            "type": 0,
+            "content": "恭喜，你被选上了。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "对了，还有一件事。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "新入职的兼职快递单录入员，需要进行培训。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "要交一笔800元的培训费用。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": 1,
+        "choice": ["提交培训费用", "那我不继续了", "可我没那么多钱"],
+        "plotjump": [9, 10, 11],
+        "parent": 6,
+        "chat": [
+          {
+            "type": 0,
+            "content": "是呀，培训一个星期。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "结束后会变成结业金返还给你。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "并且表现得好还有额外的奖励。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "type": 1,
+        "choice": ["提交培训费用", "那我不继续了", "可我没那么多钱"],
+        "plotjump": [9, 10, 11],
+        "parent": 6,
+        "chat": [
+          {
+            "type": 0,
+            "content": "有正式工作人员手把手教你整个录入过程。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "还会教你一些小技巧。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "结束后会变成结业金返还给你。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "并且表现得好还有额外的奖励。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "type": 0,
+        "choice": [],
+        "plotjump": [16],
+        "parent": 7,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我已经收到你交的培训费了。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "我后天再学校大门口接你去参加培训。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 8,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你之前又没说清楚，你把我的保证金还给我。",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "不好意思，这保证金退不了，你自己没问清楚怪谁。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "type": 1,
+        "choice": ["了解详情", "放弃贷款"],
+        "plotjump": [12, 14],
+        "parent": 9,
+        "chat": [
+          {
+            "type": 0,
+            "content": "没钱，你可以去贷款啊,",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "我这有一个贷款渠道,",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你可以去试试。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "type": 1,
+        "choice": ["办理贷款", "拒绝贷款"],
+        "plotjump": [13, 14],
+        "parent": 11,
+        "chat": [
+          {
+            "type": 0,
+            "content": "华贝贷款，任意金额，无抵押，低利息，随借随还。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "我想贷款800元，利息大概有多少啊？",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "我们华贝贷款，无抵押，迅速到账，利息仅需10元。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "type": 1,
+        "choice": [],
+        "plotjump": [15],
+        "parent": 12,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你已成功办理华贝贷款。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "请在20天之内还2000元。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "如果不还钱，我们将去你学校里进行追债。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "2000！？不是只有10元利息吗？",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "利息是很低，但是办理贷款需要1190元的手续费。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你自己没问清楚，怪谁？",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 12,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你拒绝了贷款，导致你没有足够的钱交培训费",
+            "Speaker": false,
+            "Img": ""
+          },
+          {
+            "type": 0,
+            "content": "我不兼职了，你之前又没说要培训，你把我的保证金还给我。",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "不好意思，这保证金退不了，你自己没问清楚能怪谁。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "type": 1,
+        "choice": [],
+        "plotjump": [16],
+        "parent": 13,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你成功办理华贝贷款提交了培训费用，",
+            "Speaker": false,
+            "Img": ""
+          },
+          {
+            "type": 0,
+            "content": "但你也欠下了2000元。",
+            "Speaker": false,
+            "Img": ""
+          },
+          {
+            "type": 0,
+            "content": "你现在只希望兼职赚了钱之后赶紧还清贷款。",
+            "Speaker": false,
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "type": 0,
+        "choice": [],
+        "plotjump": [],
+        "parent": "all",
+        "chat": [
+          {
+            "type": 0,
+            "content": "最终，你成功参加了培训，成为了一名兼职快递单录入员。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你在这份工作中努力工作，最终还清了贷款。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "但是，这段经历让你更加警惕，小心对待陌生人的兼职邀约。",
+            "Speaker": false
+            
+          }
+        ]
+      }
+    ]
+  }
+  

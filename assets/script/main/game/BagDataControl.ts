@@ -120,7 +120,8 @@ export class BagDataControl extends Component {
                     this.infoName.string = item.Name;
                     this.info.string = item.Info;
                     gridNode.children[0].active = true;
-                    if(item.canInteract)
+                    // if(item.canInteract) 劣化调整
+                    if(false)
                     {
                         
                         this.interactionButton.getComponentInChildren(Label).string = item.actionText;
@@ -147,7 +148,6 @@ export class BagDataControl extends Component {
 
             this.currentItems = items
             this.bag.destroyAllChildren();
-            console.log(items, this.currentItems)
             
             for (var i = 0; i < items.length; i++) {
                 const item = items[i];

@@ -17,9 +17,11 @@ export class phoneview extends Component {
     private currentPage: number = 1;
     private maxPage: number = 2;
     private leftOffset: number = 0;
-    @property({type: Node})
+    @property({type: Node})//广告
     public window1: Node = null;
-   
+    @property({type: Node})
+    public window2: Node = null;//消息
+    whichWindow:number = 0;//代表是哪个窗口打开了？
 
 
     start() {
@@ -101,34 +103,84 @@ export class phoneview extends Component {
         this.phone.active = false;
     }
     index(){
-        tween(this.window1.getComponent(UIOpacity))
-            .to(0.4,{'opacity':0},
-            {
-                onComplete: () =>{
-                    this.window1.active = false;
-                   const widget =this.node.getParent().getComponent(Widget);
-                   tween(widget)
-                   .to(0.6, { horizontalCenter:0})
-                   .start();
-                }
-            }).start();
+       this.hideWindow()
     }
 
-    dealWithApp(e,c)
+    dealWithApp(e,customEventData)
     {
-        const node =this.node.getParent();
+        
+        const numericValue = parseInt(customEventData);
+        if(this.whichWindow == 0 )
+        {
+            this.whichWindow = numericValue;
+            const node =this.node.getParent();
 
-// 获取节点上的 Widget 组件
-const widget = node.getComponent(Widget);
-    tween(widget)
-        .to(0.6, { horizontalCenter:-400 },{onComplete: () => {
-            this.window1.active = true;
-            tween(this.window1.getComponent(UIOpacity))
+            // 获取节点上的 Widget 组件
+                const widget = node.getComponent(Widget);
+                tween(widget)
+                    .to(0.6, { horizontalCenter:-400 },{onComplete: () => {
+                        this.showWindow()
+                    }}) 
+                    .start();
+        }
+    }
+    showWindow()
+    {
+        switch(this.whichWindow)
+        {
+            case 1:
+                this.window1.active = true;
+                tween(this.window1.getComponent(UIOpacity))
                 .to(0.4,{opacity: 255})
                 .start()
-        }}) 
-        .start();
+                break;
+            case 2:
+                this.window2.active = true;
+                tween(this.window2.getComponent(UIOpacity))
+                .to(0.4,{opacity: 255})
+                .start()
+                break;
+
+
+        }
+    }
+    hideWindow()
+    {
+        switch(this.whichWindow)
+        {
+            case 1:
+                tween(this.window1.getComponent(UIOpacity))
+                .to(0.4,{'opacity':0},
+                {
+                    onComplete: () =>{
+                        this.window1.active = false;
+                       const widget =this.node.getParent().getComponent(Widget);
+                       tween(widget)
+                       .to(0.6, { horizontalCenter:0})
+                       .start();
+                    }
+                }).start();
+                this.whichWindow = 0;
+                break;
+            case 2:
+                tween(this.window2.getComponent(UIOpacity))
+                .to(0.4,{'opacity':0},
+                {
+                    onComplete: () =>{
+                        this.window2.active = false;
+                       const widget =this.node.getParent().getComponent(Widget);
+                       tween(widget)
+                       .to(0.6, { horizontalCenter:0})
+                       .start();
+                    }
+                }).start();
+                this.whichWindow = 0;
+                break;
+
+
+        }
+    }
 }
-}
+
 
 

@@ -1,6 +1,7 @@
-import { _decorator, Component, Node ,Label, Sprite , error ,resources,JsonAsset, SpriteFrame, find, Button} from 'cc';
+import { _decorator, Component, Node ,Label, Sprite , error ,resources,JsonAsset, SpriteFrame, find, Button, NodeEventType} from 'cc';
 const { ccclass, property } = _decorator;
 import {Item} from '../../data/BagDataManager';
+import { shopDataControl } from '../game/shopDataControl';
 
 @ccclass('shopItem')
 export default class shopItem extends Component {
@@ -16,16 +17,17 @@ export default class shopItem extends Component {
     public Img:Sprite = null;
 
     public shopDataControl: Node = null;
-
+    public shopDataControlScript:shopDataControl = null;
     start() {
 
     }
     init(item:Item)
     {
         this.item = item;
-        this.nameLabel.string = this.item.Name;
+        this.nameLabel.string = this.item.Label;
         this.costLabel.string = String(this.item.Value);
         this.shopDataControl = find('UI/UICanvas/UI/window/shop')
+        this.shopDataControlScript = this.shopDataControl.getComponent(shopDataControl)
         resources.load(this.item.ImgUrl,SpriteFrame,(err, res) => {
             if (err) {
                 error(err);
@@ -33,6 +35,11 @@ export default class shopItem extends Component {
             }
             this.Img.spriteFrame = res;
         })
+        this.node.on(NodeEventType.TOUCH_START,()=>{
+            this.shopDataControlScript.InfoIcon.spriteFrame = this.Img.spriteFrame;
+            this.shopDataControlScript.InfoTitle.string = this.item.Label;
+            this.shopDataControlScript.InfoContent.string = this.item.Info;
+        },this)
 
 
     }
@@ -53,7 +60,7 @@ export default class shopItem extends Component {
             this.itemNumber =1;
         }
         this.itemNumberLabel.getComponent(Label).string = String(this.itemNumber);
-        console.log("wtf")
+
     }
     updateNumber(){
         this.itemNumber =  Number(this.itemNumberLabel.getComponent(Label).string);

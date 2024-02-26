@@ -4,7 +4,9 @@
   "general": {
     "designResolution": {
       "fitWidth": false,
-      "fitHeight": true
+      "fitHeight": true,
+      "width": 1280,
+      "height": 720
     }
   },
   "layer": [
@@ -37,9 +39,9 @@
       }
     ],
     "collisionMatrix": {
-      "0": 4,
+      "0": 0,
       "1": 268,
-      "2": 3,
+      "2": 2,
       "3": 18,
       "4": 8,
       "8": 2

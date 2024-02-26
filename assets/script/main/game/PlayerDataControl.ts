@@ -16,8 +16,6 @@ export class PlayerDataControl extends Component {
     }
     updatePlayerData() {
         this.money.string = playerDataManager.getMoney().toString();
-        this.energy.string = playerDataManager.getEnergy().toString();
-        this.energyBar.progress = playerDataManager.getEnergy() / playerDataManager.getMaxEnergy();
     }
 
     update(deltaTime: number) {

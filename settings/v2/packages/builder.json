@@ -72,5 +72,12 @@
         }
       }
     }
+  },
+  "splash-setting": {
+    "url": "project://settings/splash.png",
+    "displayRatio": 3
+  },
+  "textureCompressConfig": {
+    "userPreset": {}
   }
 }
