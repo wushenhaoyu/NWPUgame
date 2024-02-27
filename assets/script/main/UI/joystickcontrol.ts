@@ -166,8 +166,6 @@ if (angle > threshold && angle < 3 * threshold) {
    
 } else {
     this.JoystickDirection = 3; // 
-   
-   
 }
         
       }
@@ -213,6 +211,7 @@ if (angle > threshold && angle < 3 * threshold) {
                 break;
             case 2:
                 this.animationComponent.play("walk_left");
+                console.log('left')
                 
                 break;
             case 3:
