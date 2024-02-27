@@ -122,8 +122,6 @@ export class messageControl extends Component {
      }
 
 
-
-
     switchMessage(name: string,self:Node) {
         if(this.currentFriendNode == self)
         {
@@ -306,15 +304,3 @@ export class messageControl extends Component {
     }
 }
 
-
-/*if(this.currentChatData != null)
-        {
-            if(plotDataManager.plotdata.Phone.kuaidi.index >= this.currentChatData.chat.length)//到头了，暂停或者出选项
-            {
-                
-            }else
-            {
-                this.scoend += deltaTime;
-                if(this.scoend >= this)
-            }
-        }*/
