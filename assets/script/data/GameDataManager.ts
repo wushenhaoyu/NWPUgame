@@ -78,7 +78,7 @@ export default class GameDataManager {
             this.plotDataControl.getMapScript().switchLight();
             return
         }
-        },null);
+        },()=>{this.plotDataControl.checkPlotByTime();});
         
     }
    
@@ -94,7 +94,6 @@ export default class GameDataManager {
             this.setMap('sushe','sushe');
             director.loadScene('loading')
         }
-        this.plotDataControl.checkPlotByTime();
         //回到寝室
     }
     public getDay(){

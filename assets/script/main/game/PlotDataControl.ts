@@ -56,6 +56,7 @@ export class PlotDataControl extends Component {
                             .to(2, { opacity: 0 },{
                                 onComplete:()=>{
                                     Mask.active = false;
+                                    console.log('transitionOut')
                                     if (secondCallback && typeof secondCallback === 'function') {
                                         secondCallback();
                                     }
@@ -93,7 +94,6 @@ export class PlotDataControl extends Component {
                         callback()
                     }
                     Mask.active = false;
-
                 }
             }).start();
     }
@@ -122,6 +122,13 @@ export class PlotDataControl extends Component {
                     this.schoolcard();
                 }
                 break;
+            case 3:
+                if(time == timeTypeDef.morning)
+                {
+                    console.log('信用卡剧情')
+                    this.credit();
+                }
+
 
         }
        
@@ -195,9 +202,21 @@ export class PlotDataControl extends Component {
     }
     credit()//信征剧情
     {
-        switch(this.stageByTime) {
-            case 0:
+        // switch(this.stageByTime) {
+        //     case 0:
 
+        // }
+
+        if(plotDataManager.plotdata.Plot.credit.isBegin == false)
+        {
+            plotDataManager.plotdata.Plot.credit.isBegin = true;
+            this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
+            console.log('到翱翔学生中心',gameDataManager.getMap())
+            gameDataManager.joystick.changeState(0)
+            gameDataManager.plotDataControl.UINode.active = false
+            //还差一个切换出生点
+            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+         })
         }
     }
     getCameraScript()
