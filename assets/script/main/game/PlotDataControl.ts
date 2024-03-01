@@ -119,7 +119,8 @@ export class PlotDataControl extends Component {
                 if(time == timeTypeDef.morning)
                 {
                     console.log('校园卡剧情')
-                    this.schoolcard();
+                    // this.schoolcard();
+                    this.police()
                 }
                 break;
             case 3:
@@ -133,7 +134,7 @@ export class PlotDataControl extends Component {
                 if(time == timeTypeDef.morning)
                 {
                     console.log('警察剧情')
-                    this.police()
+                    // this.police()
                 }
 
 
@@ -229,14 +230,15 @@ export class PlotDataControl extends Component {
     police()
     {
         
-        if(plotDataManager.plotdata.Plot.credit.isBegin == false)
+        if(plotDataManager.plotdata.Plot.police.isBegin == false)
         {
-            plotDataManager.plotdata.Plot.credit.isBegin = true;
+            console.log("wtf")
+            plotDataManager.plotdata.Plot.police.isBegin = true;
 
             gameDataManager.joystick.changeState(0)
             gameDataManager.plotDataControl.UINode.active = false
             //还差一个切换出生点
-            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+            find('UI/plot/Plot/police').getComponent(Npc).plotfunc();
          
         }
 

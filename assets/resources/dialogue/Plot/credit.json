@@ -87,18 +87,6 @@
                     "Text": "请加这个QQ，7794**79，我发一下相关材料给你。",
                     "Speaker": false,
                     "Img": "lihui/female1"
-                }, 
-                {
-                    "Name": "你",
-                    "Text": "好吧，我现在加你。",
-                    "Speaker": true,
-                    "Img": "lihui/female1"
-                },
-                {
-                    "Name": "",
-                    "Text": "联系人新增了！",
-                    "Speaker": true,
-                    "Img": ""
                 }
             ]
         },
@@ -133,18 +121,6 @@
                     "Text": "请加这个QQ，7794**79，我发一下相关材料给你。",
                     "Speaker": false,
                     "Img": "lihui/female1"
-                }, 
-                {
-                    "Name": "你",
-                    "Text": "好吧，我现在加你。",
-                    "Speaker": true,
-                    "Img": "lihui/female1"
-                },
-                {
-                    "Name": "",
-                    "Text": "联系人新增了！",
-                    "Speaker": true,
-                    "Img": ""
                 }
             ]
         },
@@ -169,44 +145,57 @@
                     "Img": "lihui/female1"
                 },
                 {
-                    "id": 4,
-                    "type": 0,
-                    "name": "征信剧情",
-                    "script": "Plot1_2",
-                    "choice": [],
-                    "plotjump": [0],
-                    "dialog": [
-                        {
-                            "Name": "你",
-                            "Text": "还是不了，我现在有事做。",
-                            "Speaker": false,
-                            "Img": "lihui/female1"
-                        }, 
-                        {
-                            "Name": "客服",
-                            "Text": "这件事非常紧急的，事关你日后的利益。",
-                            "Speaker": false,
-                            "Img": "lihui/female1"
-                        }, 
-                        {
-                            "Name": "你",
-                            "Text": "现在真的没空。",
-                            "Speaker": false,
-                            "Img": "lihui/female1"
-                        }, 
-                        {
-                            "Name": "客服",
-                            "Text": "不，你听我说，不现在搞的话你后果自负。",
-                            "Speaker": false,
-                            "Img": "lihui/female1"
-                        }, 
-                        {
-                            "Name": "你",
-                            "Text": "拜拜。",
-                            "Speaker": true,
-                            "Img": "lihui/female1"
-                        }
-                    ]
+                    "Name": "你",
+                    "Text": "好吧，我现在加你。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "",
+                    "Text": "联系人新增了！",
+                    "Speaker": true,
+                    "Img": ""
+                }
+                
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "征信剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "还是不了，我现在有事做。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "客服",
+                    "Text": "这件事非常紧急的，事关你日后的利益。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "你",
+                    "Text": "现在真的没空。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "客服",
+                    "Text": "不，你听我说，不现在搞的话你后果自负。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "你",
+                    "Text": "拜拜。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
                 }
             ]
         }
