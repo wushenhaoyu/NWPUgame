@@ -21,7 +21,6 @@ export class credit extends Npc {
 
         if(this.plotJump[event] != -1)
         {
-
             console.log("Plot1_1: " + event);
 
             plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]

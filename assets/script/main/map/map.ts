@@ -81,9 +81,9 @@ export default class map extends Component {
                 return;
             }
             self.map.tmxAsset = tiledMapAsset
-           let p = PhysicsSystem2D.instance
-           p.enable = true;
-           p.debugDrawFlags = 1;
+           //let p = PhysicsSystem2D.instance
+          // p.enable = true;
+          // p.debugDrawFlags = 1;
 
             
             this.camera.emit('map')
@@ -96,7 +96,6 @@ export default class map extends Component {
     {
         this.switchLight()
         this.setNPC()
-        this.settensor()
         this.setevent()
         let p = PhysicsSystem2D.instance
         p.enable = true;
@@ -124,6 +123,7 @@ export default class map extends Component {
 
             this.StartPointData.push(StartPoint)
         }
+        this.settensor()
         let objectGroup = this.map.getObjectGroup("object");
         let objects = objectGroup.getObjects();
         for (let i = 0; i < objects.length; i++) {

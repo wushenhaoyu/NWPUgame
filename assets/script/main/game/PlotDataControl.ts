@@ -184,7 +184,7 @@ export class PlotDataControl extends Component {
         if(plotDataManager.plotdata.Plot.schoolcard.isBegin == false)
         {
             plotDataManager.plotdata.Plot.schoolcard.isBegin = true;
-        this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
+            this.getMapScript().switchMap('aoxiangxueshengzhongxin','schoolcard',()=>{
             console.log('到翱翔学生中心',gameDataManager.getMap())
             gameDataManager.joystick.changeState(0)
             gameDataManager.plotDataControl.UINode.active = false
