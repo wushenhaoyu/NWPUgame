@@ -25,11 +25,12 @@ export class schoolcard extends Npc {
             switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
                 case 1://办卡了
-                    /*this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
+                    this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
                         this.plotDatControl.UINode.active = false;
-                    })*/
+                    })
                     break;
                 case 2://没办
+
                     
             }
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
