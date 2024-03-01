@@ -128,6 +128,13 @@ export class PlotDataControl extends Component {
                     console.log('信用卡剧情')
                     this.credit();
                 }
+                break;
+            case 5:
+                if(time == timeTypeDef.morning)
+                {
+                    console.log('警察剧情')
+                    this.police()
+                }
 
 
         }
@@ -217,6 +224,21 @@ export class PlotDataControl extends Component {
             find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
          
         }
+    }
+    police()
+    {
+        
+        if(plotDataManager.plotdata.Plot.credit.isBegin == false)
+        {
+            plotDataManager.plotdata.Plot.credit.isBegin = true;
+
+            gameDataManager.joystick.changeState(0)
+            gameDataManager.plotDataControl.UINode.active = false
+            //还差一个切换出生点
+            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+         
+        }
+
     }
     getCameraScript()
     {
