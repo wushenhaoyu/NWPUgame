@@ -67,7 +67,7 @@
             "type": 1,
             "name": "征信剧情",
             "script": "Plot1_2",
-            "choice": ["添加好友"],
+            "choice": ["添加好友", "拒绝"],
             "plotjump": [0],
             "dialog": [
                 {
@@ -101,18 +101,18 @@
             "type": 1,
             "name": "征信剧情",
             "script": "Plot1_2",
-            "choice": ["添加好友"],
-            "plotjump": [0],
+            "choice": ["添加好友", "拒绝"],
+            "plotjump": [3, 4],
             "dialog": [
                 {
                     "Name": "客服",
-                    "Text": "我这边看到你开通了花呗账户，",
+                    "Text": "我这边的记录显示你有",
                     "Speaker": false,
                     "Img": "lihui/female1"
                 }, 
                 {
                     "Name": "客服",
-                    "Text": "因为你还是学生，",
+                    "Text": "因为你还是学生",
                     "Speaker": false,
                     "Img": "lihui/female1"
                 }, 
@@ -133,6 +133,68 @@
                     "Text": "好吧，我现在加你。",
                     "Speaker": true,
                     "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "征信剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0], 
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "加了",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }, 
+                {
+                    "Name": "客服",
+                    "Text": "好，我们在手机里面联络吧。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "id": 4,
+                    "type": 0,
+                    "name": "征信剧情",
+                    "script": "Plot1_2",
+                    "choice": [],
+                    "plotjump": [0],
+                    "dialog": [
+                        {
+                            "Name": "你",
+                            "Text": "还是不了，我现在有事做。",
+                            "Speaker": false,
+                            "Img": "lihui/female1"
+                        }, 
+                        {
+                            "Name": "客服",
+                            "Text": "这件事非常紧急的，事关你日后的利益。",
+                            "Speaker": false,
+                            "Img": "lihui/female1"
+                        }, 
+                        {
+                            "Name": "你",
+                            "Text": "现在真的没空。",
+                            "Speaker": false,
+                            "Img": "lihui/female1"
+                        }, 
+                        {
+                            "Name": "客服",
+                            "Text": "不，你听我说，不现在搞的话你后果自负。",
+                            "Speaker": false,
+                            "Img": "lihui/female1"
+                        }, 
+                        {
+                            "Name": "你",
+                            "Text": "拜拜。",
+                            "Speaker": true,
+                            "Img": "lihui/female1"
+                        }
+                    ]
                 }
             ]
         }

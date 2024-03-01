@@ -25,11 +25,18 @@ export class schoolcard extends Npc {
             switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
                 case 1://办卡了
+                    console.log("辦卡了")
                     this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
                         this.plotDatControl.UINode.active = false;
+                        gameDataManager.plotDataControl.UINode.active = true
                     })
                     break;
                 case 2://没办
+                    console.log("沒辦卡")
+                    this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
+                        this.plotDatControl.UINode.active = false;
+                        gameDataManager.plotDataControl.UINode.active = true
+                    })
 
                     
             }
