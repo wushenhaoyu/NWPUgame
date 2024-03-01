@@ -19,24 +19,19 @@ export class credit extends Npc {
 
     selectionHandler(event: number,type:number){
 
-        // if(this.plotJump[event] != -1)
-        // {
-
-        //     console.log("Plot1_1: " + event);
-
-        //     plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]
-
-        //     this.plotfunc()
-
-        // }
 
         if(this.plotJump[event] != -1)
         {
             console.log("Plot1_1: " + event);
-
-            plotDataManager.plotdata.Plot.Plot1_1.plot = this.plotJump[event]
-
-            this.plotfunc()
+            plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
+            if(type)
+            {   //如果连续
+                this.plotfunc();
+            }
+            else{//不连续就让text结束对话
+                this.plotDatControl.UINode.active = true;
+                this.text.emit('end')
+            }
 
         }
 

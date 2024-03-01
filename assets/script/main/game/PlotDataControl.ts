@@ -210,13 +210,12 @@ export class PlotDataControl extends Component {
         if(plotDataManager.plotdata.Plot.credit.isBegin == false)
         {
             plotDataManager.plotdata.Plot.credit.isBegin = true;
-            this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-            console.log('到翱翔学生中心',gameDataManager.getMap())
+
             gameDataManager.joystick.changeState(0)
             gameDataManager.plotDataControl.UINode.active = false
             //还差一个切换出生点
             find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
-         })
+         
         }
     }
     getCameraScript()
