@@ -70,6 +70,11 @@ export default class PlotDataManager {
                 plot:number,
                 dialogue:number,
                 isBegin:boolean
+            },
+            police:{
+                plot:number,
+                dialogue:number,
+                isBegin:boolean
             }
         },
         aoxiangxueshengzhongxin:{
@@ -158,6 +163,11 @@ export default class PlotDataManager {
                     isBegin:false
                 },
                 credit:{
+                    plot:0,
+                    dialogue:0,
+                    isBegin:false
+                },
+                police:{
                     plot:0,
                     dialogue:0,
                     isBegin:false

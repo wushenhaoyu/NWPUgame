@@ -64,7 +64,7 @@
         },
         {
             "id": 1,
-            "type": 1,
+            "type": 0,
             "name": "征信剧情",
             "script": "Plot1_2",
             "choice": ["添加好友", "拒绝"],
@@ -93,12 +93,18 @@
                     "Text": "好吧，我现在加你。",
                     "Speaker": true,
                     "Img": "lihui/female1"
+                },
+                {
+                    "Name": "",
+                    "Text": "联系人新增了！",
+                    "Speaker": true,
+                    "Img": ""
                 }
             ]
         },
         {
             "id": 2,
-            "type": 1,
+            "type": 0,
             "name": "征信剧情",
             "script": "Plot1_2",
             "choice": ["添加好友", "拒绝"],
@@ -133,6 +139,12 @@
                     "Text": "好吧，我现在加你。",
                     "Speaker": true,
                     "Img": "lihui/female1"
+                },
+                {
+                    "Name": "",
+                    "Text": "联系人新增了！",
+                    "Speaker": true,
+                    "Img": ""
                 }
             ]
         },

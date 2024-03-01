@@ -128,6 +128,13 @@ export class PlotDataControl extends Component {
                     console.log('信用卡剧情')
                     this.credit();
                 }
+                break;
+            case 5:
+                if(time == timeTypeDef.morning)
+                {
+                    console.log('警察剧情')
+                    this.police()
+                }
 
 
         }
@@ -211,13 +218,28 @@ export class PlotDataControl extends Component {
         {
             plotDataManager.plotdata.Plot.credit.isBegin = true;
             this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-                console.log('到翱翔学生中心',gameDataManager.getMap())
-                gameDataManager.joystick.changeState(0)
-                gameDataManager.plotDataControl.UINode.active = false
-                //还差一个切换出生点
-                find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
-            })
+            console.log('到翱翔学生中心',gameDataManager.getMap())
+            gameDataManager.joystick.changeState(0)
+            gameDataManager.plotDataControl.UINode.active = false
+            //还差一个切换出生点
+            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+         })
         }
+    }
+    police()
+    {
+        
+        if(plotDataManager.plotdata.Plot.credit.isBegin == false)
+        {
+            plotDataManager.plotdata.Plot.credit.isBegin = true;
+
+            gameDataManager.joystick.changeState(0)
+            gameDataManager.plotDataControl.UINode.active = false
+            //还差一个切换出生点
+            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
+         
+        }
+
     }
     getCameraScript()
     {

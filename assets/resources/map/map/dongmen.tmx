@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="102" height="160" tilewidth="16" tileheight="16" infinite="0" nextlayerid="28" nextobjectid="179">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="102" height="160" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="184">
  <tileset firstgid="1" name="17_Visibile_Upstairs_System_48x48" tilewidth="16" tileheight="16" tilecount="3888" columns="48">
   <image source="damen/17_Visibile_Upstairs_System_48x48.png" width="768" height="1296"/>
  </tileset>
@@ -3980,6 +3980,13 @@
   <object id="172" x="1147.33" y="304" width="75.3333" height="68.6667"/>
   <object id="173" x="314" y="11.5" width="43.5" height="17"/>
   <object id="174" x="2012" y="124"/>
+ </objectgroup>
+ <objectgroup id="28" name="event">
+  <object id="183" x="12" y="2353.33" width="225.333" height="200">
+   <properties>
+    <property name="name" value="run"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="17" name="NPC">
   <object id="118" x="1347.5" y="1936" width="6.5" height="7.5">
