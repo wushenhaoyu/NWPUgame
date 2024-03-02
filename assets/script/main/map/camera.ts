@@ -124,7 +124,10 @@ export  class camera extends Component {
     const tween2 = tween(this.camera).to(1,{orthoHeight:360})
     tween1.start();
     tween2.start()
-    setTimeout(()=>{this.changeControl()},500)
+    setTimeout(()=>{
+        this.changeControl()
+        console.log('移交控制权')
+    },1000)
        // console.log(this. cameraPosition,this.cameraMaxX1,this.cameraMaxY1,this.cameraMaxX2,this.cameraMaxY2)
        
        
