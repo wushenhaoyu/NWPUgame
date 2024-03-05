@@ -49,14 +49,14 @@ export class PlotDataControl extends Component {
                     }
     
                     // 第一个onComplete事件的逻辑
-                    console.log('hide');
+                    // console.log('hide');
                     setTimeout(() => {
-                        console.log('show');
+                        // console.log('show');
                         tween(Mask.getComponent(UIOpacity))
                             .to(2, { opacity: 0 },{
                                 onComplete:()=>{
                                     Mask.active = false;
-                                    console.log('transitionOut')
+                                    // console.log('transitionOut')
                                     if (secondCallback && typeof secondCallback === 'function') {
                                         secondCallback();
                                     }
@@ -100,7 +100,7 @@ export class PlotDataControl extends Component {
     
    async checkPlotByTime()//通过时间检查是否应该发生剧情了 （强迫事件）
     {
-        console.log('checkByTime')
+        // console.log('checkByTime')
         gameDataManager.isPlayerFirstPlay = true;
         let day = gameDataManager.getDay();
         let time = gameDataManager.getTime();
@@ -118,23 +118,22 @@ export class PlotDataControl extends Component {
             case 2:
                 if(time == timeTypeDef.morning)
                 {
-                    console.log('校园卡剧情')
-                    // this.schoolcard();
-                    this.police()
+                    // console.log('校园卡剧情')
+                    this.schoolcard();
                 }
                 break;
             case 3:
                 if(time == timeTypeDef.morning)
                 {
-                    console.log('信用卡剧情')
+                    // console.log('信用卡剧情')
                     this.credit();
                 }
                 break;
             case 5:
                 if(time == timeTypeDef.morning)
                 {
-                    console.log('警察剧情')
-                    // this.police()
+                    // console.log('警察剧情')
+                    this.police()
                 }
 
 
@@ -164,17 +163,24 @@ export class PlotDataControl extends Component {
         }
     }
 
-    water()//饮用水的剧情
+    water(npcName?: string)//饮用水的剧情
     {
-        if(plotDataManager.plotdata.Plot.water.isBegin == false)
+        if(plotDataManager.plotdata.Plot.water.isBegin == false && !npcName)
         {
             plotDataManager.plotdata.Plot.water.isBegin = true;
-            this.UINode.active = false;
             this.transition(null,()=>{
-                //this.getMapScript().tpPlotStart('water','water');
+                gameDataManager.joystick.changeState(3);
+                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
+                console.log('进入喝水剧情')
+            })
+        }else if(npcName == 'suguanayi' && plotDataManager.plotdata.Plot.water.plot == 3)
+        {
+            this.transition(null,()=>{
+
                 gameDataManager.joystick.changeState(3);
                 find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
             })
+
         }
         /*this.currentPlot = "water";
         if(this.isRecovered)
@@ -194,18 +200,27 @@ export class PlotDataControl extends Component {
             this.currentPlot = "";
         }*/
     }
-    schoolcard()//校园卡的剧情
+    schoolcard(npcName?: string)//校园卡的剧情
     {
-        if(plotDataManager.plotdata.Plot.schoolcard.isBegin == false)
+        if(plotDataManager.plotdata.Plot.schoolcard.isBegin == false && !npcName)
         {
             plotDataManager.plotdata.Plot.schoolcard.isBegin = true
             this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-                console.log('到翱翔学生中心',gameDataManager.getMap())
+                // console.log('到翱翔学生中心',gameDataManager.getMap())
                 gameDataManager.joystick.changeState(0)
                 gameDataManager.plotDataControl.UINode.active = false
                 //还差一个切换出生点
                 find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc()
             })
+        }else if(npcName == 'shiyou' && plotDataManager.plotdata.Plot.schoolcard.plot == 3)
+        {
+
+            this.transition(null,()=>{
+
+                gameDataManager.joystick.changeState(3);
+                find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc()
+            })
+
         }
     }
     credit()//信征剧情
@@ -219,10 +234,9 @@ export class PlotDataControl extends Component {
         {
             plotDataManager.plotdata.Plot.credit.isBegin = true;
             this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-            console.log('到翱翔学生中心',gameDataManager.getMap())
+            // console.log('到翱翔学生中心',gameDataManager.getMap())
             gameDataManager.joystick.changeState(0)
             gameDataManager.plotDataControl.UINode.active = false
-            //还差一个切换出生点
             find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
          })
         }
@@ -232,7 +246,7 @@ export class PlotDataControl extends Component {
         
         if(plotDataManager.plotdata.Plot.police.isBegin == false)
         {
-            console.log("wtf")
+
             plotDataManager.plotdata.Plot.police.isBegin = true;
 
             gameDataManager.joystick.changeState(0)

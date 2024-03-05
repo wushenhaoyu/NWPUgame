@@ -89,7 +89,6 @@ export default class text extends Component {
         this.choiceBoxes.getChildByName("choicebox2").on(NodeEventType.TOUCH_START, () => this.npcNode.emit('choicebox plot dialogue'), this)  //特殊对话回调
         this.choiceBoxes.getChildByName("choicebox3").on(NodeEventType.TOUCH_START, this.closeDialog, this)  //关闭对话框回调
         this.dialogue.on(NodeEventType.TOUCH_START, this.nextTextData, this)
-        this.select.getChildByName("selections").on(NodeEventType.TOUCH_START, () => console.log("gggg"), this)
    }
 
     initplotchoice(choices: Array<string>){
@@ -217,11 +216,11 @@ export default class text extends Component {
     }
     }    
     closeDialog(){
-        console.log(this.isPlot)
+
             if(this.isPlot)
             {   //特殊对话处理
                 const choices = this.select.getChildByName("selections").children
-                console.log(choices)
+
                 if(choices.length > 0)
                 {   //有选项就选
                     this.select.active = true;
@@ -265,7 +264,7 @@ export default class text extends Component {
         this.type = 0;
     }
     selection(index: number){
-        console.log(this.select)
+
         this.select.active = false;
         this.npcNode.emit(`selection`,index ,this.type)
         const choices = this.select.getChildByName("selections").children
@@ -329,6 +328,8 @@ export default class text extends Component {
 
    startConversation(sendedTextData: SendData,isPlot:boolean)
    {
+
+        // console.log("current Conversation", this.sendedTextData.)
         this.isPlot = isPlot;
         this.type = sendedTextData.type
         this.textIndex = 0

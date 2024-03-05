@@ -28,6 +28,7 @@ export class water extends Npc {
             }
 
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
+            console.log("see this in water", event, type)
 
             if(type)
             {   //如果连续

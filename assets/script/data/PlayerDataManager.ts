@@ -99,7 +99,6 @@ export default class PlayerDataManager {
         return this._name;
     }
     setGender(gender:number){
-        console.log(gender)
         this._gen = gender;
     }
     

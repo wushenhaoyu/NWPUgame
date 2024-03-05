@@ -93,7 +93,6 @@ export class messageControl extends Component {
                         {
                             if (chatdialogue.type === 1) 
                             {
-                                console.log("loadededededed")
                                 resources.preload(`${chatdialogue.content}/spriteFrame`, SpriteFrame);
                             }
                         });
@@ -164,7 +163,6 @@ export class messageControl extends Component {
         const messages = chatdata.chat
         const promises = messages.map((message, index) => {
             return new Promise<void>((resolve, reject) => {
-                console.log(message)
                 const type = message.type
                 const speaker = message.Speaker
                 const content = message.content
@@ -240,7 +238,6 @@ export class messageControl extends Component {
             }
             return
         }
-        console.log(this.index,this.currentChatData.chat.length)
         if( this.index == this.currentChatData.chat.length)
         {
             if(this.currentChatData.choice.length != 0)

@@ -15,7 +15,6 @@ export class schoolcard extends Npc {
     }
     start() {
         super.start();
-        console.log(this.node)
     }
 
     selectionHandler(event: number,type:number){
@@ -30,6 +29,7 @@ export class schoolcard extends Npc {
                         this.plotDatControl.UINode.active = false;
                         gameDataManager.plotDataControl.UINode.active = true
                     })
+
                     break;
                 case 2://没办
                     console.log("沒辦卡")

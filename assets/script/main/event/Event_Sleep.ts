@@ -44,7 +44,6 @@ export class Event_Sleep extends Component {
     {
         this.node.off('event')
         gameDataManager.nextTime();
-        console.log(gameDataManager.getDay(),gameDataManager.getTime())
         //gameDataManager.plotDataControl.transition();//黑屏过度
 
 

@@ -64,7 +64,8 @@ export default class PlotDataManager {
             schoolcard:{
                 plot: number,
                 dialogue:number,
-                isBegin:boolean
+                isBegin:boolean,
+                isEnd: boolean
             },
             credit:{
                 plot:number,
@@ -160,7 +161,8 @@ export default class PlotDataManager {
                 schoolcard:{
                     plot: 0,
                     dialogue:0,
-                    isBegin:false
+                    isBegin:false,
+                    isEnd: false
                 },
                 credit:{
                     plot:0,

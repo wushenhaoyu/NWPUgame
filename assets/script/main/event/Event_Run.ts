@@ -48,7 +48,6 @@ export class Event_Run extends Component {
             gameDataManager.plotDataControl.UINode.active = false;
         })
         //gameDataManager.nextTime();
-        console.log(gameDataManager.getDay(),gameDataManager.getTime())
         //gameDataManager.plotDataControl.transition();//黑屏过度
 
 

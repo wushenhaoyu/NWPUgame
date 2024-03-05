@@ -23,8 +23,16 @@ export class police extends Npc {
             switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
                  case 0:
-                     break;
+                    
+                    break;
                  case 1:
+                    
+                    break;
+
+                case 3:
+                    
+                //todo add phone
+
             }
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
             if(type)
