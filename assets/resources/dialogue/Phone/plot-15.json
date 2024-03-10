@@ -1,0 +1,208 @@
+{
+    "name": "代办信用卡",
+    "chatData": [
+      {
+        "id": 0,
+        "type": 1,
+        "choice": ["了解详情", "不感兴趣"],
+        "plotjump": [2,1],
+        "parent": null,
+        "chat": [
+          {
+            "type": 0,
+            "content": "同学，需要办理信用卡吗？",
+            "Speaker": false
+          },
+          {
+            "type": 0,
+            "content": "不用跑银行递交资料就能办理大额信用卡，",
+            "Speaker": false
+          },
+          {
+            "type": 0,
+            "content": "审批迅速，简单快捷，",
+            "Speaker": false
+          },
+          {
+            "type": 0,
+            "content": "动动手指就能解决。",
+            "Speaker": false
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "不用了，我现在不需要。",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 1,
+        "choice": ["发送信息，办理信用卡","我在考虑一下" ],
+        "plotjump": [4,3],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我要怎么才能办理？",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "你先把你的个人信息，银行卡号发给我，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "我们将对你的个人信息和银行卡号进行审查，",
+            "Speaker": false
+          },
+          {
+            "type": 0,
+            "content": "最后再交50元的手续费。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": 0,
+        "choice": [ ],
+        "plotjump": [0],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我在考虑一下吧。",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": 0,
+        "choice": [ ],
+        "plotjump": [5],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "已收到你的信息，我们将尽快核查。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": 1,
+        "choice": [ "保证金？","提交保证金"],
+        "plotjump": [6,7],
+        "parent": 4,
+        "chat": [
+          {
+            "type": 0,
+            "content": "同学，我们核查你银行账号时发现你的账号存在风险，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你需要提交200元担保金，我们这边才能帮你办理信用卡，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "这保证金将在一周之后返还给你。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "type": 1,
+        "choice": [ "提交保证金","那算了吧"],
+        "plotjump": [7,8],
+        "parent": 4,
+        "chat": [
+          {
+            "type": 0,
+            "content": "是的，因为你的银行账号存在风险，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "我们这边帮你办理信用卡也是承担了一部分风险的，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "再经过一周没出现问题后将返还你的保证金。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": 0,
+        "choice": ["交手续费"],
+        "plotjump": [0],
+        "parent": 6,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我们这边已经收到了你的保证金，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "最晚后天你就能收到信用卡了，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你需要交50元手续费。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 6,
+        "chat": [
+          {
+            "type": 0,
+            "content": "那我不办理了。",
+            "Speaker": false
+            
+          }
+        ]
+      }
+    ]
+  }
+  

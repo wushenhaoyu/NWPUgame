@@ -21,6 +21,12 @@ export class shiyou extends Npc {
         if(this.plotJump[event] != -1)
         {
 
+            switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
+            {
+                case 2:
+                    this.plotDatControl.water()
+                    break;
+            }
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
 
             switch(plotDataManager.plotdata[this._mapName][this._npcName].plot)
@@ -29,7 +35,7 @@ export class shiyou extends Npc {
                 
                 break;
                 case 2 : // 饮用水选择
-                this.plotDatControl.water()//触发饮用水剧情
+                 //this.plotDatControl.water()//触发饮用水剧情
                     
                 break;
                 case 3 : //网络选择
@@ -37,7 +43,6 @@ export class shiyou extends Npc {
                 
                 break
             }
-            console.log("see this in shiyou", event, type)
 
 
             if(type)

@@ -161,7 +161,6 @@ export class GameManager extends Component {
     // 播放合成动画
     playAnimation(pos: Vec2, index, size) {
         const juice = instantiate(this.juicePrefab)
-        console.log("see this," ,index, this.juices[index])
         juice.getComponent('Juice').setConfig(this.juices[index])
         juice.parent = this.playPanel
         juice.getComponent('Juice').showJuice(pos, size * (1 + index / 5))

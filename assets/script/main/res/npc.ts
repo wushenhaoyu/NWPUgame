@@ -122,7 +122,6 @@ export class Npc extends Component {
     setTimeout(()=>{console.log(this._npcData)
         console.log("mapname:"+this._mapName,"npcName:"+this._npcName,plotDataManager.plotdata)
         const currentPlot: PlotTextData = this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot]
-        console.log("see this", this._npcData.plot[plotDataManager.plotdata[this._mapName][this._npcName].plot])
         const dialogueData: SendData = {
             
             type: currentPlot.type,

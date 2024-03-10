@@ -16,12 +16,20 @@ export class advertiseControl extends Component {
     currentSelected:string = "";
     start() {
         gameDataManager.advertiseControl = this.node.getComponent(advertiseControl);
-        for(var i = 0 ; i < 3 ; i ++)
-        {
+        // for(var i = 0 ; i < 3 ; i ++)
+        // {
+        //     let newNode = instantiate(this.ad);
+        //     this.list.addChild(newNode);
+        //     newNode.getComponent(advertisement).init(this.getRandomValueFromArray(this.advertisementDictionary));
+        // }
+
+        this.advertisementDictionary.map((ad, index) => {
+
             let newNode = instantiate(this.ad);
             this.list.addChild(newNode);
-            newNode.getComponent(advertisement).init(this.getRandomValueFromArray(this.advertisementDictionary));
-        }
+            newNode.getComponent(advertisement).init(ad)
+
+        })
         this.node.on('select',(event)=>{
             this.currentSelected = event
             this.showNotice()
@@ -41,6 +49,8 @@ export class advertiseControl extends Component {
     }
     hideNotice()
     {
+        this.notice.getChildByName("unfirmed").active =true;
+        this.notice.getChildByName("firmed").active =false;
         this.notice.active =false;
     }
     chooseOk()
@@ -54,6 +64,8 @@ export class advertiseControl extends Component {
                 this.zhiyuan();
                 break;
         }
+        this.notice.getChildByName("unfirmed").active =false;
+        this.notice.getChildByName("firmed").active =true;
         this.hideNotice()
     }
     chooseCancel()

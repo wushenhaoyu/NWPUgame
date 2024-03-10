@@ -173,7 +173,7 @@ export class PlotDataControl extends Component {
                 find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
                 console.log('进入喝水剧情')
             })
-        }else if(npcName == 'suguanayi' && plotDataManager.plotdata.Plot.water.plot == 3)
+        }else if(npcName == 'suguanayi'&& plotDataManager.plotdata.Plot.water.plot == 6)
         {
             this.transition(null,()=>{
 

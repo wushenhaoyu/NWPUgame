@@ -6,44 +6,34 @@ import { Npc } from '../../res/npc';
 const plotDataManager = PlotDataManager.getInstance();
 const gameDataManager = GameDataManager.getInstance();
 
-@ccclass('suguanayi')
-export class suguanayi extends Npc {
+@ccclass('shuadan')
+export class shuadan extends Npc {
 
+    onLoad() {
+        this._npcName = 'shuadan';
+        this.isPlot = true;
+    }
     start() {
 
-        this._npcName = 'suguanayi';
         super.start();
 
     }
 
     selectionHandler(event: number,type:number){
 
+
         if(this.plotJump[event] != -1)
         {
-
-            console.log("see this", plotDataManager.plotdata[this._mapName][this._npcName].plot)
-            switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
-            {
-
-                case 3://举报
-
-                    this.plotDatControl.water(this._npcName)
-
-                    break;
-                
-
-                    
-            }
+            console.log(event)
             plotDataManager.plotdata[this._mapName][this._npcName].plot = this.plotJump[event]
             if(type)
             {   //如果连续
                 this.plotfunc();
             }
-            else{
-                this.text.emit('end')
+            else{//不连续就让text结束对话
                 this.plotDatControl.UINode.active = true;
+                this.text.emit('end')
             }
-
 
         }
 
@@ -51,6 +41,4 @@ export class suguanayi extends Npc {
     
 
 }
-    
-
 
