@@ -91,6 +91,13 @@ export default class PlotDataManager {
                 dialogue:number,
                 index:number
 
+            },
+            xinyongka:{
+
+                plot: number,
+                dialogue:number,
+                index:number
+
             }
         }
     }
@@ -191,6 +198,13 @@ export default class PlotDataManager {
                     dialogue:0,
                     index:0
 
+                },
+                xinyongka:{
+
+                    plot: 0,
+                    dialogue:0,
+                    index:0
+                    
                 }
             }
         }

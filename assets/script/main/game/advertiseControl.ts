@@ -1,8 +1,11 @@
 import { _decorator, Component, Node,Prefab,instantiate} from 'cc';
 import { advertisement } from '../res/advertisement';
 import GameDataManager from '../../data/GameDataManager';
+import PlotDataManager from '../../data/PlotDataManager';
+import { messageControl } from './messageControl';
 const { ccclass, property } = _decorator;
 const gameDataManager = GameDataManager.getInstance();
+const plotDataManager = PlotDataManager.getInstance();
 
 @ccclass('advertiseControl')
 export class advertiseControl extends Component {
@@ -12,7 +15,9 @@ export class advertiseControl extends Component {
     public ad:Prefab = null;
     @property({type:Node})
     public notice:Node = null;
-    advertisementDictionary:string[] = ["shuadan","zhiyuan",]
+    @property({type:Node})
+    public messageDataControl:Node = null;
+    advertisementDictionary:string[] = ["shuadan","zhiyuan","xinyongka"]
     currentSelected:string = "";
     start() {
         gameDataManager.advertiseControl = this.node.getComponent(advertiseControl);
@@ -38,10 +43,17 @@ export class advertiseControl extends Component {
     shuadan()//选择刷单后对应逻辑
     {
         console.log('刷单')
+        plotDataManager.friendlist.push("shuadan")
     }
     zhiyuan()//选择志愿服务后对应逻辑
     {
         console.log('支援')
+    }
+    xinyongka()//选择信用卡后对应逻辑
+    {
+        console.log('信用卡')
+        plotDataManager.friendlist.push("xinyongka")
+        this.messageDataControl.emit("addFriend", "xinyongka")
     }
     showNotice()//展示确认
     {
@@ -49,7 +61,7 @@ export class advertiseControl extends Component {
     }
     hideNotice()
     {
-        this.notice.getChildByName("unfirmed").active =true;
+        this.notice.getChildByName("unfirm").active =false;
         this.notice.getChildByName("firmed").active =false;
         this.notice.active =false;
     }
@@ -63,10 +75,12 @@ export class advertiseControl extends Component {
             case "zhiyuan":
                 this.zhiyuan();
                 break;
+            case "xinyongka":
+                this.xinyongka();
+                break;
         }
-        this.notice.getChildByName("unfirmed").active =false;
+        this.notice.getChildByName("unfirm").active =false;
         this.notice.getChildByName("firmed").active =true;
-        this.hideNotice()
     }
     chooseCancel()
     {

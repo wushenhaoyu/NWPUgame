@@ -55,6 +55,8 @@ export class messageControl extends Component {
     select2:Node = null;
     @property({type:Node})
     select3:Node = null;
+
+    public currentFriendList: string[] = [];//当前的好友列表
     public  currentChatData:Chatdata = null;//当前的一小段对话
     public currentMessageName:string = "";//联系人json文件名称
     public currentChat:PhonePlotContainer = null;//json读的东西存起来
@@ -62,7 +64,12 @@ export class messageControl extends Component {
     public currentFriendNode:Node = null;//当前被选中的好友节点
     public index:number = 0;//当前剧情数据下标
     start() {
-        for(var i = 0 ; i < plotDataManager.friendlist.length ; i ++)
+
+        this.node.on("addFriend", this.addFriend, this);
+
+        this.currentFriendList = plotDataManager.friendlist;
+
+        for(var i = 0 ; i < this.currentFriendList.length ; i ++)
         {
             let newNode = instantiate(this.friend);
             this.friendListContent.addChild(newNode);           //add friend node to friend list(UI)
@@ -77,6 +84,7 @@ export class messageControl extends Component {
                     console.error(err.message || err);
                     return;
                 }
+
      
                 resources.load(`dialogue/Phone/${plotName}`, JsonAsset, (err, jsonAsset) => 
                 {            
@@ -84,8 +92,9 @@ export class messageControl extends Component {
                     {
                         console.error(err.message || err);
                         return;
-                    }
-     
+                    }   
+                    
+                    newNode.getChildByName("name").getComponent(Label).string = jsonAsset.json.name;
                     const json = jsonAsset.json as PhonePlotContainer;
                     json.chatData.forEach((chatdata) => 
                     {
@@ -113,6 +122,59 @@ export class messageControl extends Component {
         }
      
      }
+
+     public addFriend(name: string)
+     {
+
+        let newNode = instantiate(this.friend);
+            this.friendListContent.addChild(newNode);           //add friend node to friend list(UI)
+            var friendScript =  newNode.getComponent(friend);
+            friendScript.init(name);   //insert datas to the new friend node
+            const plotName = name;
+            newNode.on(Node.EventType.TOUCH_END, () => this.switchMessage(plotName,newNode), this)
+            resources.preload(`dialogue/Phone/${plotName}`, JsonAsset, (err, jsonAsset) => 
+            {
+                if (err) 
+                {
+                    console.error(err.message || err);
+                    return;
+                }
+
+     
+                resources.load(`dialogue/Phone/${plotName}`, JsonAsset, (err, jsonAsset) => 
+                {            
+                    if (err) 
+                    {
+                        console.error(err.message || err);
+                        return;
+                    }   
+                    
+                    newNode.getChildByName("name").getComponent(Label).string = jsonAsset.json.name;
+                    const json = jsonAsset.json as PhonePlotContainer;
+                    json.chatData.forEach((chatdata) => 
+                    {
+                        chatdata.chat.forEach((chatdialogue) => 
+                        {
+                            if (chatdialogue.type === 1) 
+                            {
+                                resources.preload(`${chatdialogue.content}/spriteFrame`, SpriteFrame);
+                            }
+                        });
+                    });
+                    resources.load(`phone/message/friend/${plotName}`,Prefab,(err,data)=>{
+                        if (err) 
+                        {
+                            console.error(err.message || err);
+                            return;
+                        }
+                        let scriptNode = instantiate(data);
+                        newNode.addChild(scriptNode)             
+                    })
+                });
+            })
+
+     }
+
      protected onEnable(): void {
         if(this.currentChatData != null)
         {

@@ -1,0 +1,256 @@
+{
+    "name": "贾警官",
+    "chatData": [
+      {
+        "id": 0,
+        "type": 1,
+        "choice": ["这个我也看不懂，你告诉怎么证明清白就行", "没问题的，警官"],
+        "plotjump": [1,1],
+        "parent": null,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我是负责本次案件的民警贾庄。",
+            "Speaker": true
+          },
+          {
+            "type": 0,
+            "content": "这是我的证件",
+            "Speaker": true
+          },
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "type": 1,
+        "choice": ["这是什么人，学生读书的钱都骗！", "接下来要怎么做？"],
+        "plotjump": [2,2],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "这是“协查通知”,",
+            "Speaker": false
+            
+          },
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+          },
+          {
+            "type": 1,
+            "content": "没有疑问，我们就开始吧。",
+            "Speaker": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 1,
+        "choice": [ "打开投屏"],
+        "plotjump": [3],
+        "parent": 1,
+        "chat": [
+          {
+            "type": 0,
+            "content": "请打开QQ的投屏功能，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "整个过程需要保持投屏，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "这个将作为判断你是否为同伙的依据。",
+            "Speaker": false
+
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": 1,
+        "choice": ["http：//156***.1**.4*"],
+        "plotjump": [4],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "嗯，看到你屏幕了，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "按要求，我们需要清查你账户资金来源是否合法，",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "绑定你常用银行卡，并且保证里面至少存有1000元。",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "我只有一张卡。存的是我这个月的生活费。",
+            "Speaker": true
+
+          },
+          {
+            "type": 0,
+            "content": "这是公安机关的官方网站。",
+            "Speaker": false
+
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": 1,
+        "choice": ["填写信息"],
+        "plotjump": [5],
+        "parent": 3,
+        "chat": [
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": 1,
+        "choice": [],
+        "plotjump": [6],
+        "parent": 4,
+        "chat": [
+          {
+            "type": 0,
+            "content": "确保填写信息无误了吗？",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "不能马虎。",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "嗯嗯，我一直都在用这张卡，准确的。",
+            "Speaker": true
+
+          },
+          {
+            "type": 0,
+            "content": "冻结资金是1000元，",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "资金也是够的吧？",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "不然对你进行问责！",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "肯定够的。",
+            "Speaker": true
+
+          },
+          {
+            "type": 0,
+            "content": "那行，感谢你的配合，",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "在结案之前，请勿动这笔钱，",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "如果有新的消息，我们会通知你。",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "请还我一个清白。",
+            "Speaker": true
+
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "type": 1,
+        "choice": [],
+        "plotjump": [7],
+        "parent": 5,
+        "chat": [
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+          },
+          {
+            "type": 0,
+            "content": "假警官，我的钱怎么被转走了？",
+            "Speaker": true
+
+          },
+          {
+            "type": 0,
+            "content": "你们在干什么？",
+            "Speaker": true
+
+          },
+          {
+            "type": 0,
+            "content": "发送失败，请先添加对方为好友",
+            "Speaker": false
+
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 6,
+        "chat": [
+          {
+            "type": 1,
+            "content": "很遗憾，你被骗了1000元",
+            "Speaker": false
+          }
+        ]
+      }
+    ]
+  }
+  

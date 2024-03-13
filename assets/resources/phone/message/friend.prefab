@@ -38,14 +38,17 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 24
       }
     ],
     "_prefab": {
-      "__id__": 24
+      "__id__": 26
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 106.2425,
+      "x": 0,
       "y": -42.1,
       "z": 0
     },
@@ -98,7 +101,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -50.74250000000001,
+      "x": -584.5,
       "y": 0,
       "z": 0
     },
@@ -350,7 +353,7 @@
     "_string": "张老师",
     "_horizontalAlign": 0,
     "_verticalAlign": 0,
-    "_actualFontSize": 22.78125,
+    "_actualFontSize": 27.28125,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -397,7 +400,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 192.485,
+      "width": 1260,
       "height": 84.2
     },
     "_anchorPoint": {
@@ -504,7 +507,6 @@
     "__prefab": {
       "__id__": 23
     },
-    "content": null,
     "Name": {
       "__id__": 13
     },
@@ -531,6 +533,65 @@
     "fileId": "f5WLtOQ01NkoONNg920TpR"
   },
   {
+    "__type__": "cc.Button",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 25
+    },
+    "clickEvents": [],
+    "_interactable": true,
+    "_transition": 3,
+    "_normalColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_hoverColor": {
+      "__type__": "cc.Color",
+      "r": 211,
+      "g": 211,
+      "b": 211,
+      "a": 255
+    },
+    "_pressedColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_disabledColor": {
+      "__type__": "cc.Color",
+      "r": 124,
+      "g": 124,
+      "b": 124,
+      "a": 255
+    },
+    "_normalSprite": {
+      "__uuid__": "4264d5de-4271-4e96-bd50-2ae15c54373c@770cd",
+      "__expectedType__": "cc.SpriteFrame"
+    },
+    "_hoverSprite": null,
+    "_pressedSprite": null,
+    "_disabledSprite": null,
+    "_duration": 0.1,
+    "_zoomScale": 0.8,
+    "_target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "a0eWw7J2tH2IPGBTl7pE3L"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -539,6 +600,7 @@
       "__id__": 0
     },
     "fileId": "b5yLjAR8dNYZaQK1LVwW03",
+    "instance": null,
     "targetOverrides": null
   }
 ]
