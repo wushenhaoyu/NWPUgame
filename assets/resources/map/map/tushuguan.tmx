@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="100" height="170" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="26">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="100" height="170" tilewidth="16" tileheight="16" infinite="0" nextlayerid="21" nextobjectid="27">
  <tileset firstgid="1" name="Tileset_16_MV" tilewidth="16" tileheight="16" tilecount="2304" columns="48">
   <image source="damen/Tileset_16_MV.png" width="768" height="768"/>
  </tileset>
@@ -1962,11 +1962,18 @@
   </object>
  </objectgroup>
  <objectgroup id="18" name="NPC">
-  <object id="25" x="1400" y="977" width="4.33333" height="5">
+  <object id="25" x="1400" y="977" width="4.33333" height="5" visible="0">
    <properties>
     <property name="dialogue" value="student2"/>
     <property name="model" value="2"/>
     <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="26" x="1152" y="1270" visible="0">
+   <properties>
+    <property name="dialogue" value="tushuguanlaoshi"/>
+    <property name="model" value="2"/>
+    <property name="name" value="老师"/>
    </properties>
   </object>
  </objectgroup>

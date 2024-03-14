@@ -19,7 +19,7 @@ export default class music extends Component {
 
     protected onLoad(): void {
         
-       // director.addPersistRootNode(this.node); //背景音乐不会因切换场景而重新播放
+       director.addPersistRootNode(this.node); //背景音乐不会因切换场景而重新播放
 
     }
 
