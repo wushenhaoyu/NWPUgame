@@ -141,7 +141,7 @@ export class BagDataControl extends Component {
 
     }
 
-    updateBag()
+    public updateBag()
     {
 
         bagDataManager.getItems((items) => {

@@ -79,6 +79,15 @@
         "Name": "大包牙刷",
         "Id": 13,
         "Info": "日常用品"
+    },
+    "schoolcard": {
+        "type": "misc",
+        "ImgUrl": "main/UI/item1/credit_card_2",
+        "Label":"校园卡",
+        "Name": "schoolcard",
+        "Id": 14,
+        "Info": "超级实惠的电话卡"
+        
     }
 
  }

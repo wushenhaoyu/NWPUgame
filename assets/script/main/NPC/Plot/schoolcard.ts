@@ -3,8 +3,11 @@ const { ccclass, property } = _decorator;
 import PlotDataManager from '../../../data/PlotDataManager';
 import { Npc } from '../../res/npc';
 import GameDataManager from '../../../data/GameDataManager';
+import BagDataManager from '../../../data/BagDataManager';
 const plotDataManager = PlotDataManager.getInstance();
 const gameDataManager = GameDataManager.getInstance();
+const bagDataManager = BagDataManager.getInstance();
+
 
 @ccclass('schoolcard')
 export class schoolcard extends Npc {
@@ -25,6 +28,7 @@ export class schoolcard extends Npc {
             {
                 case 1://办卡了
                     console.log("辦卡了")
+                    // bagDataManager.addItem("misc", "schoolcard", 1)
                     this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
                         this.plotDatControl.UINode.active = false;
                         gameDataManager.plotDataControl.UINode.active = true

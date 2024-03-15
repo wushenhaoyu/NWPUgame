@@ -10,6 +10,7 @@ import {camera} from '../map/camera'
 import text from '../dialogue/text'
 import { Npc } from '../res/npc';
 import PlotDataManager from '../../data/PlotDataManager';
+import BagDataManager from '../../data/BagDataManager';
 
 @ccclass('PlotDataControl')
 export class PlotDataControl extends Component {
@@ -112,6 +113,7 @@ export class PlotDataControl extends Component {
                 }
                 if(time == timeTypeDef.night)
                 {
+                    // this.schoolcard();
                     resources.preload('map/aoxiangxueshengzhongxin',TiledMapAsset)
                 }
                 break;

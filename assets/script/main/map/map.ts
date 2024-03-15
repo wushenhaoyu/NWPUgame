@@ -60,8 +60,8 @@ export default class map extends Component {
      start() {
         if(!this.map1)
         {
-            this.map1 = "dongmen"
-            this.name1 = "dongmen"
+            this.map1 = "auxiangxueshengzhongxin"
+            this.name1 = "auxiangxueshengzhongxin"
         }
         for(var i = 0 ; i < gameDataManager.mapLoadListAlready.length ; i++)
         {

@@ -28,8 +28,8 @@ export default class GameDataManager {
         // 私有构造函数，防止外部直接实例化
         this.day = 1
         this.time = timeTypeDef.morning;
-        this.map = "dongmen"
-        this.start = "dongmen"
+        this.map = "aoxiangxueshengzhongxin" //starting point
+        this.start = "feiji" //starting point
         this.mapDictionaryInit();
        // this.timeDataControl = find('UI/GameManager/TimeControl').getComponent('TimeDataControl')
        // this.plotDataControl = find('UI/GameManager/TimeControl').getComponent('PlotDataControl')
