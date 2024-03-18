@@ -144,7 +144,7 @@ export class GameManager extends Component {
             this.playAudio()
             this.playAnimation(points[0].clone(), next - 1, this._size)
         })
-        if (next === 6) {
+        if (next === 11) {
             // 超出最大水果，游戏结束todo
             this.win()
             return
@@ -194,7 +194,6 @@ export class GameManager extends Component {
             // x = x > (1280 - radius) ? (1280 - radius) : x
             // this._currentFruit.setWorldPosition(new Vec3(x, this._currentFruit.getWorldPosition().y, 0))
             // this._currentFruit.getChildByName('img').position = new Vec3(0,0,0)
-
             let delta = e.getUIDelta();                  //get 相对位置
             const dx = delta.x;
     
