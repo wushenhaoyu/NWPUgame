@@ -1,4 +1,4 @@
-import { _decorator, instantiate, sys, AudioClip, AudioSource, Button, Component, Label, Node, Pool, Prefab, UITransform, Vec3 } from 'cc';
+import { _decorator, instantiate, sys, AudioClip, AudioSource, Button, Component, Label, Node, Pool, Prefab, UITransform, Vec3, director } from 'cc';
 const { ccclass, property } = _decorator;
 
 import Global from "./Global";
@@ -14,6 +14,9 @@ export default class Game extends Component {
 
     @property(Prefab)
     private scoreFXPrefab: Prefab | null = null;
+    
+    @property({type:Node})
+    private back:Node = null;
 
     // 星星产生后消失时间的随机范围
     @property
@@ -116,7 +119,7 @@ export default class Game extends Component {
         // set game state to running
         this._isPlaying = true;
         // set button and gameover text out of screen
-        this.btnNode!.node.setPosition(3000, 0, 0);
+        this.btnNode!.node.active = false;
         this.gameOverNode!.active = false;
         // reset player position and move speed
         this.player!.startMoveAt(this._groundPos);
@@ -195,7 +198,11 @@ export default class Game extends Component {
         this._currentStar?.destroy();
         this._currentStar = null;
         this._isPlaying = false;
-        this.btnNode!.node.setPosition(0, this.btnNode!.node.position.y);
+        this.back.active = true;
+    }
+
+    backGame(){
+        director.loadScene('loading')
     }
 
     despawnScoreFX(scoreFX: Node) {

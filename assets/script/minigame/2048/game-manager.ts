@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, Node, sys } from 'cc';
+import { _decorator, Component, director, Label, Node, sys } from 'cc';
 import { Grid } from './grid/grid';
 import { InputManager } from './input/input-manager';
 import { MoveDirection } from './constant';
@@ -89,9 +89,7 @@ export class GameManager extends Component {
     }
 
     public restart () {
-        this.gameoverRoot.active = false;
-        this.gamevictoryRoot.active = false;
-        this.newGame();
+        director.loadScene('loading')
     }
 
     public continueGame () {
