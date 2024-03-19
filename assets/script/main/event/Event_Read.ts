@@ -1,4 +1,4 @@
-import { _decorator, Component, error, JsonAsset, Label, Node, resources,tween, Sprite, SpriteFrame,find, UIOpacity } from 'cc';
+import { _decorator, Component, error, JsonAsset, Label, Node, resources,tween, Sprite, SpriteFrame,find, UIOpacity, director } from 'cc';
 const { ccclass, property } = _decorator;
 import GameDataManager from '../../data/GameDataManager'
 const gameDataManager = GameDataManager.getInstance();
@@ -42,8 +42,13 @@ export class Event_Read extends Component {
 
     eventstart()//进行事件 每个必有
     {
-        this.node.off('event')
-        gameDataManager.nextTime();
+        this.node.off('event');
+        director.loadScene('minigame_2048',() =>{
+            gameDataManager.plotDataControl.UINode.active = false;
+        })
+        gameDataManager.setMap('tushuguan','start_read')
+        //gameDataManager.positionRecord()
+        //gameDataManager.nextTime();
         //gameDataManager.plotDataControl.transition();//黑屏过度
 
 

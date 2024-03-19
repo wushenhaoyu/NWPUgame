@@ -60,8 +60,8 @@ export default class map extends Component {
      start() {
         if(!this.map1)
         {
-            this.map1 = "auxiangxueshengzhongxin"
-            this.name1 = "auxiangxueshengzhongxin"
+            this.map1 = "aoxiangxueshengzhongxin"
+            this.name1 = "aoxiangxueshengzhongxin"
         }
         for(var i = 0 ; i < gameDataManager.mapLoadListAlready.length ; i++)
         {
@@ -103,7 +103,8 @@ export default class map extends Component {
       
         this.map.node.removeChild(node);
         this.map.node.insertChild(node, 1);
-        
+        let data = gameDataManager.usePositionRecord()
+        console.log(data)
         const start = this.map.getObjectGroup('start');
         const birthpoints = start.getObjects();
         for (const birthpoint of birthpoints) {
@@ -118,10 +119,12 @@ export default class map extends Component {
                     console.log(this.map)
                     gameDataManager.plotDataControl.node.emit('ready');
                 }
-            
-           
-
             this.StartPointData.push(StartPoint)
+        }
+        if(data.success)
+        {
+            node.setPosition(data.position)
+            gameDataManager.plotDataControl.node.emit('ready');
         }
         this.settensor()
         let objectGroup = this.map.getObjectGroup("object");
@@ -239,6 +242,7 @@ setNPC()
             
                 // 预制体加载成功后，可以将其实例化并添加到场景中
                 let  node = instantiate(prefab);
+                console.log(node)
                 // 可以设置节点的位置等属性
                 // 添加到场景
                 let object = NPC[i];

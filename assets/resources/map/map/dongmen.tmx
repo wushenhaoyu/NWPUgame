@@ -3982,7 +3982,7 @@
   <object id="174" x="2012" y="124"/>
  </objectgroup>
  <objectgroup id="28" name="event">
-  <object id="183" x="12" y="2353.33" width="225.333" height="200">
+  <object id="183" x="50.6667" y="2444" width="112" height="66.6667">
    <properties>
     <property name="name" value="run"/>
    </properties>

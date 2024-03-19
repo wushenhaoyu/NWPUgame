@@ -151,6 +151,6 @@
     "flags": {}
   },
   "macroConfig": {
-    "BATCHER2D_MEM_INCREMENT": 1250
+    "BATCHER2D_MEM_INCREMENT": 2000
   }
 }

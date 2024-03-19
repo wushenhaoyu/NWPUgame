@@ -1,4 +1,4 @@
-import { _decorator,resources,error,JsonAsset,sys,find, director} from 'cc';
+import { _decorator,resources,error,JsonAsset,sys,find, director, Vec3, v3} from 'cc';
 const { ccclass, property } = _decorator;
 import { TimeDataControl } from '../main/game/TimeDataControl';
 import { PlotDataControl } from '../main/game/PlotDataControl';
@@ -24,12 +24,13 @@ export default class GameDataManager {
     public joystick:Joystick;
     public advertiseControl:advertiseControl = null;
     protected _storedCallback: Function | null = null;//存储回调函数
+    private PositionRecord:Vec3 = null
     private constructor() {
         // 私有构造函数，防止外部直接实例化
-        this.day = 1
+        this.day = 8
         this.time = timeTypeDef.morning;
-        this.map = "aoxiangxueshengzhongxin" //starting point
-        this.start = "feiji" //starting point
+        this.map = "tushuguan" //starting point
+        this.start = "tushuguan" //starting point
         this.mapDictionaryInit();
        // this.timeDataControl = find('UI/GameManager/TimeControl').getComponent('TimeDataControl')
        // this.plotDataControl = find('UI/GameManager/TimeControl').getComponent('PlotDataControl')
@@ -49,6 +50,20 @@ export default class GameDataManager {
             callback();
         }
     }
+    public positionRecord(){ //记录当前玩家所在地图的位置，以便下次进入出生在同一位置
+        let playerNode = find('gameWorld/gameCanvas/Map/door/player')
+        this.PositionRecord = playerNode.position
+    }
+    public usePositionRecord(){ 
+        if(this.PositionRecord != null){
+          let position = this.PositionRecord.clone()
+          this.PositionRecord = null
+          console.log(position)
+          return { success: true, position: position }
+        } else {
+          return { success: false, position: null }
+        }
+      }
 
     private toJSON(): string {
         // 将数据转换为 JSON 字符串

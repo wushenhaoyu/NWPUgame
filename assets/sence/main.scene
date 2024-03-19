@@ -4741,7 +4741,7 @@
     "_string": "背包",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 27.25,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -5240,7 +5240,7 @@
     "_string": "手机",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 27.25,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -6100,7 +6100,7 @@
     "_string": "对话",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 27.25,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -6910,7 +6910,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 68.02199999999999,
+      "x": 68.022,
       "y": 0,
       "z": 0
     },
@@ -6949,7 +6949,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77.84905389908256,
+      "width": 77.861328125,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -6982,7 +6982,7 @@
     "_string": "1300",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 47.6875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -7011,7 +7011,7 @@
     "_alignFlags": 34,
     "_target": null,
     "_left": 0,
-    "_right": -81.49652694954128,
+    "_right": -81.5026640625,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -7448,7 +7448,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 54.45675351204128,
+      "width": 54.46533203125,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -7481,7 +7481,7 @@
     "_string": "1天",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 47.6875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
@@ -7512,7 +7512,7 @@
       "__id__": 189
     },
     "_left": 64.72666796875,
-    "_right": -67.70437675602064,
+    "_right": -67.708666015625,
     "_top": -0.125,
     "_bottom": -0.275,
     "_horizontalCenter": 0,
@@ -18912,7 +18912,7 @@
     "_string": "设置",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 27.25,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 20,
@@ -30518,7 +30518,7 @@
     "_priority": 1,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 406.60550458715596,
+    "_orthoHeight": 422.7402862985685,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -41204,7 +41204,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 960,
-      "height": 640
+      "height": 400
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -41224,7 +41224,7 @@
     "_enabled": true,
     "__prefab": null,
     "_resourceType": 0,
-    "_remoteURL": "https://nwpu.space/static/v1.mp4",
+    "_remoteURL": "https://www.nwpu.space/video/oceans.mp4/",
     "_clip": {
       "__uuid__": "2be36297-9abb-4fee-8049-9ed5e271da8a",
       "__expectedType__": "cc.VideoClip"
@@ -41234,7 +41234,7 @@
     "_mute": false,
     "_playbackRate": 1,
     "_loop": false,
-    "_fullScreenOnAwake": false,
+    "_fullScreenOnAwake": true,
     "_stayOnBottom": false,
     "_keepAspectRatio": true,
     "videoPlayerEvent": [],
@@ -41541,7 +41541,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 112.42294976150808,
+      "width": 112.43947964969615,
       "height": 44.1
     },
     "_anchorPoint": {
@@ -41574,7 +41574,7 @@
     "_string": "西工大",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 47.6875,
+    "_actualFontSize": 35,
     "_fontSize": 35,
     "_fontFamily": "Arial",
     "_lineHeight": 35,
