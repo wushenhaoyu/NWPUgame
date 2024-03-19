@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "Game",
+    "_name": "bird",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -11,7 +11,7 @@
   },
   {
     "__type__": "cc.Scene",
-    "_name": "Game",
+    "_name": "bird",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -178,7 +178,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 434.7423764458465,
+    "_orthoHeight": 496.29629629629625,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -3435,7 +3435,10 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": null,
+    "_normalSprite": {
+      "__uuid__": "77eb5253-4580-482c-86ab-142a77c7ae39@e7632",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -3453,8 +3456,8 @@
     },
     "component": "",
     "_componentId": "5fc031U1bVLqbaVn7YZOCNf",
-    "handler": "onBtnReset",
-    "customEventData": "GameReset"
+    "handler": "back",
+    "customEventData": ""
   },
   {
     "__type__": "cc.UITransform",

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node,Prefab,instantiate} from 'cc';
+import { _decorator, Component, Node,Prefab,instantiate, director} from 'cc';
 import { advertisement } from '../res/advertisement';
 import GameDataManager from '../../data/GameDataManager';
 import PlotDataManager from '../../data/PlotDataManager';
@@ -43,11 +43,17 @@ export class advertiseControl extends Component {
     shuadan()//选择刷单后对应逻辑
     {
         console.log('刷单')
-        plotDataManager.friendlist.push("shuadan")
+        director.loadScene('minigame_2048',() =>{
+            gameDataManager.plotDataControl.UINode.active = false;
+        })
+        //plotDataManager.friendlist.push("shuadan")
     }
     zhiyuan()//选择志愿服务后对应逻辑
     {
         console.log('支援')
+        director.loadScene('star',() =>{
+            gameDataManager.plotDataControl.UINode.active = false;
+        })
     }
     xinyongka()//选择信用卡后对应逻辑
     {

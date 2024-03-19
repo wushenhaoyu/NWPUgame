@@ -43,7 +43,7 @@ export class Event_Read extends Component {
     eventstart()//进行事件 每个必有
     {
         this.node.off('event');
-        director.loadScene('minigame_2048',() =>{
+        director.loadScene('bird',() =>{
             gameDataManager.plotDataControl.UINode.active = false;
         })
         gameDataManager.setMap('tushuguan','start_read')

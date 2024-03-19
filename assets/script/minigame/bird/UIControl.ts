@@ -1,4 +1,4 @@
-import { _decorator, Color, Component, find, Label, Node, Sprite, tween } from 'cc';
+import { _decorator, Color, Component, director, find, Label, Node, Sprite, tween } from 'cc';
 import Game, { GameState } from "./Game";
 const { ccclass, property } = _decorator;
 
@@ -62,6 +62,9 @@ export class UIControl extends Component {
         })
             .start();
 
+    }
+    back(){
+        director.loadScene('loading');
     }
     onBtnReset() {
         if (Game.single().state == GameState.Playing) {
