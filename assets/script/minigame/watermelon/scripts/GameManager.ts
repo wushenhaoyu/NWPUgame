@@ -75,6 +75,8 @@ export class GameManager extends Component {
     @property({ type: JuiceItem })
     public juices: JuiceItem[] = []
 
+    @property({type: Node})
+    public bg: Node = null
     // @property({ type: Prefab })
     // public spriteTemp = null
 
@@ -186,21 +188,32 @@ export class GameManager extends Component {
         }
     }
     // 鼠标拖动 -- 变更水果位置
-    keepMoveFruit (e) {
-        if (this._currentFruit && this._FruitStatus === FruitStatus.INIT ) {
-            // let x = e.getLocationX()/2
-            // const radius = this._currentFruit.getChildByName('img').getComponent(CircleCollider2D).radius
-            // x = x < radius ? radius : x
-            // x = x > (1280 - radius) ? (1280 - radius) : x
-            // this._currentFruit.setWorldPosition(new Vec3(x, this._currentFruit.getWorldPosition().y, 0))
-            // this._currentFruit.getChildByName('img').position = new Vec3(0,0,0)
+    keepMoveFruit (e: EventTouch) {
+        if (this._currentFruit && this._FruitStatus === FruitStatus.INIT) {
+
+            let touchLocation = e.getUILocation()
+
+
+            // let pos = this._currentFruit.getComponent(UITransformComponent).convertToNodeSpaceAR(v3(touchLocation.x, 0, 0))
+
+            // const y = this._currentFruit.getChildByName('img').position.y
+
             let delta = e.getUIDelta();                  //get 相对位置
             const dx = delta.x;
-    
-            const x = this._currentFruit.getChildByName('img').position.x
-            const y = this._currentFruit.getChildByName('img').position.y
-    
-            this._currentFruit.getChildByName('img').setPosition(x + dx, y, 0)
+
+            const x = this._currentFruit.getChildByName('img').getWorldPosition().x
+            const y = this._currentFruit.getChildByName('img').getWorldPosition().y
+            
+            const radius = this._currentFruit.getChildByName('img').getComponent(CircleCollider2D).radius
+            const leftBorder = this.bg.getChildByName('left-border').getWorldPosition().x
+            const rightBorder = this.bg.getChildByName('right-border').getWorldPosition().x
+
+            if(x + dx > leftBorder && x + dx < rightBorder)
+            {
+                this._currentFruit.getChildByName('img').setWorldPosition(x + dx, y, 0)
+
+            }
+            console.log("see this", leftBorder, rightBorder, x + dx)
         }
     }
 

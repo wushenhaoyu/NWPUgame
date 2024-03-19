@@ -25,6 +25,9 @@ export class Fruit extends Component {
     @property ( { type: CCInteger })
     public index: Number = 0
 
+    @property ( { type: CCInteger })
+    public FRUITSIZE: number = 2
+
     start () {
         // [3]
     }
@@ -32,9 +35,9 @@ export class Fruit extends Component {
         this.index = data.id
         this.node.getChildByName('img').getComponent(Sprite).spriteFrame = data.iconSF
         const uiTransform = this.node.getChildByName('img').getComponent(UITransform)
-        uiTransform.width = uiTransform.height = data.size * (1 + data.id/ 5) *4
+        uiTransform.width = uiTransform.height = data.size * (1 + data.id/ 5) *this.FRUITSIZE
         const circleCollider2D = this.node.getChildByName('img').getComponent(CircleCollider2D)
-        circleCollider2D.radius =  data.size * (1 + data.id / 5)/2 * 4
+        circleCollider2D.radius =  data.size * (1 + data.id / 5)/2 * this.FRUITSIZE
         circleCollider2D.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this)
         circleCollider2D.apply()
     }
