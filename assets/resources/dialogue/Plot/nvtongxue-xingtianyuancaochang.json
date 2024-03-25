@@ -1,0 +1,122 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "d100",
+    "start":{
+        "Name": "迷茫的女同学",
+        "Text": "同学你好，呃，请问图书馆是怎么去的？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type":1,
+            "name":"询问",
+            "script":"nvtongxue",
+            "choice":["羞澀地加微信","殘忍拒絕"],
+            "plotjump": [1, 2],
+            "dialog": [
+                {
+                    "Name": "迷茫的男同学",
+                    "Text": "同学你好，请问3.2打卡是在这里吗？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "对的，这里是星天苑操场，可以用西工大体育APP看到打卡的区域",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "迷茫的女同学",
+                    "Text": "可以加一下你的微信吗，有机会可以一起3.2",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "好的",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "迷茫的女同学",
+                    "Text": "很高兴见到你",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type":0,
+            "name":"羞澀地加微信",
+            "script":"nvtongxue",
+            "choice":[],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "因為你不再迷茫的女同学",
+                    "Text": "我們有緣再見？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+
+        {
+            "id": 2,
+            "type":0,
+            "name":"殘忍拒絕",
+            "script":"nvtongxue",
+            "choice":[],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "不屑的女同学",
+                    "Text": "哼！討厭.....",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+                
+            ]
+        }
+    ],
+    "dialog":[
+        [
+            {
+                "Name": "迷茫的女同学",
+                "Text": "同学你好，呃，请问图书馆是怎么去的？",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "Whatsup? walk to the east",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "I want your WeChat",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "I see",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "It is nice to meet you",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+]
+}

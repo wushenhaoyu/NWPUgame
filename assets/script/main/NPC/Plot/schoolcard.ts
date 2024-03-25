@@ -28,7 +28,7 @@ export class schoolcard extends Npc {
             {
                 case 1://办卡了
                     console.log("辦卡了")
-                    // bagDataManager.addItem("misc", "schoolcard", 1)
+                    bagDataManager.addItem("misc", "schoolcard", 1)
                     this.plotDatControl.getMapScript().switchMap('sushe','sushe',()=>{
                         this.plotDatControl.UINode.active = false;
                         gameDataManager.plotDataControl.UINode.active = true

@@ -27,10 +27,10 @@ export default class GameDataManager {
     private PositionRecord:Vec3 = null
     private constructor() {
         // 私有构造函数，防止外部直接实例化
-        this.day = 8
+        this.day = 7
         this.time = timeTypeDef.morning;
-        this.map = "tushuguan" //starting point
-        this.start = "tushuguan" //starting point
+        this.map = "dongmen" //starting point
+        this.start = "dongmen" //starting point
         this.mapDictionaryInit();
        // this.timeDataControl = find('UI/GameManager/TimeControl').getComponent('TimeDataControl')
        // this.plotDataControl = find('UI/GameManager/TimeControl').getComponent('PlotDataControl')

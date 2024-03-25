@@ -1,0 +1,53 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": false,
+    "mapName": "航小天",
+    "start":{
+        "Name": "迷茫的女同学",
+        "Text": "同学你好，呃，请问图书馆是怎么去的？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "plot":[],
+    "dialog":[
+        [
+            {
+                "Name": "介绍航小天的女同学",
+                "Text": "同学你好，请问你知道这个标志物是什么吗？",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "不知道啊，但看起来很酷",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "介绍航小天的女同学",
+                "Text": "这是西北工业大学的一个标志物-航小天，是中国航天的吉祥物",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "哇，他穿着宇航服，我以后也想穿，我可以和他合照吗",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "介绍航小天的女同学",
+                "Text": "可以呢",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },      
+            {
+                "Name": "你",
+                "Text": "好耶",
+                "Speaker": true,
+                "Img": "lihui/luren1"
+            }
+        ]
+]
+}

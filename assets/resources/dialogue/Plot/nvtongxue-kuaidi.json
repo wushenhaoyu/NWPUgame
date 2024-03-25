@@ -1,0 +1,47 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "d100",
+    "start":{
+        "Name": "迷茫的女同学",
+        "Text": "同学你好，呃，请问图书馆是怎么去的？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "plot":[],
+    "dialog":[
+        [
+            {
+                "Name": "迷茫的女同学",
+                "Text": "同学你好，呃，请问菜鸟驿站是怎么走？",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "Whatsup? walk to the west",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "不好意思，我分不清东西，是直走然后左拐吗",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "是的",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "好的，谢谢你",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+]
+}
