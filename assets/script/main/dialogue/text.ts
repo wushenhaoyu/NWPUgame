@@ -8,12 +8,10 @@ const gameDataManager = GameDataManager.getInstance();
 import { Npc } from '../NPC/npc'
 
 interface TextData {
-
     Name: string,
     Text: string,
     Speaker: boolean, //是否為自己說
     Img: string,
-
 }
 
 interface SendData{
