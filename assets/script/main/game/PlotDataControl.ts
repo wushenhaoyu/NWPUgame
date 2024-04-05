@@ -25,7 +25,8 @@ export class PlotDataControl extends Component {
     public UINode:Node = null; //UI节点
     public stageByTime:number = 0;//当前剧情进行阶段（自由触发事件）
     public currentPlot:String = "";//当前进行的剧情
-    start() {   
+    onLoad()
+    {
         this.node.on('ready',this.checkPlot,this)
         this.textScript = this.text.getComponent(text);
         this._mapScript = find('gameWorld/gameCanvas/Map').getComponent(map);
@@ -33,6 +34,8 @@ export class PlotDataControl extends Component {
         this._cameraScript = find('gameWorld/gameCanvas/Map/door/gameCamera').getComponent(camera);
         this.musicScript = this.musicNode.getComponent(music)
         gameDataManager.plotDataControl = this.node.getComponent(PlotDataControl)
+    }
+    start() {   
       /*  if(gameDataManager.isPlayerFirstPlay)
         {
             this.checkPlot();

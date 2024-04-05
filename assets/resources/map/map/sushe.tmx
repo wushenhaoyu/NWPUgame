@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="37" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="57">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="37" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="57">
  <tileset firstgid="1" name="Generic_Home_1_Layer_1_48x48" tilewidth="16" tileheight="16" tilecount="1680" columns="42">
   <image source="damen/Generic_Home_1_Layer_1_48x48.png" trans="000000" width="672" height="642"/>
  </tileset>
@@ -190,7 +190,7 @@
   <object id="34" x="207.255" y="167.455">
    <properties>
     <property name="dialogue" value="shiyou"/>
-    <property name="model" value="2"/>
+    <property name="model" value="male"/>
     <property name="name" value="室友"/>
    </properties>
   </object>

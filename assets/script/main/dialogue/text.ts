@@ -132,12 +132,13 @@ export default class text extends Component {
 
 
 
-   initstart(event: string) //初始话npc对话功能 event = npcName
+   initstart(event: Node) //初始话npc对话功能 event = npcName
    {
+        
 
-       this.npcNode = find(`UI/plot/${event}`)
+        this.npcComponent = event.getChildByName('script').components[0] as Npc
 
-        this.npcComponent = this.npcNode.getComponent(event) as Npc
+        this.npcNode = this.npcComponent.node
 
         this.map = gameDataManager.getMap();
         
@@ -145,7 +146,7 @@ export default class text extends Component {
 
         this.unpersistUI.active = false;
         
-        this.npcName = event;
+        this.npcName = event.name;
         
         this.firstText = this.npcComponent.firstText;
         

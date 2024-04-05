@@ -5,6 +5,7 @@ const plotDataManager = PlotDataManager.getInstance();
 import GameDataManager from '../../data/GameDataManager';
 import text from '../dialogue/text';
 import { PlotDataControl } from '../game/PlotDataControl';
+import npc1 from './npc1';
 const gameDataManager = GameDataManager.getInstance();
 
 interface NpcDataContainer {
@@ -48,10 +49,9 @@ interface SendData{
 }
 
 export class Npc extends Component {
-    @property({type:Node})
     public text:Node = null;
 
-    @property({type:Node})
+
     public mapNode:Node = null;
 
     protected _npcData: NpcDataContainer;
@@ -115,6 +115,12 @@ export class Npc extends Component {
     }
 
         
+    }
+
+    init()
+    {   //异步调用在map中，防止gamedatamanager里面没有它还去找
+        this.text = gameDataManager.plotDataControl.text
+        this.mapNode = gameDataManager.plotDataControl.getMapScript().node
     }
 
   plotfunc(){ //from choicebox
@@ -187,11 +193,11 @@ export class Npc extends Component {
         {
             this.mapNode =  find('/gameWorld/gameCanvas/Map');
         }
-        const npcNode = this.mapNode.components[1].npclist.find((npc: Node) => npc.name == this._npcName)
-        if(npcNode.getComponent('npc1'))
+        const npcNode = this.node.parent 
+        if(npcNode.getComponent(npc1))
         {
 
-            npcNode.getComponent('npc1').restart()
+            npcNode.getComponent(npc1).restart()
 
         }
 

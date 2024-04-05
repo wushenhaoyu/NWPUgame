@@ -34,22 +34,18 @@ export default class npc1 extends Component{
         switch(e2)
         {
             case 0:
-                this.animation.play("right")
+                this.animation.play("stand_right")
                 break;
             case 1:
-                this.animation.play("up")
+                this.animation.play("stand_up")
                 break;
             case 2:
-                this.animation.play("left")
+                this.animation.play("stand_left")
                 break;
             case 3:
-                this.animation.play("down")
+                this.animation.play("stand_down")
                 break;
         }
-         // 推迟修改到下一帧
-        this.scheduleOnce(() => {
-            this.animation.pause()
-        }, 0);
     }
     restart()
     {
@@ -84,22 +80,22 @@ export default class npc1 extends Component{
               
                 this.speed.linearVelocity = v2(2,0);
                 this.box.offset = v2(this.getRandomInt(10,50),0);
-                this.animation.play("right")
+                this.animation.play("walk_right")
                 break;
             case 1:
                 this.speed.linearVelocity = v2(0,2);
                 this.box.offset = v2(0,this.getRandomInt(10,50));
-                this.animation.play("up")
+                this.animation.play("walk_up")
                 break;
             case 2:
                 this.speed.linearVelocity = v2(-2,0);
                 this.box.offset = v2(-this.getRandomInt(10,50),0);
-                this.animation.play("left")
+                this.animation.play("walk_left")
                 break;
             case 3:
                 this.speed.linearVelocity = v2(0,-2);
                 this.box.offset = v2(0,-this.getRandomInt(10,50));
-                this.animation.play("down")
+                this.animation.play("walk_down")
                 break;
         }
         this.box.apply();

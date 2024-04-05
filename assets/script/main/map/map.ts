@@ -3,6 +3,7 @@ const { ccclass, property } = _decorator;
 import GameDataManager, { timeTypeDef } from '../../data/GameDataManager';
 import npc1 from '../res/npc1';
 import npc2 from '../res/npc2';
+import { npc_init } from '../res/npc_init';
 const gameDataManager = GameDataManager.getInstance();
 interface NPC{
     name:string,
@@ -20,6 +21,8 @@ interface TPPoint {//传送点
 };
 @ccclass('map')
 export default class map extends Component {
+    @property({type:Prefab})
+    public npc:Prefab = null;
     @property({type:Node})
     public mapwindow:Node = null;
     @property({type:Node})
@@ -232,8 +235,20 @@ setNPC()
     {
         const NPC = NPCList.getObjects();
         for (let i = 0; i < NPC.length; i++) {
-         
-            resources.load("NPC/npc"+NPC[i].model+"/npc"+NPC[i].model, Prefab, (err, prefab) => {
+            let  node = instantiate(this.npc);
+            
+            var script = node.getComponent(npc_init)
+            script.init(NPC[i].model,NPC[i].name,NPC[i].dialogue)
+            if(NPC[i].move == 1)
+            {node.addComponent(npc1);}
+            else
+            {node.addComponent(npc2);}
+            let y = this.map.getMapSize().height * this.map.getTileSize().height - NPC[i].offset.y - NPC[i].height;
+            node.setPosition(NPC[i].offset.x, y);
+            this.npclist.push(node);
+            this.map.node.insertChild(node, 2);
+
+            /*resources.load("NPC/npc"+NPC[i].model+"/npc"+NPC[i].model, Prefab, (err, prefab) => {
                 if (err) {
                     error(err.message);
                     return;
@@ -256,7 +271,7 @@ setNPC()
                 node.setPosition(object.offset.x, y);
                 this.npclist.push(node);
                 this.map.node.insertChild(node, 2);
-            });
+            });*/
         }
     }
 } 

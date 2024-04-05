@@ -13,22 +13,19 @@ export default class npc2 extends Component {
         switch(e2)
         {
             case 0:
-                this.animation.play("right")
+                this.animation.play("stand_right")
                 break;
             case 1:
-                this.animation.play("up")
+                this.animation.play("stand_up")
                 break;
             case 2:
-                this.animation.play("left")
+                this.animation.play("stand_left")
                 break;
             case 3:
-                this.animation.play("down")
+                this.animation.play("stand_down")
                 break;
         }
          // 推迟修改到下一帧
-        this.scheduleOnce(() => {
-            this.animation.pause()
-        }, 0);
     }
 
     update(deltaTime: number) {

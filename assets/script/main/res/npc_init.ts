@@ -23,17 +23,24 @@ export class npc_init extends Component {
                     return;
                 }
                 animationComponent.addClip(Clip)
+                
             })
         }
-        resources.load('npcScript/'+scriptName,Prefab,null,(err,script)=>{  //加入个性化脚本，需要传入脚本名称
+
+        console.log(this.node)
+        resources.load('NPC/npcScript/'+scriptName,Prefab,null,(err,script)=>{  //加入个性化脚本，需要传入脚本名称
                 if (err) {
                     error("this is an error:", err);
                     return;
                 }
                 let scriptNode = instantiate(script)
                 scriptNode.name = "script"          //统一个性脚本名称子节点为"script"
+                scriptNode.components[0].init()
                 this.node.addChild(scriptNode)
             })
+        this.scheduleOnce(() => {
+            this.node.getComponent(AnimationComponent).play('stand_down')
+        }, 0);
         
     }
 
