@@ -114,33 +114,7 @@ export class PlotDataControl extends Component {
                 {
                     this.Plot1_1();
                 }
-                if(time == timeTypeDef.night)
-                {
-                    // this.schoolcard();
-                    resources.preload('map/aoxiangxueshengzhongxin',TiledMapAsset)
-                }
-                break;
-            case 2:
-                if(time == timeTypeDef.morning)
-                {
-                    // console.log('校园卡剧情')
-                    this.schoolcard();
-                }
-                break;
-            case 3:
-                if(time == timeTypeDef.morning)
-                {
-                    // console.log('信用卡剧情')
-                    this.credit();
-                }
-                break;
-            case 5:
-                if(time == timeTypeDef.morning)
-                {
-                    // console.log('警察剧情')
-                    this.police()
-                }
-
+                break
 
         }
        
@@ -168,100 +142,6 @@ export class PlotDataControl extends Component {
         }
     }
 
-    water(npcName?: string)//饮用水的剧情
-    {
-        if(plotDataManager.plotdata.Plot.water.isBegin == false && !npcName)
-        {
-            plotDataManager.plotdata.Plot.water.isBegin = true;
-            this.transition(null,()=>{
-                gameDataManager.joystick.changeState(3);
-                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
-                console.log('进入喝水剧情')
-            })
-        }else if(npcName == 'suguanayi'&& plotDataManager.plotdata.Plot.water.plot == 6)
-        {
-            this.transition(null,()=>{
-
-                gameDataManager.joystick.changeState(3);
-                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
-            })
-
-        }
-        /*this.currentPlot = "water";
-        if(this.isRecovered)
-        {
-            this.UINode.active = false;
-            this.transition(()=>{
-                this.getMapScript().tpPlotStart('water','water');
-                gameDataManager.joystick.changeState(3);
-                find('UI/plot/Plot/water').getComponent(Npc).plotfunc();
-                this.isRecovered = false;
-            })
-        }
-        else{
-            gameDataManager.nextTime();
-            this.UINode.active = true;
-            this.isRecovered = true;
-            this.currentPlot = "";
-        }*/
-    }
-    schoolcard(npcName?: string)//校园卡的剧情
-    {
-        if(plotDataManager.plotdata.Plot.schoolcard.isBegin == false && !npcName)
-        {
-            plotDataManager.plotdata.Plot.schoolcard.isBegin = true
-            this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-                // console.log('到翱翔学生中心',gameDataManager.getMap())
-                gameDataManager.joystick.changeState(0)
-                gameDataManager.plotDataControl.UINode.active = false
-                //还差一个切换出生点
-                find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc()
-            })
-        }else if(npcName == 'shiyou' && plotDataManager.plotdata.Plot.schoolcard.plot == 3)
-        {
-
-            this.transition(null,()=>{
-
-                gameDataManager.joystick.changeState(3);
-                find('UI/plot/Plot/schoolcard').getComponent(Npc).plotfunc()
-            })
-
-        }
-    }
-    credit()//信征剧情
-    {
-        // switch(this.stageByTime) {
-        //     case 0:
-
-        // }
-
-        if(plotDataManager.plotdata.Plot.credit.isBegin == false)
-        {
-            plotDataManager.plotdata.Plot.credit.isBegin = true;
-            this.getMapScript().switchMap('aoxiangxueshengzhongxin','jiaodongc1',()=>{
-            // console.log('到翱翔学生中心',gameDataManager.getMap())
-            gameDataManager.joystick.changeState(0)
-            gameDataManager.plotDataControl.UINode.active = false
-            find('UI/plot/Plot/credit').getComponent(Npc).plotfunc();
-         })
-        }
-    }
-    police()
-    {
-        
-        if(plotDataManager.plotdata.Plot.police.isBegin == false)
-        {
-
-            plotDataManager.plotdata.Plot.police.isBegin = true;
-
-            gameDataManager.joystick.changeState(0)
-            gameDataManager.plotDataControl.UINode.active = false
-            //还差一个切换出生点
-            find('UI/plot/Plot/police').getComponent(Npc).plotfunc();
-         
-        }
-
-    }
     getCameraScript()
     {
         if(this._cameraScript.node == null)

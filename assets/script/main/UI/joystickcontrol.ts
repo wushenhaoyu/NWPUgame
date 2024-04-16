@@ -39,6 +39,8 @@ export class Joystick extends Component {
     lv:Vec2 = new Vec2();
     animationComponent:AnimationComponent = null;
     speed:RigidBody2D = null;
+
+    MOVE_SPEED:number = 500;
     onLoad() {
        
     }
@@ -249,25 +251,25 @@ if (angle > threshold && angle < 3 * threshold) {
                 this.playerPosition.y += 200 * dt;
                 this.player.setPosition(this.playerPosition);*/
                 this.lv.x = 0;
-                this.lv.y = 300 * dt;
+                this.lv.y = this.MOVE_SPEED * dt;
                 this.angle = 1;
                 an = "walk_up"
                 break;
             case 2:
                 this.lv.x = 0;
-                this.lv.y = -300 * dt;
+                this.lv.y = -this.MOVE_SPEED * dt;
                 an = "walk_down"
                 this.angle = 2;
                 break;
             case 3:
                 this.lv.y = 0;
-                this.lv.x = -300 * dt;
+                this.lv.x = -this.MOVE_SPEED * dt;
                 an = "walk_left"
                 this.angle = 3;
                 break;
             case 4:
                 this.lv.y = 0;
-                this.lv.x = 300 * dt;
+                this.lv.x = this.MOVE_SPEED * dt;
                 an = "walk_right"
                 this.angle = 4;
                 break;
