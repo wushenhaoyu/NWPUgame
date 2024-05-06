@@ -41,66 +41,7 @@ export class PlotDataControl extends Component {
             this.checkPlot();
         }*/
     }
-    transition(firstCallback?, secondCallback?) {//渐变黑过场动画
-        let Mask = find('UI/UICanvas/Mask');
-        Mask.active = true;
     
-        tween(Mask.getComponent(UIOpacity))
-            .to(2, { opacity: 255 }, {
-                onComplete: () => {
-                    if (firstCallback && typeof firstCallback === 'function') {
-                        firstCallback();
-                    }
-    
-                    // 第一个onComplete事件的逻辑
-                    // console.log('hide');
-                    setTimeout(() => {
-                        // console.log('show');
-                        tween(Mask.getComponent(UIOpacity))
-                            .to(2, { opacity: 0 },{
-                                onComplete:()=>{
-                                    Mask.active = false;
-                                    // console.log('transitionOut')
-                                    if (secondCallback && typeof secondCallback === 'function') {
-                                        secondCallback();
-                                    }
-
-                                }
-                            })
-                            .start();
-                    }, 2000);
-                }
-            })
-            .start();
-    }
-    transitionIn(callback?)//渐黑转场
-    {
-        let Mask = find('UI/UICanvas/Mask');
-        Mask.active = true;
-        tween(Mask.getComponent(UIOpacity))
-            .to(2,{opacity:255},{
-                onComplete:()=>{
-                    if(callback && typeof callback === 'function') {
-                        callback()
-                    }
-
-                }
-            }).start();
-
-    }
-    transitionOut(callback?)
-    {
-        let Mask = find('UI/UICanvas/Mask');
-        tween(Mask.getComponent(UIOpacity))
-            .to(2,{opacity:255},{
-                onComplete:()=>{
-                    if(callback && typeof callback === 'function') {
-                        callback()
-                    }
-                    Mask.active = false;
-                }
-            }).start();
-    }
     
    async checkPlotByTime()//通过时间检查是否应该发生剧情了 （强迫事件）
     {
@@ -277,6 +218,66 @@ export class PlotDataControl extends Component {
             this._mapScript = find('gameWorld/gameCanvas/Map').getComponent(map);
         }
         return this._mapScript;
+    }
+    transition(firstCallback?, secondCallback?) {//渐变黑过场动画
+        let Mask = find('UI/UICanvas/Mask');
+        Mask.active = true;
+    
+        tween(Mask.getComponent(UIOpacity))
+            .to(2, { opacity: 255 }, {
+                onComplete: () => {
+                    if (firstCallback && typeof firstCallback === 'function') {
+                        firstCallback();
+                    }
+    
+                    // 第一个onComplete事件的逻辑
+                    // console.log('hide');
+                    setTimeout(() => {
+                        // console.log('show');
+                        tween(Mask.getComponent(UIOpacity))
+                            .to(2, { opacity: 0 },{
+                                onComplete:()=>{
+                                    Mask.active = false;
+                                    // console.log('transitionOut')
+                                    if (secondCallback && typeof secondCallback === 'function') {
+                                        secondCallback();
+                                    }
+
+                                }
+                            })
+                            .start();
+                    }, 2000);
+                }
+            })
+            .start();
+    }
+    transitionIn(callback?)//渐黑转场
+    {
+        let Mask = find('UI/UICanvas/Mask');
+        Mask.active = true;
+        tween(Mask.getComponent(UIOpacity))
+            .to(2,{opacity:255},{
+                onComplete:()=>{
+                    if(callback && typeof callback === 'function') {
+                        callback()
+                    }
+
+                }
+            }).start();
+
+    }
+    transitionOut(callback?)
+    {
+        let Mask = find('UI/UICanvas/Mask');
+        tween(Mask.getComponent(UIOpacity))
+            .to(2,{opacity:255},{
+                onComplete:()=>{
+                    if(callback && typeof callback === 'function') {
+                        callback()
+                    }
+                    Mask.active = false;
+                }
+            }).start();
     }
 
     

@@ -113,6 +113,7 @@ export class Npc extends Component {
             this.node.on('choicebox normal dialogue', this.normalfunc, this)
         })
     }
+    this.init();
 
         
     }
