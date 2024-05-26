@@ -11,6 +11,54 @@ export default class PlotDataManager {
                 plot:number
                 dialogue:number
             },
+            guomalu:{
+                plot:number
+                dialogue:number
+            },
+            bingpai1:{
+                plot:number
+                dialogue:number
+            },
+            hezunjiangjie:{
+                plot:number
+                dialogue:number
+            },
+            bingpai2:{
+                plot:number
+                dialogue:number
+            },
+            canguan1:{
+                plot:number
+                dialogue:number
+            },
+            canguan2:{
+                plot:number
+                dialogue:number
+            },
+            canguan3:{
+                plot:number
+                dialogue:number
+            },
+            canguan4:{
+                plot:number
+                dialogue:number
+            },
+            paizhao:{
+                plot:number
+                dialogue:number
+            },
+            jiangjie:{
+                plot:number
+                dialogue:number
+            },
+            nvtongxue:{
+                plot:number
+                dialogue:number
+            },
+            xuexiaojiangjie:{
+                plot:number
+                dialogue:number
+            },
             suguanayi:{
                 plot:number,
                 dialogue:number
@@ -110,9 +158,57 @@ export default class PlotDataManager {
                     plot: 0, // 初始值
                     dialogue: 0, // 初始值
                 },
+                xuexiaojiangjie:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
                 student1:{
                     plot: 0, // 初始值
                     dialogue: 0, // 初始值
+                },
+                guomalu:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                bingpai1:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                bingpai2:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                canguan1:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                canguan2:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                canguan3:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                canguan4:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                paizhao:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                jiangjie:{
+                    plot: 0, // 初始值
+                    dialogue: 0, // 初始值
+                },
+                nvtongxue:{
+                    plot:0,
+                    dialogue:0
+                },
+                hezunjiangjie:{
+                    plot:0,
+                    dialogue:0
                 },
                 suguanayi:{
                     plot:0,

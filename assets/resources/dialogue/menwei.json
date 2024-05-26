@@ -1,7 +1,7 @@
 {
     "name":"门卫大爷",
     "uuid":1,
-    "isPlotNpc": false,
+    "isPlotNpc": true,
     "mapName": "dongmen",
     "start":{
         "Name": "门卫大爷",

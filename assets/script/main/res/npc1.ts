@@ -9,7 +9,7 @@ export default class npc1 extends Component{
     detectionDistance: number = 50;
     speed:RigidBody2D = null;
     private isColliding: boolean = false;
-    roation:number = 2;
+    roation:number =2;
     box:BoxCollider2D = null;
     animation:AnimationComponent = null;
     constructor() {
@@ -18,6 +18,10 @@ export default class npc1 extends Component{
 
     start() {
         this.node.on('talk', this.talk, this);
+        this.node.on('t',(event)=>{
+            this.roation = event -5
+            this.changeCollision();
+        },this)
         // 获取 RigidBody2D 组件并确保存在
         this.animation = this.node.getComponent(AnimationComponent);
         this.speed = this.node.getComponent(RigidBody2D);
@@ -49,13 +53,14 @@ export default class npc1 extends Component{
     }
     restart()
     {
+        console.log('restart')
         this.turn()
     }
 
     turn() {
         
         this.updateRoation();
-    
+        
         // 推迟修改到下一帧
         this.scheduleOnce(() => {
             this.changeCollision();
@@ -74,8 +79,12 @@ export default class npc1 extends Component{
     }
     changeCollision()
     {
+
+        // console.log('this.roation')
+        // console.log(this.roation)
         switch(this.roation)
         {
+            
             case 0:
               
                 this.speed.linearVelocity = v2(2,0);

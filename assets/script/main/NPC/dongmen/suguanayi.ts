@@ -25,10 +25,10 @@ export class suguanayi extends Npc {
             switch( plotDataManager.plotdata[this._mapName][this._npcName].plot)
             {
 
-                case 3://举报
+                case 3://
 
                     this.plotDatControl.water(this._npcName)
-
+                    gameDataManager.videoDataControl.beginVideo('https://nwpu.space:83/video/xigo.mp4/')
                     break;
                 
 

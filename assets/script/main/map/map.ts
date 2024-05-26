@@ -70,7 +70,7 @@ export default class map extends Component {
         {
             if(gameDataManager.mapLoadListAlready[i] == this.map1)
             {
-
+                
             }
             else{
                 resources.release('map/map'+gameDataManager.mapLoadListAlready[i],TiledMapAsset);
@@ -78,15 +78,16 @@ export default class map extends Component {
            
         }
         const self = this;
+        
         resources.load('map/map/'+this.map1, TiledMapAsset, (err, tiledMapAsset) => {   
             if (err) {
                 error(err);
                 return;
             }
             self.map.tmxAsset = tiledMapAsset
-           //let p = PhysicsSystem2D.instance
-          // p.enable = true;
-          // p.debugDrawFlags = 1;
+           let p = PhysicsSystem2D.instance
+        //   p.enable = true;
+        //   p.debugDrawFlags = 1;
 
             
             this.camera.emit('map')
@@ -95,7 +96,7 @@ export default class map extends Component {
         })
     }
 
-    initmap()
+    initmap(tiledMapAsset: TiledMapAsset)
     {
         this.switchLight()
         this.setNPC()
@@ -238,9 +239,15 @@ setNPC()
             let  node = instantiate(this.npc);
             
             var script = node.getComponent(npc_init)
-            script.init(NPC[i].model,NPC[i].name,NPC[i].dialogue)
+            script.init(NPC[i].model,NPC[i].name,NPC[i].dialogue,NPC[i].direction)
             if(NPC[i].move == 1)
-            {node.addComponent(npc1);}
+            {  
+                console.log(node)
+                node.addComponent(npc1);
+                this.scheduleOnce(() => {
+                    node.emit('t',NPC[i].direction)
+                }, 0);
+            }
             else
             {node.addComponent(npc2);}
             let y = this.map.getMapSize().height * this.map.getTileSize().height - NPC[i].offset.y - NPC[i].height;

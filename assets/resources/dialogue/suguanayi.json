@@ -15,8 +15,8 @@
             "type": 1,
             "name": "询问",
             "script": "Plot1_2",
-            "choice": ["关于宿舍……", "注意事项……"],
-            "plotjump": [1,2],
+            "choice": ["关于宿舍……", "注意事项……","调试3……","调试4……"],
+            "plotjump": [1,2,3,4],
             "dialog": [
                 {
                     "Name": "宿舍阿姨",
@@ -65,24 +65,24 @@
             "type": 1,
             "name": "询问",
             "script": "Plot1_2",
-            "choice": ["举报","结束"],
+            "choice": ["介绍西工大","结束"],
             "plotjump": [3,4],
             "dialog": [
                 {
                     "Name": "宿舍阿姨",
-                    "Text": "最近经常有一些推销人员来宿舍推销,",
+                    "Text": "你是新同学吗？",
                     "Speaker": false,
                     "Img": "lihui/luren1"
                 },
                 {
                     "Name": "宿舍阿姨",
-                    "Text": "他们很多都是坑人的，你要时刻保持警惕,",
+                    "Text": "西工大可以说的太多了！！",
                     "Speaker": false,
                     "Img": "lihui/luren1"
                 },
                 {
                     "Name": "宿舍阿姨",
-                    "Text": "如果遇见了可以向我举报。",
+                    "Text": "来看看我们的宣传片吧！！",
                     "Speaker": false,
                     "Img": "lihui/luren1"
                 }

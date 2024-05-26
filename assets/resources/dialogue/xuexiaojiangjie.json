@@ -1,0 +1,166 @@
+{
+    "name":"讲解的工作人员",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "讲解的工作人员",
+        "Text": "同学你好,有什么事？",
+        "Speaker": false,
+        "Img": "lihui/hangxiaotian"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["介绍西工大……", "没什么事情……"],
+            "plotjump": [2,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你想知道什么？",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "最近不少同学向我举报,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "有同学把内裤和袜子一起放公共洗衣机里洗,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "还有同学不冲厕所,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你可不要向他们学习。",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["看看宣传片","没什么事情……"],
+            "plotjump": [3,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你是新同学吗？",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "西工大可太好了！！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "来看看我们的宣传片吧！！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "嗯......",
+                    "Speaker": true,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "我再去附近逛逛。",
+                    "Speaker": true,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        }
+
+
+    ],
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "您好！西工大是怎么样的学校？",
+                "Speaker": true,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "它是一所以发展航空、航天、航海等领域人才培养和科学研究为特色的多科性研究型国家重点大学",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "并且位列国家双一流、985工程、211工程。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "学校有友谊、长安两个校区占地面积310余万平方米；设有25个学院、开设72个本科专业",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "你",
+                "Text": "好厉害",
+                "Speaker": true,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "不欢迎来到西北工业大学",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            }
+        ]
+    ]
+}

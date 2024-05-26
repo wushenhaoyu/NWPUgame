@@ -10,14 +10,16 @@ export class npc_init extends Component {
 
     }
 
-    init(model:string,name:string,scriptName:string){         //npc初始化方法
+    init(model:string,name:string,scriptName:string,direction?:number){         //npc初始化方法
         this.node.name = name
         this.model = model
-
+        
+        let initialAnimation: string;  
         let animationComponent = this.node.getComponent(AnimationComponent)
         for (var i = 0 ; i < this.animationClipListDictionary.length ; i++)
         {
             resources.load('NPC/'+model+'/'+this.animationClipListDictionary[i],AnimationClip,null,(err,Clip)=>{ //加入动画，需要传入动画模型名称
+                console.log(model)
                 if (err) {
                     error("this is an error:", err);
                     return;
@@ -27,7 +29,6 @@ export class npc_init extends Component {
             })
         }
 
-        console.log(this.node)
         resources.load('NPC/npcScript/'+scriptName,Prefab,null,(err,script)=>{  //加入个性化脚本，需要传入脚本名称
                 if (err) {
                     error("this is an error:", err);
@@ -38,11 +39,36 @@ export class npc_init extends Component {
                 scriptNode.components[0].init()
                 this.node.addChild(scriptNode)
             })
+        
+        let animation = this.node.getComponent(AnimationComponent)
+        
+        if(!direction)
+        {
+            direction = 2
+        }
+
         this.scheduleOnce(() => {
-            this.node.getComponent(AnimationComponent).play('stand_down')
-        }, 0);
+            if(direction==1)
+                animation.play('stand_up')
+            else if(direction==2)
+                animation.play('stand_down')
+            else if(direction==3)
+                animation.play('stand_left')
+            else if(direction==4)
+                animation.play('stand_right')
+            else if(direction==5)
+                animation.play('walk_right')
+            else if(direction==6)
+                animation.play('walk_up')
+            else if(direction==7)
+                animation.play('walk_left')
+            else if(direction==8)
+                animation.play('walk_down')
+            
+        }, 2);
         
     }
+
 
     update(deltaTime: number) {
         

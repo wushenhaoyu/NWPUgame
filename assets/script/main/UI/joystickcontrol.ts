@@ -64,18 +64,43 @@ export class Joystick extends Component {
     hudong() //检测是否附件有npc互动
     {
         const npc = this.MapScript.npclist
-            for(var i =0; i< npc.length; i++)
-            {
-                const position = this.player.position
-                console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
-                if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
-            {
-                find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin',npc[i].position)
-                this.dialogue.emit('npc', npc[i]);
-                this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
-                return;
-            }
-            }
+
+        const npcList = this.MapScript.npclist;  
+        const playerPosition = this.player.position;  
+        let closestNpc = null;  
+        let minDistanceSquared = Infinity; // 初始化最小距离的平方为无穷大  
+
+        for (const npc of npcList) {  
+            const distanceSquared = Math.pow(playerPosition.x - npc.position.x, 2) + Math.pow(playerPosition.y - npc.position.y, 2);  
+            if (distanceSquared < minDistanceSquared && distanceSquared < 20000) {  
+                minDistanceSquared = distanceSquared;  
+                closestNpc = npc;  
+            }  
+        }
+        if (closestNpc) {  
+            // 如果找到了符合条件的NPC，则进行交互  
+            find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin', closestNpc.position);  
+            this.dialogue.emit('npc', closestNpc);  
+            this.MapScript.node.emit('talk', npcList.indexOf(closestNpc), this.calculateDirection(playerPosition, closestNpc.position));  
+            return
+        } else {  
+            // 如果没有找到符合条件的NPC，可以执行其他逻辑（可选）  
+            console.log('No NPC within 20000 units found.');  
+        }  
+        
+            //老代码：list顺序找人聊天
+            // for(var i =0; i< npc.length; i++)
+            // {
+            //     const position = this.player.position
+            //     console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
+            //     if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
+            // {
+            //     find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin',npc[i].position)
+            //     this.dialogue.emit('npc', npc[i]);
+            //     this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
+            //     return;
+            // }
+            // }
     }
     calculateDirection(playerPosition, npcPosition) {
         // 计算玩家相对于 NPC 的方向

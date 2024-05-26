@@ -4,6 +4,7 @@ import { TimeDataControl } from '../main/game/TimeDataControl';
 import { PlotDataControl } from '../main/game/PlotDataControl';
 import { Joystick } from '../main/UI/joystickcontrol';
 import { advertiseControl } from '../main/game/advertiseControl';
+import { VideoDataControl } from '../main/game/VideoDataControl';
 export enum timeTypeDef{
     morning = 1,
     afternoon = 2,
@@ -25,6 +26,7 @@ export default class GameDataManager {
     public advertiseControl:advertiseControl = null;
     protected _storedCallback: Function | null = null;//存储回调函数
     private PositionRecord:Vec3 = null
+    public videoDataControl:VideoDataControl = null;
     private constructor() {
         // 私有构造函数，防止外部直接实例化
         this.day = 7

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="102" height="160" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="184">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="102" height="160" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="223">
  <tileset firstgid="1" name="17_Visibile_Upstairs_System_48x48" tilewidth="16" tileheight="16" tilecount="3888" columns="48">
   <image source="damen/17_Visibile_Upstairs_System_48x48.png" width="768" height="1296"/>
  </tileset>
@@ -3989,25 +3989,129 @@
   </object>
  </objectgroup>
  <objectgroup id="17" name="NPC">
-  <object id="118" x="1347.5" y="1936" width="6.5" height="7.5">
+  <object id="118" x="1344.17" y="1934" width="21.1667" height="20.1667">
    <properties>
     <property name="dialogue" value="menwei"/>
     <property name="model" value="female"/>
     <property name="name" value="保安大爷"/>
    </properties>
   </object>
-  <object id="177" x="1187" y="1586.75" width="4.25" height="4.5">
+  <object id="177" x="1103" y="2086.75" width="11.25" height="12.5">
    <properties>
     <property name="dialogue" value="suguanayi"/>
     <property name="model" value="female"/>
     <property name="name" value="宿管阿姨"/>
    </properties>
   </object>
-  <object id="178" x="787" y="730" width="4.5" height="4.5">
+  <object id="184" x="651.083" y="2238.25" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan2"/>
+    <property name="direction" value="7"/>
+    <property name="model" value="female"/>
+    <property name="move" value="1"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="185" x="755.083" y="2231.58" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan3"/>
+    <property name="direction" value="8"/>
+    <property name="model" value="female"/>
+    <property name="move" value="1"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="186" x="590.75" y="2237.25" width="13.8334" height="15.5">
+   <properties>
+    <property name="dialogue" value="canguan4"/>
+    <property name="direction" value="6"/>
+    <property name="model" value="zhouwu"/>
+    <property name="move" value="1"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="187" x="1298.08" y="2269.91" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="menwei"/>
+    <property name="model" value="female"/>
+    <property name="name" value="保安大爷"/>
+   </properties>
+  </object>
+  <object id="188" x="900.08" y="2272.59" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="guomalu"/>
+    <property name="direction" value="2"/>
+    <property name="model" value="male"/>
+    <property name="name" value="过马路的同学"/>
+   </properties>
+  </object>
+  <object id="189" x="261.417" y="2081.25" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan1"/>
+    <property name="model" value="male"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="196" x="719.75" y="1595.92" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="3"/>
+    <property name="model" value="female"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="199" x="650.083" y="1595.25" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai1"/>
+    <property name="direction" value="4"/>
+    <property name="model" value="female"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="213" x="996.417" y="2086.25" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="xuexiaojiangjie"/>
+    <property name="model" value="zhouwu"/>
+    <property name="name" value="讲解的工作人员"/>
+   </properties>
+  </object>
+  <object id="217" x="312.75" y="1097.75" width="17.1667" height="15.1667">
    <properties>
     <property name="dialogue" value="student1"/>
     <property name="model" value="female"/>
     <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="218" x="648.75" y="2281.25" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="paizhao"/>
+    <property name="direction" value="7"/>
+    <property name="model" value="zhouwu"/>
+    <property name="move" value="1"/>
+    <property name="name" value="拍照的同学"/>
+   </properties>
+  </object>
+  <object id="220" x="531" y="2377">
+   <properties>
+    <property name="dialogue" value="nvtongxue"/>
+    <property name="direction" value="8"/>
+    <property name="model" value="female"/>
+    <property name="move" value="1"/>
+    <property name="name" value="女同学"/>
+   </properties>
+  </object>
+  <object id="221" x="977.417" y="1614.92" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="hezunjiangjie"/>
+    <property name="model" value="zhouwu"/>
+    <property name="name" value="讲解的工作人员"/>
+   </properties>
+  </object>
+  <object id="222" x="1020.42" y="554.917" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="zhujianjiangjie"/>
+    <property name="model" value="zhouwu"/>
+    <property name="name" value="讲解的工作人员"/>
    </properties>
   </object>
  </objectgroup>
@@ -4023,11 +4127,6 @@
   <object id="108" x="53.8729" y="86.3733" width="13.4511" height="9.60791">
    <properties>
     <property name="name" value="yinhelu1"/>
-   </properties>
-  </object>
-  <object id="109" x="1305.16" y="116.37" width="15.3727" height="13.4511">
-   <properties>
-    <property name="name" value="tushuguan1"/>
    </properties>
   </object>
   <object id="110" x="1533.82" y="1834.01" width="15.3727" height="21.1374">

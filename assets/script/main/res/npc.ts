@@ -199,6 +199,7 @@ export class Npc extends Component {
         {
 
             npcNode.getComponent(npc1).restart()
+            console.log('重新开始')
 
         }
 

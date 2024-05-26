@@ -1,0 +1,35 @@
+{
+    "name":"参观的同学",
+    "uuid":1,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "参观的同学",
+        "Text": "这里的景色好漂亮啊！",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+
+    "dialog":[
+        [
+    {
+        "Name": "你",
+        "Text": "我也是这样想的",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "参观的同学",
+        "Text": "我再去那边看看吧",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "你",
+        "Text": "不打扰你了",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    }
+]
+]
+}
