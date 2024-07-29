@@ -1,0 +1,41 @@
+{
+    "name":"参观的同学",
+    "uuid":1,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "参观的同学",
+        "Text": "科技真是伟大啊",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+
+    "dialog":[
+        [
+    {
+        "Name": "你",
+        "Text": "是啊",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "参观的同学",
+        "Text": "学校里也有许多高科技的展区可以参观",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "你",
+        "Text": "可以带我看看吗",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "参观的同学",
+        "Text": "嗯，从那边走就可以看到",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    }
+]
+]
+}

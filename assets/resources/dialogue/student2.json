@@ -1,0 +1,64 @@
+{
+    "name": "同学",
+    "uuid": 3,
+    "isPlotNpc": true,
+    "mapName": "tushuguan",
+    "start": {
+        "Name": "同学",
+        "Text": "嘿，你好啊！第一次来图书馆吗？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "是的，第一次来图书馆。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "欢迎欢迎！这里是我们学校的图书馆，是我们学习和阅读的好地方。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "图书馆有什么好玩的？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "除了各种书籍资源外，还有电子资源、自习室和阅览区域，你可以在这里找到你需要的一切。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "图书馆开放时间是多久？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "我们图书馆每天从早上9点到晚上9点开放，周末也开放，但时间会有些不同。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "哇，好方便啊！我以后要经常来这里学习了。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "是啊，一起努力吧！如果有什么问题，可以问图书馆管理员哦。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+    ]
+}

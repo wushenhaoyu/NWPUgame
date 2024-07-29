@@ -1,0 +1,41 @@
+{
+    "name":"过马路的同学",
+    "uuid":1,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "过马路的同学",
+        "Text": "小心点车来了",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+
+    "dialog":[
+        [
+    {
+        "Name": "你",
+        "Text": "可以请问一下…………",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "过马路的同学",
+        "Text": "我很忙，我要先走了",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "你",
+        "Text": "同学…………",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "过马路的同学",
+        "Text": "祝你好运！",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    }
+]
+]
+}

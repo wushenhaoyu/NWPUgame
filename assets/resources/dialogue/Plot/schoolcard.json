@@ -1,0 +1,188 @@
+{
+    "name":"校园卡",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
+    "start":{
+        "Name": "",
+        "Text": "",
+        "Speaker": false,
+        "Img": ""
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": ["办一张？", "不想办"],
+            "plotjump": [1,2],
+            "dialog": [
+                {
+                    "Name": "学长",
+                    "Text": "你好同学，校园卡需要了解一下吗？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                
+                {
+                    "Name": "你",
+                    "Text": "这个校园卡是干什么用的啊？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "在校园内没有网络，使用手机流量手机流量1MB就要3分钱，",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "你如果花费100元办一张校园电话卡，",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "一个月60元即可享受20G的流量和30分钟的通话时长的套餐。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [3],
+            "dialog": [
+                {
+                    "Name": "学长",
+                    "Text": "同学，这是你办理的校园卡，请收好。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "有什么问题可以随时来找我。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "不好意思，我不需要校园卡。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [4],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "你办校园卡了吗？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "舍友",
+                    "Text": "为什么办校园卡？不是已经有校园网了吗？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "啊？但是校园卡不是更划算一些吗？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "没有吧？校园网才是更划算一点的选择吧，你应该是被骗了",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "额，是么？那怎么办？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "舍友",
+                    "Text": "去找你办卡的那个人帮你取消业务，说不定还来的急",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "行，我这就去看看",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "学长你好，我在你这里办理了一张校园卡，",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我现在觉得我不是很需要它，我能进行退款吗。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "不好意思，这个校园卡是无法退款的,",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "只能从下个月起取消套餐,这样下个月你就不用交钱了。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "那好吧，帮我取消后面的套餐。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        }
+    ],
+    "dialog":[
+      
+]
+}

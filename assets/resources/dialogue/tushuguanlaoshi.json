@@ -1,0 +1,161 @@
+{
+    "name":"图书馆老师",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "Plot",
+    "start":{
+        "Name": "",
+        "Text": "Hi！",
+        "Speaker": false,
+        "Img": ""
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": ["比赛……", "老师……"],
+            "plotjump": [1,3],
+            "dialog": [
+                {
+                    "Name": "郑同学",
+                    "Text": "你想知道什么？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 1,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": ["接受", "拒绝"],
+            "plotjump": [0,2],
+            "dialog": [
+                {
+                    "Name": "郑同学",
+                    "Text": "我最近参加了一个比赛，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "需要4人组队，现在还差一个人，一直找不到。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "你能加入我们队吗？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "完成该比赛能获得3学分。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 0,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "不好意思同学，我最近没有时间。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 1,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": ["接受","拒绝"],
+            "plotjump": [4,5],
+            "dialog": [
+                {
+                    "Name": "郑同学",
+                    "Text": "最近王老师经常找我干活，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "但我这几天比较忙，",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "你能帮帮我吗？",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "郑同学",
+                    "Text": "帮老师干活可能获得一些钱和学分。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [6],
+            "dialog": [
+                {
+                    "Name": "郑同学",
+                    "Text": "这是老师的qq，你加一下。",
+                    "Speaker": false,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "type": 0,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "不好意思同学，我最近没有时间。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "type": 1,
+            "name": "图书馆剧情",
+            "script": "Plot1_2",
+            "choice": ["比赛……"],
+            "plotjump": [1],
+            "dialog": [
+                {
+                    
+                }
+            ]
+        }
+    ],
+    "dialog":[   
+]
+}

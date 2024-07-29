@@ -1,0 +1,166 @@
+{
+    "name":"讲解的工作人员",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "讲解的工作人员",
+        "Text": "同学你好,有什么事？",
+        "Speaker": false,
+        "Img": "lihui/hangxiaotian"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["介绍何尊……", "没什么事情……"],
+            "plotjump": [2,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你想知道什么？",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "最近不少同学向我举报,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "有同学把内裤和袜子一起放公共洗衣机里洗,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "还有同学不冲厕所,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你可不要向他们学习。",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["看看宣传片","没什么事情……"],
+            "plotjump": [3,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你知道何尊吗？",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "何尊，何以中国之源，其上的铭文是“中国”的最早记载、“德”的最早记载",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "来看看我们的宣传片吧！！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "嗯......",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "我再去附近逛逛。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        }
+
+
+    ],
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "您好！这个雕塑是什么啊？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "这是何尊，是中国西周早期一个名叫何的西周宗室贵族所作的祭器。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "尊内底铸有铭文12行、122字铭文，其中“宅兹中国”为“中国”一词最早的文字记载，其中提到周武王在世时决定建都于洛邑，即“宅兹中国”。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "何尊铭文记述了周成王营建成周、举行祭祀、赏赐臣子的一系列活动。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "你",
+                "Text": "好厉害",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "你可以“询问”我，来观看相关宣传片。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            }
+        ]
+    ]
+}

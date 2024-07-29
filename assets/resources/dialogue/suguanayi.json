@@ -1,0 +1,166 @@
+{
+    "name":"宿管阿姨",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "宿管阿姨",
+        "Text": "同学你好,有什么事？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["关于宿舍……", "注意事项……","调试3……","调试4……"],
+            "plotjump": [1,2,3,4],
+            "dialog": [
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "你想知道什么？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "最近不少同学向我举报,",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "有同学把内裤和袜子一起放公共洗衣机里洗,",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "还有同学不冲厕所,",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "你可不要向他们学习。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["介绍西工大","结束"],
+            "plotjump": [3,4],
+            "dialog": [
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "你是新同学吗？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "西工大可以说的太多了！！",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                },
+                {
+                    "Name": "宿舍阿姨",
+                    "Text": "来看看我们的宣传片吧！！",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "嗯......",
+                    "Speaker": true,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "嗯，我会小心的。",
+                    "Speaker": true,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        }
+
+
+    ],
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "您好，阿姨！这个宿舍怎么样？",
+                "Speaker": true,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "宿舍管理员阿姨",
+                "Text": "这个宿舍条件还不错，每天都会有人打扫卫生，确保环境整洁。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "如果有什么问题需要解决，应该找谁呢？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "宿舍管理员阿姨",
+                "Text": "你可以直接来找我，或者去宿舍管理办公室，我们会尽力帮助你解决。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "好的，谢谢阿姨！",
+                "Speaker": true,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "宿舍管理员阿姨",
+                "Text": "不客气，有问题随时来找我就好。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+    ]
+}

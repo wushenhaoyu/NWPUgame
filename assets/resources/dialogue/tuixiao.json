@@ -1,0 +1,154 @@
+{
+    "name":"讲解的工作人员",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "tushuguan",
+    "start":{
+        "Name": "讲解的工作人员",
+        "Text": "报道非常的麻烦，我来帮你交材料吧！",
+        "Speaker": false,
+        "Img": "lihui/hangxiaotian"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["询问相关内容", "犹豫"],
+            "plotjump": [2,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "报道非常的麻烦，我来帮你交材料吧！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "最近不少同学向我举报,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "有同学把内裤和袜子一起放公共洗衣机里洗,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "还有同学不冲厕所,",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                },
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "你可不要向他们学习。",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["交出材料","离开"],
+            "plotjump": [3,4],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "可以将你的信息给我，我来帮忙哦！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "讲解的工作人员",
+                    "Text": "同学你泄露了自己的相关信息，这非常的危险！！",
+                    "Speaker": false,
+                    "Img": "lihui/hangxiaotian"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "我再去附近逛逛。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        }
+
+
+    ],
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "您好！西工大的图书馆是怎么样的？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "西工大长安校区位于西安长安区境内奏岭比北麓下。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "占地390亩，依山傍水，环境优美安静，按照现代化、数字化、山水园林式生态型的一流大学校园进行规划和建设，校园景观状美。",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "据说是：亚洲最大的水上图书馆哦！！",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "你",
+                "Text": "好厉害",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "欢迎来到西北工业大学",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            }
+        ]
+    ]
+}

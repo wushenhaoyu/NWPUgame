@@ -1,0 +1,58 @@
+{
+    "name": "同学",
+    "uuid": 4,
+    "isPlotNpc": true,
+    "mapName": "d100",
+    "start": {
+        "Name": "同学",
+        "Text": "嘿，你有没有觉得这门课太枯燥了？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "是啊，我也觉得。老师讲课的方式真的很乏味。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "而且每次上课都感觉时间过得好慢，真是煎熬。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "我也希望老师能多些互动，让课堂变得有趣一些。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "对啊，如果能有一些实践操作或者小组讨论就好了。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "或者老师能用一些案例来丰富课堂内容，那该多好啊。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "同学",
+                "Text": "希望老师能听到我们的心声，改变一下上课方式。",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "嗯，我们也可以尝试提出建议给老师，或许会有改变。",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            }
+        ]
+    ]
+}

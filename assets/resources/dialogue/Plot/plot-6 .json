@@ -1,0 +1,372 @@
+{
+    "name": "客服",
+    "chatData": [
+      {
+        "id": 0,
+        "type": 1,
+        "choice": ["这么严重，是不是真的呀？", "我没有进行过贷款啊？"],
+        "plotjump": [1,2],
+        "parent": null,
+        "chat": [
+          {
+            "type": 0,
+            "content": "请问是吕小晶同学吗？",
+            "Speaker": false
+                
+          }, 
+          {
+            "type": 0,
+            "content": "身份证:610525********5021。",
+            "Speaker": false
+                
+          }, 
+          {
+            "type": 0,
+            "content": "是的，我就是。",
+            "Speaker": true
+                
+          }, 
+          {
+            "type": 0,
+            "content": "我是支付宝客服，",
+            "Speaker": false
+                
+          }, 
+          {
+            "type": 0,
+            "content": "根据国家禁止校园贷款的规定，",
+            "Speaker": false
+                
+          }, 
+          {
+            "type": 0,
+            "content": "影响你毕业后的日常借贷、房贷和车贷。",
+            "Speaker": false
+              
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "type": 1,
+        "choice": ["添加好友"],
+        "plotjump": [4],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "是的，因为你还是学生，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "暂时不具备还款的能力，所以要清除你的借贷额度,",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "请加这个QQ，7794**79，我发一下相关材料给你。",
+            "Speaker": false
+        
+          },
+          {
+            "type": 0,
+            "content": "好吧，我现在加你。",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": 1,
+        "choice": ["添加好友"],
+        "plotjump": [4],
+        "parent": 0,
+        "chat": [
+          {
+            "type": 0,
+            "content": "我这边看到你开通了花呗账户，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "因为你还是学生，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "暂时不具备还款的能力，所以要清除你的借贷额度。",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "请加这个QQ，7794**79，我发一下相关材料给你。",
+            "Speaker": false
+
+          },
+          {
+            "type": 0,
+            "content": "好吧，我现在加你。",
+            "Speaker": true
+
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 4,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你并没有完全相信他说的话，你打算去警察局咨询一下。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "type": 1,
+        "choice": ["文件上面确实说不能校园贷了","太长了，我不想看","你这文件是真的吗？"],
+        "plotjump": [5,5,3],
+        "parent": 2,
+        "chat": [
+          {
+            "type": 0,
+            "content": "这是国家发的通知。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "type": 1,
+        "choice": ["我要怎么才能注销？","会不会有影响？"],
+        "plotjump": [7,6],
+        "parent": 4,
+        "chat": [
+          {
+            "type": 0,
+            "content": "这是我的工牌，很高兴为你服务。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 1,
+            "content": "lihui/female1",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "type": 1,
+        "choice": [],
+        "plotjump": [7],
+        "parent": 5,
+        "chat": [
+          {
+            "type": 0,
+            "content": "不会的，只会清空当前的额度。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "type": 1,
+        "choice": ["额，那这样我会不会产生利息呀？","给你们转账？","拒绝转账"],
+        "plotjump": [8,9,10],
+        "parent": 5,
+        "chat": [
+          {
+            "type": 0,
+            "content": "请发一下花贝的截图。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "lihui/female1",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "1.2万的额度，请把这个额度提现，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "然后向我们的账户做一次转账动作。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "type": 1,
+        "choice": [],
+        "plotjump": [11],
+        "parent": 7,
+        "chat": [
+          {
+            "type": 0,
+            "content": "当然不会，只是做了一次我们内部的转账。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "不会产生实际的费用。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 7,
+        "chat": [
+          {
+            "type": 0,
+            "content": "是的，这样系统才能识别已清空额度。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "type": 0,
+        "choice": [],
+        "plotjump": [11],
+        "parent": 7,
+        "chat": [
+          {
+            "type": 0,
+            "content": "要求转账的都是骗子，我才不会上当。",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "聪明的你识破了他的骗局，并没有向他转账。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "type": 1,
+        "choice": ["好的，我已经转过去了","好了，然后呢"],
+        "plotjump": [12,12],
+        "parent": 8,
+        "chat": [
+          {
+            "type": 0,
+            "content": "银行账号6217*************11。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "用户名李**。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "这是我们的安全账户。",
+            "Speaker": false
+            
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "type": 1,
+        "choice": [],
+        "plotjump": [13],
+        "parent": 11,
+        "chat": [
+          {
+            "type": 0,
+            "content": "好的，已经完成了，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "你的学生校园贷账号已注销，",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "毕业后需要的话，再申请开启哈。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "嗯嗯，太感谢你了。",
+            "Speaker": true
+            
+          },
+          {
+            "type": 0,
+            "content": "我有问题再找你。",
+            "Speaker": true
+            
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "type": 0,
+        "choice": [],
+        "plotjump": [0],
+        "parent": 12,
+        "chat": [
+          {
+            "type": 0,
+            "content": "你最终被骗了1.2万元。",
+            "Speaker": false
+            
+          },
+          {
+            "type": 0,
+            "content": "不明来电多谨慎，要求转账需注意。",
+            "Speaker": false
+            
+          }
+        ]
+      }
+    ]
+  }
+  

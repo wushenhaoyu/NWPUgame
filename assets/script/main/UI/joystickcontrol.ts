@@ -1,7 +1,11 @@
-import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, EventTouch, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics, TiledMap } from 'cc';
+import { _decorator, Component,v2, SystemEvent,PhysicsSystem2D, director, EventTouch,find, Vec2,Node, Sprite, Vec3,input, Input,AnimationComponent, RigidBody2D, UIOpacity,v3 ,ERaycast2DType,EPhysics2DDrawFlags,physics, TiledMap } from 'cc';
 const { ccclass, property } = _decorator;
-
-@ccclass
+import PlayerDataManager  from '../../data/PlayerDataManager';
+const playerDataManager = PlayerDataManager.getInstance();
+import GameDataManager  from '../../data/GameDataManager';
+const gameDataManager = GameDataManager.getInstance();
+import map  from '../map/map';
+@ccclass('Joystick')
 export class Joystick extends Component {
     @property({type:Node})
     player:Node = null;
@@ -11,13 +15,15 @@ export class Joystick extends Component {
 
     @property({ type: Node })
     handle: Node = null;
-
+    @property({ type: Node })
+    public dialogue: Node = null;
     @property({ type: Node })
     father: Node = null;
     @property({type:Node})
     button:Node = null;
     @property({type:TiledMap})
-    map:TiledMap = null;
+    Map:TiledMap = null;
+    MapScript:map = null;
     p = PhysicsSystem2D.instance
     private touchLocation: Vec2 = new Vec2();
     playerPosition:Vec3 = new Vec3();
@@ -30,10 +36,23 @@ export class Joystick extends Component {
     angle:number = 0; //表示人物朝向
     npc = null;
     npcPosition :Vec3[] = []
+    lv:Vec2 = new Vec2();
+    animationComponent:AnimationComponent = null;
+    speed:RigidBody2D = null;
     onLoad() {
+       
+    }
+    start() {
+        gameDataManager.joystick = this.node.getComponent(Joystick);
+        this.animationComponent = this.player.getComponent(AnimationComponent);
+        this.speed = this.player.getComponent(RigidBody2D);
+        this.MapScript = this.player.getParent().getParent().getComponent(map);
+      //  console.log(this.MapScript);
         // 监听触摸事件
        this.p.enable = true;
      //  this.p.debugDrawFlags = EPhysics2DDrawFlags.All;
+      // playerDataManager.joystick = this.node;
+        this.node.on('again',this.getPlayerAgain,this)
         this.father.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.father.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
         this.father.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
@@ -41,65 +60,74 @@ export class Joystick extends Component {
         this.width = this.background.getComponent(Sprite).spriteFrame.width / 2;
         this.position = this.node.getPosition();
         this.button.on(Node.EventType.TOUCH_START, this.hudong, this)
-     
-    }
-   start() {
-        
     }
     hudong() //检测是否附件有npc互动
     {
-        if(!this.npcPosition.length)
-        {
-            const npc = this.map.getObjectGroup('NPC').getObjects()
-        for(var i =0; i< npc.length; i++)
-        {
-           this.npcPosition.push(v3(npc[i].x,npc[i].y,0) ) 
-        }
-        }
-        const position = this.player.position
+        const npc = this.MapScript.npclist
 
-        for(var i =0; i< this.npcPosition.length; i++)
-        {
-            if(Math.pow(position.x -this.npcPosition[i].x,2)+Math.pow(position.y -this.npcPosition[i].y,2) < 20000)
-            {
-                this.player.emit('npc',i);
-                console.log('emit')
+        const npcList = this.MapScript.npclist;  
+        const playerPosition = this.player.position;  
+        let closestNpc = null;  
+        let minDistanceSquared = Infinity; // 初始化最小距离的平方为无穷大  
+
+        for (const npc of npcList) {  
+            const distanceSquared = Math.pow(playerPosition.x - npc.position.x, 2) + Math.pow(playerPosition.y - npc.position.y, 2);  
+            if (distanceSquared < minDistanceSquared && distanceSquared < 20000) {  
+                minDistanceSquared = distanceSquared;  
+                closestNpc = npc;  
+            }  
+        }
+        if (closestNpc) {  
+            // 如果找到了符合条件的NPC，则进行交互  
+            find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin', closestNpc.position);  
+            this.dialogue.emit('npc', closestNpc);  
+            this.MapScript.node.emit('talk', npcList.indexOf(closestNpc), this.calculateDirection(playerPosition, closestNpc.position));  
+            return
+        } else {  
+            // 如果没有找到符合条件的NPC，可以执行其他逻辑（可选）  
+            console.log('No NPC within 20000 units found.');  
+        }  
         
-            }
+            //老代码：list顺序找人聊天
+            // for(var i =0; i< npc.length; i++)
+            // {
+            //     const position = this.player.position
+            //     console.log(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2))
+            //     if(Math.pow(position.x -npc[i].position.x,2)+Math.pow(position.y -npc[i].position.y,2) < 20000)
+            // {
+            //     find('gameWorld/gameCanvas/Map/door/gameCamera').emit('begin',npc[i].position)
+            //     this.dialogue.emit('npc', npc[i]);
+            //     this.MapScript.node.emit('talk',i,this.calculateDirection(position, npc[i].position));
+            //     return;
+            // }
+            // }
+    }
+    calculateDirection(playerPosition, npcPosition) {
+        // 计算玩家相对于 NPC 的方向
+        const deltaX = playerPosition.x - npcPosition.x;
+        const deltaY = playerPosition.y - npcPosition.y;
+    
+        // 比较差值的绝对值
+        const absDeltaX = Math.abs(deltaX);
+        const absDeltaY = Math.abs(deltaY);
+    
+        // 根据差值的绝对值判断方向
+        if (absDeltaX > absDeltaY) {
+            // 水平方向
+            return deltaX > 0 ? 0 : 2; // 0：右，2：左
+        } else {
+            // 垂直方向
+            return deltaY > 0 ? 1 : 3; // 3：下，1：上
         }
-     /*   var x= 0;
-        var y = 0;
-        if(this.angle == 1 )
-        {
-            y = 400;
-        }
-        else if(this.angle == 2)
-        {
-            y = -400;
-        }
-        if(this.angle == 3 )
-        {
-            x = -400;
-        }
-        else if(this.angle == 4)
-        {
-            x = -400;
-        }
-        console.log(this.player)
-       const position = this.player.getPosition()
-       console.log(position)
-      let res =  this.p.raycast(position,v3(position.x + x, position.y +y,0),ERaycast2DType.All)
-        if(res)
-        {
-            console.log(res)
-            this.node.emit('dialogue');
-            if(res[0].collider.group == 8){
-                console.log("检测到npc")
-                this.node.emit('npc',res[0].collider.node );
-            }
-        }*/
+    }
+    
+    getPlayerAgain(event)
+    {
+        
+       this.player = event
     }
     onTouchStart(event: EventTouch) {
+    
         this.touchLocation = event.getLocation();
         const opacity = this.node.getComponent(UIOpacity)
         opacity.opacity = 255;
@@ -119,7 +147,6 @@ export class Joystick extends Component {
             this.handle.setPosition(newDirection.x,newDirection.y);
            this.getJoystickDirection()
         }
-     
         // 更新摇杆的朝向和速度，可以根据需要自定义逻辑
         // 这里可以根据操纵点的位置计算角色移动的方向和速度
         // 例如，根据操控点的位置计算角色移动的方向和速度
@@ -127,7 +154,8 @@ export class Joystick extends Component {
         // const moveSpeed = length / radius;
     }
     
-       // NONE: 0,
+       // d4p2RJhN1GOJNou5w69Nor
+       //NONE: 0,
       //  UP: 1,
        // DOWN: 2,
        // LEFT: 3,
@@ -163,19 +191,63 @@ if (angle > threshold && angle < 3 * threshold) {
    
 } else {
     this.JoystickDirection = 3; // 
-   
-   
 }
         
       }
 
       setState(an){
-        let animationComponent = this.player.getComponent(AnimationComponent);
+
              if(this.an == an ) return;
+             if(an == "")
+             {
+                switch(this.an)
+                {
+                    case "walk_up":
+                        this.an = "";
+                        this.animationComponent.play("stand_up");
+                        return;
+                    case "walk_down":
+                        this.an = "";
+                        this.animationComponent.play("stand_down");
+                        return;
+                    case "walk_left":
+                        this.an = "";
+                        this.animationComponent.play("stand_left");
+                        return;
+                    case "walk_right":
+                        this.an = "";
+                        this.animationComponent.play("stand_right");
+                        return;    
+                }
+             }
              this.an = an;
-            animationComponent.play(this.an);
+            this.animationComponent.play(this.an);
              
         }
+    changeState(c:number){
+        this.refind()
+        switch(c){
+            case 0:
+                this.animationComponent.play("walk_up");
+                break;
+            case 1:
+                this.animationComponent.play("walk_down");
+               
+                break;
+            case 2:
+                this.animationComponent.play("walk_left");
+                console.log('left')
+                
+                break;
+            case 3:
+                this.animationComponent.play("walk_right");
+                break;
+        }
+        this.scheduleOnce(()=>{
+            this.animationComponent.pause();
+        }, 0);
+
+    }
     
     onTouchEnd() {
         // 当触摸结束时，将操纵点重置到摇杆背景中央
@@ -187,50 +259,70 @@ if (angle > threshold && angle < 3 * threshold) {
 
     
     update(dt: number) {
-       let an = ""
-       const lv = this.player.getComponent(RigidBody2D).linearVelocity;
-
+        if(this.player.name != ""){
+        let an = ""
+        this.lv = this.player.getComponent(RigidBody2D).linearVelocity;
+        if(this.lv){
         switch(this.JoystickDirection)
         {
             case 0:
-                lv.x =0;
-                lv.y =0;
+                this.lv.x =0;
+                this.lv.y =0;
                 break;
             case 1:
                 /*this.player.getPosition(this.playerPosition);
                 this.playerPosition.y += 200 * dt;
                 this.player.setPosition(this.playerPosition);*/
-                lv.x = 0;
-                lv.y = 400 * dt;
+                this.lv.x = 0;
+                this.lv.y = 300 * dt;
                 this.angle = 1;
-                an = "1_up"
+                an = "walk_up"
                 break;
             case 2:
-                lv.x = 0;
-                lv.y = -400 * dt;
-                an = "1_down"
+                this.lv.x = 0;
+                this.lv.y = -300 * dt;
+                an = "walk_down"
                 this.angle = 2;
                 break;
             case 3:
-                lv.y = 0;
-                lv.x = -400 * dt;
-                an = "1_left"
+                this.lv.y = 0;
+                this.lv.x = -300 * dt;
+                an = "walk_left"
                 this.angle = 3;
                 break;
             case 4:
-                lv.y = 0;
-                lv.x = 400 * dt;
-                an = "1_right"
+                this.lv.y = 0;
+                this.lv.x = 300 * dt;
+                an = "walk_right"
                 this.angle = 4;
                 break;
         }
-        this.player.getComponent(RigidBody2D).linearVelocity = lv
+        this.speed.linearVelocity = this.lv
+    }
 
-        if(an)
-        {
+        
             this.setState(an)
-        }
+        
+        
 
     }
+    else{
+        this.refind();
+    }
+}
+refind()
+{
+    const player = find('gameWorld/gameCanvas/Map/door/player');
+        const Map = find('gameWorld/gameCanvas/Map/door')
+        if(Map) this.Map = Map.getComponent(TiledMap);
+        if(player) 
+        {
+            this.player = player
+            this.animationComponent = this.player.getComponent(AnimationComponent);
+            this.speed = this.player.getComponent(RigidBody2D);
+            this.MapScript = this.player.getParent().getParent().getComponent(map);
+        }
+}
+
 
 }

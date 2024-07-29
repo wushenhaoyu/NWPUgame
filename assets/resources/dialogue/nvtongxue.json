@@ -1,0 +1,47 @@
+{
+    "name":"女同学",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "d100",
+    "start":{
+        "Name": "迷茫的女同学",
+        "Text": "同学你好啊，呃，问问你图书馆是怎么去的？",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    
+    "dialog":[
+        [
+            {
+                "Name": "迷茫的女同学",
+                "Text": "同学你好，呃，请问图书馆是怎么去的？",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "Whatsup? walk to the east",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "I want your WeChat",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "I see",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "迷茫的女同学",
+                "Text": "It is nice to meet you",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+]
+}

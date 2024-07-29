@@ -1,0 +1,41 @@
+{
+    "name":"拍照的同学",
+    "uuid":1,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "拍照的同学",
+        "Text": "同学让一让，不要挡住我的照相机",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+
+    "dialog":[
+        [
+    {
+        "Name": "你",
+        "Text": "抱歉抱歉，不好意思",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "拍照的同学",
+        "Text": "这里这美，一定可以拍出好照片",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "你",
+        "Text": "可以让我也看看吗？",
+        "Speaker": true,
+        "Img": "lihui/female1"
+    },
+    {
+        "Name": "拍照的同学",
+        "Text": "嗯，我拍完之后，一定给你也欣赏一下。",
+        "Speaker": false,
+        "Img": "lihui/female1"
+    }
+]
+]
+}

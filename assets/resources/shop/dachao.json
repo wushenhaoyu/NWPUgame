@@ -1,0 +1,104 @@
+[
+[
+  {
+      "type": "food",
+      "name": "bread"
+  },
+  {
+      "type": "food",
+      "name": "pizza"
+  },
+  {
+      "type": "food",
+      "name": "burger"
+  },
+  {
+      "type": "food",
+      "name": "cheesecake"
+  },
+  {
+      "type": "food",
+      "name": "chocolate"
+  },
+  {
+      "type": "food",
+      "name": "cookies"
+  },
+  {
+      "type": "food",
+      "name": "dumplings"
+  },
+  {
+      "type": "food",
+      "name": "eggtart"
+  },
+  {
+      "type": "food",
+      "name": "frenchfries"
+  },
+  {
+      "type": "food",
+      "name": "giantgummybear"
+  },
+  {
+      "type": "food",
+      "name": "hotdog"
+  },
+  {
+      "type": "food",
+      "name": "icecream"
+  },
+  {
+      "type": "food",
+      "name": "jelly"
+  },
+  {
+      "type": "food",
+      "name": "meatball"
+  },
+  {
+      "type": "food",
+      "name": "popcorn"
+  },
+  {
+      "type": "food",
+      "name": "roastedchicken"
+  },
+  {
+      "type": "food",
+      "name": "sandwich"
+  },
+  {
+      "type": "food",
+      "name": "spaghetti"
+  },
+  {
+      "type": "food",
+      "name": "waffle"
+  },
+  {
+      "type": "food",
+      "name": "watermelon"
+  },
+  {
+      "type": "food",
+      "name": "snack1"
+  },
+  {
+      "type": "food",
+      "name": "snack2"
+  },
+  {
+      "type": "food",
+      "name": "green_apple"
+  },
+  {
+      "type": "food",
+      "name": "red_apple"
+  },
+  {
+      "type": "food",
+      "name": "banana"
+  }
+]
+]

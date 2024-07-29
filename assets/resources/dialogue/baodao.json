@@ -1,0 +1,43 @@
+{
+    "name":"讲解的工作人员",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "tushuguan",
+    "start":{
+        "Name": "讲解的工作人员",
+        "Text": "同学你好,有什么事？",
+        "Speaker": false,
+        "Img": "lihui/hangxiaotian"
+    },
+    "plot":[
+
+    ],
+    "dialog": [
+        [
+            {
+                "Name": "你",
+                "Text": "请问是在这里报道吗？",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "是在这里报道的！",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "你",
+                "Text": "谢谢老师",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "欢迎来到西北工业大学，你可以自由在校园逛逛了",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            }
+        ]
+    ]
+}

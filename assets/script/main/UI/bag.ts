@@ -6,6 +6,7 @@ export class bag extends Component {
     @property({type:Node})
     public back:Node = null;
     start() {
+        
         this.back.on(NodeEventType.TOUCH_END,this.bagTouchEnd,this)
 
     }

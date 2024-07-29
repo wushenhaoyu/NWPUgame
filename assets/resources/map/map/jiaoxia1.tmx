@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="93" height="95" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="42">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="93" height="95" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="68">
  <tileset firstgid="1" name="16_Office_32x32" tilewidth="16" tileheight="16" tilecount="12160" columns="64">
   <image source="damen/16_Office_32x32.png" width="1024" height="3040"/>
  </tileset>
@@ -240,7 +240,7 @@
   <object id="10" x="919.333" y="1350" width="565.667" height="6"/>
   <object id="11" x="918" y="915" width="6" height="425"/>
   <object id="12" x="931.333" y="944.667" width="472.667" height="6.66667"/>
-  <object id="14" x="1376" y="434.667" width="4.66667" height="507.333"/>
+  <object id="14" x="1364.67" y="434.667" width="16" height="507.333"/>
   <object id="15" x="227.333" y="372" width="923.333" height="8"/>
   <object id="17" x="1030.67" y="233.333" width="32.6667" height="21.3333"/>
   <object id="22" x="214.667" y="-1.33333" width="5.33333" height="28.6667"/>
@@ -253,6 +253,9 @@
   <object id="32" x="892" y="1354.67" width="25.3333" height="17.3333"/>
   <object id="33" x="181.333" y="988" width="32" height="18.6667"/>
   <object id="34" x="682.667" y="382.667" width="22.6667" height="14.6667"/>
+  <object id="42" x="1472.67" y="-0.999833" width="16" height="1340"/>
+  <object id="43" x="-4.27289" y="2.66666" width="1489.27" height="6.66667"/>
+  <object id="44" x="1.66667e-06" y="-2.6665" width="5.33333" height="1527.33"/>
  </objectgroup>
  <layer id="3" name="图块层 3" width="93" height="95">
   <data encoding="csv">
@@ -370,6 +373,144 @@
    <properties>
     <property name="map" value="jiaoxia"/>
     <property name="name" value="jiaoxia1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="NPC">
+  <object id="52" x="1177.58" y="741.582" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan1"/>
+    <property name="direction" value="1"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="53" x="1235.58" y="514.252" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan2"/>
+    <property name="direction" value="2"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="54" x="1278.58" y="682.252" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="3"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="55" x="1110.92" y="627.252" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="4"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="56" x="417.58" y="715.582" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan1"/>
+    <property name="direction" value="1"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="57" x="420.913" y="469.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan2"/>
+    <property name="direction" value="2"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="58" x="595.913" y="577.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="3"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="59" x="296.253" y="582.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="4"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="60" x="117.58" y="511.582" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan1"/>
+    <property name="direction" value="1"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="61" x="180.913" y="61.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan2"/>
+    <property name="direction" value="2"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="62" x="223.913" y="210.918" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="3"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="63" x="97.5867" y="266.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="4"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="64" x="1222.91" y="256.915" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan1"/>
+    <property name="direction" value="1"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="65" x="1252.91" y="105.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="canguan2"/>
+    <property name="direction" value="2"/>
+    <property name="model" value="lurennv"/>
+    <property name="move" value="0"/>
+    <property name="name" value="参观的同学"/>
+   </properties>
+  </object>
+  <object id="66" x="1323.91" y="197.585" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="3"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
+   </properties>
+  </object>
+  <object id="67" x="1110.92" y="111.918" width="21.1667" height="20.1667">
+   <properties>
+    <property name="dialogue" value="bingpai2"/>
+    <property name="direction" value="4"/>
+    <property name="model" value="lurennan"/>
+    <property name="name" value="同学"/>
    </properties>
   </object>
  </objectgroup>

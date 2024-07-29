@@ -1,0 +1,331 @@
+Date : 2024-05-16 21:10:46
+Directory : d:\CocoCode\NWPUgame-main
+Total : 230 files,  89335 codes, 963 comments, 2756 blanks, all 93054 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| XML                |         24 |     73,134 |          0 |         24 |     73,158 |
+| TypeScript         |        125 |      9,214 |        916 |      2,473 |     12,603 |
+| JSON               |         64 |      6,867 |          0 |        219 |      7,086 |
+| TypeScript JSX     |         13 |         52 |          0 |         13 |         65 |
+| Properties         |          1 |         23 |         45 |         18 |         86 |
+| HTML               |          1 |         23 |          0 |          3 |         26 |
+| gcc-md             |          1 |         15 |          0 |          4 |         19 |
+| JSON with Comments |          1 |          7 |          2 |          2 |         11 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                            |        230 |     89,335 |        963 |      2,756 |     93,054 |
+| . (Files)                                                                                    |          5 |         75 |         47 |         28 |        150 |
+| .creator                                                                                     |          1 |          5 |          0 |          1 |          6 |
+| assets                                                                                       |        216 |     88,899 |        916 |      2,719 |     92,534 |
+| assets\resources                                                                             |         93 |     79,743 |         27 |        270 |     80,040 |
+| assets\resources\dialogue                                                                    |         43 |      5,927 |          0 |        195 |      6,122 |
+| assets\resources\dialogue (Files)                                                            |         19 |      1,306 |          0 |         18 |      1,324 |
+| assets\resources\dialogue\Phone                                                              |          3 |      1,224 |          0 |         62 |      1,286 |
+| assets\resources\dialogue\Plot                                                               |         20 |      3,371 |          0 |        114 |      3,485 |
+| assets\resources\dialogue\test                                                               |          1 |         26 |          0 |          1 |         27 |
+| assets\resources\event                                                                       |          5 |        425 |          0 |          8 |        433 |
+| assets\resources\event (Files)                                                               |          3 |         15 |          0 |          1 |         16 |
+| assets\resources\event\item                                                                  |          2 |        410 |          0 |          7 |        417 |
+| assets\resources\light                                                                       |          2 |         58 |         27 |         24 |        109 |
+| assets\resources\light\light                                                                 |          2 |         58 |         27 |         24 |        109 |
+| assets\resources\map                                                                         |         37 |     73,186 |          0 |         37 |     73,223 |
+| assets\resources\map\map                                                                     |         37 |     73,186 |          0 |         37 |     73,223 |
+| assets\resources\map\map (Files)                                                             |         25 |     73,138 |          0 |         25 |     73,163 |
+| assets\resources\map\map\damen                                                               |         12 |         48 |          0 |         12 |         60 |
+| assets\resources\phone                                                                       |          3 |         24 |          0 |          0 |         24 |
+| assets\resources\phone\ad                                                                    |          3 |         24 |          0 |          0 |         24 |
+| assets\resources\phone\ad\json                                                               |          3 |         24 |          0 |          0 |         24 |
+| assets\resources\save                                                                        |          2 |         19 |          0 |          5 |         24 |
+| assets\resources\shop                                                                        |          1 |        104 |          0 |          1 |        105 |
+| assets\script                                                                                |        123 |      9,156 |        889 |      2,449 |     12,494 |
+| assets\script\data                                                                           |          4 |        705 |         43 |        130 |        878 |
+| assets\script\home                                                                           |          1 |         41 |          0 |         20 |         61 |
+| assets\script\loading                                                                        |          1 |         72 |         15 |         17 |        104 |
+| assets\script\login                                                                          |          2 |         98 |          1 |         17 |        116 |
+| assets\script\login (Files)                                                                  |          1 |         24 |          0 |          5 |         29 |
+| assets\script\login\frist                                                                    |          1 |         74 |          1 |         12 |         87 |
+| assets\script\main                                                                           |         66 |      4,475 |        341 |      1,229 |      6,045 |
+| assets\script\main\NPC                                                                       |         25 |        786 |         55 |        396 |      1,237 |
+| assets\script\main\NPC\Plot                                                                  |          6 |        252 |         53 |         83 |        388 |
+| assets\script\main\NPC\aoxiangxueshengzhongxin                                               |          1 |         26 |          0 |         14 |         40 |
+| assets\script\main\NPC\d100                                                                  |          2 |         57 |          0 |         26 |         83 |
+| assets\script\main\NPC\dachao                                                                |          1 |         41 |          0 |         20 |         61 |
+| assets\script\main\NPC\dongmen                                                               |         12 |        321 |          1 |        199 |        521 |
+| assets\script\main\NPC\sushe                                                                 |          1 |         44 |          1 |         23 |         68 |
+| assets\script\main\NPC\tushuguan                                                             |          2 |         45 |          0 |         31 |         76 |
+| assets\script\main\UI                                                                        |         11 |        795 |         54 |        212 |      1,061 |
+| assets\script\main\dialogue                                                                  |          1 |        245 |         23 |         96 |        364 |
+| assets\script\main\event                                                                     |          4 |        156 |          9 |         46 |        211 |
+| assets\script\main\game                                                                      |         10 |      1,088 |         59 |        188 |      1,335 |
+| assets\script\main\map                                                                       |          4 |        801 |        119 |        121 |      1,041 |
+| assets\script\main\message                                                                   |          2 |         40 |         12 |         14 |         66 |
+| assets\script\main\res                                                                       |          9 |        564 |         10 |        156 |        730 |
+| assets\script\minigame                                                                       |         48 |      3,736 |        489 |      1,017 |      5,242 |
+| assets\script\minigame\2048                                                                  |         11 |      1,171 |        134 |        247 |      1,552 |
+| assets\script\minigame\2048 (Files)                                                          |          2 |        150 |          0 |         28 |        178 |
+| assets\script\minigame\2048\framework                                                        |          6 |        524 |        129 |        143 |        796 |
+| assets\script\minigame\2048\framework\event                                                  |          3 |        145 |         92 |         76 |        313 |
+| assets\script\minigame\2048\framework\log                                                    |          1 |        129 |         10 |         29 |        168 |
+| assets\script\minigame\2048\framework\pool                                                   |          1 |         47 |          0 |         12 |         59 |
+| assets\script\minigame\2048\framework\utils                                                  |          1 |        203 |         27 |         26 |        256 |
+| assets\script\minigame\2048\grid                                                             |          1 |        375 |          5 |         40 |        420 |
+| assets\script\minigame\2048\input                                                            |          1 |         75 |          0 |         19 |         94 |
+| assets\script\minigame\2048\square                                                           |          1 |         47 |          0 |         17 |         64 |
+| assets\script\minigame\bird                                                                  |          8 |        661 |         54 |        130 |        845 |
+| assets\script\minigame\book                                                                  |          6 |        262 |         34 |        154 |        450 |
+| assets\script\minigame\daka                                                                  |          2 |        410 |         13 |         38 |        461 |
+| assets\script\minigame\minigame2                                                             |          5 |        167 |         22 |         91 |        280 |
+| assets\script\minigame\shuadan                                                               |          6 |        362 |          9 |        187 |        558 |
+| assets\script\minigame\start                                                                 |          6 |        390 |         85 |        107 |        582 |
+| assets\script\minigame\watermelon                                                            |          4 |        313 |        138 |         63 |        514 |
+| assets\script\minigame\watermelon\scripts                                                    |          4 |        313 |        138 |         63 |        514 |
+| assets\script\music                                                                          |          1 |         29 |          0 |         19 |         48 |
+| build-templates                                                                              |          1 |          3 |          0 |          1 |          4 |
+| settings                                                                                     |          7 |        353 |          0 |          7 |        360 |
+| settings\v2                                                                                  |          7 |        353 |          0 |          7 |        360 |
+| settings\v2\packages                                                                         |          7 |        353 |          0 |          7 |        360 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                     | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\CocoCode\NWPUgame-main\.creator\default-meta.json                                         | JSON               |          5 |          0 |          1 |          6 |
+| d:\CocoCode\NWPUgame-main\README.md                                                          | gcc-md             |         15 |          0 |          4 |         19 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Phone\kuaidi.json                        | JSON               |        412 |          0 |         45 |        457 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Phone\shuadan.json                       | JSON               |        621 |          0 |          0 |        621 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Phone\xinyongka.json                     | JSON               |        191 |          0 |         17 |        208 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\Plot1_1.json                        | JSON               |        114 |          0 |          1 |        115 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\credit.json                         | JSON               |        204 |          0 |          1 |        205 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\nvtongxue-dafeiji.json              | JSON               |         53 |          0 |          0 |         53 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\nvtongxue-hangxiaotian.json         | JSON               |         53 |          0 |          0 |         53 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\nvtongxue-jianshenfang.json         | JSON               |         47 |          0 |          0 |         47 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\nvtongxue-kuaidi.json               | JSON               |         47 |          0 |          0 |         47 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\nvtongxue-xingtianyuancaochang.json | JSON               |        120 |          0 |          2 |        122 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-11- 1.json                     | JSON               |        152 |          0 |          0 |        152 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-11-1.json                      | JSON               |        121 |          0 |         15 |        136 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-11-2.json                      | JSON               |        232 |          0 |         24 |        256 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-4.json                         | JSON               |        504 |          0 |          0 |        504 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-5.json                         | JSON               |        156 |          0 |          1 |        157 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-6 .json                        | JSON               |        331 |          0 |         41 |        372 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-6-1.json                       | JSON               |        142 |          0 |          0 |        142 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-6-2 .json                      | JSON               |        229 |          0 |         26 |        255 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-8.json                         | JSON               |        116 |          0 |          0 |        116 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\plot-9.json                         | JSON               |        236 |          0 |          0 |        236 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\police.json                         | JSON               |        152 |          0 |          0 |        152 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\schoolcard.json                     | JSON               |        186 |          0 |          2 |        188 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\Plot\water.json                          | JSON               |        176 |          0 |          1 |        177 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\bingpai1.json                            | JSON               |         28 |          0 |          1 |         29 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\bingpai2.json                            | JSON               |         28 |          0 |          1 |         29 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\canguan1.json                            | JSON               |         34 |          0 |          1 |         35 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\canguan2.json                            | JSON               |         34 |          0 |          1 |         35 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\canguan3.json                            | JSON               |         40 |          0 |          1 |         41 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\canguan4.json                            | JSON               |         34 |          0 |          1 |         35 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\guomalu.json                             | JSON               |         40 |          0 |          1 |         41 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\jiangjie.json                            | JSON               |         46 |          0 |          1 |         47 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\menwei.json                              | JSON               |         40 |          0 |          1 |         41 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\nvtongxue.json                           | JSON               |         46 |          0 |          1 |         47 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\paizhao.json                             | JSON               |         40 |          0 |          1 |         41 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\shiyou.json                              | JSON               |        128 |          0 |          0 |        128 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\student1.json                            | JSON               |         64 |          0 |          1 |         65 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\student2.json                            | JSON               |         64 |          0 |          1 |         65 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\student3.json                            | JSON               |         58 |          0 |          1 |         59 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\suguanayi.json                           | JSON               |        164 |          0 |          2 |        166 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\test\test.json                           | JSON               |         26 |          0 |          1 |         27 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\tushuguanlaoshi.json                     | JSON               |        160 |          0 |          1 |        161 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\xiaoshouyuan.json                        | JSON               |        114 |          0 |          0 |        114 |
+| d:\CocoCode\NWPUgame-main\assets\resources\dialogue\xiaoyuanka.json                          | JSON               |        144 |          0 |          1 |        145 |
+| d:\CocoCode\NWPUgame-main\assets\resources\event\item\food.json                              | JSON               |        322 |          0 |          2 |        324 |
+| d:\CocoCode\NWPUgame-main\assets\resources\event\item\misc.json                              | JSON               |         88 |          0 |          5 |         93 |
+| d:\CocoCode\NWPUgame-main\assets\resources\event\read.json                                   | JSON               |          5 |          0 |          0 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\event\run.json                                    | JSON               |          5 |          0 |          0 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\event\sleep.json                                  | JSON               |          5 |          0 |          1 |          6 |
+| d:\CocoCode\NWPUgame-main\assets\resources\light\light\light.ts                              | TypeScript         |         45 |         27 |         20 |         92 |
+| d:\CocoCode\NWPUgame-main\assets\resources\light\light\light_body.ts                         | TypeScript         |         13 |          0 |          4 |         17 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\Tileset_69_MV.tsx                         | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\aoxiangxueshengzhongxin.tmx               | XML                |        864 |          0 |          1 |        865 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\caochang.tmx                              | XML                |      2,498 |          0 |          1 |      2,499 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\d100.tmx                                  | XML                |      7,332 |          0 |          1 |      7,333 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\dachao.tmx                                | XML                |        289 |          0 |          1 |        290 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\dachaomenkou.tmx                          | XML                |        280 |          0 |          1 |        281 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\10_Vehicles_32x32.tsx               | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\12_Kitchen_48x48.tsx                | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\16_Office_32x32.tsx                 | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\18_Jail_48x48.tsx                   | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\19_Hospital_48x48.tsx               | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\22_Museum_48x48.tsx                 | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_10_MV.tsx                   | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_1_MV.tsx                    | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_20_MV.tsx                   | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_25_MV.tsx                   | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_48x48_17.tsx                | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\damen\Tileset_8_MV.tsx                    | TypeScript JSX     |          4 |          0 |          1 |          5 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\dongmen.tmx                               | XML                |      4,124 |          0 |          1 |      4,125 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\feiji.tmx                                 | XML                |      9,738 |          0 |          1 |      9,739 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaodongc.tmx                             | XML                |      1,600 |          0 |          1 |      1,601 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaodongc1.tmx                            | XML                |        629 |          0 |          1 |        630 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaodongd.tmx                             | XML                |        619 |          0 |          1 |        620 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaoxi.tmx                                | XML                |        846 |          0 |          1 |        847 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaoxia.tmx                               | XML                |        811 |          0 |          1 |        812 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaoxia1.tmx                              | XML                |        396 |          0 |          1 |        397 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\jiaoxid.tmx                               | XML                |     12,495 |          0 |          1 |     12,496 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\qizhenhu.tmx                              | XML                |        350 |          0 |          1 |        351 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\shuzihuadalou.tmx                         | XML                |      9,551 |          0 |          1 |      9,552 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\sushe.tmx                                 | XML                |        234 |          0 |          1 |        235 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\tushuguan.tmx                             | XML                |      7,036 |          0 |          1 |      7,037 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\xintianyuanbd.tmx                         | XML                |      1,406 |          0 |          1 |      1,407 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\yinghe.tmx                                | XML                |        411 |          0 |          1 |        412 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\yinhelu.tmx                               | XML                |      9,639 |          0 |          1 |      9,640 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\youyongguan.tmx                           | XML                |      1,354 |          0 |          1 |      1,355 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\yuntianyuancanting.tmx                    | XML                |        338 |          0 |          1 |        339 |
+| d:\CocoCode\NWPUgame-main\assets\resources\map\map\yuntianyuansushe.tmx                      | XML                |        294 |          0 |          1 |        295 |
+| d:\CocoCode\NWPUgame-main\assets\resources\phone\ad\json\shuadan.json                        | JSON               |          8 |          0 |          0 |          8 |
+| d:\CocoCode\NWPUgame-main\assets\resources\phone\ad\json\xinyongka.json                      | JSON               |          8 |          0 |          0 |          8 |
+| d:\CocoCode\NWPUgame-main\assets\resources\phone\ad\json\zhiyuan.json                        | JSON               |          8 |          0 |          0 |          8 |
+| d:\CocoCode\NWPUgame-main\assets\resources\save\bag.json                                     | JSON               |         12 |          0 |          4 |         16 |
+| d:\CocoCode\NWPUgame-main\assets\resources\save\player.json                                  | JSON               |          7 |          0 |          1 |          8 |
+| d:\CocoCode\NWPUgame-main\assets\resources\shop\dachao.json                                  | JSON               |        104 |          0 |          1 |        105 |
+| d:\CocoCode\NWPUgame-main\assets\script\data\BagDataManager.ts                               | TypeScript         |        203 |         12 |         63 |        278 |
+| d:\CocoCode\NWPUgame-main\assets\script\data\GameDataManager.ts                              | TypeScript         |        157 |          6 |         29 |        192 |
+| d:\CocoCode\NWPUgame-main\assets\script\data\PlayerDataManager.ts                            | TypeScript         |         73 |         24 |          9 |        106 |
+| d:\CocoCode\NWPUgame-main\assets\script\data\PlotDataManager.ts                              | TypeScript         |        272 |          1 |         29 |        302 |
+| d:\CocoCode\NWPUgame-main\assets\script\home\home.ts                                         | TypeScript         |         41 |          0 |         20 |         61 |
+| d:\CocoCode\NWPUgame-main\assets\script\loading\loading.ts                                   | TypeScript         |         72 |         15 |         17 |        104 |
+| d:\CocoCode\NWPUgame-main\assets\script\login\frist\frist.ts                                 | TypeScript         |         74 |          1 |         12 |         87 |
+| d:\CocoCode\NWPUgame-main\assets\script\login\login.ts                                       | TypeScript         |         24 |          0 |          5 |         29 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\Plot1_1.ts                             | TypeScript         |         49 |         26 |          8 |         83 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\credit.ts                              | TypeScript         |         47 |          0 |         15 |         62 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\police.ts                              | TypeScript         |         41 |         27 |         16 |         84 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\schoolcard.ts                          | TypeScript         |         51 |          0 |         14 |         65 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\shuadan.ts                             | TypeScript         |         32 |          0 |         13 |         45 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\Plot\water.ts                               | TypeScript         |         32 |          0 |         17 |         49 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\aoxiangxueshengzhongxin\xiaoyuanka.ts       | TypeScript         |         26 |          0 |         14 |         40 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\d100\nvtongxue.ts                           | TypeScript         |         26 |          0 |         15 |         41 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\d100\student3.ts                            | TypeScript         |         31 |          0 |         11 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dachao\xiaoshouyuan.ts                      | TypeScript         |         41 |          0 |         20 |         61 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\bingpai1.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\bingpai2.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\canguan1.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\canguan2.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\canguan3.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\canguan4.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\guomalu.ts                          | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\jiangjie.ts                         | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\menwei.ts                           | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\paizhao.ts                          | TypeScript         |         26 |          0 |         16 |         42 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\student1.ts                         | TypeScript         |         26 |          0 |         18 |         44 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\dongmen\suguanayi.ts                        | TypeScript         |         35 |          1 |         21 |         57 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\sushe\shiyou.ts                             | TypeScript         |         44 |          1 |         23 |         68 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\tushuguan\student2.ts                       | TypeScript         |         12 |          0 |          8 |         20 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\NPC\tushuguan\tushuguanlaoshi.ts                | TypeScript         |         33 |          0 |         23 |         56 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\UI.ts                                        | TypeScript         |        180 |          0 |         25 |        205 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\bag.ts                                       | TypeScript         |         17 |          0 |          7 |         24 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\hudong.ts                                    | TypeScript         |         20 |          1 |          6 |         27 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\img.ts                                       | TypeScript         |         17 |          0 |          6 |         23 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\joystickcontrol.ts                           | TypeScript         |        241 |         43 |         45 |        329 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\mapwindow.ts                                 | TypeScript         |         38 |          0 |          6 |         44 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\phone.ts                                     | TypeScript         |         16 |          0 |          5 |         21 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\phoneview.ts                                 | TypeScript         |        138 |          6 |         43 |        187 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\player.ts                                    | TypeScript         |         46 |          0 |          7 |         53 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\setting.ts                                   | TypeScript         |         73 |          4 |         55 |        132 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\UI\shop.ts                                      | TypeScript         |          9 |          0 |          7 |         16 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\dialogue\text.ts                                | TypeScript         |        245 |         23 |         96 |        364 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\event\Event_Read.ts                             | TypeScript         |         43 |          4 |         12 |         59 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\event\Event_Run.ts                              | TypeScript         |         42 |          3 |         14 |         59 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\event\Event_Sleep.ts                            | TypeScript         |         40 |          2 |         13 |         55 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\event\eventWindow.ts                            | TypeScript         |         31 |          0 |          7 |         38 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\BagDataControl.ts                          | TypeScript         |        137 |          3 |         23 |        163 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\ChatGPTControl.ts                          | TypeScript         |         21 |          0 |          9 |         30 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\PlayerDataControl.ts                       | TypeScript         |         22 |          0 |          5 |         27 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\PlotDataControl.ts                         | TypeScript         |        219 |         37 |         31 |        287 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\TimeDataControl.ts                         | TypeScript         |         19 |          0 |          5 |         24 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\VideoDataControl.ts                        | TypeScript         |         39 |          0 |          5 |         44 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\advertiseControl.ts                        | TypeScript         |         93 |          7 |         11 |        111 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\game.ts                                    | TypeScript         |         14 |          0 |          6 |         20 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\messageControl.ts                          | TypeScript         |        320 |          4 |         42 |        366 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\game\shopDataControl.ts                         | TypeScript         |        204 |          8 |         51 |        263 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\map\camera.ts                                   | TypeScript         |        174 |         20 |         20 |        214 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\map\map copy.ts                                 | TypeScript         |        297 |         51 |         46 |        394 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\map\map.ts                                      | TypeScript         |        300 |         48 |         47 |        395 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\map\mapdata.ts                                  | TypeScript         |         30 |          0 |          8 |         38 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\message\message_kuaidi.ts                       | TypeScript         |         25 |          1 |          7 |         33 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\message\message_xinyongka.ts                    | TypeScript         |         15 |         11 |          7 |         33 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\advertisement.ts                            | TypeScript         |         62 |          0 |          5 |         67 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\friend.ts                                   | TypeScript         |         27 |          0 |          8 |         35 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\message-text.ts                             | TypeScript         |         25 |          0 |          6 |         31 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\message_picture.ts                          | TypeScript         |         26 |          0 |          7 |         33 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\npc.ts                                      | TypeScript         |        159 |          3 |         71 |        233 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\npc1.ts                                     | TypeScript         |        107 |          6 |         20 |        133 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\npc2.ts                                     | TypeScript         |         30 |          1 |          6 |         37 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\npc_init.ts                                 | TypeScript         |         62 |          0 |         17 |         79 |
+| d:\CocoCode\NWPUgame-main\assets\script\main\res\shopItem.ts                                 | TypeScript         |         66 |          0 |         16 |         82 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\constant.ts                            | TypeScript         |         63 |          0 |          5 |         68 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\event\event-dispatcher.ts    | TypeScript         |         48 |         14 |         43 |        105 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\event\event.ts               | TypeScript         |         64 |         67 |         19 |        150 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\event\generic-event.ts       | TypeScript         |         33 |         11 |         14 |         58 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\log\log.ts                   | TypeScript         |        129 |         10 |         29 |        168 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\pool\pool-manager.ts         | TypeScript         |         47 |          0 |         12 |         59 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\framework\utils\utils.ts               | TypeScript         |        203 |         27 |         26 |        256 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\game-manager.ts                        | TypeScript         |         87 |          0 |         23 |        110 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\grid\grid.ts                           | TypeScript         |        375 |          5 |         40 |        420 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\input\input-manager.ts                 | TypeScript         |         75 |          0 |         19 |         94 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\2048\square\square.ts                       | TypeScript         |         47 |          0 |         17 |         64 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\AudioController.ts                     | TypeScript         |         50 |          1 |         14 |         65 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\Bird.ts                                | TypeScript         |        161 |         33 |         24 |        218 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\Game.ts                                | TypeScript         |        118 |          7 |         29 |        154 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\Ground.ts                              | TypeScript         |         49 |          3 |         13 |         65 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\PipeGroup.ts                           | TypeScript         |         72 |          4 |          7 |         83 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\PipeManager.ts                         | TypeScript         |         80 |          6 |         12 |         98 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\PlayerController.ts                    | TypeScript         |         56 |          0 |         18 |         74 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\bird\UIControl.ts                           | TypeScript         |         75 |          0 |         13 |         88 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\CreateClouds.ts                        | TypeScript         |         74 |         10 |         37 |        121 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\DestroyClouds.ts                       | TypeScript         |         12 |          0 |          7 |         19 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\book_move.ts                           | TypeScript         |         65 |          9 |         29 |        103 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\collidedetect.ts                       | TypeScript         |         79 |         13 |         50 |        142 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\destroycloud.ts                        | TypeScript         |         13 |          2 |         17 |         32 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\book\map.ts                                 | TypeScript         |         19 |          0 |         14 |         33 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\daka\daka_GameManager.ts                    | TypeScript         |        253 |          5 |         21 |        279 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\daka\daka_maker.ts                          | TypeScript         |        157 |          8 |         17 |        182 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\minigame2\btnmove.ts                        | TypeScript         |         38 |          5 |         17 |         60 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\minigame2\create.ts                         | TypeScript         |         38 |          8 |         24 |         70 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\minigame2\detect.ts                         | TypeScript         |         45 |          7 |         25 |         77 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\minigame2\enemymove.ts                      | TypeScript         |         25 |          0 |         14 |         39 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\minigame2\pool.ts                           | TypeScript         |         21 |          2 |         11 |         34 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\game1.ts                            | TypeScript         |         71 |          1 |         39 |        111 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\game2.ts                            | TypeScript         |         66 |          2 |         27 |         95 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\game3.ts                            | TypeScript         |         61 |          2 |         34 |         97 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\gamesManager.ts                     | TypeScript         |        122 |          3 |         55 |        180 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\scoreboard.ts                       | TypeScript         |         14 |          1 |         12 |         27 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\shuadan\timer.ts                            | TypeScript         |         28 |          0 |         20 |         48 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\Game.ts                               | TypeScript         |        152 |         37 |         45 |        234 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\Global.ts                             | TypeScript         |          4 |          0 |          0 |          4 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\Player.ts                             | TypeScript         |        163 |         37 |         44 |        244 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\ScoreAnim.ts                          | TypeScript         |         13 |          0 |          3 |         16 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\ScoreFX.ts                            | TypeScript         |         19 |          0 |          6 |         25 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\start\Star.ts                               | TypeScript         |         39 |         11 |          9 |         59 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\watermelon\scripts\Fruit.ts                 | TypeScript         |         34 |         30 |          9 |         73 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\watermelon\scripts\GameDefine.ts            | TypeScript         |         11 |          2 |          1 |         14 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\watermelon\scripts\GameManager.ts           | TypeScript         |        180 |         76 |         36 |        292 |
+| d:\CocoCode\NWPUgame-main\assets\script\minigame\watermelon\scripts\Juice.ts                 | TypeScript         |         88 |         30 |         17 |        135 |
+| d:\CocoCode\NWPUgame-main\assets\script\music\music.ts                                       | TypeScript         |         29 |          0 |         19 |         48 |
+| d:\CocoCode\NWPUgame-main\build-templates\templates-version.json                             | JSON               |          3 |          0 |          1 |          4 |
+| d:\CocoCode\NWPUgame-main\index.nginx-debian.html                                            | HTML               |         23 |          0 |          3 |         26 |
+| d:\CocoCode\NWPUgame-main\nginx.conf                                                         | Properties         |         23 |         45 |         18 |         86 |
+| d:\CocoCode\NWPUgame-main\package.json                                                       | JSON               |          7 |          0 |          1 |          8 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\builder.json                                  | JSON               |         83 |          0 |          1 |         84 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\cocos-service.json                            | JSON               |         23 |          0 |          1 |         24 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\device.json                                   | JSON               |          3 |          0 |          1 |          4 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\engine.json                                   | JSON               |        156 |          0 |          1 |        157 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\information.json                              | JSON               |         32 |          0 |          1 |         33 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\program.json                                  | JSON               |          3 |          0 |          1 |          4 |
+| d:\CocoCode\NWPUgame-main\settings\v2\packages\project.json                                  | JSON               |         53 |          0 |          1 |         54 |
+| d:\CocoCode\NWPUgame-main\tsconfig.json                                                      | JSON with Comments |          7 |          2 |          2 |         11 |
+| Total                                                                                        |                    |     89,335 |        963 |      2,756 |     93,054 |
++----------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

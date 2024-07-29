@@ -12,12 +12,11 @@ export class hudong extends Component {
     }
     test()
     {
-        console.log("按了")
+        
         this.node.emit('dialogue');
     }
     initOperateBar(event)
     {
-        console.log("npc");
     }
     update(deltaTime: number) {
         

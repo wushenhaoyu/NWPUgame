@@ -1,0 +1,128 @@
+    {
+    "name":"室友",
+    "uuid":3,
+    "isPlotNpc": true,
+    "mapName": "sushe",
+    "start":{
+        "Name": "室友",
+        "Text": "嗨",
+        "Speaker": false,
+        "Img": "lihui/luren1"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "询问",
+            "script": "Plot1_2",
+            "choice": ["学生手册", "饮用水", "网络"],
+            "plotjump": [1,2,3],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "你想知道些什么？",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "室友剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "学校给每个人都发了一个学生手册，上面的内容对你会有些帮助。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 0,
+            "name": "室友剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "刚才又学长来推销饮用水，明天早上似乎还会过来",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "室友剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "如果你没解决网络问题，接下来完成每项任务都需要消耗一定量的钱。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "室友剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [4],
+            "dialog": [
+                {
+                    "Name": "室友",
+                    "Text": "大学的生活与中学完全不同，充满了自由和挑战。",
+                    "Speaker": false,
+                    "Img": "lihui/luren1"
+                }
+            ]
+        }
+    ],
+    "dialog":[
+        [
+            {
+                "Name": "室友",
+                "Text": "我叫陈小明",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "hi, my name is 你",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "室友",
+                "Text": "你玩原神吗",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            },
+            {
+                "Name": "你",
+                "Text": "Yes",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "室友",
+                "Text": "Hell yeah！",
+                "Speaker": false,
+                "Img": "lihui/luren1"
+            }
+        ]
+]
+}

@@ -145,7 +145,7 @@
       "webview"
     ],
     "noDeprecatedFeatures": {
-      "value": false,
+      "value": true,
       "version": ""
     },
     "flags": {}

@@ -4,7 +4,9 @@
   "general": {
     "designResolution": {
       "fitWidth": false,
-      "fitHeight": true
+      "fitHeight": true,
+      "width": 1280,
+      "height": 720
     }
   },
   "layer": [
@@ -25,19 +27,27 @@
       },
       {
         "index": 2,
-        "name": "map"
+        "name": "mapsenor"
       },
       {
         "index": 3,
-        "name": "NPC"
+        "name": "map"
+      },
+      {
+        "index": 4,
+        "name": "npcSnesor"
       }
     ],
     "collisionMatrix": {
       "0": 1,
       "1": 268,
       "2": 2,
-      "3": 2,
+      "3": 18,
+      "4": 8,
       "8": 2
+    },
+    "gravity": {
+      "z": -4.6
     }
   }
 }

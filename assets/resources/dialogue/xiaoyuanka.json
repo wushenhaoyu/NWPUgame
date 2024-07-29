@@ -1,0 +1,145 @@
+{
+    "name":"学长",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "d100",
+    "start":{
+        "Name": "学长",
+        "Text": "你好同学，校园卡需要了解一下吗？",
+        "Speaker": false,
+        "Img": "lihui/luren2"
+    },
+    "plot":[
+        {
+            "id": 0,
+            "type": 1,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": ["办理校园卡", "果断拒绝"],
+            "plotjump": [1,2],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "这个校园卡是干什么用的啊？",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "在校园内没有网络，使用手机流量手机流量1MB就要3分钱，",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "你如果花费100元办一张校园电话卡，",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "一个月60元即可享受20G的流量和30分钟的通话时长的套餐。",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [3],
+            "dialog": [
+                {
+                    "Name": "学长",
+                    "Text": "同学，这是你办理的校园卡，请收好。",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "有什么问题可以随时来找我。",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [0],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "不好意思，我不需要校园卡。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [4],
+            "dialog": [
+                {
+                    "Name": "你",
+                    "Text": "学长你好，我在你这里办理了一张校园卡，",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "你",
+                    "Text": "我现在觉得我不是很需要它，我能进行退款吗。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "不好意思，这个校园卡是无法退款的,",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                },
+                {
+                    "Name": "学长",
+                    "Text": "只能从下个月起取消套餐,这样下个月你就不用交钱了。",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                },
+                {
+                    "Name": "你",
+                    "Text": "那好吧，帮我取消后面的套餐。",
+                    "Speaker": true,
+                    "Img": "lihui/female1"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "type": 0,
+            "name": "校园卡剧情",
+            "script": "Plot1_2",
+            "choice": [],
+            "plotjump": [8],
+            "dialog": [
+                {
+                    "Name": "学长",
+                    "Text": "祝你能拥有一个美好的大学生活。",
+                    "Speaker": false,
+                    "Img": "lihui/luren2"
+                }
+            ]
+        }
+    ],
+    "dialog":[
+      
+]
+}

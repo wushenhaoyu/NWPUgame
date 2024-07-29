@@ -1,0 +1,39 @@
+{
+    "name":"讲解的工作人员",
+    "uuid":2,
+    "isPlotNpc": true,
+    "mapName": "dongmen",
+    "start":{
+        "Name": "讲解的工作人员",
+        "Text": "同学你好,有什么事？",
+        "Speaker": false,
+        "Img": "lihui/hangxiaotian"
+    },
+    "plot":[
+
+
+    ],
+    "dialog": [
+        [
+            
+            {
+                "Name": "讲解的工作人员",
+                "Text": "快往前走，去完成新生入学报道吧",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            },
+            {
+                "Name": "你",
+                "Text": "好的",
+                "Speaker": true,
+                "Img": "lihui/female1"
+            },
+            {
+                "Name": "讲解的工作人员",
+                "Text": "欢迎来到西北工业大学",
+                "Speaker": false,
+                "Img": "lihui/hangxiaotian"
+            }
+        ]
+    ]
+}
